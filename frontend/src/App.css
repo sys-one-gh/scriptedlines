@@ -1,0 +1,90 @@
+/* Main container → full browser height */
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* stack vertically (top + main) */
+}
+
+/* Top bar → takes 20% of screen height */
+.top-bar {
+  height: 10vh;
+  background: #f0f0f0;
+
+  /* center text inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remaining 80% → split horizontally */
+.main-layout {
+  height: 90vh;
+  display: flex; /* row layout */
+}
+
+/* Left panel → 15% width */
+.left-panel {
+  width: 15%;
+  background: #e0e0e0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center panel → main drawing workspace */
+.center-panel {
+  width: 70%;
+  background: #d0d0d0;
+
+  /* Allows scrollbars when paper becomes larger after zoom */
+  overflow: auto;
+
+  /* Adds space around the paper so it does not touch the panel edges */
+  padding: 24px;
+}
+
+/* Centers paper inside the scrollable canvas */
+.canvas-inner {
+  min-width: 100%;
+  min-height: 100%;
+
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+}
+
+/* Right panel → 15% width */
+.right-panel {
+  width: 15%;
+  background: #e0e0e0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paper-scroll-area {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #d0d0d0;
+}
+
+.paper-stage {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paper-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background: white;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
