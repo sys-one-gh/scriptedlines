@@ -4,46 +4,62 @@ function PaperSpace({ paper }) {
   // Zoom level for the paper
   // 1 = default zoomed-out view
   // 2 = twice as large
-  // Minimum will stay 1 so paper never becomes smaller than default
   const [zoom, setZoom] = useState(1);
-  const paperAreaRef = useRef(null);
-  
 
-  // mouse wheel control zoom only when cursor is over paper area
+  const paperAreaRef = useRef(null);
+
+  // Stores product dropped on paper
+  const [droppedProduct, setDroppedProduct] = useState(null);
+
+  // Mouse wheel controls zoom only
   function handleWheel(event) {
-    // stop normal browser scrolling behavior
     event.preventDefault();
     event.stopPropagation();
 
-    // wheel up = zoom in, wheel down = zoom out
     const zoomStep = event.deltaY < 0 ? 0.25 : -0.25;
 
     setZoom((currentZoom) => {
-      // Minimum zoom is 1 (default size), so it does not go below the 90 percent base size of the grey workspace
-      
-      // Maximum zoom is 5 (500% of default size) to prevent excessive zooming
-
       const nextZoom = currentZoom + zoomStep;
       return Math.min(Math.max(nextZoom, 1), 10);
     });
   }
+
+  // Required so browser allows dropping
+  function handleDragOver(event) {
+    event.preventDefault();
+  }
+
+  // Reads dragged product data and opens popup form
+  function handleDrop(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const rawData = event.dataTransfer.getData("application/json");
+    if (!rawData) return;
+
+    const productData = JSON.parse(rawData);
+    setDroppedProduct(productData);
+  }
+
   return (
-    <div 
-      className = "paper-scroll-area"
+    <div
+      className="paper-scroll-area"
       onWheel={handleWheel}
       ref={paperAreaRef}
     >
       {/* Stage keeps paper centered in the grey workspace */}
       <div className="paper-stage">
-        {/* Paper size layer controls visible paper size */}
+        {/* Drop target + visible paper sizing layer */}
         <div
           className="paper-size-layer"
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
           style={{
             // Base size = 90% of grey workspace
             // Zoom grows from this base
             width: `${90 * zoom}%`,
 
-            // Keeps correct paper proportions (dynamic for any paper size)
+            // Keeps correct paper proportions
             aspectRatio: `${paper.widthMm} / ${paper.heightMm}`,
           }}
         >
@@ -51,8 +67,7 @@ function PaperSpace({ paper }) {
             viewBox={`0 0 ${paper.widthMm} ${paper.heightMm}`}
             className="paper-svg"
           >
-            {/* Actual paper outer and inner boundary */}
-            {/* outer White sheet (no border) */}
+            {/* White sheet area */}
             <rect
               x="0"
               y="0"
@@ -61,7 +76,7 @@ function PaperSpace({ paper }) {
               fill="white"
             />
 
-            {/* Inner drawing boundary (98%) kind of like printable area*/}
+            {/* Inner drawing boundary at 98% */}
             <rect
               x={paper.widthMm * 0.01}
               y={paper.heightMm * 0.01}
@@ -74,6 +89,33 @@ function PaperSpace({ paper }) {
           </svg>
         </div>
       </div>
+
+      {/* Temporary product detail popup */}
+      {droppedProduct && (
+        <div className="drop-form-overlay">
+          <div className="drop-form">
+            <h3>Add Product</h3>
+
+            <p>
+              Product: <strong>{droppedProduct.name}</strong>
+            </p>
+
+            <label>Width (mm)</label>
+            <input type="number" placeholder="Example: 600" />
+
+            <label>Height (mm)</label>
+            <input type="number" placeholder="Example: 870" />
+
+            <label>Depth (mm)</label>
+            <input type="number" placeholder="Example: 580" />
+
+            <div className="drop-form-actions">
+              <button onClick={() => setDroppedProduct(null)}>Cancel</button>
+              <button onClick={() => setDroppedProduct(null)}>Add</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
