@@ -8,7 +8,7 @@
 /* Top bar → takes 20% of screen height */
 .top-bar {
   height: 10vh;
-  background: #f0f0f0;
+  background: #181818;
 
   /* center text inside */
   display: flex;
@@ -22,26 +22,172 @@
   display: flex; /* row layout */
 }
 
-/* Left panel → 15% width */
+/* left panel only */
+/* Left panel → 18% width */
+
 .left-panel {
-  width: 15%;
-  background: #e0e0e0;
+  width: 18%;
+  background: #303030;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  padding: 6px;
 }
+
+/* Inner left panel component */
+.left-panel-content {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+/* Tab bar */
+.tab-bar {
+  display: flex;
+  background: #1f1f1f;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+/* Tab buttons */
+.tab {
+  flex: 1;
+  height: 34px;
+  background: transparent;
+  color: #b8b8b8;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  border-bottom: 2px solid transparent;
+}
+
+.tab:hover {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+
+.tab.active {
+  background: #303030;
+  color: #ffffff;
+  border-bottom: 2px solid #4f8ef7;
+  font-weight: 600;
+}
+
+/* Search area */
+.left-search {
+  padding: 10px;
+  background: #262626;
+  border-bottom: 1px solid #3a3a3a;
+  box-sizing: border-box;
+}
+
+.left-search input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  height: 30px;
+  padding: 0 10px;
+  background: #1c1c1c;
+  color: #ffffff;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 12px;
+  outline: none;
+}
+
+.left-search input::placeholder {
+  color: #777;
+}
+
+.left-search input:focus {
+  border-color: #4f8ef7;
+}
+
+/* Tab content area */
+.tab-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  min-height: 0; /* allows proper flexbox scrolling */
+}
+
+/* Items inside tabs */
+.library-item {
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  background: #333333;
+  color: #e6e6e6;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Items inside tabs */
+.library-item {
+  padding: 9px 10px;
+  margin-bottom: 6px;
+  background: #333333;
+  color: #e6e6e6;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ADD BELOW THIS */
+
+.library-category {
+  margin-bottom: 6px;
+}
+
+.category-header {
+  width: 100%;
+  height: 34px;
+  padding: 0 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #333333;
+  color: #ffffff;
+  border: 1px solid #444;
+  border-radius: 4px;
+
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.category-header:hover {
+  border-color: #4f8ef7;
+  background: #3a3a3a;
+}
+
+.category-items {
+  padding: 6px 0 2px 10px;
+}
+
+/* left panel ends */
+
 
 /* Center panel → main drawing workspace */
 .center-panel {
   width: 70%;
-  background: #d0d0d0;
+  background: #000;
 
   /* Allows scrollbars when paper becomes larger after zoom */
   overflow: auto;
 
   /* Adds space around the paper so it does not touch the panel edges */
-  padding: 24px;
+  padding: 16px;
 }
 
 /* Centers paper inside the scrollable canvas */
@@ -57,18 +203,21 @@
 /* Right panel → 15% width */
 .right-panel {
   width: 15%;
-  background: #e0e0e0;
+  background: #303030;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  
+
+  padding : 4px;
 }
 
 .paper-scroll-area {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background: #d0d0d0;
+  background: #000;
 }
 
 .paper-stage {
@@ -87,4 +236,98 @@
 
   background: white;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Drop product popup background */
+.drop-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+/* Drop product popup card */
+.drop-form {
+  width: 360px;
+  background: #262626;
+  color: #ffffff;
+
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid #444;
+
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.drop-form h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.drop-form p {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: #d0d0d0;
+}
+
+.drop-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 12px;
+  color: #bbbbbb;
+}
+
+.drop-form input {
+  width: 100%;
+  height: 32px;
+
+  padding: 0 10px;
+  background: #1c1c1c;
+  color: #ffffff;
+
+  border: 1px solid #444;
+  border-radius: 4px;
+  outline: none;
+
+  box-sizing: border-box;
+}
+
+.drop-form input:focus {
+  border-color: #4f8ef7;
+}
+
+.drop-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  margin-top: 16px;
+}
+
+.drop-form-actions button {
+  height: 30px;
+  padding: 0 14px;
+
+  border-radius: 4px;
+  border: 1px solid #444;
+
+  background: #1c1c1c;
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+.drop-form-actions button:hover {
+  border-color: #4f8ef7;
+}
+
+.drop-form-actions button:last-child {
+  background: #4f8ef7;
+  border-color: #4f8ef7;
 }
