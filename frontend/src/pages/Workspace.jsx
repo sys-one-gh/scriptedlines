@@ -5,37 +5,52 @@ import LeftPanel from "../components/LeftPanel";
 
 function Workspace() {
 
-  // Select default paper (24"x36")
-  // Later this will come from dropdown
+  // Default paper: 24" x 36"
+  // Later this will come from a dropdown in the top bar
   const paper = paperSizes.ARCH_D;
 
   return (
     <div className="app-container">
-      
-      {/* Top section → future toolbar (10% height) */}
+
+      {/* ── TOP BAR ─────────────────────────────────────────────
+          10% of screen height.
+          Will hold: logo, project name, drawing number,
+          page navigation, save, export buttons.
+      ──────────────────────────────────────────────────────── */}
       <div className="top-bar">
-        // comment: this will be the toolbar with buttons for functinaltites for page like next page, previous page, project name, drawing number + name, website name and logo, etc
+        ScriptedLines
       </div>
 
-      {/* Main horizontal layout */}
+      {/* ── MAIN LAYOUT ─────────────────────────────────────────
+          Remaining 90% split into three columns:
+          Left panel | Center canvas | Right panel
+      ──────────────────────────────────────────────────────── */}
       <div className="main-layout">
 
-        {/* Left panel → tools/components (15% width) */}
+        {/* ── LEFT PANEL ────────────────────────────────────────
+            18% width — tool library (products, hardware, etc.)
+        ─────────────────────────────────────────────────────── */}
         <div className="left-panel">
           <LeftPanel />
         </div>
 
-        {/* Center panel → drawing canvas (70% width) */}
+        {/* ── CENTER PANEL ──────────────────────────────────────
+            70% width — main drawing canvas.
+            No padding, no overflow here.
+            PaperSpace fills this entirely and handles
+            its own scrolling, zoom, and pan internally.
+        ─────────────────────────────────────────────────────── */}
         <div className="center-panel">
-            {/* Inner wrapper centers the paper inside the scrollable canvas area */}
-            <div className="canvas-inner">
-                <PaperSpace paper={paper} />
-            </div>
+          <PaperSpace paper={paper} />
         </div>
 
-        {/* Right panel → properties/settings (15% width) */}
+        {/* ── RIGHT PANEL ───────────────────────────────────────
+            15% width — selected object properties.
+            Will show dimensions, finish, material info
+            when a drawing object is selected.
+        ─────────────────────────────────────────────────────── */}
         <div className="right-panel">
-          Properties (15%)
+          Properties
         </div>
 
       </div>

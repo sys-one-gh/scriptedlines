@@ -1,333 +1,617 @@
-/* Main container → full browser height */
+/* ─────────────────────────────────────────────────────────────
+   FONTS
+   DM Sans     → UI elements (navigation, labels, buttons)
+   IBM Plex Sans → Technical data (dimensions, values, specs)
+───────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+
+/* ─────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+   Central color and font values used throughout the app.
+   Change here and it updates everywhere.
+───────────────────────────────────────────────────────────── */
+:root {
+  --color-bg-deepest:   #111111;   /* top bar — darkest anchor */
+  --color-bg-panel:     #252525;   /* left and right panels */
+  --color-bg-canvas:    #1a1a1a;   /* drawing frame — makes paper glow */
+  --color-border:       #3a3a3a;   /* subtle panel separators */
+  --color-accent:       #4f8ef7;   /* blue — tabs, focus, primary buttons */
+  --color-text-primary: #e0e0e0;   /* main text */
+  --color-text-muted:   #777777;   /* secondary / placeholder text */
+  --font-ui:   'DM Sans', sans-serif;
+  --font-tech: 'IBM Plex Sans', monospace;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   RESET
+───────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  background: var(--color-bg-deepest);
+  color: var(--color-text-primary);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   APP CONTAINER
+   Root wrapper — fills the full browser window.
+───────────────────────────────────────────────────────────── */
 .app-container {
+  width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column; /* stack vertically (top + main) */
-}
-
-/* Top bar → takes 20% of screen height */
-.top-bar {
-  height: 10vh;
-  background: #181818;
-
-  /* center text inside */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Remaining 80% → split horizontally */
-.main-layout {
-  height: 90vh;
-  display: flex; /* row layout */
-}
-
-/* left panel only */
-/* Left panel → 18% width */
-
-.left-panel {
-  width: 18%;
-  background: #303030;
-
-  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-
-  padding: 6px;
-}
-
-/* Inner left panel component */
-.left-panel-content {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-
   overflow: hidden;
 }
 
-/* Tab bar */
-.tab-bar {
+
+/* ─────────────────────────────────────────────────────────────
+   TOP BAR
+   Full width — 10% of window height.
+───────────────────────────────────────────────────────────── */
+.top-bar {
+  width: 100%;
+  height: 10vh;
+  background: var(--color-bg-deepest);
+  border-bottom: 1px solid var(--color-border);
   display: flex;
-  background: #1f1f1f;
-  border-bottom: 1px solid #3a3a3a;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: var(--color-text-primary);
 }
 
-/* Tab buttons */
+
+/* ─────────────────────────────────────────────────────────────
+   MAIN LAYOUT
+   90% of window height — three columns.
+   Left 20% | Center 67% | Right 13%
+───────────────────────────────────────────────────────────── */
+.main-layout {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   LEFT PANEL
+   20% width — tool library.
+───────────────────────────────────────────────────────────── */
+.left-panel {
+  width: 20%;
+  height: 100%;
+  background: var(--color-bg-panel);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.left-panel-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 6px;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TAB BAR
+───────────────────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  flex-shrink: 0;
+  background: #1a1a1a;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 4px 4px 0 0;
+}
+
 .tab {
   flex: 1;
   height: 34px;
   background: transparent;
-  color: #b8b8b8;
+  color: var(--color-text-muted);
   border: none;
   cursor: pointer;
-  font-size: 11px;
   border-bottom: 2px solid transparent;
+  transition: background 0.15s, color 0.15s;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 11px;
 }
 
 .tab:hover {
   background: #2d2d2d;
-  color: #ffffff;
+  color: var(--color-text-primary);
 }
 
 .tab.active {
-  background: #303030;
+  background: var(--color-bg-panel);
   color: #ffffff;
-  border-bottom: 2px solid #4f8ef7;
+  border-bottom: 2px solid var(--color-accent);
   font-weight: 600;
 }
 
-/* Search area */
+
+/* ─────────────────────────────────────────────────────────────
+   SEARCH BAR
+───────────────────────────────────────────────────────────── */
 .left-search {
-  padding: 10px;
-  background: #262626;
-  border-bottom: 1px solid #3a3a3a;
-  box-sizing: border-box;
+  flex-shrink: 0;
+  padding: 8px;
+  background: #1e1e1e;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .left-search input {
   width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-
   height: 30px;
   padding: 0 10px;
-  background: #1c1c1c;
-  color: #ffffff;
+  background: #141414;
+  color: var(--color-text-primary);
   border: 1px solid #444;
   border-radius: 4px;
-  font-size: 12px;
   outline: none;
+  transition: border-color 0.15s;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 11px;
 }
 
 .left-search input::placeholder {
-  color: #777;
+  color: var(--color-text-muted);
 }
 
 .left-search input:focus {
-  border-color: #4f8ef7;
+  border-color: var(--color-accent);
 }
 
-/* Tab content area */
+
+/* ─────────────────────────────────────────────────────────────
+   TAB CONTENT AREA
+───────────────────────────────────────────────────────────── */
 .tab-content {
   flex: 1;
-  padding: 10px;
+  min-height: 0;
   overflow-y: auto;
-  min-height: 0; /* allows proper flexbox scrolling */
+  padding: 8px;
 }
 
-/* Items inside tabs */
-.library-item {
-  padding: 6px 10px;
-  margin-bottom: 6px;
-  background: #333333;
-  color: #e6e6e6;
-  border: 1px solid #444;
-  border-radius: 4px;
-  font-size: 12px;
-  cursor: pointer;
-}
+.tab-content::-webkit-scrollbar { width: 4px; }
+.tab-content::-webkit-scrollbar-track { background: transparent; }
+.tab-content::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+.tab-content::-webkit-scrollbar-thumb:hover { background: #555; }
 
-/* Items inside tabs */
-.library-item {
-  padding: 9px 10px;
-  margin-bottom: 6px;
-  background: #333333;
-  color: #e6e6e6;
-  border: 1px solid #444;
-  border-radius: 4px;
-  font-size: 12px;
-  cursor: pointer;
-}
 
-/* ADD BELOW THIS */
-
+/* ─────────────────────────────────────────────────────────────
+   LIBRARY CATEGORY
+───────────────────────────────────────────────────────────── */
 .library-category {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .category-header {
   width: 100%;
-  height: 34px;
+  height: 32px;
   padding: 0 10px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  background: #333333;
-  color: #ffffff;
-  border: 1px solid #444;
+  background: #2a2a2a;
+  color: #bbbbbb;
+  border: 1px solid #3d3d3d;
   border-radius: 4px;
-
-  font-size: 12px;
   cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 11px;
 }
 
 .category-header:hover {
-  border-color: #4f8ef7;
-  background: #3a3a3a;
+  background: #333333;
+  border-color: var(--color-accent);
+  color: #ffffff;
 }
 
 .category-items {
-  padding: 6px 0 2px 10px;
+  padding: 4px 0 2px 10px;
 }
 
-/* left panel ends */
+
+/* ─────────────────────────────────────────────────────────────
+   LIBRARY ITEM
+───────────────────────────────────────────────────────────── */
+.library-item {
+  padding: 7px 10px;
+  margin-bottom: 4px;
+  background: #2e2e2e;
+  color: #cccccc;
+  border: 1px solid #3d3d3d;
+  border-radius: 4px;
+  cursor: grab;
+  user-select: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.library-item:hover {
+  background: #363636;
+  border-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.library-item:active {
+  cursor: grabbing;
+  background: #222222;
+}
 
 
-/* Center panel → main drawing workspace */
+/* ─────────────────────────────────────────────────────────────
+   CENTER PANEL
+   67% width — main drawing workspace.
+───────────────────────────────────────────────────────────── */
 .center-panel {
-  width: 70%;
-  background: #000;
-
-  /* Allows scrollbars when paper becomes larger after zoom */
-  overflow: auto;
-
-  /* Adds space around the paper so it does not touch the panel edges */
-  padding: 16px;
+  width: 67%;
+  height: 100%;
+  background: var(--color-bg-canvas);
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
-/* Centers paper inside the scrollable canvas */
-.canvas-inner {
-  min-width: 100%;
-  min-height: 100%;
 
-  display: flex;
-  justify-content: center;  /* center horizontally */
-  align-items: center;      /* center vertically */
-}
-
-/* Right panel → 15% width */
-.right-panel {
-  width: 15%;
-  background: #303030;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-
-  padding : 4px;
-}
-
+/* ─────────────────────────────────────────────────────────────
+   PAPER SCROLL AREA — THE BLACK FRAME
+   overflow controlled dynamically in PaperSpace.jsx.
+───────────────────────────────────────────────────────────── */
 .paper-scroll-area {
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background: #000;
+  background: var(--color-bg-canvas);
+  position: relative;
+  overflow: hidden;
 }
 
+.paper-scroll-area::-webkit-scrollbar { width: 8px; height: 8px; }
+.paper-scroll-area::-webkit-scrollbar-track { background: var(--color-bg-canvas); }
+.paper-scroll-area::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+.paper-scroll-area::-webkit-scrollbar-thumb:hover { background: #555; }
+.paper-scroll-area::-webkit-scrollbar-corner { background: var(--color-bg-canvas); }
+
+
+/* ─────────────────────────────────────────────────────────────
+   PAPER STAGE
+   All sizing controlled by JS inline style.
+───────────────────────────────────────────────────────────── */
 .paper-stage {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* intentionally empty — JS controls all sizing */
 }
 
+
+/* ─────────────────────────────────────────────────────────────
+   PAPER SIZE LAYER
+───────────────────────────────────────────────────────────── */
+.paper-size-layer {
+  flex-shrink: 0;
+  position: relative;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   PAPER SVG
+───────────────────────────────────────────────────────────── */
 .paper-svg {
   display: block;
   width: 100%;
   height: 100%;
-
   background: white;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* IBM Plex Sans for all SVG text on the white paper */
+.paper-svg text {
+  font-family: var(--font-tech);
 }
 
 
-/* Drop product popup background */
+/* ─────────────────────────────────────────────────────────────
+   RIGHT PANEL
+   13% width — selected object properties.
+───────────────────────────────────────────────────────────── */
+.right-panel {
+  width: 13%;
+  height: 100%;
+  background: var(--color-bg-panel);
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 10px;
+  font-family: var(--font-tech);
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   DROP FORM MODAL — OVERLAY
+───────────────────────────────────────────────────────────── */
 .drop-form-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-
+  background: rgba(0, 0, 0, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 1000;
 }
 
-/* Drop product popup card */
+
+/* ─────────────────────────────────────────────────────────────
+   DROP FORM MODAL — CARD
+───────────────────────────────────────────────────────────── */
 .drop-form {
-  width: 360px;
-  background: #262626;
+  width: 380px;
+  background: #222222;
   color: #ffffff;
-
-  padding: 18px;
+  padding: 20px;
   border-radius: 8px;
-  border: 1px solid #444;
-
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
 }
 
 .drop-form h3 {
-  margin: 0 0 12px;
-  font-size: 16px;
+  margin: 0 0 6px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 15px;
+  color: #ffffff;
 }
 
 .drop-form p {
-  margin: 0 0 14px;
-  font-size: 13px;
-  color: #d0d0d0;
+  margin: 0 0 16px;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 12px;
+  color: #888888;
 }
 
 .drop-form label {
   display: block;
-  margin: 10px 0 5px;
-  font-size: 12px;
-  color: #bbbbbb;
+  margin: 12px 0 4px;
+  font-family: var(--font-tech);
+  font-weight: 400;
+  font-size: 10px;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 
 .drop-form input {
   width: 100%;
-  height: 32px;
-
+  height: 34px;
   padding: 0 10px;
-  background: #1c1c1c;
+  background: #181818;
   color: #ffffff;
-
-  border: 1px solid #444;
+  border: 1px solid #3a3a3a;
   border-radius: 4px;
   outline: none;
-
-  box-sizing: border-box;
+  transition: border-color 0.15s;
+  font-family: var(--font-tech);
+  font-weight: 500;
+  font-size: 13px;
 }
 
 .drop-form input:focus {
-  border-color: #4f8ef7;
+  border-color: var(--color-accent);
 }
 
 .drop-form-actions {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
-
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .drop-form-actions button {
-  height: 30px;
-  padding: 0 14px;
-
+  height: 32px;
+  padding: 0 16px;
   border-radius: 4px;
-  border: 1px solid #444;
-
+  border: 1px solid #3a3a3a;
   background: #1c1c1c;
-  color: #ffffff;
-
+  color: #cccccc;
   cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .drop-form-actions button:hover {
-  border-color: #4f8ef7;
+  border-color: var(--color-accent);
+  color: #ffffff;
 }
 
 .drop-form-actions button:last-child {
-  background: #4f8ef7;
-  border-color: #4f8ef7;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.drop-form-actions button:last-child:hover {
+  background: #3a7de0;
+  border-color: #3a7de0;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   RIGHT-CLICK CONTEXT MENU — CONTAINER
+   position: fixed keeps it at the exact click coordinates.
+   min-width: 260px fits the full ribbon row comfortably.
+───────────────────────────────────────────────────────────── */
+.canvas-context-menu {
+  position: fixed;
+  background: #222222;
+  border: 1px solid #3a3a3a;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 999;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  min-width: 160px;         /* smaller — only 4 ribbon buttons now */
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CONTEXT MENU — TOOL RIBBON
+   Horizontal row of square icon buttons.
+   Uses its own button rule — completely separate from
+   .context-item so width: 100% never applies here.
+───────────────────────────────────────────────────────────── */
+.context-ribbon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 6px;         /* tighter padding */
+  background: #1e1e1e;
+  border-bottom: 1px solid #3a3a3a;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Square icon button — fixed size, never stretches */
+.ribbon-btn {
+  flex: 0 0 24px;           /* smaller buttons */
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #aaaaaa;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  padding: 0;
+}
+
+.ribbon-btn:hover:not(:disabled) {
+  background: #333333;
+  border-color: #4a4a4a;
+  color: #ffffff;
+}
+
+/* Active tool — blue highlight */
+.ribbon-btn.active-tool {
+  background: #1a3a6a;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Disabled — greyed out navigation buttons */
+.ribbon-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Page counter between prev/next */
+.ribbon-page-indicator {
+  flex: 1;                  /* takes remaining space between buttons */
+  text-align: center;
+  font-family: var(--font-tech);
+  font-size: 11px;
+  color: #888888;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Zoom level indicator in ribbon — IBM Plex Sans technical font */
+.ribbon-zoom-indicator {
+  font-family: 'IBM Plex Sans', monospace;
+  font-size: 10px;
+  color: #888888;
+  padding: 0 4px;
+  white-space: nowrap;
+  user-select: none;
+  min-width: 34px;
+  text-align: right;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CONTEXT MENU — DIVIDER
+───────────────────────────────────────────────────────────── */
+.context-divider {
+  height: 1px;
+  background: #3a3a3a;
+  margin: 2px 0;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CONTEXT MENU — SECTION WRAPPER
+───────────────────────────────────────────────────────────── */
+.context-section {
+  padding: 2px 0;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   CONTEXT MENU — MENU ITEM
+   Full width text menu options below the ribbon.
+   Completely separate from .ribbon-btn — no shared rules.
+───────────────────────────────────────────────────────────── */
+.context-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px 12px;        /* tighter padding */
+  background: transparent;
+  color: #cccccc;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-align: left;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 11px;           /* smaller text */
+}
+
+.context-item:hover {
+  background: #2e2e2e;
+  color: #ffffff;
+}
+
+/* Greyed out — feature not yet available */
+.context-item.coming-soon {
+  color: #484848;
+  cursor: not-allowed;
+}
+
+.context-item.coming-soon:hover {
+  background: transparent;
+  color: #484848;
 }
