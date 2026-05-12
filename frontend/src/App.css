@@ -8,17 +8,15 @@
 
 /* ─────────────────────────────────────────────────────────────
    DESIGN TOKENS
-   Central color and font values used throughout the app.
-   Change here and it updates everywhere.
 ───────────────────────────────────────────────────────────── */
 :root {
-  --color-bg-deepest:   #111111;   /* top bar — darkest anchor */
-  --color-bg-panel:     #252525;   /* left and right panels */
-  --color-bg-canvas:    #1a1a1a;   /* drawing frame — makes paper glow */
-  --color-border:       #3a3a3a;   /* subtle panel separators */
-  --color-accent:       #4f8ef7;   /* blue — tabs, focus, primary buttons */
-  --color-text-primary: #e0e0e0;   /* main text */
-  --color-text-muted:   #777777;   /* secondary / placeholder text */
+  --color-bg-deepest:   #111111;
+  --color-bg-panel:     #252525;
+  --color-bg-canvas:    #1a1a1a;
+  --color-border:       #3a3a3a;
+  --color-accent:       #4f8ef7;
+  --color-text-primary: #e0e0e0;
+  --color-text-muted:   #777777;
   --font-ui:   'DM Sans', sans-serif;
   --font-tech: 'IBM Plex Sans', monospace;
 }
@@ -43,7 +41,6 @@ body {
 
 /* ─────────────────────────────────────────────────────────────
    APP CONTAINER
-   Root wrapper — fills the full browser window.
 ───────────────────────────────────────────────────────────── */
 .app-container {
   width: 100vw;
@@ -56,7 +53,6 @@ body {
 
 /* ─────────────────────────────────────────────────────────────
    TOP BAR
-   Full width — 10% of window height.
 ───────────────────────────────────────────────────────────── */
 .top-bar {
   width: 100%;
@@ -77,8 +73,6 @@ body {
 
 /* ─────────────────────────────────────────────────────────────
    MAIN LAYOUT
-   90% of window height — three columns.
-   Left 20% | Center 67% | Right 13%
 ───────────────────────────────────────────────────────────── */
 .main-layout {
   width: 100%;
@@ -91,7 +85,6 @@ body {
 
 /* ─────────────────────────────────────────────────────────────
    LEFT PANEL
-   20% width — tool library.
 ───────────────────────────────────────────────────────────── */
 .left-panel {
   width: 20%;
@@ -110,45 +103,147 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 6px;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TAB BAR WRAPPER
+   The outer strip that holds scroll arrows + tab row.
+   background matches the "inactive" tab color.
+   The bottom border is the line the active tab sits on top of.
+───────────────────────────────────────────────────────────── */
+.tab-bar-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;    /* tabs sit on the bottom border line */
+  flex-shrink: 0;
+  background: #1a1a1a;      /* inactive tab background */
+  border-bottom: 1px solid var(--color-border);
+  height: 30px;             /* slightly shorter than before */
 }
 
 
 /* ─────────────────────────────────────────────────────────────
    TAB BAR
+   Scrollable row — hidden scrollbar, arrows navigate.
 ───────────────────────────────────────────────────────────── */
 .tab-bar {
   display: flex;
-  flex-shrink: 0;
-  background: #1a1a1a;
-  border-bottom: 1px solid var(--color-border);
-  border-radius: 4px 4px 0 0;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  height: 100%;
+  align-items: flex-end;    /* tabs align to bottom */
 }
 
+.tab-bar::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TAB BUTTON — INACTIVE
+   Sits below the active tab level.
+   Short centered separator on the right using ::after.
+   No border, no background — blends into the tab bar.
+───────────────────────────────────────────────────────────── */
 .tab {
-  flex: 1;
-  height: 34px;
-  background: transparent;
+  flex: 0 0 auto;
+  height: 26px;             /* shorter than wrapper — active tab will be taller */
+  padding: 0 12px;
+  white-space: nowrap;
+  background: #1e1e1e;      /* slightly lighter than wrapper */
   color: var(--color-text-muted);
   border: none;
+  border-bottom: none;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
   transition: background 0.15s, color 0.15s;
   font-family: var(--font-ui);
   font-weight: 400;
-  font-size: 11px;
+  font-size: 10px;
+  position: relative;
+  border-radius: 4px 4px 0 0;  /* rounded top corners like Chrome */
+  margin-right: 2px;        /* small gap between tabs */
+}
+
+/* Short centered separator between inactive tabs */
+.tab::after {
+  content: "";
+  position: absolute;
+  right: -2px;              /* sits in the gap between tabs */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 35%;              /* short — not full height */
+  background: #444444;
+}
+
+/* No separator after last tab */
+.tab:last-child::after {
+  display: none;
 }
 
 .tab:hover {
-  background: #2d2d2d;
-  color: var(--color-text-primary);
+  background: #262626;
+  color: #bbbbbb;
 }
 
+
+/* ─────────────────────────────────────────────────────────────
+   TAB BUTTON — ACTIVE
+   Taller than inactive tabs — appears to "pop up".
+   White bottom border covers the tab bar bottom border,
+   making the active tab look connected to the content below.
+   Rounded top corners like Chrome.
+   No separator pseudo-element.
+───────────────────────────────────────────────────────────── */
 .tab.active {
-  background: var(--color-bg-panel);
+  height: 30px;             /* full height of wrapper — sits on top */
+  background: var(--color-bg-panel);  /* matches panel content below */
   color: #ffffff;
-  border-bottom: 2px solid var(--color-accent);
   font-weight: 600;
+  font-size: 10px;
+
+  /* Top accent line — blue stripe at top of active tab */
+  border-top: 2px solid var(--color-accent);
+
+  /* Cover the bottom border of the wrapper */
+  /* Makes the tab look "connected" to the content below */
+  border-bottom: 1px solid var(--color-bg-panel);
+  margin-bottom: -1px;      /* pull down 1px to cover the wrapper border */
+}
+
+/* No separator on active tab */
+.tab.active::after {
+  display: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   TAB SCROLL ARROWS
+   Always occupy space (prevents layout shift).
+   Invisible when not needed via opacity in JS.
+───────────────────────────────────────────────────────────── */
+.tab-scroll-btn {
+  flex-shrink: 0;
+  width: 18px;
+  height: 100%;
+  background: #1a1a1a;
+  border: none;
+  color: #666666;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, background 0.15s;
+}
+
+.tab-scroll-btn:hover {
+  color: #ffffff;
+  background: #2d2d2d;
 }
 
 
@@ -200,6 +295,18 @@ body {
 .tab-content::-webkit-scrollbar-track { background: transparent; }
 .tab-content::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
 .tab-content::-webkit-scrollbar-thumb:hover { background: #555; }
+
+
+/* ─────────────────────────────────────────────────────────────
+   PANEL PLACEHOLDER
+───────────────────────────────────────────────────────────── */
+.panel-placeholder {
+  padding: 20px 10px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-family: var(--font-ui);
+  text-align: center;
+}
 
 
 /* ─────────────────────────────────────────────────────────────
@@ -270,7 +377,6 @@ body {
 
 /* ─────────────────────────────────────────────────────────────
    CENTER PANEL
-   67% width — main drawing workspace.
 ───────────────────────────────────────────────────────────── */
 .center-panel {
   width: 67%;
@@ -282,8 +388,7 @@ body {
 
 
 /* ─────────────────────────────────────────────────────────────
-   PAPER SCROLL AREA — THE BLACK FRAME
-   overflow controlled dynamically in PaperSpace.jsx.
+   PAPER SCROLL AREA
 ───────────────────────────────────────────────────────────── */
 .paper-scroll-area {
   width: 100%;
@@ -301,26 +406,17 @@ body {
 
 
 /* ─────────────────────────────────────────────────────────────
-   PAPER STAGE
-   All sizing controlled by JS inline style.
+   PAPER STAGE / SIZE LAYER / SVG
 ───────────────────────────────────────────────────────────── */
 .paper-stage {
-  /* intentionally empty — JS controls all sizing */
+  /* all sizing via JS inline style */
 }
 
-
-/* ─────────────────────────────────────────────────────────────
-   PAPER SIZE LAYER
-───────────────────────────────────────────────────────────── */
 .paper-size-layer {
   flex-shrink: 0;
   position: relative;
 }
 
-
-/* ─────────────────────────────────────────────────────────────
-   PAPER SVG
-───────────────────────────────────────────────────────────── */
 .paper-svg {
   display: block;
   width: 100%;
@@ -329,7 +425,6 @@ body {
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.8);
 }
 
-/* IBM Plex Sans for all SVG text on the white paper */
 .paper-svg text {
   font-family: var(--font-tech);
 }
@@ -337,7 +432,6 @@ body {
 
 /* ─────────────────────────────────────────────────────────────
    RIGHT PANEL
-   13% width — selected object properties.
 ───────────────────────────────────────────────────────────── */
 .right-panel {
   width: 13%;
@@ -356,7 +450,7 @@ body {
 
 
 /* ─────────────────────────────────────────────────────────────
-   DROP FORM MODAL — OVERLAY
+   DROP FORM MODAL
 ───────────────────────────────────────────────────────────── */
 .drop-form-overlay {
   position: fixed;
@@ -368,10 +462,6 @@ body {
   z-index: 1000;
 }
 
-
-/* ─────────────────────────────────────────────────────────────
-   DROP FORM MODAL — CARD
-───────────────────────────────────────────────────────────── */
 .drop-form {
   width: 380px;
   background: #222222;
@@ -467,9 +557,7 @@ body {
 
 
 /* ─────────────────────────────────────────────────────────────
-   RIGHT-CLICK CONTEXT MENU — CONTAINER
-   position: fixed keeps it at the exact click coordinates.
-   min-width: 260px fits the full ribbon row comfortably.
+   RIGHT-CLICK CONTEXT MENU
 ───────────────────────────────────────────────────────────── */
 .canvas-context-menu {
   position: fixed;
@@ -479,31 +567,23 @@ body {
   overflow: hidden;
   z-index: 999;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-  min-width: 160px;         /* smaller — only 4 ribbon buttons now */
+  min-width: 160px;
 }
 
-
-/* ─────────────────────────────────────────────────────────────
-   CONTEXT MENU — TOOL RIBBON
-   Horizontal row of square icon buttons.
-   Uses its own button rule — completely separate from
-   .context-item so width: 100% never applies here.
-───────────────────────────────────────────────────────────── */
 .context-ribbon {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2px;
-  padding: 4px 6px;         /* tighter padding */
+  padding: 4px 6px;
   background: #1e1e1e;
   border-bottom: 1px solid #3a3a3a;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Square icon button — fixed size, never stretches */
 .ribbon-btn {
-  flex: 0 0 24px;           /* smaller buttons */
+  flex: 0 0 24px;
   width: 24px;
   height: 24px;
   display: flex;
@@ -524,33 +604,19 @@ body {
   color: #ffffff;
 }
 
-/* Active tool — blue highlight */
 .ribbon-btn.active-tool {
   background: #1a3a6a;
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
 
-/* Disabled — greyed out navigation buttons */
 .ribbon-btn:disabled {
   opacity: 0.25;
   cursor: not-allowed;
 }
 
-/* Page counter between prev/next */
-.ribbon-page-indicator {
-  flex: 1;                  /* takes remaining space between buttons */
-  text-align: center;
-  font-family: var(--font-tech);
-  font-size: 11px;
-  color: #888888;
-  white-space: nowrap;
-  user-select: none;
-}
-
-/* Zoom level indicator in ribbon — IBM Plex Sans technical font */
 .ribbon-zoom-indicator {
-  font-family: 'IBM Plex Sans', monospace;
+  font-family: var(--font-tech);
   font-size: 10px;
   color: #888888;
   padding: 0 4px;
@@ -560,35 +626,21 @@ body {
   text-align: right;
 }
 
-
-/* ─────────────────────────────────────────────────────────────
-   CONTEXT MENU — DIVIDER
-───────────────────────────────────────────────────────────── */
 .context-divider {
   height: 1px;
   background: #3a3a3a;
   margin: 2px 0;
 }
 
-
-/* ─────────────────────────────────────────────────────────────
-   CONTEXT MENU — SECTION WRAPPER
-───────────────────────────────────────────────────────────── */
 .context-section {
   padding: 2px 0;
 }
 
-
-/* ─────────────────────────────────────────────────────────────
-   CONTEXT MENU — MENU ITEM
-   Full width text menu options below the ribbon.
-   Completely separate from .ribbon-btn — no shared rules.
-───────────────────────────────────────────────────────────── */
 .context-item {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 5px 12px;        /* tighter padding */
+  padding: 5px 12px;
   background: transparent;
   color: #cccccc;
   border: none;
@@ -597,7 +649,7 @@ body {
   text-align: left;
   font-family: var(--font-ui);
   font-weight: 400;
-  font-size: 11px;           /* smaller text */
+  font-size: 11px;
 }
 
 .context-item:hover {
@@ -605,7 +657,6 @@ body {
   color: #ffffff;
 }
 
-/* Greyed out — feature not yet available */
 .context-item.coming-soon {
   color: #484848;
   cursor: not-allowed;
