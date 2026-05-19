@@ -210,7 +210,6 @@ function PaperSpace({ paper }) {
       label: `Page ${pages.length + 1}`,
     };
 
-    // Insert new page after current page
     const updatedPages = [
       ...pages.slice(0, currentPageIndex + 1),
       newPage,
@@ -218,8 +217,6 @@ function PaperSpace({ paper }) {
     ];
 
     setPages(updatedPages);
-
-    // Navigate to the new page immediately
     setCurrentPageIndex(currentPageIndex + 1);
     setZoom(1);
   }
@@ -228,11 +225,14 @@ function PaperSpace({ paper }) {
   // ─── PDF EXPORT ──────────────────────────────────────────────
   // Opens browser print dialog with all pages as mm-sized SVG sheets.
   // Each page prints as a separate page in the PDF.
+  // Page label sits below the printable border in the margin strip.
   function exportToPDF() {
     setContextMenu(null);
 
     const printWindow = window.open("", "_blank");
 
+    // Printable border ends at 98% of paper height (y = heightMm * 0.99)
+    // Page label sits at 99.5% — in the margin strip below the border
     const pagesHTML = pages.map((page, index) => `
       <div class="pdf-page" ${index < pages.length - 1 ? 'style="page-break-after: always;"' : ''}>
         <svg
@@ -241,16 +241,26 @@ function PaperSpace({ paper }) {
           width="${paper.widthMm}mm"
           height="${paper.heightMm}mm"
         >
+          <!-- White paper background -->
           <rect x="0" y="0" width="${paper.widthMm}" height="${paper.heightMm}" fill="white" />
+
+          <!-- Inner printable boundary — 98% of paper size -->
           <rect
             x="${paper.widthMm * 0.01}" y="${paper.heightMm * 0.01}"
             width="${paper.widthMm * 0.98}" height="${paper.heightMm * 0.98}"
             fill="none" stroke="#333333" stroke-width="0.5"
           />
+
+          <!-- Page label — sits BELOW the printable border in the margin -->
+          <!-- Border bottom edge is at heightMm * 0.99 -->
+          <!-- Label at heightMm * 0.995 puts it in the margin strip -->
           <text
-            x="${paper.widthMm * 0.97}" y="${paper.heightMm * 0.98}"
+            x="${paper.widthMm * 0.97}"
+            y="${paper.heightMm * 0.995}"
             font-family="IBM Plex Sans, monospace"
-            font-size="3" fill="#999999" text-anchor="end"
+            font-size="2.5"
+            fill="#999999"
+            text-anchor="end"
           >${page.label}</text>
         </svg>
       </div>
@@ -359,7 +369,6 @@ function PaperSpace({ paper }) {
         {/* ── STAGE ─────────────────────────────────────────────
             Contains white paper + GAP space on all 4 sides.
             Size fully controlled by JS inline style.
-            Flex centers the paper-size-layer inside.
         ──────────────────────────────────────────────────────── */}
         <div
           className="paper-stage"
@@ -374,7 +383,6 @@ function PaperSpace({ paper }) {
 
           {/* ── PAPER SIZE LAYER ────────────────────────────────
               Exact pixel size of white paper at current zoom.
-              Growing this expands the stage, triggering scrollbars.
           ──────────────────────────────────────────────────────── */}
           <div
             className="paper-size-layer"
@@ -396,7 +404,7 @@ function PaperSpace({ paper }) {
               viewBox={`0 0 ${paper.widthMm} ${paper.heightMm}`}
               className="paper-svg"
             >
-              {/* White sheet — full paper area, no outer border */}
+              {/* White sheet — full paper area */}
               <rect
                 x="0"
                 y="0"
@@ -406,7 +414,7 @@ function PaperSpace({ paper }) {
               />
 
               {/* Inner printable boundary — 98% of white paper */}
-              {/* 1% margin each side — scales with paper at all zooms */}
+              {/* Border: top/left at 1%, bottom/right at 99% of paper */}
               <rect
                 x={paper.widthMm  * 0.01}
                 y={paper.heightMm * 0.01}
@@ -417,16 +425,18 @@ function PaperSpace({ paper }) {
                 strokeWidth="0.5"
               />
 
-              {/* Page label — bottom right corner, IBM Plex Sans */}
+              {/* Page label — sits BELOW the printable border */}
+              {/* Border bottom edge = heightMm * 0.99              */}
+              {/* Label at 0.995 = in the margin strip below border  */}
               <text
-                x={paper.widthMm  * 0.975}
+                x={paper.widthMm  * 0.97}
                 y={paper.heightMm * 0.995}
                 fontFamily="'IBM Plex Sans', monospace"
-                fontSize="3"
+                fontSize="2.5"
                 fill="#aaaaaa"
                 textAnchor="end"
               >
-                {pages[currentPageIndex]?.label}
+                {`Page ${currentPageIndex + 1} of ${pages.length}`}
               </text>
             </svg>
 
@@ -436,9 +446,7 @@ function PaperSpace({ paper }) {
 
 
       {/* ── RIGHT-CLICK CONTEXT MENU ──────────────────────────────
-          Adobe-style popup menu with:
-          1. Tool ribbon — cursor, hand, add page, export PDF
-          2. Placeholder sections for future features
+          Adobe-style popup with tool ribbon + placeholder sections.
       ──────────────────────────────────────────────────────── */}
       {contextMenu && (
         <div
@@ -447,13 +455,10 @@ function PaperSpace({ paper }) {
           onClick={(e) => e.stopPropagation()}
         >
 
-          {/* ── TOOL RIBBON ───────────────────────────────────────
-              4 icon buttons: Cursor, Hand, Add Page, Export PDF
-              Prev/Next moved to top bar (more convenient there)
-          ──────────────────────────────────────────────────────── */}
+          {/* ── TOOL RIBBON ─────────────────────────────────────── */}
           <div className="context-ribbon">
 
-            {/* Cursor tool — default pointer mode */}
+            {/* Cursor tool */}
             <button
               className={`ribbon-btn ${activeTool === "cursor" ? "active-tool" : ""}`}
               onClick={() => selectTool("cursor")}
@@ -464,7 +469,7 @@ function PaperSpace({ paper }) {
               </svg>
             </button>
 
-            {/* Hand tool — click and drag to pan */}
+            {/* Hand tool */}
             <button
               className={`ribbon-btn ${activeTool === "hand" ? "active-tool" : ""}`}
               onClick={() => selectTool("hand")}
@@ -500,7 +505,7 @@ function PaperSpace({ paper }) {
               </svg>
             </button>
 
-            {/* Zoom to fit — resets zoom back to default 100% view */}
+            {/* Zoom to fit — resets zoom to default view */}
             <button
               className="ribbon-btn"
               onClick={() => { setZoom(1); setContextMenu(null); }}
@@ -513,23 +518,16 @@ function PaperSpace({ paper }) {
               </svg>
             </button>
 
-            {/* Zoom % indicator — shows current zoom level */}
-            {/* IBM Plex Sans — technical data font */}
-            <span
-              className="ribbon-zoom-indicator"
-              title="Current zoom level"
-            >
+            {/* Zoom % indicator — IBM Plex Sans technical font */}
+            <span className="ribbon-zoom-indicator" title="Current zoom level">
               {Math.round(zoom * 100)}%
             </span>
 
           </div>
 
-          {/* Divider between ribbon and menu sections */}
           <div className="context-divider" />
 
-          {/* ── SECTION 1 — Annotation tools (future) ─────────────
-              Greyed out — not clickable until implemented.
-          ──────────────────────────────────────────────────────── */}
+          {/* Section 1 — future annotation tools */}
           <div className="context-section">
             <button className="context-item coming-soon" disabled>
               Add Annotation
@@ -541,9 +539,7 @@ function PaperSpace({ paper }) {
 
           <div className="context-divider" />
 
-          {/* ── SECTION 2 — Drawing settings (future) ─────────────
-              Greyed out — not clickable until implemented.
-          ──────────────────────────────────────────────────────── */}
+          {/* Section 2 — future drawing settings */}
           <div className="context-section">
             <button className="context-item coming-soon" disabled>
               Drawing Properties
@@ -578,10 +574,7 @@ function PaperSpace({ paper }) {
             <input type="number" placeholder="Example: 580" />
 
             <div className="drop-form-actions">
-              {/* Cancel — closes form without placing anything */}
               <button onClick={() => setDroppedProduct(null)}>Cancel</button>
-
-              {/* Add — will place drawing object on paper in Phase 2 */}
               <button onClick={() => setDroppedProduct(null)}>Add</button>
             </div>
 

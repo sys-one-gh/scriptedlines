@@ -1,43 +1,73 @@
-import { useState } from "react";
-import { toolLibrary } from "../data/toolLibrary";
+import { useState, useEffect } from "react";
 
 function ProductsPanel({ searchText }) {
-  const categories = toolLibrary.products;
+
+  // ─── STATE ─────────────────────────────────────────────────
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading]       = useState(true);
+  const [error, setError]           = useState(null);
   const [openCategoryId, setOpenCategoryId] = useState(null);
 
-  const search = searchText.toLowerCase().trim();
+  // ─── FETCH FROM API ────────────────────────────────────────
+  // Replaces toolLibrary.js — data now comes from PostgreSQL
+  useEffect(() => {
+    fetch("http://localhost:8000/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data.categories);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError("Could not load products.");
+        setLoading(false);
+      });
+  }, []);
 
-  function toggleCategory(categoryId) {
-    setOpenCategoryId((currentId) =>
-      currentId === categoryId ? null : categoryId
-    );
-  }
-
-  // Starts drag and stores product data
+  // ─── DRAG START ────────────────────────────────────────────
   function handleDragStart(event, item, categoryName) {
     event.dataTransfer.setData(
       "application/json",
       JSON.stringify({
-        id: item.id,
-        name: item.name,
-        type: "product",
-        categoryName,
+        id:           item.id,
+        code:         item.code,
+        name:         item.name,
+        type:         "product",
+        svg_type:     item.svg_type,
+        categoryName: categoryName,
+        defaultWidth:   item.default_width,
+        defaultHeight:  item.default_height,
+        defaultDepth:   item.default_depth,
+        defaultDoors:   item.default_doors,
+        defaultDrawers: item.default_drawers,
+        defaultShelves: item.default_shelves,
       })
     );
-
     event.dataTransfer.effectAllowed = "copy";
   }
 
-  // Search mode: show only matching items, not categories
+  function toggleCategory(categoryId) {
+    setOpenCategoryId((current) =>
+      current === categoryId ? null : categoryId
+    );
+  }
+
+  // ─── LOADING / ERROR STATES ────────────────────────────────
+  if (loading) return <div className="panel-placeholder">Loading products...</div>;
+  if (error)   return <div className="panel-placeholder">{error}</div>;
+
+  // ─── SEARCH MODE ───────────────────────────────────────────
+  const search = searchText.toLowerCase().trim();
+
   if (search) {
     const matchingItems = categories.flatMap((category) =>
       category.items
         .filter((item) => item.name.toLowerCase().includes(search))
-        .map((item) => ({
-          ...item,
-          categoryName: category.name,
-        }))
+        .map((item) => ({ ...item, categoryName: category.name }))
     );
+
+    if (matchingItems.length === 0) {
+      return <div className="panel-placeholder">No products found.</div>;
+    }
 
     return (
       <div>
@@ -46,9 +76,7 @@ function ProductsPanel({ searchText }) {
             key={item.id}
             className="library-item"
             draggable={true}
-            onDragStart={(event) =>
-              handleDragStart(event, item, item.categoryName)
-            }
+            onDragStart={(e) => handleDragStart(e, item, item.categoryName)}
           >
             {item.name}
           </div>
@@ -57,12 +85,11 @@ function ProductsPanel({ searchText }) {
     );
   }
 
-  // Normal mode: show categories, expand only when clicked
+  // ─── NORMAL MODE ───────────────────────────────────────────
   return (
     <div>
       {categories.map((category) => {
         const isOpen = openCategoryId === category.id;
-
         return (
           <div key={category.id} className="library-category">
             <button
@@ -80,9 +107,7 @@ function ProductsPanel({ searchText }) {
                     key={item.id}
                     className="library-item"
                     draggable={true}
-                    onDragStart={(event) =>
-                      handleDragStart(event, item, category.name)
-                    }
+                    onDragStart={(e) => handleDragStart(e, item, category.name)}
                   >
                     {item.name}
                   </div>
