@@ -1,63 +1,58 @@
 # ─────────────────────────────────────────────────────────────
 # seed.py
 #
-# Creates all database tables and seeds them with
-# default product data.
-# Run once: python seed.py
-# Safe to run again — skips existing products.
+# Drops the old library_products table and recreates it
+# with the new structure, then seeds all products.
+# Safe to run again — always drops and recreates.
+#
+# Usage:
+#   python seed.py
 # ─────────────────────────────────────────────────────────────
 
 from database import engine, SessionLocal, Base
 from models.product import Product
-from models.default_products import PRODUCT_CATALOG
+from models.default_products import ALL_PRODUCTS
 
 
-def create_tables():
-    # Creates all tables defined in models
-    # If tables already exist — skips them safely
-    print("Creating tables...")
+def reset_and_seed():
+    print("Dropping existing tables...")
+    Base.metadata.drop_all(bind=engine)
+    print("Tables dropped.")
+
+    print("Creating new tables...")
     Base.metadata.create_all(bind=engine)
-    print("Tables created successfully.")
+    print("Tables created.")
 
-
-def seed_products():
     db = SessionLocal()
 
     try:
-        # Count existing products
-        existing = db.query(Product).count()
+        print(f"Seeding {len(ALL_PRODUCTS)} products...")
 
-        if existing > 0:
-            print(f"Products already seeded ({existing} products found). Skipping.")
-            return
-
-        print("Seeding products...")
-
-        # Loop through all categories in the catalog
-        for category_key, products in PRODUCT_CATALOG.items():
-            for product_data in products:
-                product = Product(
-                    code            = product_data["code"],
-                    name            = product_data["name"],
-                    category        = product_data["category"],
-                    svg_type        = product_data["svg_type"],
-                    default_width   = product_data["default_width"],
-                    default_height  = product_data["default_height"],
-                    default_depth   = product_data["default_depth"],
-                    default_doors   = product_data["default_doors"],
-                    default_drawers = product_data["default_drawers"],
-                    default_shelves = product_data["default_shelves"],
-                    description     = product_data["description"],
-                    is_active       = True,
-                )
-                db.add(product)
+        for product_data in ALL_PRODUCTS:
+            product = Product(
+                category        = product_data["category"],
+                subcategory     = product_data["subcategory"],
+                name            = product_data["name"],
+                code            = product_data["code"],
+                description     = product_data["description"],
+                svg_type        = product_data["svg_type"],
+                default_width   = product_data["default_width"],
+                default_height  = product_data["default_height"],
+                default_depth   = product_data["default_depth"],
+                default_doors   = product_data["default_doors"],
+                default_drawers = product_data["default_drawers"],
+                default_shelves = product_data["default_shelves"],
+                sort_order      = product_data["sort_order"],
+                is_active       = True,
+            )
+            db.add(product)
 
         db.commit()
-        print(f"Products seeded successfully.")
+        print(f"✔ {len(ALL_PRODUCTS)} products seeded successfully.")
 
     except Exception as e:
         db.rollback()
-        print(f"Error seeding products: {e}")
+        print(f"✗ Error seeding products: {e}")
         raise
 
     finally:
@@ -65,6 +60,5 @@ def seed_products():
 
 
 if __name__ == "__main__":
-    create_tables()
-    seed_products()
+    reset_and_seed()
     print("Database setup complete.")
