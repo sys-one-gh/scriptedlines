@@ -2,17 +2,21 @@
 
 First time setup on a Mac machine. Run these steps once only.
 
-## Important — Project Path on Mac
+## Project Path — Same on Both Machines
 
-The repo clones to wherever you run `git clone` from.
-Your current path is: `~/scriptedlines` (`/Users/sys_one/scriptedlines`)
+```
+WSL:  /home/restricted_space/projects/scriptedlines
+Mac:  /home/restricted_space/projects/scriptedlines
+```
 
-All scripts use **relative paths** so they work regardless of where the repo lives.
-Always run scripts from the **project root** (`~/scriptedlines/`).
+Keeping the same path on both machines means:
+- All scripts work identically on both
+- No path differences in any documentation
+- No confusion when switching between machines
 
 ---
 
-## Step 1 — Install Prerequisites (if not already installed)
+## Step 1 — Install Prerequisites
 
 ### Install Homebrew
 ```bash
@@ -37,31 +41,52 @@ brew install node
 
 ---
 
-## Step 2 — Clone the Repo (if not already done)
+## Step 2 — Create the Project Directory
 
 ```bash
-cd ~
+sudo mkdir -p /home/restricted_space/projects
+sudo chown $(whoami) /home/restricted_space
+sudo chown $(whoami) /home/restricted_space/projects
+```
+
+---
+
+## Step 3 — Move Existing Repo (if already cloned elsewhere)
+
+If you already cloned to `~/scriptedlines`:
+```bash
+mv ~/scriptedlines /home/restricted_space/projects/scriptedlines
+```
+
+If you have not cloned yet:
+```bash
+cd /home/restricted_space/projects
 git clone https://github.com/sys-one-gh/scriptedlines.git
 cd scriptedlines
 git checkout mac
 ```
 
+Verify:
+```bash
+ls /home/restricted_space/projects/scriptedlines
+```
+
 ---
 
-## Step 3 — Install Frontend Dependencies
+## Step 4 — Install Frontend Dependencies
 
 ```bash
-cd ~/scriptedlines/frontend
+cd /home/restricted_space/projects/scriptedlines/frontend
 npm install
 cd ..
 ```
 
 ---
 
-## Step 4 — Set Up Python Backend
+## Step 5 — Set Up Python Backend
 
 ```bash
-cd ~/scriptedlines/backend
+cd /home/restricted_space/projects/scriptedlines/backend
 python3 -m venv m_venv
 source m_venv/bin/activate
 pip install -r requirements.txt
@@ -70,40 +95,39 @@ cd ..
 
 ---
 
-## Step 5 — Set Up Password File
+## Step 6 — Restore the Database
 
-Prevents password prompts when running backup and restore scripts.
-
+Make sure PostgreSQL is running first:
 ```bash
-echo "localhost:5432:scriptedlines_db:scriptedlines_user:scriptedlines2024" > ~/.pgpass
-chmod 600 ~/.pgpass
+brew services start postgresql@16
 ```
 
----
-
-## Step 6 — Restore the Database from Backup
-
+Then restore:
 ```bash
-cd ~/scriptedlines
+cd /home/restricted_space/projects/scriptedlines
 bash scripts/restore_db.sh
 ```
 
+You should see:
+```
+✔ Database restored successfully
+  Products in library: 81
+```
+
 ---
 
-## Step 7 — Verify the Restore
+## Step 7 — Verify Everything Works
 
 ```bash
 PGPASSWORD=scriptedlines2024 psql -U scriptedlines_user -h localhost -d scriptedlines_db \
   -c "SELECT COUNT(*) FROM library_products;"
 ```
 
-You should see: `81`
+Should return: `81`
 
 ---
 
-## Step 8 — Start Everything
-
-Open 3 terminals:
+## Step 8 — Start All Three Servers
 
 ### Terminal 1 — Database
 ```bash
@@ -112,55 +136,42 @@ brew services start postgresql@16
 
 ### Terminal 2 — Backend
 ```bash
-cd ~/scriptedlines/backend
+cd /home/restricted_space/projects/scriptedlines/backend
 source m_venv/bin/activate
 uvicorn main:app --reload --port 8000
 ```
 
 ### Terminal 3 — Frontend
 ```bash
-cd ~/scriptedlines/frontend
+cd /home/restricted_space/projects/scriptedlines/frontend
 npm run dev
 ```
 
-Open browser at `http://localhost:5173`
+Open browser: `http://localhost:5173`
 You should see: `ScriptedLines — backend: connected ✔`
+Products tab should show all categories and products.
 
 ---
 
 ## Daily Startup on Mac
 
-### Terminal 1
-```bash
-brew services start postgresql@16
-```
+Follow `DAILY_START.md` — Mac section.
 
-### Terminal 2
-```bash
-cd ~/scriptedlines/backend
-source m_venv/bin/activate
-uvicorn main:app --reload --port 8000
-```
+The only difference from WSL:
 
-### Terminal 3
-```bash
-cd ~/scriptedlines/frontend
-npm run dev
-```
-
-### Pull latest code
-```bash
-cd ~/scriptedlines
-git checkout mac
-git pull origin mac
-```
+| | WSL | Mac |
+|---|---|---|
+| Start PostgreSQL | `sudo service postgresql start` | `brew services start postgresql@16` |
+| Stop PostgreSQL | `sudo service postgresql stop` | `brew services stop postgresql@16` |
+| Git branch | `working` | `mac` |
+| Everything else | identical | identical |
 
 ---
 
 ## End of Day on Mac
 
 ```bash
-cd ~/scriptedlines
+cd /home/restricted_space/projects/scriptedlines
 bash scripts/backup_db.sh
 git add .
 git commit -m "your message"
@@ -173,40 +184,29 @@ brew services stop postgresql@16
 
 ---
 
-## Difference Between WSL and Mac
-
-| | WSL | Mac |
-|---|---|---|
-| Project path | `/home/restricted_space/projects/scriptedlines` | `~/scriptedlines` |
-| Start PostgreSQL | `sudo service postgresql start` | `brew services start postgresql@16` |
-| Stop PostgreSQL | `sudo service postgresql stop` | `brew services stop postgresql@16` |
-| Git branch | `working` | `mac` |
-| Scripts | `bash scripts/backup_db.sh` | `bash scripts/backup_db.sh` |
-| Everything else | same | same |
-
----
-
 ## Troubleshooting
 
-### PostgreSQL not found
+### PostgreSQL not found after install
 ```bash
-brew install postgresql@16
 echo 'export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-### pip not found
+### Permission denied creating /home/restricted_space
 ```bash
-brew install python3
-```
-
-### node not found
-```bash
-brew install node
+sudo mkdir -p /home/restricted_space/projects
+sudo chown $(whoami) /home/restricted_space
+sudo chown $(whoami) /home/restricted_space/projects
 ```
 
 ### Port 8000 already in use
 ```bash
 pkill -f uvicorn
 uvicorn main:app --reload --port 8000
+```
+
+### pip install fails
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
 ```

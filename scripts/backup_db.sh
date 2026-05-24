@@ -4,17 +4,15 @@
 #
 # Backs up the ScriptedLines PostgreSQL database.
 # Always overwrites scriptedlines_latest.bak — no dated copies.
-# Uses relative paths — works on any machine regardless of
-# where the repo is cloned.
+# Works on both WSL and Mac — same path on both machines.
 #
 # Usage:
 #   bash scripts/backup_db.sh
-# Run from the project root: /path/to/scriptedlines/
+# Run from project root: /home/restricted_space/projects/scriptedlines/
 # ─────────────────────────────────────────────────────────────
 
 # ── GET PROJECT ROOT ─────────────────────────────────────────
-# Always resolves to the scriptedlines/ root folder
-# regardless of where the script is called from
+# Resolves to scriptedlines/ root regardless of where called from
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
@@ -28,7 +26,7 @@ BACKUP_FILE="$BACKUP_DIR/scriptedlines_latest.bak"
 # ── CREATE BACKUP DIRECTORY IF NEEDED ────────────────────────
 mkdir -p "$BACKUP_DIR"
 
-# ── DELETE OLD BACKUP ─────────────────────────────────────────
+# ── DELETE OLD BACKUP ────────────────────────────────────────
 if [ -f "$BACKUP_FILE" ]; then
   rm "$BACKUP_FILE"
 fi
@@ -50,10 +48,10 @@ if [ $? -eq 0 ]; then
   echo "  File : $BACKUP_FILE"
   echo "  Size : $SIZE"
   echo ""
-  echo "Next: git add . && git commit -m 'daily backup' && git push"
+  echo "Next: git add . && git commit -m 'daily backup' && git push origin working"
 else
   echo "✗ Backup failed — check PostgreSQL is running"
-  echo "  WSL:  sudo service postgresql start"
-  echo "  Mac:  brew services start postgresql@16"
+  echo "  WSL: sudo service postgresql start"
+  echo "  Mac: brew services start postgresql@16"
   exit 1
 fi

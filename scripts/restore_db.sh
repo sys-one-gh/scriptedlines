@@ -4,12 +4,12 @@
 #
 # Restores the ScriptedLines database from the latest backup.
 # Run this once on any new machine after cloning the repo.
-# Uses relative paths — works on any machine regardless of
-# where the repo is cloned.
+# Works on both WSL and Mac — same path on both machines.
+# Automatically detects OS for correct PostgreSQL commands.
 #
 # Usage:
 #   bash scripts/restore_db.sh
-# Run from the project root: /path/to/scriptedlines/
+# Run from project root: /home/restricted_space/projects/scriptedlines/
 # ─────────────────────────────────────────────────────────────
 
 # ── GET PROJECT ROOT ─────────────────────────────────────────
@@ -23,10 +23,20 @@ DB_PASSWORD="scriptedlines2024"
 DB_HOST="localhost"
 BACKUP_FILE="$PROJECT_ROOT/data/backups/scriptedlines_latest.bak"
 
+# ── DETECT OS ────────────────────────────────────────────────
+OS="$(uname -s)"
+if [ "$OS" = "Darwin" ]; then
+  echo "Detected: Mac"
+  PG_CMD="psql postgres"
+else
+  echo "Detected: Linux/WSL"
+  PG_CMD="sudo -u postgres psql"
+fi
+
 # ── CHECK BACKUP FILE EXISTS ─────────────────────────────────
 if [ ! -f "$BACKUP_FILE" ]; then
   echo "✗ Backup file not found at: $BACKUP_FILE"
-  echo "  Make sure you have cloned the full repo including data/backups/"
+  echo "  Make sure the repo includes data/backups/scriptedlines_latest.bak"
   exit 1
 fi
 
@@ -34,46 +44,31 @@ echo "Restoring $DB_NAME from backup..."
 echo "Source: $BACKUP_FILE"
 echo ""
 
-# ── DETECT OS ────────────────────────────────────────────────
-# Mac and WSL/Linux use different commands to run as postgres user
-OS="$(uname -s)"
-
 # ── CREATE USER IF NOT EXISTS ────────────────────────────────
 echo "Setting up database user..."
-if [ "$OS" = "Darwin" ]; then
-  # Mac — PostgreSQL installed via Homebrew
-  psql postgres -c "
-    DO \$\$
-    BEGIN
-      IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = '$DB_USER') THEN
-        CREATE USER $DB_USER WITH PASSWORD '$DB_PASSWORD';
-      END IF;
-    END
-    \$\$;
-  " 2>/dev/null
-else
-  # WSL/Linux — PostgreSQL installed via apt
-  sudo -u postgres psql -c "
-    DO \$\$
-    BEGIN
-      IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = '$DB_USER') THEN
-        CREATE USER $DB_USER WITH PASSWORD '$DB_PASSWORD';
-      END IF;
-    END
-    \$\$;
-  "
-fi
+$PG_CMD -c "
+  DO \$\$
+  BEGIN
+    IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = '$DB_USER') THEN
+      CREATE USER $DB_USER WITH PASSWORD '$DB_PASSWORD';
+    END IF;
+  END
+  \$\$;
+"
 
 # ── DROP AND RECREATE DATABASE ───────────────────────────────
 echo "Recreating database..."
-if [ "$OS" = "Darwin" ]; then
-  psql postgres -c "DROP DATABASE IF EXISTS $DB_NAME;"
-  psql postgres -c "CREATE DATABASE $DB_NAME OWNER $DB_USER;"
-  psql postgres -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;"
-else
-  sudo -u postgres psql -c "DROP DATABASE IF EXISTS $DB_NAME;"
-  sudo -u postgres psql -c "CREATE DATABASE $DB_NAME OWNER $DB_USER;"
-  sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;"
+$PG_CMD -c "DROP DATABASE IF EXISTS $DB_NAME;"
+$PG_CMD -c "CREATE DATABASE $DB_NAME OWNER $DB_USER;"
+$PG_CMD -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;"
+$PG_CMD -c "ALTER DATABASE $DB_NAME OWNER TO $DB_USER;"
+
+# ── SET UP .pgpass IF NOT EXISTS ─────────────────────────────
+PGPASS_LINE="$DB_HOST:5432:$DB_NAME:$DB_USER:$DB_PASSWORD"
+if ! grep -q "$PGPASS_LINE" ~/.pgpass 2>/dev/null; then
+  echo "$PGPASS_LINE" >> ~/.pgpass
+  chmod 600 ~/.pgpass
+  echo "✔ .pgpass configured"
 fi
 
 # ── RESTORE FROM BACKUP ──────────────────────────────────────
@@ -87,11 +82,12 @@ PGPASSWORD="$DB_PASSWORD" pg_restore \
 
 # ── VERIFY ───────────────────────────────────────────────────
 if [ $? -eq 0 ]; then
+  COUNT=$(PGPASSWORD="$DB_PASSWORD" psql -U "$DB_USER" -h "$DB_HOST" -d "$DB_NAME" -t -c "SELECT COUNT(*) FROM library_products;" | tr -d ' ')
   echo ""
   echo "✔ Database restored successfully"
+  echo "  Products in library: $COUNT"
   echo ""
-  echo "Verify with:"
-  echo "  PGPASSWORD=$DB_PASSWORD psql -U $DB_USER -h $DB_HOST -d $DB_NAME -c 'SELECT COUNT(*) FROM library_products;'"
+  echo "Next: start servers — see DAILY_START.md"
 else
   echo ""
   echo "✗ Restore failed"
