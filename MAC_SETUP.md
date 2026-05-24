@@ -2,14 +2,17 @@
 
 First time setup on a Mac machine. Run these steps once only.
 
-## Project Path on Mac
-```
-/home/projects/scriptedlines
-```
+## Important — Project Path on Mac
+
+The repo clones to wherever you run `git clone` from.
+Your current path is: `~/scriptedlines` (`/Users/sys_one/scriptedlines`)
+
+All scripts use **relative paths** so they work regardless of where the repo lives.
+Always run scripts from the **project root** (`~/scriptedlines/`).
 
 ---
 
-## Step 1 — Install Prerequisites
+## Step 1 — Install Prerequisites (if not already installed)
 
 ### Install Homebrew
 ```bash
@@ -34,11 +37,10 @@ brew install node
 
 ---
 
-## Step 2 — Clone the Repo
+## Step 2 — Clone the Repo (if not already done)
 
 ```bash
-mkdir -p /home/projects
-cd /home/projects
+cd ~
 git clone https://github.com/sys-one-gh/scriptedlines.git
 cd scriptedlines
 git checkout mac
@@ -49,7 +51,7 @@ git checkout mac
 ## Step 3 — Install Frontend Dependencies
 
 ```bash
-cd /home/projects/scriptedlines/frontend
+cd ~/scriptedlines/frontend
 npm install
 cd ..
 ```
@@ -59,7 +61,7 @@ cd ..
 ## Step 4 — Set Up Python Backend
 
 ```bash
-cd /home/projects/scriptedlines/backend
+cd ~/scriptedlines/backend
 python3 -m venv m_venv
 source m_venv/bin/activate
 pip install -r requirements.txt
@@ -68,20 +70,9 @@ cd ..
 
 ---
 
-## Step 5 — Create the Database
+## Step 5 — Set Up Password File
 
-```bash
-psql postgres -c "CREATE USER scriptedlines_user WITH PASSWORD 'scriptedlines2024';"
-psql postgres -c "CREATE DATABASE scriptedlines_db OWNER scriptedlines_user;"
-psql postgres -c "GRANT ALL PRIVILEGES ON DATABASE scriptedlines_db TO scriptedlines_user;"
-psql postgres -c "ALTER DATABASE scriptedlines_db OWNER TO scriptedlines_user;"
-```
-
----
-
-## Step 6 — Set Up Password File
-
-This prevents password prompts when running backup and restore scripts.
+Prevents password prompts when running backup and restore scripts.
 
 ```bash
 echo "localhost:5432:scriptedlines_db:scriptedlines_user:scriptedlines2024" > ~/.pgpass
@@ -90,45 +81,45 @@ chmod 600 ~/.pgpass
 
 ---
 
-## Step 7 — Restore the Database from Backup
+## Step 6 — Restore the Database from Backup
 
 ```bash
-pg_restore \
-  -U scriptedlines_user \
-  -h localhost \
-  -d scriptedlines_db \
-  --no-owner \
-  /home/projects/scriptedlines/data/backups/scriptedlines_latest.bak
+cd ~/scriptedlines
+bash scripts/restore_db.sh
 ```
 
 ---
 
-## Step 8 — Verify the Restore
+## Step 7 — Verify the Restore
 
 ```bash
-psql -U scriptedlines_user -h localhost -d scriptedlines_db \
-  -c "SELECT code, name, category FROM library_products ORDER BY category;"
+PGPASSWORD=scriptedlines2024 psql -U scriptedlines_user -h localhost -d scriptedlines_db \
+  -c "SELECT COUNT(*) FROM library_products;"
 ```
 
-You should see all 12 products listed.
+You should see: `81`
 
 ---
 
-## Step 9 — Start Everything
+## Step 8 — Start Everything
 
-Follow DAILY_START.md — Mac Machine section.
+Open 3 terminals:
 
+### Terminal 1 — Database
 ```bash
-# Terminal 1
 brew services start postgresql@16
+```
 
-# Terminal 2
-cd /home/projects/scriptedlines/backend
+### Terminal 2 — Backend
+```bash
+cd ~/scriptedlines/backend
 source m_venv/bin/activate
 uvicorn main:app --reload --port 8000
+```
 
-# Terminal 3
-cd /home/projects/scriptedlines/frontend
+### Terminal 3 — Frontend
+```bash
+cd ~/scriptedlines/frontend
 npm run dev
 ```
 
@@ -137,11 +128,48 @@ You should see: `ScriptedLines — backend: connected ✔`
 
 ---
 
-## Done — Mac is Ready
+## Daily Startup on Mac
 
-From now on just follow:
-- `DAILY_START.md` — every morning
-- `GIT_WORKFLOW.md` — every evening
+### Terminal 1
+```bash
+brew services start postgresql@16
+```
+
+### Terminal 2
+```bash
+cd ~/scriptedlines/backend
+source m_venv/bin/activate
+uvicorn main:app --reload --port 8000
+```
+
+### Terminal 3
+```bash
+cd ~/scriptedlines/frontend
+npm run dev
+```
+
+### Pull latest code
+```bash
+cd ~/scriptedlines
+git checkout mac
+git pull origin mac
+```
+
+---
+
+## End of Day on Mac
+
+```bash
+cd ~/scriptedlines
+bash scripts/backup_db.sh
+git add .
+git commit -m "your message"
+git push origin mac
+git checkout develop && git merge mac && git push origin develop
+git checkout working && git merge develop && git push origin working
+git checkout mac
+brew services stop postgresql@16
+```
 
 ---
 
@@ -149,8 +177,36 @@ From now on just follow:
 
 | | WSL | Mac |
 |---|---|---|
-| Project path | `/home/restricted_space/projects/scriptedlines` | `/home/projects/scriptedlines` |
-| Start database | `sudo service postgresql start` | `brew services start postgresql@16` |
-| Stop database | `sudo service postgresql stop` | `brew services stop postgresql@16` |
+| Project path | `/home/restricted_space/projects/scriptedlines` | `~/scriptedlines` |
+| Start PostgreSQL | `sudo service postgresql start` | `brew services start postgresql@16` |
+| Stop PostgreSQL | `sudo service postgresql stop` | `brew services stop postgresql@16` |
 | Git branch | `working` | `mac` |
+| Scripts | `bash scripts/backup_db.sh` | `bash scripts/backup_db.sh` |
 | Everything else | same | same |
+
+---
+
+## Troubleshooting
+
+### PostgreSQL not found
+```bash
+brew install postgresql@16
+echo 'export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### pip not found
+```bash
+brew install python3
+```
+
+### node not found
+```bash
+brew install node
+```
+
+### Port 8000 already in use
+```bash
+pkill -f uvicorn
+uvicorn main:app --reload --port 8000
+```

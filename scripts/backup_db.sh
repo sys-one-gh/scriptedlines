@@ -4,24 +4,31 @@
 #
 # Backs up the ScriptedLines PostgreSQL database.
 # Always overwrites scriptedlines_latest.bak — no dated copies.
-# Run this at the end of every day before pushing to GitHub.
+# Uses relative paths — works on any machine regardless of
+# where the repo is cloned.
 #
 # Usage:
 #   bash scripts/backup_db.sh
+# Run from the project root: /path/to/scriptedlines/
 # ─────────────────────────────────────────────────────────────
+
+# ── GET PROJECT ROOT ─────────────────────────────────────────
+# Always resolves to the scriptedlines/ root folder
+# regardless of where the script is called from
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # ── CONFIG ───────────────────────────────────────────────────
 DB_NAME="scriptedlines_db"
 DB_USER="scriptedlines_user"
 DB_HOST="localhost"
-BACKUP_DIR="$(dirname "$0")/../data/backups"
+BACKUP_DIR="$PROJECT_ROOT/data/backups"
 BACKUP_FILE="$BACKUP_DIR/scriptedlines_latest.bak"
 
 # ── CREATE BACKUP DIRECTORY IF NEEDED ────────────────────────
 mkdir -p "$BACKUP_DIR"
 
 # ── DELETE OLD BACKUP ─────────────────────────────────────────
-# Always overwrite — never keep dated copies
 if [ -f "$BACKUP_FILE" ]; then
   rm "$BACKUP_FILE"
 fi
@@ -46,6 +53,7 @@ if [ $? -eq 0 ]; then
   echo "Next: git add . && git commit -m 'daily backup' && git push"
 else
   echo "✗ Backup failed — check PostgreSQL is running"
-  echo "  Run: sudo service postgresql start"
+  echo "  WSL:  sudo service postgresql start"
+  echo "  Mac:  brew services start postgresql@16"
   exit 1
 fi
