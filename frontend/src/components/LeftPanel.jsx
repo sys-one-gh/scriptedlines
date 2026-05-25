@@ -7,10 +7,9 @@ import PartsPanel from "./PartsPanel";
 import HardwarePanel from "./HardwarePanel";
 import MaterialsPanel from "./MaterialsPanel";
 
-function LeftPanel() {
+function LeftPanel({ leftWidth }) {
 
   // ─── TAB DEFINITIONS ─────────────────────────────────────────
-  // Full list of all 6 tabs in order.
   const tabs = [
     { id: "walls",         label: "Wall"        },
     { id: "products",      label: "Products"    },
@@ -20,37 +19,36 @@ function LeftPanel() {
     { id: "materials",     label: "Material"    },
   ];
 
-
   // ─── STATE ───────────────────────────────────────────────────
-
-  // activeTab: which tab content is currently shown
-  const [activeTab, setActiveTab] = useState("walls");
-
-  // searchText: resets when switching tabs
-  const [searchText, setSearchText] = useState("");
-
-  // Arrow visibility
-  const [canScrollLeft,  setCanScrollLeft]  = useState(false);
+  const [activeTab,     setActiveTab]     = useState("walls");
+  const [searchText,    setSearchText]    = useState("");
+  const [canScrollLeft, setCanScrollLeft]  = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
-
   // ─── REFS ─────────────────────────────────────────────────────
-  // tabBarRef → the scrollable tab row
   const tabBarRef = useRef(null);
 
-
   // ─── OVERFLOW DETECTION ───────────────────────────────────────
-  // Checks if tabs overflow the container.
-  // Updates arrow visibility based on scroll position.
+  // Runs whenever leftWidth changes — panel resize triggers recheck.
+  // Also runs on mount and window resize.
   function checkOverflow() {
     const bar = tabBarRef.current;
     if (!bar) return;
+    const hasOverflow = bar.scrollWidth > bar.clientWidth;
     setCanScrollLeft(bar.scrollLeft > 0);
-    setCanScrollRight(bar.scrollLeft + bar.clientWidth < bar.scrollWidth - 1);
+    setCanScrollRight(
+      hasOverflow && bar.scrollLeft + bar.clientWidth < bar.scrollWidth - 1
+    );
   }
 
+  // Re-check when leftWidth changes (panel was resized)
   useEffect(() => {
-    // Small delay so DOM is fully painted before measuring
+    const timer = setTimeout(checkOverflow, 50);
+    return () => clearTimeout(timer);
+  }, [leftWidth]);
+
+  // Re-check on mount and window resize
+  useEffect(() => {
     const timer = setTimeout(checkOverflow, 50);
     window.addEventListener("resize", checkOverflow);
     return () => {
@@ -59,11 +57,7 @@ function LeftPanel() {
     };
   }, []);
 
-
   // ─── SCROLL HANDLERS ─────────────────────────────────────────
-  // Scrolls the tab bar by a fixed amount.
-  // 100px per click feels natural for tab navigation.
-
   function handleScrollLeft() {
     const bar = tabBarRef.current;
     if (!bar) return;
@@ -76,23 +70,22 @@ function LeftPanel() {
     bar.scrollBy({ left: 100, behavior: "smooth" });
   }
 
-
   // ─── TAB CHANGE ──────────────────────────────────────────────
   function handleTabChange(tabId) {
     setActiveTab(tabId);
     setSearchText("");
   }
 
-
   // ─── RENDER ──────────────────────────────────────────────────
   return (
     <div className="left-panel-content">
 
       {/* ── TAB BAR ─────────────────────────────────────────────
-          Left arrow appears when scrolled right.
-          Right arrow appears when there are hidden tabs to the right.
-          Both arrows always occupy space to prevent layout shift —
-          they are invisible (opacity 0) when not needed.
+          Left arrow: visible when scrolled right.
+          Right arrow: visible when tabs overflow and there are
+          hidden tabs to the right OR when panel is narrow enough
+          that not all tabs are visible.
+          Both always occupy space to prevent layout shift.
       ──────────────────────────────────────────────────────── */}
       <div className="tab-bar-wrapper">
 
@@ -109,7 +102,7 @@ function LeftPanel() {
           ‹
         </button>
 
-        {/* Scrollable tab row — hides scrollbar, arrows handle nav */}
+        {/* Scrollable tab row */}
         <div
           className="tab-bar"
           ref={tabBarRef}
@@ -140,7 +133,6 @@ function LeftPanel() {
 
       </div>
 
-
       {/* ── SEARCH BAR ──────────────────────────────────────────── */}
       <div className="left-search">
         <input
@@ -150,7 +142,6 @@ function LeftPanel() {
           onChange={(e) => setSearchText(e.target.value)}
         />
       </div>
-
 
       {/* ── PANEL CONTENT ───────────────────────────────────────── */}
       <div className="tab-content">

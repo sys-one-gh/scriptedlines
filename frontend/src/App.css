@@ -1,7 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
    FONTS
-   DM Sans     → UI elements (navigation, labels, buttons)
-   IBM Plex Sans → Technical data (dimensions, values, specs)
 ───────────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
@@ -33,7 +31,7 @@
 
 body {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: 13px;
   background: var(--color-bg-deepest);
   color: var(--color-text-primary);
 }
@@ -52,11 +50,10 @@ body {
 
 
 /* ─────────────────────────────────────────────────────────────
-   TOP BAR
+   TOP BAR — height via Workspace.jsx inline style
 ───────────────────────────────────────────────────────────── */
 .top-bar {
   width: 100%;
-  height: 10vh;
   background: var(--color-bg-deepest);
   border-bottom: 1px solid var(--color-border);
   display: flex;
@@ -76,7 +73,7 @@ body {
 ───────────────────────────────────────────────────────────── */
 .main-layout {
   width: 100%;
-  height: 90vh;
+  flex: 1;
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -84,13 +81,12 @@ body {
 
 
 /* ─────────────────────────────────────────────────────────────
-   LEFT PANEL
+   LEFT PANEL — width via Workspace.jsx inline style
 ───────────────────────────────────────────────────────────── */
 .left-panel {
-  width: 20%;
   height: 100%;
   background: var(--color-bg-panel);
-  border-right: 1px solid var(--color-border);
+  border-right: none;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -107,6 +103,43 @@ body {
 
 
 /* ─────────────────────────────────────────────────────────────
+   PANEL DIVIDER — draggable resize handle
+   5px wide grab area with 1px visible center line.
+   col-resize cursor shows ↔ double arrow.
+───────────────────────────────────────────────────────────── */
+.panel-divider {
+  width: 5px;
+  height: 100%;
+  flex-shrink: 0;
+  cursor: col-resize;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+  transition: background 0.15s;
+}
+
+.panel-divider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background: var(--color-border);
+  transition: background 0.15s;
+}
+
+.panel-divider:hover {
+  background: rgba(79, 142, 247, 0.08);
+}
+
+.panel-divider:hover::after {
+  background: var(--color-accent);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
    TAB BAR WRAPPER
 ───────────────────────────────────────────────────────────── */
 .tab-bar-wrapper {
@@ -116,7 +149,7 @@ body {
   flex-shrink: 0;
   background: #1a1a1a;
   border-bottom: 1px solid var(--color-border);
-  height: 30px;
+  height: 38px;
 }
 
 
@@ -143,8 +176,8 @@ body {
 ───────────────────────────────────────────────────────────── */
 .tab {
   flex: 0 0 auto;
-  height: 26px;
-  padding: 0 12px;
+  height: 32px;
+  padding: 0 14px;
   white-space: nowrap;
   background: #1e1e1e;
   color: var(--color-text-muted);
@@ -154,7 +187,7 @@ body {
   transition: background 0.15s, color 0.15s;
   font-family: var(--font-ui);
   font-weight: 400;
-  font-size: 10px;
+  font-size: 13px;
   position: relative;
   border-radius: 4px 4px 0 0;
   margin-right: 2px;
@@ -185,11 +218,11 @@ body {
    TAB BUTTON — ACTIVE
 ───────────────────────────────────────────────────────────── */
 .tab.active {
-  height: 30px;
+  height: 38px;
   background: var(--color-bg-panel);
   color: #ffffff;
   font-weight: 600;
-  font-size: 10px;
+  font-size: 13px;
   border-top: 2px solid var(--color-accent);
   border-bottom: 1px solid var(--color-bg-panel);
   margin-bottom: -1px;
@@ -247,7 +280,7 @@ body {
   transition: border-color 0.15s;
   font-family: var(--font-ui);
   font-weight: 400;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .left-search input::placeholder {
@@ -281,7 +314,7 @@ body {
 .panel-placeholder {
   padding: 20px 10px;
   color: var(--color-text-muted);
-  font-size: 11px;
+  font-size: 13px;
   font-family: var(--font-ui);
   text-align: center;
 }
@@ -296,7 +329,7 @@ body {
 
 .category-header {
   width: 100%;
-  height: 32px;
+  height: 34px;
   padding: 0 10px;
   display: flex;
   justify-content: space-between;
@@ -309,7 +342,7 @@ body {
   transition: background 0.15s, border-color 0.15s, color 0.15s;
   font-family: var(--font-ui);
   font-weight: 500;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .category-header:hover {
@@ -318,7 +351,6 @@ body {
   color: #ffffff;
 }
 
-/* Indented container for subcategories */
 .category-items {
   padding: 4px 0 2px 8px;
 }
@@ -326,8 +358,6 @@ body {
 
 /* ─────────────────────────────────────────────────────────────
    LIBRARY SUBCATEGORY — LEVEL 2
-   Slightly lighter and shorter than category header.
-   Indented to show hierarchy.
 ───────────────────────────────────────────────────────────── */
 .library-subcategory {
   margin-bottom: 3px;
@@ -335,7 +365,7 @@ body {
 
 .subcategory-header {
   width: 100%;
-  height: 28px;
+  height: 30px;
   padding: 0 10px;
   display: flex;
   justify-content: space-between;
@@ -348,7 +378,7 @@ body {
   transition: background 0.15s, border-color 0.15s, color 0.15s;
   font-family: var(--font-ui);
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .subcategory-header:hover {
@@ -357,7 +387,6 @@ body {
   color: #cccccc;
 }
 
-/* Indented container for items */
 .subcategory-items {
   padding: 3px 0 2px 8px;
 }
@@ -365,7 +394,6 @@ body {
 
 /* ─────────────────────────────────────────────────────────────
    LIBRARY ITEM — LEVEL 3
-   Draggable product item — shows name and code.
 ───────────────────────────────────────────────────────────── */
 .library-item {
   padding: 6px 10px;
@@ -388,38 +416,30 @@ body {
   background: #222222;
 }
 
-/* Product name — main line */
 .library-item-name {
   font-family: var(--font-ui);
   font-weight: 400;
-  font-size: 11px;
+  font-size: 13px;
   color: #cccccc;
   line-height: 1.3;
 }
 
-/* Product code — second line, smaller and muted */
 .library-item-code {
   font-family: var(--font-tech);
-  font-size: 10px;
+  font-size: 11px;
   color: #555555;
   margin-top: 1px;
   line-height: 1;
 }
 
-.library-item:hover .library-item-name {
-  color: #ffffff;
-}
-
-.library-item:hover .library-item-code {
-  color: #888888;
-}
+.library-item:hover .library-item-name { color: #ffffff; }
+.library-item:hover .library-item-code  { color: #888888; }
 
 
 /* ─────────────────────────────────────────────────────────────
-   CENTER PANEL
+   CENTER PANEL — width via Workspace.jsx inline style
 ───────────────────────────────────────────────────────────── */
 .center-panel {
-  width: 67%;
   height: 100%;
   background: var(--color-bg-canvas);
   overflow: hidden;
@@ -448,9 +468,7 @@ body {
 /* ─────────────────────────────────────────────────────────────
    PAPER STAGE / SIZE LAYER / SVG
 ───────────────────────────────────────────────────────────── */
-.paper-stage {
-  /* all sizing via JS inline style */
-}
+.paper-stage { /* all sizing via JS inline style */ }
 
 .paper-size-layer {
   flex-shrink: 0;
@@ -465,16 +483,13 @@ body {
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.8);
 }
 
-.paper-svg text {
-  font-family: var(--font-tech);
-}
+.paper-svg text { font-family: var(--font-tech); }
 
 
 /* ─────────────────────────────────────────────────────────────
-   RIGHT PANEL
+   RIGHT PANEL — width via Workspace.jsx inline style
 ───────────────────────────────────────────────────────────── */
 .right-panel {
-  width: 13%;
   height: 100%;
   background: var(--color-bg-panel);
   border-left: 1px solid var(--color-border);
@@ -554,9 +569,7 @@ body {
   font-size: 13px;
 }
 
-.drop-form input:focus {
-  border-color: var(--color-accent);
-}
+.drop-form input:focus { border-color: var(--color-accent); }
 
 .drop-form-actions {
   display: flex;
@@ -672,9 +685,7 @@ body {
   margin: 2px 0;
 }
 
-.context-section {
-  padding: 2px 0;
-}
+.context-section { padding: 2px 0; }
 
 .context-item {
   display: flex;
