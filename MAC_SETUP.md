@@ -2,17 +2,16 @@
 
 First time setup on a Mac machine. Run these steps once only.
 
-## Project Path — Same on Both Machines
+## Project Paths
 
 ```
 WSL:  /home/restricted_space/projects/scriptedlines
-Mac:  /home/restricted_space/projects/scriptedlines
+Mac:  ~/projects/scriptedlines  (/Users/sys_one/projects/scriptedlines)
 ```
 
-Keeping the same path on both machines means:
-- All scripts work identically on both
-- No path differences in any documentation
-- No confusion when switching between machines
+Mac does not allow creating directories under /home — this is an OS restriction.
+The Mac path uses the home directory (~) instead.
+All scripts use relative paths so they work correctly on both machines.
 
 ---
 
@@ -29,6 +28,12 @@ brew install postgresql@16
 brew services start postgresql@16
 ```
 
+Add PostgreSQL to PATH if not found after install:
+```bash
+echo 'export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
 ### Install Python
 ```bash
 brew install python3
@@ -41,26 +46,18 @@ brew install node
 
 ---
 
-## Step 2 — Create the Project Directory
+## Step 2 — Create Project Directory
 
 ```bash
-sudo mkdir -p /home/restricted_space/projects
-sudo chown $(whoami) /home/restricted_space
-sudo chown $(whoami) /home/restricted_space/projects
+mkdir -p ~/projects
 ```
 
 ---
 
-## Step 3 — Move Existing Repo (if already cloned elsewhere)
+## Step 3 — Clone the Repo
 
-If you already cloned to `~/scriptedlines`:
 ```bash
-mv ~/scriptedlines /home/restricted_space/projects/scriptedlines
-```
-
-If you have not cloned yet:
-```bash
-cd /home/restricted_space/projects
+cd ~/projects
 git clone https://github.com/sys-one-gh/scriptedlines.git
 cd scriptedlines
 git checkout mac
@@ -68,7 +65,7 @@ git checkout mac
 
 Verify:
 ```bash
-ls /home/restricted_space/projects/scriptedlines
+ls ~/projects/scriptedlines
 ```
 
 ---
@@ -76,7 +73,7 @@ ls /home/restricted_space/projects/scriptedlines
 ## Step 4 — Install Frontend Dependencies
 
 ```bash
-cd /home/restricted_space/projects/scriptedlines/frontend
+cd ~/projects/scriptedlines/frontend
 npm install
 cd ..
 ```
@@ -86,7 +83,7 @@ cd ..
 ## Step 5 — Set Up Python Backend
 
 ```bash
-cd /home/restricted_space/projects/scriptedlines/backend
+cd ~/projects/scriptedlines/backend
 python3 -m venv m_venv
 source m_venv/bin/activate
 pip install -r requirements.txt
@@ -104,7 +101,7 @@ brew services start postgresql@16
 
 Then restore:
 ```bash
-cd /home/restricted_space/projects/scriptedlines
+cd ~/projects/scriptedlines
 bash scripts/restore_db.sh
 ```
 
@@ -136,20 +133,30 @@ brew services start postgresql@16
 
 ### Terminal 2 — Backend
 ```bash
-cd /home/restricted_space/projects/scriptedlines/backend
+cd ~/projects/scriptedlines/backend
 source m_venv/bin/activate
 uvicorn main:app --reload --port 8000
 ```
 
+You should see:
+```
+✔ Database tables verified.
+INFO: Application startup complete.
+```
+
 ### Terminal 3 — Frontend
 ```bash
-cd /home/restricted_space/projects/scriptedlines/frontend
+cd ~/projects/scriptedlines/frontend
 npm run dev
 ```
 
 Open browser: `http://localhost:5173`
-You should see: `ScriptedLines — backend: connected ✔`
-Products tab should show all categories and products.
+Automatically redirects to /login — sign in with your account.
+
+Page flow:
+```
+/login → /projects → /workspace
+```
 
 ---
 
@@ -157,21 +164,12 @@ Products tab should show all categories and products.
 
 Follow `DAILY_START.md` — Mac section.
 
-The only difference from WSL:
-
-| | WSL | Mac |
-|---|---|---|
-| Start PostgreSQL | `sudo service postgresql start` | `brew services start postgresql@16` |
-| Stop PostgreSQL | `sudo service postgresql stop` | `brew services stop postgresql@16` |
-| Git branch | `working` | `mac` |
-| Everything else | identical | identical |
-
 ---
 
 ## End of Day on Mac
 
 ```bash
-cd /home/restricted_space/projects/scriptedlines
+cd ~/projects/scriptedlines
 bash scripts/backup_db.sh
 git add .
 git commit -m "your message"
@@ -184,6 +182,18 @@ brew services stop postgresql@16
 
 ---
 
+## Difference Between WSL and Mac
+
+| | WSL | Mac |
+|---|---|---|
+| Project path | `/home/restricted_space/projects/scriptedlines` | `~/projects/scriptedlines` |
+| Start PostgreSQL | `sudo service postgresql start` | `brew services start postgresql@16` |
+| Stop PostgreSQL | `sudo service postgresql stop` | `brew services stop postgresql@16` |
+| Git branch | `working` | `mac` |
+| Everything else | identical | identical |
+
+---
+
 ## Troubleshooting
 
 ### PostgreSQL not found after install
@@ -192,12 +202,9 @@ echo 'export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-### Permission denied creating /home/restricted_space
-```bash
-sudo mkdir -p /home/restricted_space/projects
-sudo chown $(whoami) /home/restricted_space
-sudo chown $(whoami) /home/restricted_space/projects
-```
+### Cannot create /home directory on Mac
+This is expected — Mac restricts /home. Use ~/projects instead.
+The scripts use relative paths so this does not matter.
 
 ### Port 8000 already in use
 ```bash
@@ -209,4 +216,9 @@ uvicorn main:app --reload --port 8000
 ```bash
 pip install --upgrade pip
 pip install -r requirements.txt
+```
+
+### node not found
+```bash
+brew install node
 ```

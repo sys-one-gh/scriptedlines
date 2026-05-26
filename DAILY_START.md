@@ -1,169 +1,196 @@
 # ScriptedLines — Daily Startup Guide
+# Updated: Phase 4 Complete
+# ─────────────────────────────────────────────────────────────
 
-## Project Path
-```
-WSL Machine  → /home/restricted_space/projects/scriptedlines
-Mac Machine  → /home/projects/scriptedlines
-```
 
----
+═══════════════════════════════════════════════════════════════
+WSL DAILY STARTUP
+═══════════════════════════════════════════════════════════════
 
-## WSL Machine — Start of Day
+Project path: /home/restricted_space/projects/scriptedlines
+Git branch:   working
 
-Open 3 terminals in this exact order.
+─── Step 1 — Pull latest code ────────────────────────────────
 
-### Terminal 1 — Start the Database
-```bash
-sudo service postgresql start
-```
-Verify:
-```bash
-sudo service postgresql status
-```
-You should see: `online`
+  cd /home/restricted_space/projects/scriptedlines
+  git checkout working
+  git pull origin working
 
-### Terminal 2 — Start the Python Backend
-```bash
-cd /home/restricted_space/projects/scriptedlines/backend
-source m_venv/bin/activate
-uvicorn main:app --reload --port 8000
-```
-Verify — open browser:
-```
-http://localhost:8000/api/health
-```
-You should see: `{"status":"ok"}`
 
-### Terminal 3 — Start the React Frontend
-```bash
-cd /home/restricted_space/projects/scriptedlines/frontend
-npm run dev
-```
-Verify — open browser:
-```
-http://localhost:5173
-```
-You should see: `ScriptedLines — backend: connected ✔`
+─── Step 2 — Start PostgreSQL ────────────────────────────────
 
-### Pull Latest Code
-```bash
-cd /home/restricted_space/projects/scriptedlines
-git checkout working
-git pull origin working
-```
+  sudo service postgresql start
 
----
 
-## Mac Machine — Start of Day
+─── Step 3 — Start Backend (Terminal 2) ──────────────────────
 
-Open 3 terminals in this exact order.
+  cd /home/restricted_space/projects/scriptedlines/backend
+  source m_venv/bin/activate
+  uvicorn main:app --reload --port 8000
 
-### Terminal 1 — Start the Database
-```bash
-brew services start postgresql@16
-```
-Verify:
-```bash
-brew services list | grep postgresql
-```
-You should see: `started`
+  You should see:
+  ✔ Database tables verified.
+  INFO: Application startup complete.
 
-### Terminal 2 — Start the Python Backend
-```bash
-cd /home/projects/scriptedlines/backend
-source m_venv/bin/activate
-uvicorn main:app --reload --port 8000
-```
-Verify — open browser:
-```
-http://localhost:8000/api/health
-```
-You should see: `{"status":"ok"}`
 
-### Terminal 3 — Start the React Frontend
-```bash
-cd /home/projects/scriptedlines/frontend
-npm run dev
-```
-Verify — open browser:
-```
-http://localhost:5173
-```
-You should see: `ScriptedLines — backend: connected ✔`
+─── Step 4 — Start Frontend (Terminal 3) ─────────────────────
 
-### Pull Latest Code
-```bash
-cd /home/projects/scriptedlines
-git checkout mac
-git pull origin mac
-```
+  cd /home/restricted_space/projects/scriptedlines/frontend
+  npm run dev
 
----
+  You should see:
+  VITE v5.x  ready in Xms
+  ➜  Local: http://localhost:5173/
 
-## Quick Reference
 
-| | WSL | Mac |
-|---|---|---|
-| Project path | `/home/restricted_space/projects/scriptedlines` | `/home/projects/scriptedlines` |
-| Start database | `sudo service postgresql start` | `brew services start postgresql@16` |
-| Stop database | `sudo service postgresql stop` | `brew services stop postgresql@16` |
-| Activate venv | `source m_venv/bin/activate` | `source m_venv/bin/activate` |
-| Start backend | `uvicorn main:app --reload --port 8000` | same |
-| Start frontend | `npm run dev` | same |
-| Working branch | `working` | `mac` |
+─── Step 5 — Open Browser ────────────────────────────────────
 
----
+  http://localhost:5173
 
-## If Something Goes Wrong
+  Automatically redirects to /login
+  Sign in with your account to access the app.
 
-### Backend port already in use
-```bash
-pkill -f uvicorn
-uvicorn main:app --reload --port 8000
-```
+  Page flow:
+  /login → /projects → /workspace
 
-### Database not connecting — WSL
-```bash
-sudo service postgresql restart
-```
 
-### Database not connecting — Mac
-```bash
-brew services restart postgresql@16
-```
+─── End of Day — WSL ─────────────────────────────────────────
 
-### Frontend not loading
-```bash
-# WSL
-cd /home/restricted_space/projects/scriptedlines/frontend
-npm install && npm run dev
+  cd /home/restricted_space/projects/scriptedlines
+  bash scripts/backup_db.sh
+  git add .
+  git commit -m "your message here"
+  git push origin working
+  git checkout develop && git merge working && git push origin develop
+  git checkout mac && git merge develop && git push origin mac
+  git checkout working
+  sudo service postgresql stop
 
-# Mac
-cd /home/projects/scriptedlines/frontend
-npm install && npm run dev
-```
 
-### Check ports in use
-```bash
-lsof -i :5173
-lsof -i :8000
-```
+═══════════════════════════════════════════════════════════════
+MAC DAILY STARTUP
+═══════════════════════════════════════════════════════════════
 
-### Connect to database directly
-```bash
-psql -U scriptedlines_user -h localhost -d scriptedlines_db
-```
+Project path: ~/projects/scriptedlines  (/Users/sys_one/projects/scriptedlines)
+Git branch:   mac
 
----
+─── Step 1 — Pull latest code ────────────────────────────────
 
-## Useful Database Queries
-```sql
-SELECT code, name, category FROM library_products ORDER BY category;
-SELECT COUNT(*) FROM library_products;
-\q
-```
+  cd ~/projects/scriptedlines
+  git checkout mac
+  git pull origin mac
 
----
 
-*See GIT_WORKFLOW.md for end of day and git instructions.*
-*See MAC_SETUP.md for first time Mac setup instructions.*
+─── Step 2 — Start PostgreSQL ────────────────────────────────
+
+  brew services start postgresql@16
+
+
+─── Step 3 — Start Backend (Terminal 2) ──────────────────────
+
+  cd ~/projects/scriptedlines/backend
+  source m_venv/bin/activate
+  uvicorn main:app --reload --port 8000
+
+  You should see:
+  ✔ Database tables verified.
+  INFO: Application startup complete.
+
+
+─── Step 4 — Start Frontend (Terminal 3) ─────────────────────
+
+  cd ~/projects/scriptedlines/frontend
+  npm run dev
+
+  You should see:
+  VITE v5.x  ready in Xms
+  ➜  Local: http://localhost:5173/
+
+
+─── Step 5 — Open Browser ────────────────────────────────────
+
+  http://localhost:5173
+
+  Automatically redirects to /login
+  Sign in with your account to access the app.
+
+  Page flow:
+  /login → /projects → /workspace
+
+
+─── End of Day — Mac ─────────────────────────────────────────
+
+  cd ~/projects/scriptedlines
+  bash scripts/backup_db.sh
+  git add .
+  git commit -m "your message here"
+  git push origin mac
+  git checkout develop && git merge mac && git push origin develop
+  git checkout working && git merge develop && git push origin working
+  git checkout mac
+  brew services stop postgresql@16
+
+
+═══════════════════════════════════════════════════════════════
+DIFFERENCE BETWEEN WSL AND MAC
+═══════════════════════════════════════════════════════════════
+
+  Feature              WSL                          Mac
+  ─────────────────────────────────────────────────────────────
+  Project path         /home/restricted_space/      ~/projects/
+                       projects/scriptedlines        scriptedlines
+  Git branch           working                      mac
+  Start PostgreSQL     sudo service postgresql start brew services start postgresql@16
+  Stop PostgreSQL      sudo service postgresql stop  brew services stop postgresql@16
+  Everything else      identical                    identical
+
+
+═══════════════════════════════════════════════════════════════
+CURRENT PAGE FLOW
+═══════════════════════════════════════════════════════════════
+
+  /               → redirects to /login
+  /login          → sign in page (3 attempts then restore password)
+  /register       → create new account
+  /projects       → projects list + drawings (Phase 5 — coming soon)
+  /workspace      → drawing canvas
+
+
+═══════════════════════════════════════════════════════════════
+API ENDPOINTS REFERENCE
+═══════════════════════════════════════════════════════════════
+
+  Health check:    http://localhost:8000/api/health
+  All endpoints:   http://localhost:8000/docs
+  Products:        http://localhost:8000/api/products
+
+
+═══════════════════════════════════════════════════════════════
+DATABASE REFERENCE
+═══════════════════════════════════════════════════════════════
+
+  Host:     localhost:5432
+  Database: scriptedlines_db
+  User:     scriptedlines_user
+  Password: scriptedlines2024
+
+  Check product count:
+  PGPASSWORD=scriptedlines2024 psql -U scriptedlines_user \
+    -h localhost -d scriptedlines_db \
+    -c "SELECT COUNT(*) FROM library_products;"
+
+  Check users:
+  PGPASSWORD=scriptedlines2024 psql -U scriptedlines_user \
+    -h localhost -d scriptedlines_db \
+    -c "SELECT id, first_name, email, role FROM users;"
+
+
+═══════════════════════════════════════════════════════════════
+RESTORE DATABASE ON NEW MACHINE
+═══════════════════════════════════════════════════════════════
+
+  1. Clone repo and checkout correct branch
+  2. Start PostgreSQL
+  3. bash scripts/restore_db.sh
+  4. Start backend and frontend
+  5. Open http://localhost:5173
