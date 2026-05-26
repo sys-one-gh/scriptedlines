@@ -2,14 +2,25 @@
 # main.py
 #
 # FastAPI application entry point.
-# Database is populated via restore_db.sh — not seeded here.
-# Tables are created on startup if they do not exist.
+# All models imported so Base.metadata registers every table.
+# Tables created on startup if they do not exist.
 # ─────────────────────────────────────────────────────────────
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.products import router as products_router
 from database import engine, Base
+
+# ── Import all models so Base.metadata sees every table ──────
+import models
+
+# ── API routers ───────────────────────────────────────────────
+from api.products         import router as products_router
+from api.companies        import router as companies_router
+from api.users            import router as users_router
+from api.projects         import router as projects_router
+from api.drawings         import router as drawings_router
+from api.drawing_products import router as drawing_products_router
+from api.bom              import router as bom_router
 
 
 app = FastAPI(
@@ -31,8 +42,6 @@ app.add_middleware(
 
 
 # ─── STARTUP ─────────────────────────────────────────────────
-# Creates tables if they do not exist.
-# Data comes from restore_db.sh — never seeded here.
 @app.on_event("startup")
 def startup():
     Base.metadata.create_all(bind=engine)
@@ -40,7 +49,13 @@ def startup():
 
 
 # ─── ROUTES ──────────────────────────────────────────────────
-app.include_router(products_router, prefix="/api")
+app.include_router(products_router,         prefix="/api")
+app.include_router(companies_router,        prefix="/api")
+app.include_router(users_router,            prefix="/api")
+app.include_router(projects_router,         prefix="/api")
+app.include_router(drawings_router,         prefix="/api")
+app.include_router(drawing_products_router, prefix="/api")
+app.include_router(bom_router,              prefix="/api")
 
 
 @app.get("/api/health")
