@@ -20,7 +20,8 @@ function RegisterPage() {
 
   const [error,    setError]    = useState("");
   const [loading,  setLoading]  = useState(false);
-  const [showPass, setShowPass] = useState(false);
+  const [showPass,    setShowPass]    = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -196,15 +197,25 @@ function RegisterPage() {
           {/* Confirm Password */}
           <div style={styles.fieldGroup}>
             <label style={styles.label}>CONFIRM PASSWORD</label>
-            <input
-              name="confirm"
-              type={showPass ? "text" : "password"}
-              value={form.confirm}
-              onChange={handleChange}
-              placeholder="Repeat password"
-              style={styles.input}
-              autoComplete="new-password"
-            />
+            <div style={styles.passwordWrap}>
+              <input
+                name="confirm"
+                type={showConfirm ? "text" : "password"}
+                value={form.confirm}
+                onChange={handleChange}
+                placeholder="Repeat password"
+                style={{ ...styles.input, paddingRight: "44px" }}
+                autoComplete="new-password"
+              />
+              <button
+                type="button"
+                onClick={() => setShowConfirm(!showConfirm)}
+                style={styles.eyeBtn}
+                tabIndex={-1}
+              >
+                {showConfirm ? "🙈" : "👁"}
+              </button>
+            </div>
           </div>
 
           <button
