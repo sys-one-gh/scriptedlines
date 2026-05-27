@@ -26,10 +26,15 @@ router = APIRouter()
 
 # ─── SCHEMAS ─────────────────────────────────────────────────
 
+# Drawing number validation: D + exactly 4 digits e.g. D9501
+import re
+DRAWING_NUMBER_RE = re.compile(r"^D[0-9]{4}$")
+
 class DrawingCreate(BaseModel):
     project_id:       int
     created_by:       int
     drawing_number:   str
+    mw_number:        Optional[str] = ""
     title:            str
     level:            Optional[str] = ""
     location:         Optional[str] = ""
@@ -62,6 +67,7 @@ def drawing_to_dict(d: Drawing, include_relations: bool = False) -> dict:
         "project_id":       d.project_id,
         "created_by":       d.created_by,
         "drawing_number":   d.drawing_number,
+        "mw_number":        d.mw_number,
         "title":            d.title,
         "revision":         d.revision,
         "level":            d.level,
@@ -127,6 +133,14 @@ def create_drawing(data: DrawingCreate, db: Session = Depends(get_db)):
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
 
+    # Validate drawing number format: D + 4 digits
+    if not DRAWING_NUMBER_RE.match(data.drawing_number.upper()):
+        raise HTTPException(
+            status_code=400,
+            detail="Drawing number must be D followed by 4 digits (e.g. D9501). Page numbers use decimal: D9501.01"
+        )
+    data.drawing_number = data.drawing_number.upper()
+
     # Resolve paper size enum
     try:
         paper_size = PaperSize[data.paper_size] if data.paper_size else PaperSize.Arch_D
@@ -143,6 +157,7 @@ def create_drawing(data: DrawingCreate, db: Session = Depends(get_db)):
         project_id       = data.project_id,
         created_by       = data.created_by,
         drawing_number   = data.drawing_number,
+        mw_number        = data.mw_number        or "",
         title            = data.title,
         level            = data.level            or "",
         location         = data.location         or "",
