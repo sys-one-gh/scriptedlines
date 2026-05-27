@@ -7,6 +7,7 @@ const STANDARDS = ["AWMAC", "AWI", "WI"];
 const SCALES    = ["1:4", "1:10", "1:20", "1:50", "1:100", "As Noted"];
 const PAPER_SIZES = ["Arch_D", "Arch_E"];
 const AVATARS   = ["🏛", "📐", "📏", "🔩", "🪚", "⚙️", "🔧", "🏗", "✏️", "📋"];
+const COMPLIANCE_OPTIONS = ["LEED", "FSC", "FR"];
 
 const STATUS_COLORS = {
   draft:    { bg: "#1a1a1a", color: "#888",    border: "#2a2a2a", dot: "#555" },
@@ -162,9 +163,6 @@ function ProjectsPage() {
         scheduled_start_date:      pForm.scheduled_start_date      || null,
         scheduled_completion_date: pForm.scheduled_completion_date || null,
         project_budget: pForm.project_budget ? parseFloat(pForm.project_budget) : null,
-        compliance_leed: pForm.compliance_leed,
-        compliance_fsc:  pForm.compliance_fsc,
-        compliance_fr:   pForm.compliance_fr,
       };
       const res  = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
       const data = await res.json();
@@ -370,6 +368,7 @@ function ProjectsPage() {
               Active
               {activeProjects.length > 0 && <span style={S.tabCount}>{activeProjects.length}</span>}
             </button>
+            <div style={S.tabSeparator} />
             <button
               style={{ ...S.projectTab, ...(projectTab === "archived" ? S.projectTabActive : {}) }}
               onClick={() => setProjectTab("archived")}
@@ -556,7 +555,7 @@ function ProjectsPage() {
                 /* LIST VIEW */
                 <div style={S.listWrap}>
                   <div style={S.listHeader}>
-                      <span style={{ ...S.listCol, flex: 1.2 }}>Drawing #</span>
+                    <span style={S.listCol}>Drawing #</span>
                     <span style={S.listCol}>MW#</span>
                     <span style={{ ...S.listCol, flex: 1.5 }}>Title</span>
                     <span style={S.listCol}>Status</span>
@@ -569,8 +568,8 @@ function ProjectsPage() {
                     const sc = STATUS_COLORS[d.status] || STATUS_COLORS.draft;
                     return (
                       <div key={d.id} style={S.listRow}>
-                        <span style={{ ...S.listCell, flex: 1.2, color: "#4f8ef7", fontWeight: "700", fontFamily: "'IBM Plex Sans', monospace" }}>{d.drawing_number}</span>
-                        <span style={{ ...S.listCell, fontFamily: "'IBM Plex Sans', monospace" }}>{d.mw_number || "—"}</span>
+                        <span style={S.listCell}><span style={{ color: "#4f8ef7", fontWeight: "700", fontFamily: "'IBM Plex Sans', monospace" }}>{d.drawing_number}</span></span>
+                        <span style={S.listCell}><span style={{ fontFamily: "'IBM Plex Sans', monospace" }}>{d.mw_number || "—"}</span></span>
                         <span style={{ ...S.listCell, flex: 1.5 }}>{d.title}</span>
                         <span style={S.listCell}>
                           <span style={{ ...S.statusBadge, background: sc.bg, color: sc.color, borderColor: sc.border }}>
@@ -663,25 +662,28 @@ function ProjectsPage() {
                     <F label="JOB NUMBER"      name="job_number"     val={pForm.job_number}     set={setPForm} pForm={pForm} placeholder="e.g. 1930 (your workplace number)" />
                     <Sel label="PROJECT GRADE" name="project_grade"  val={pForm.project_grade}  set={setPForm} pForm={pForm} opts={GRADES} />
                     <Sel label="STANDARD"      name="standard"       val={pForm.standard}       set={setPForm} pForm={pForm} opts={STANDARDS} />
-                    <div style={{ gridColumn: "1 / -1" }}>
-                      <label style={S.formLabel}>DESCRIPTION</label>
-                      <textarea name="description" value={pForm.description} onChange={e => setPForm({ ...pForm, description: e.target.value })} style={S.formTextarea} rows={3} placeholder="Brief description of this project..." />
-                    </div>
+                    
+                    {/* COMPLIANCE CHECKBOXES */}
                     <div style={{ gridColumn: "1 / -1" }}>
                       <label style={S.formLabel}>COMPLIANCE</label>
-                      <div style={{ display: "flex", gap: "24px", marginTop: "6px" }}>
-                        {[["compliance_leed","LEED"],["compliance_fsc","FSC"],["compliance_fr","FR"]].map(([key,label]) => (
-                          <label key={key} style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
+                      <div style={S.checkboxGroup}>
+                        {COMPLIANCE_OPTIONS.map(opt => (
+                          <label key={opt} style={S.checkboxLabel}>
                             <input
                               type="checkbox"
-                              checked={pForm[key]}
-                              onChange={e => setPForm({ ...pForm, [key]: e.target.checked })}
-                              style={{ width: "16px", height: "16px", accentColor: "#4f8ef7", cursor: "pointer" }}
+                              checked={pForm[`compliance_${opt.toLowerCase()}`] || false}
+                              onChange={e => setPForm({ ...pForm, [`compliance_${opt.toLowerCase()}`]: e.target.checked })}
+                              style={S.checkbox}
                             />
-                            <span style={{ fontSize: "14px", color: "#ffffff", fontFamily: "'IBM Plex Sans', monospace", letterSpacing: "1px" }}>{label}</span>
+                            <span style={S.checkboxText}>{opt}</span>
                           </label>
                         ))}
                       </div>
+                    </div>
+
+                    <div style={{ gridColumn: "1 / -1" }}>
+                      <label style={S.formLabel}>DESCRIPTION</label>
+                      <textarea name="description" value={pForm.description} onChange={e => setPForm({ ...pForm, description: e.target.value })} style={S.formTextarea} rows={3} placeholder="Brief description of this project..." />
                     </div>
                   </div>
                 )}
@@ -948,12 +950,12 @@ const S = {
     background: "#0d0d0d",
     borderBottom: "1px solid #1e1e1e",
     height: "36px",
+    alignItems: "center",
   },
   projectTab: {
     flex: 1, height: "100%",
     background: "transparent", color: "#aaaaaa",
     border: "none", borderBottom: "2px solid transparent",
-    borderRight: "1px solid #222222",
     cursor: "pointer", fontSize: "13px",
     fontFamily: "'DM Sans', sans-serif",
     display: "flex", alignItems: "center", justifyContent: "center",
@@ -968,6 +970,10 @@ const S = {
     fontSize: "10px", background: "#1a3a6a",
     color: "#ffffff", padding: "1px 5px",
     borderRadius: "10px", fontFamily: "'IBM Plex Sans', monospace",
+  },
+  tabSeparator: {
+    width: "1px", height: "20px",
+    background: "#1e1e1e", margin: "0 0",
   },
 
   explorerList: { flex: 1, overflowY: "auto", padding: "6px" },
@@ -1303,6 +1309,23 @@ const S = {
     outline: "none", fontSize: "14px",
     fontFamily: "'DM Sans', sans-serif",
     width: "100%", boxSizing: "border-box", resize: "vertical",
+  },
+
+  // Compliance checkboxes
+  checkboxGroup: {
+    display: "flex", gap: "20px", marginTop: "8px",
+  },
+  checkboxLabel: {
+    display: "flex", alignItems: "center", gap: "8px",
+    cursor: "pointer", fontSize: "14px", color: "#e0e0e0",
+    fontFamily: "'DM Sans', sans-serif",
+  },
+  checkbox: {
+    width: "18px", height: "18px",
+    cursor: "pointer", accentColor: "#4f8ef7",
+  },
+  checkboxText: {
+    fontSize: "14px", fontWeight: "500",
   },
 
   discardBtn: {
