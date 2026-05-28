@@ -1,48 +1,46 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────
 # backup_db.sh
-#
-# Backs up the ScriptedLines PostgreSQL database.
-# Always overwrites scriptedlines_latest.bak — no dated copies.
-# Works on both WSL and Mac — same path on both machines.
-#
-# Usage:
-#   bash scripts/backup_db.sh
-# Run from project root: /home/restricted_space/projects/scriptedlines/
+# Works on both WSL and Mac.
+# Usage: bash scripts/backup_db.sh
+# Run from project root.
 # ─────────────────────────────────────────────────────────────
 
-# ── GET PROJECT ROOT ─────────────────────────────────────────
-# Resolves to scriptedlines/ root regardless of where called from
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-# ── CONFIG ───────────────────────────────────────────────────
 DB_NAME="scriptedlines_db"
 DB_USER="scriptedlines_user"
 DB_HOST="localhost"
 BACKUP_DIR="$PROJECT_ROOT/data/backups"
 BACKUP_FILE="$BACKUP_DIR/scriptedlines_latest.bak"
 
-# ── CREATE BACKUP DIRECTORY IF NEEDED ────────────────────────
 mkdir -p "$BACKUP_DIR"
+rm -f "$BACKUP_FILE"
 
-# ── DELETE OLD BACKUP ────────────────────────────────────────
-if [ -f "$BACKUP_FILE" ]; then
-  rm "$BACKUP_FILE"
+# ── DETECT OS ────────────────────────────────────────────────
+OS="$(uname -s)"
+if [ "$OS" = "Darwin" ]; then
+  echo "Detected: Mac"
+  # Mac: use scriptedlines_user with password over TCP
+  PGPASSWORD="scriptedlines2024" pg_dump \
+    -U "$DB_USER" \
+    -h "$DB_HOST" \
+    -F c \
+    "$DB_NAME" \
+    -f "$BACKUP_FILE"
+else
+  echo "Detected: Linux/WSL"
+  # WSL: use postgres superuser via peer auth (no password needed)
+  sudo -u postgres pg_dump \
+    -F c \
+    "$DB_NAME" \
+    -f "$BACKUP_FILE"
+  # Make readable by current user
+  sudo chmod 644 "$BACKUP_FILE"
 fi
 
-# ── RUN BACKUP ───────────────────────────────────────────────
-echo "Backing up $DB_NAME..."
-
-PGPASSWORD="scriptedlines2024" pg_dump \
-  -U "$DB_USER" \
-  -h "$DB_HOST" \
-  -F c \
-  "$DB_NAME" \
-  -f "$BACKUP_FILE"
-
-# ── VERIFY ───────────────────────────────────────────────────
-if [ $? -eq 0 ]; then
+if [ $? -eq 0 ] && [ -f "$BACKUP_FILE" ]; then
   SIZE=$(du -sh "$BACKUP_FILE" | cut -f1)
   echo "✔ Backup complete"
   echo "  File : $BACKUP_FILE"
