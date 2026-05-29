@@ -541,23 +541,12 @@
     linear-gradient(90deg, rgba(79,142,247,0.06) 1px, transparent 1px);
   background-size: 20px 20px;
 }
-.pp-thumb-content {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 4px; padding: 12px;
-}
-.pp-thumb-number {
-  font-size: 22px; font-weight: 800;
-  color: rgba(79,142,247,0.9);
-  font-family: var(--font-mono); letter-spacing: 2px;
-}
-.pp-thumb-mw    { font-size: 11px; color: rgba(79,142,247,0.5); font-family: var(--font-mono); }
-.pp-thumb-title {
-  font-size: 12px; color: rgba(224,224,224,0.6);
-  text-align: center; max-width: 200px;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
+/* Thumbnail text — hidden, drawing info now lives in card body */
+.pp-thumb-content { display: none; }
+.pp-thumb-number  { display: none; }
+.pp-thumb-mw      { display: none; }
+.pp-thumb-title   { display: none; }
+
 .pp-thumb-status {
   position: absolute; top: 10px; right: 10px;
   display: flex; align-items: center; gap: 5px;
@@ -565,14 +554,32 @@
   padding: 3px 8px; border-radius: var(--radius-sm);
   border: 1px solid;
   font-family: var(--font-mono);
-  text-transform: uppercase; letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
 }
 
-/* Card body */
-.pp-card-body   { padding: 14px 14px 8px; display: flex; flex-direction: column; gap: 4px; }
-.pp-card-number { font-size: 15px; font-weight: 700; color: var(--accent); font-family: var(--font-mono); }
-.pp-card-title  { font-size: 14px; color: var(--text-secondary); font-weight: 500; line-height: 1.4; }
-.pp-card-meta   { font-size: 13px; color: var(--text-dim); font-family: var(--font-mono); }
+/* ── Card body — 3 info lines ───────────────────────────── */
+.pp-card-body { padding: 12px 14px 6px; display: flex; flex-direction: column; gap: 5px; }
+
+/* Line 1: Drawing # · Title                         Rev xx */
+.pp-card-line1 { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.pp-card-number { font-weight: 800; color: var(--accent); font-family: var(--font-mono); letter-spacing: 1px; flex-shrink: 0; }
+.pp-card-sep    { color: var(--border-medium); flex-shrink: 0; }
+.pp-card-title  { font-weight: 600; color: var(--text-secondary); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pp-card-rev    { font-size: 11px; color: var(--accent); font-family: var(--font-mono); background: var(--bg-active); border: 1px solid var(--border-accent); padding: 2px 7px; border-radius: 3px; flex-shrink: 0; margin-left: auto; }
+
+/* Line 2: MW# · Level · Location · Arch Ref */
+.pp-card-line2     { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--text-dim); font-family: var(--font-mono); overflow: hidden; }
+.pp-card-meta-item { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-card-arch      { color: var(--text-ghost); }
+.pp-card-dot       { color: var(--border-medium); flex-shrink: 0; }
+
+/* Line 3: Paper size · Pages */
+.pp-card-line3 { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--text-disabled); font-family: var(--font-mono); }
+
+/* ── List sortable column headers ───────────────────────── */
+.pp-list-col--sortable { cursor: pointer; user-select: none; transition: color var(--transition-fast); }
+.pp-list-col--sortable:hover { color: var(--text-primary); }
+.pp-sort-arrow { color: var(--accent); font-size: 11px; }
 
 /* Card action bar */
 .pp-card-actions {
@@ -617,7 +624,7 @@
   padding: 3px 8px; border-radius: var(--radius-sm);
   border: 1px solid;
   font-family: var(--font-mono);
-  text-transform: uppercase; letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
 }
 .pp-status-dot { width: 5px; height: 5px; border-radius: 50%; }
 
@@ -789,7 +796,7 @@
 .pp-avatar-hint { padding: 0 28px 24px; text-align: center; font-size: 12px; color: var(--text-disabled); }
 
 /* New drawing modal */
-.pp-modal--drawing { width: 560px; }
+.pp-modal--drawing { width: 640px; }
 
 /* ============================================================
    DRAWING VIEWER OVERLAY
@@ -971,9 +978,9 @@
   background: var(--bg-raised); border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
 }
-.vw-page-label   { font-size: 12px; color: #444; font-family: var(--font-mono); }
+.vw-page-label   { font-size: 12px; color: #888888; font-family: var(--font-mono); }
 .vw-page-current { font-size: 14px; font-weight: 700; color: var(--accent); font-family: var(--font-mono); }
-.vw-page-total   { font-size: 14px; color: var(--text-ghost); font-family: var(--font-mono); }
+.vw-page-total   { font-size: 14px; color: var(--text-muted); font-family: var(--font-mono); }
 
 /* ── Sidebar resize divider ────────────────────── */
 .vw-sidebar-divider {

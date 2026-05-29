@@ -1,25 +1,52 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { paperSizes } from "../data/paperSizes";
 import "./ProjectsPage.css";
 
 const API = "http://localhost:8000/api";
 const GRADES    = ["Custom", "Premium", "Standard", "Commercial", "Institutional"];
 const STANDARDS = ["AWMAC", "AWI", "WI"];
-const SCALES    = ["1:4", "1:10", "1:20", "1:50", "1:100", "As Noted"];
-const PAPER_SIZES = ["Arch_D", "Arch_E"];
+const PAPER_SIZES = ["Arch_D", "Arch_C", "Arch_E", "ANSI_B", "ANSI_A", "A1", "A3"];
 const PAPER_SIZE_LABELS = {
   "Arch_D": 'Arch D — 36" × 24"',
+  "Arch_C": 'Arch C — 24" × 18"',
   "Arch_E": 'Arch E — 48" × 36"',
+  "ANSI_B": 'ANSI B — 17" × 11"',
+  "ANSI_A": 'ANSI A — 11" × 8.5"',
+  "A1":     "A1 — 841 × 594 mm",
+  "A3":     "A3 — 420 × 297 mm",
 };
 const AVATARS   = ["🏛", "📐", "📏", "🔩", "🪚", "⚙️", "🔧", "🏗", "✏️", "📋"];
 const COMPLIANCE_OPTIONS = ["LEED", "FSC", "FR"];
 
-const STATUS_CSS = {
-  draft:    { bg: "var(--status-draft-bg)",    color: "var(--status-draft-color)",    border: "var(--status-draft-border)",    dot: "#555" },
-  review:   { bg: "var(--status-review-bg)",   color: "var(--status-review-color)",   border: "var(--status-review-border)",   dot: "#e6a817" },
-  approved: { bg: "var(--status-approved-bg)", color: "var(--status-approved-color)", border: "var(--status-approved-border)", dot: "#4caf50" },
-  issued:   { bg: "var(--status-issued-bg)",   color: "var(--status-issued-color)",   border: "var(--status-issued-border)",   dot: "#4f8ef7" },
+// Status display labels — DB stores draft/review/approved/issued
+// UI shows human-readable labels
+const STATUS_LABELS = {
+  draft:             "In Drafting",
+  review:            "In Review",
+  approved:          "Reviewed as Noted",
+  submittal_pending: "Submittal Pending",
+  submitted:         "Submitted",
+  issued:            "Final Release",
 };
+
+const STATUS_CSS = {
+  draft:             { bg: "var(--status-draft-bg)",    color: "var(--status-draft-color)",    border: "var(--status-draft-border)",    dot: "#555" },
+  review:            { bg: "var(--status-review-bg)",   color: "var(--status-review-color)",   border: "var(--status-review-border)",   dot: "#e6a817" },
+  approved:          { bg: "var(--status-approved-bg)", color: "var(--status-approved-color)", border: "var(--status-approved-border)", dot: "#4caf50" },
+  submittal_pending: { bg: "#1a1200",                   color: "#e6a817",                      border: "#4a3800",                       dot: "#e6a817" },
+  submitted:         { bg: "#001a2a",                   color: "#4f8ef7",                      border: "#1a3a6a",                       dot: "#4f8ef7" },
+  issued:            { bg: "var(--status-issued-bg)",   color: "var(--status-issued-color)",   border: "var(--status-issued-border)",   dot: "#4f8ef7" },
+};
+
+// Sortable fields for both card and list views
+const SORT_OPTIONS = [
+  { value: "drawing_number", label: "Drawing #" },
+  { value: "title",          label: "Drawing Name" },
+  { value: "mw_number",      label: "MW#" },
+  { value: "level",          label: "Level" },
+  { value: "status",         label: "Status" },
+];
 
 const SECTIONS = ["Identity", "Team", "Client", "Job Site", "Schedule"];
 
@@ -70,6 +97,12 @@ function ProjectsPage() {
   const [projectTab,       setProjectTab]       = useState("active");
   const [drawingSearch,    setDrawingSearch]    = useState("");
 
+  // ── Sort state ────────────────────────────────────────────
+  // sortField: which field to sort by (drawing_number, title, mw_number, level)
+  // sortDir: "asc" or "desc"
+  const [sortField, setSortField] = useState("drawing_number");
+  const [sortDir,   setSortDir]   = useState("asc");
+
   // ── UI state ──────────────────────────────────────────────
   const [showNewProject,   setShowNewProject]   = useState(false);
   const [showNewDrawing,   setShowNewDrawing]   = useState(false);
@@ -96,7 +129,8 @@ function ProjectsPage() {
   const [pLoading, setPLoading] = useState(false);
 
   // ── Drawing form ──────────────────────────────────────────
-  const emptyDrawing = { drawing_number:"", mw_number:"", title:"", scale:"1:20", paper_size:"Arch_D", level:"", location:"", arch_ref:"", item_description:"" };
+  // page_count = number of canvas pages within this drawing (not project sequence)
+  const emptyDrawing = { drawing_number:"", mw_number:"", title:"", paper_size:"Arch_D", level:"", location:"", arch_ref:"", item_description:"", page_count: 1 };
   const [dForm,    setDForm]    = useState(emptyDrawing);
   const [dError,   setDError]   = useState("");
   const [dLoading, setDLoading] = useState(false);
@@ -258,9 +292,22 @@ function ProjectsPage() {
     return () => el.removeEventListener("wheel", onWheel);
   }, [viewerDrawing]);
 
-  function openViewer(d) {
-    setViewerDrawing(d); setZoom(100); setCurrentPage(1);
+  async function openViewer(d) {
+    // Reset viewer state immediately so modal opens fast
+    setZoom(100); setCurrentPage(1);
     setPan({ x: 0, y: 0 }); panOffset.current = { x: 0, y: 0 };
+    // Set basic data first so header renders immediately
+    setViewerDrawing(d);
+    // Fetch full drawing data including svg_data from DB
+    try {
+      const res  = await fetch(`${API}/drawings/${d.id}`);
+      const data = await res.json();
+      if (res.ok && data.drawing) {
+        setViewerDrawing(data.drawing);
+      }
+    } catch {
+      // Keep basic data already set above
+    }
   }
   function closeViewer() { setViewerDrawing(null); }
 
@@ -319,6 +366,7 @@ function ProjectsPage() {
   // ── Create drawing ────────────────────────────────────────
   async function createDrawing(e) {
     e.preventDefault();
+    if (!selectedProject) { setDError("No project selected."); return; }
     if (!dForm.drawing_number.trim()) { setDError("Drawing number is required."); return; }
     if (!validateDrawingNumber(dForm.drawing_number)) {
       setDError("Drawing number must be D followed by exactly 4 digits (e.g. D9501). Pages: D9501.01"); return;
@@ -328,8 +376,13 @@ function ProjectsPage() {
     try {
       const res  = await fetch(`${API}/drawings`, {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ project_id: selectedProject.id, created_by: user.id, ...dForm,
-          drawing_number: dForm.drawing_number.toUpperCase() }),
+        body: JSON.stringify({
+          project_id:  selectedProject.id,
+          created_by:  user.id,
+          ...dForm,
+          drawing_number: dForm.drawing_number.toUpperCase(),
+          page_count: dForm.page_count || 1,
+        }),
       });
       const data = await res.json();
       if (!res.ok) { setDError(data.detail || "Failed."); setDLoading(false); return; }
@@ -352,10 +405,33 @@ function ProjectsPage() {
     setDForm({ ...dForm, drawing_number: val }); setDError("");
   }
 
-  const filtered = drawings.filter(d =>
-    d.drawing_number.toLowerCase().includes(drawingSearch.toLowerCase()) ||
-    d.title.toLowerCase().includes(drawingSearch.toLowerCase())
-  );
+  // ── Sort toggle (for list view column headers) ───────────
+  // Clicking the same column toggles direction; new column defaults to asc
+  function toggleSort(field) {
+    if (sortField === field) {
+      setSortDir(d => d === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortDir("asc");
+    }
+  }
+
+  // ── Filter + sort drawings ────────────────────────────────
+  // Filter by search term across drawing_number and title
+  // Then sort by selected field and direction
+  const filtered = drawings
+    .filter(d =>
+      d.drawing_number.toLowerCase().includes(drawingSearch.toLowerCase()) ||
+      d.title.toLowerCase().includes(drawingSearch.toLowerCase())
+    )
+    .sort((a, b) => {
+      const av = (a[sortField] || "").toString().toLowerCase();
+      const bv = (b[sortField] || "").toString().toLowerCase();
+      if (av < bv) return sortDir === "asc" ? -1 :  1;
+      if (av > bv) return sortDir === "asc" ?  1 : -1;
+      return 0;
+    });
+
   const displayedProjects = projectTab === "active" ? activeProjects : archivedProjects;
 
   // ─── RENDER ──────────────────────────────────────────────
@@ -536,15 +612,44 @@ function ProjectsPage() {
                   </div>
                 </div>
                 <div className="pp-project-header-right">
+                  {/* Search drawings */}
                   <div className="pp-search-wrap">
                     <span className="pp-search-icon">⌕</span>
                     <input className="pp-search-input" type="text" placeholder="Search drawings..."
                       value={drawingSearch} onChange={e => setDrawingSearch(e.target.value)} />
                   </div>
+
+                  {/* Sort label + dropdown — works for both card and list view */}
+                  <span style={{ fontSize: "12px", color: "var(--text-dim)", fontFamily: "var(--font-mono)", whiteSpace: "nowrap" }}>
+                    Sort by:
+                  </span>
+                  <select
+                    className="pp-form-select"
+                    style={{ height: "32px", width: "140px", fontSize: "12px" }}
+                    value={sortField}
+                    onChange={e => { setSortField(e.target.value); setSortDir("asc"); }}
+                  >
+                    {SORT_OPTIONS.map(o => (
+                      <option key={o.value} value={o.value}>{o.label}</option>
+                    ))}
+                  </select>
+
+                  {/* Sort direction toggle */}
+                  <button
+                    className="pp-act-btn"
+                    style={{ height: "32px", padding: "0 10px", fontSize: "13px" }}
+                    onClick={() => setSortDir(d => d === "asc" ? "desc" : "asc")}
+                    title={sortDir === "asc" ? "Ascending — click for descending" : "Descending — click for ascending"}
+                  >
+                    {sortDir === "asc" ? "↑" : "↓"}
+                  </button>
+
+                  {/* View toggle — card or list */}
                   <div className="pp-view-toggle">
                     <button className={`pp-view-btn${viewMode === "card" ? " pp-view-btn--active" : ""}`} onClick={() => setViewMode("card")} title="Card view">⊞</button>
                     <button className={`pp-view-btn${viewMode === "list" ? " pp-view-btn--active" : ""}`} onClick={() => setViewMode("list")} title="List view">≡</button>
                   </div>
+
                   <button className="pp-btn-outline"
                     onClick={() => { setShowNewDrawing(true); setDForm(emptyDrawing); setDError(""); }}>
                     + New Drawing
@@ -576,25 +681,47 @@ function ProjectsPage() {
                     const sc = STATUS_CSS[d.status] || STATUS_CSS.draft;
                     return (
                       <div key={d.id} className="pp-card">
+
+                        {/* ── Thumbnail — shows PDF thumbnail after first commit.
+                            Empty blueprint grid until then. ── */}
                         <div className="pp-thumb">
                           <div className="pp-thumb-grid" />
-                          <div className="pp-thumb-content">
-                            <div className="pp-thumb-number">{d.drawing_number}</div>
-                            {d.mw_number && <div className="pp-thumb-mw">MW# {d.mw_number}</div>}
-                            <div className="pp-thumb-title">{d.title}</div>
-                          </div>
+                          {/* Status badge — top right */}
                           <div className="pp-thumb-status" style={{ background: sc.bg, color: sc.color, borderColor: sc.border }}>
                             <div className="pp-status-dot" style={{ background: sc.dot }} />
-                            {d.status}
+                            {STATUS_LABELS[d.status] || d.status}
                           </div>
                         </div>
+
+                        {/* ── Card body — all drawing info ── */}
                         <div className="pp-card-body">
-                          <div className="pp-card-number">{d.drawing_number}</div>
-                          <div className="pp-card-title">{d.title}</div>
-                          <div className="pp-card-meta">
-                            {[d.scale, d.level && `Lv ${d.level}`, `Rev ${d.revision}`, `Pg ${d.page_number}/${d.total_pages}`].filter(Boolean).join("  ·  ")}
+
+                          {/* Line 1: Drawing # · Drawing Name (right-aligned Rev) */}
+                          <div className="pp-card-line1">
+                            <span className="pp-card-number">{d.drawing_number}</span>
+                            <span className="pp-card-sep">·</span>
+                            <span className="pp-card-title">{d.title}</span>
+                            <span className="pp-card-rev">Rev {d.revision || "00"}</span>
                           </div>
+
+                          {/* Line 2: MW# · Level · Location · Arch Ref */}
+                          <div className="pp-card-line2">
+                            {d.mw_number  && <span className="pp-card-meta-item">MW# {d.mw_number}</span>}
+                            {d.level      && <><span className="pp-card-dot">·</span><span className="pp-card-meta-item">Lv {d.level}</span></>}
+                            {d.location   && <><span className="pp-card-dot">·</span><span className="pp-card-meta-item">{d.location}</span></>}
+                            {d.arch_ref   && <><span className="pp-card-dot">·</span><span className="pp-card-meta-item pp-card-arch">{d.arch_ref}</span></>}
+                          </div>
+
+                          {/* Line 3: Paper size · Pages */}
+                          <div className="pp-card-line3">
+                            <span className="pp-card-meta-item">{PAPER_SIZE_LABELS[d.paper_size] || d.paper_size}</span>
+                            <span className="pp-card-dot">·</span>
+                            <span className="pp-card-meta-item">{d.page_count || 1} {(d.page_count || 1) === 1 ? "Page" : "Pages"}</span>
+                          </div>
+
                         </div>
+
+                        {/* ── Action bar ── */}
                         <div className="pp-card-actions">
                           <button className="pp-act-open"   onClick={() => openDrawing(d)}>Open</button>
                           <button className="pp-act-btn"    disabled>+ Rev</button>
@@ -603,6 +730,7 @@ function ProjectsPage() {
                           <button className="pp-act-btn"    disabled>BOM</button>
                           <button className="pp-act-btn pp-act-btn--danger" onClick={() => setDeleteConfirm(d)}>🗑</button>
                         </div>
+
                       </div>
                     );
                   })}
@@ -613,30 +741,79 @@ function ProjectsPage() {
                 /* LIST VIEW */
                 <div className="pp-list-wrap">
                   <div className="pp-list-header">
-                    <span className="pp-list-col" style={{ flex: 1.2 }}>Drawing #</span>
-                    <span className="pp-list-col">MW#</span>
-                    <span className="pp-list-col" style={{ flex: 1.5 }}>Title</span>
-                    <span className="pp-list-col">Status</span>
-                    <span className="pp-list-col">Scale</span>
-                    <span className="pp-list-col">Rev</span>
-                    <span className="pp-list-col">Page</span>
+
+                    {/* Sortable columns — show ↑↓ indicator on active sort */}
+                    <span className="pp-list-col pp-list-col--sortable" style={{ flex: 1.2 }}
+                      onClick={() => toggleSort("drawing_number")}>
+                      Drawing #
+                      {sortField === "drawing_number" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    </span>
+
+                    <span className="pp-list-col pp-list-col--sortable" style={{ flex: 1.5 }}
+                      onClick={() => toggleSort("title")}>
+                      Drawing Name
+                      {sortField === "title" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    </span>
+
+                    {/* Rev — not sortable */}
+                    <span className="pp-list-col">Rev #</span>
+
+                    <span className="pp-list-col pp-list-col--sortable"
+                      onClick={() => toggleSort("mw_number")}>
+                      MW#
+                      {sortField === "mw_number" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    </span>
+
+                    <span className="pp-list-col pp-list-col--sortable"
+                      onClick={() => toggleSort("level")}>
+                      Level
+                      {sortField === "level" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    </span>
+
+                    {/* Status — sortable */}
+                    <span className="pp-list-col pp-list-col--sortable" style={{ flex: 1.4 }}
+                      onClick={() => toggleSort("status")}>
+                      Status
+                      {sortField === "status" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    </span>
+
+                    {/* Actions — always last */}
                     <span className="pp-list-col" style={{ flex: 2 }}>Actions</span>
+
                   </div>
+
                   {filtered.map(d => {
                     const sc = STATUS_CSS[d.status] || STATUS_CSS.draft;
                     return (
                       <div key={d.id} className="pp-list-row">
-                        <span className="pp-list-cell" style={{ flex: 1.2, color: "var(--accent)", fontWeight: 700, fontFamily: "var(--font-mono)" }}>{d.drawing_number}</span>
-                        <span className="pp-list-cell" style={{ fontFamily: "var(--font-mono)" }}>{d.mw_number || "—"}</span>
+
+                        <span className="pp-list-cell" style={{ flex: 1.2, color: "var(--accent)", fontWeight: 700, fontFamily: "var(--font-mono)" }}>
+                          {d.drawing_number}
+                        </span>
+
                         <span className="pp-list-cell" style={{ flex: 1.5 }}>{d.title}</span>
+
+                        <span className="pp-list-cell" style={{ fontFamily: "var(--font-mono)" }}>
+                          {d.revision || "00"}
+                        </span>
+
+                        <span className="pp-list-cell" style={{ fontFamily: "var(--font-mono)" }}>
+                          {d.mw_number || "—"}
+                        </span>
+
                         <span className="pp-list-cell">
+                          {d.level || "—"}
+                        </span>
+
+                        {/* Status with human-readable label */}
+                        <span className="pp-list-cell" style={{ flex: 1.4 }}>
                           <span className="pp-status-badge" style={{ background: sc.bg, color: sc.color, borderColor: sc.border }}>
-                            <div className="pp-status-dot" style={{ background: sc.dot }} />{d.status}
+                            <div className="pp-status-dot" style={{ background: sc.dot }} />
+                            {STATUS_LABELS[d.status] || d.status}
                           </span>
                         </span>
-                        <span className="pp-list-cell">{d.scale}</span>
-                        <span className="pp-list-cell">{d.revision}</span>
-                        <span className="pp-list-cell">{d.page_number}/{d.total_pages}</span>
+
+                        {/* Action buttons — always at end */}
                         <span className="pp-list-cell" style={{ flex: 2 }}>
                           <div style={{ display: "flex", gap: "4px" }}>
                             <button className="pp-act-open"  onClick={() => openDrawing(d)}>Open</button>
@@ -647,6 +824,7 @@ function ProjectsPage() {
                             <button className="pp-act-btn pp-act-btn--danger" onClick={() => setDeleteConfirm(d)}>🗑</button>
                           </div>
                         </span>
+
                       </div>
                     );
                   })}
@@ -810,8 +988,19 @@ function ProjectsPage() {
                   </div>
                   <F label="MW# (MILLWORK SCOPE)"  name="mw_number"        val={dForm.mw_number}        set={setDForm} pForm={dForm} placeholder="e.g. MW-01" />
                   <F label="TITLE *"               name="title"            val={dForm.title}            set={setDForm} pForm={dForm} placeholder="e.g. Staff Lunch Counter" full />
-                  <Sel label="SCALE"               name="scale"            val={dForm.scale}            set={setDForm} pForm={dForm} opts={SCALES} />
                   <Sel label="PAPER SIZE"          name="paper_size"       val={dForm.paper_size}       set={setDForm} pForm={dForm} opts={PAPER_SIZES} display={p => PAPER_SIZE_LABELS[p]} />
+                  <div className="pp-form-field">
+                    <label className="pp-form-label">NUMBER OF PAGES</label>
+                    <input
+                      type="number"
+                      min="1"
+                      max="99"
+                      className="pp-form-input"
+                      value={dForm.page_count}
+                      onChange={e => setDForm({ ...dForm, page_count: Math.max(1, parseInt(e.target.value) || 1) })}
+                    />
+                    <span className="pp-form-hint">How many canvas pages this drawing has (default 1)</span>
+                  </div>
                   <F label="LEVEL"                 name="level"            val={dForm.level}            set={setDForm} pForm={dForm} placeholder="e.g. 1G" />
                   <F label="LOCATION"              name="location"         val={dForm.location}         set={setDForm} pForm={dForm} placeholder="e.g. 4.4.01" />
                   <F label="ARCH REFERENCE"        name="arch_ref"         val={dForm.arch_ref}         set={setDForm} pForm={dForm} placeholder="e.g. 7 A2.46B / REV#11" full />
@@ -893,7 +1082,8 @@ function ProjectsPage() {
               {/* Left column: canvas + bottom bar */}
               <div className="vw-canvas-col">
 
-                {/* Canvas */}
+                  {/* Canvas — shows committed PDF if available.
+                      If no revision has been committed yet, shows a message. */}
                 <div
                   ref={canvasRef}
                   className="vw-canvas"
@@ -902,19 +1092,46 @@ function ProjectsPage() {
                   onMouseUp={handleViewerMouseUp}
                   onMouseLeave={handleViewerMouseUp}
                 >
-                  <div className="vw-sheet" style={{ transform: `translate(${pan.x}px,${pan.y}px) scale(${zoom/100})`, transformOrigin: "center center" }}>
-                    <div className="vw-sheet-grid" />
-                    <div className="vw-sheet-border" />
-                    <div className="vw-sheet-inner">
-                      <div className="vw-sheet-number">{viewerDrawing.drawing_number}</div>
-                      {viewerDrawing.mw_number && <div className="vw-sheet-mw">MW# {viewerDrawing.mw_number}</div>}
-                      <div className="vw-sheet-title">{viewerDrawing.title}</div>
-                      <div className="vw-sheet-meta">
-                        {[viewerDrawing.scale, viewerDrawing.level && `Level ${viewerDrawing.level}`, `Rev ${viewerDrawing.revision}`, viewerDrawing.paper_size?.replace("_"," ")].filter(Boolean).join("  ·  ")}
+                  {/* Check if any revision has a committed PDF */}
+                  {viewerDrawing.revisions && viewerDrawing.revisions.some(r => r.is_locked && r.pdf_path) ? (
+                    /* ── Has committed PDF — Phase 8 will render it via iframe ── */
+                    <div style={{
+                      display:        "flex",
+                      flexDirection:  "column",
+                      alignItems:     "center",
+                      justifyContent: "center",
+                      height:         "100%",
+                      gap:            "12px",
+                    }}>
+                      <div style={{ fontSize: "32px", opacity: 0.3 }}>📄</div>
+                      <div style={{ fontSize: "13px", color: "#888888", fontFamily: "var(--font-mono)" }}>
+                        PDF viewer — Phase 8
                       </div>
-                      <div className="vw-sheet-placeholder">Drawing canvas — SVG content renders here</div>
+                      <div style={{ fontSize: "11px", color: "#555555", fontFamily: "var(--font-mono)" }}>
+                        {viewerDrawing.revisions.filter(r => r.is_locked).length} committed revision(s) available
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    /* ── No committed revision yet ── */
+                    <div style={{
+                      display:        "flex",
+                      flexDirection:  "column",
+                      alignItems:     "center",
+                      justifyContent: "center",
+                      height:         "100%",
+                      gap:            "14px",
+                      padding:        "40px",
+                      textAlign:      "center",
+                    }}>
+                      <div style={{ fontSize: "40px", opacity: 0.15 }}>⬡</div>
+                      <div style={{ fontSize: "15px", color: "#888888", fontWeight: "600", fontFamily: "var(--font-ui)" }}>
+                        No revision has been committed for this drawing.
+                      </div>
+                      <div style={{ fontSize: "13px", color: "#555555", fontFamily: "var(--font-ui)", maxWidth: "320px", lineHeight: "1.6" }}>
+                        Open the drawing in the workspace, complete your work, then commit the revision to generate a PDF.
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Bottom bar — only under canvas */}
