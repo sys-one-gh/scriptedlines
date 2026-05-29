@@ -7,6 +7,7 @@
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 from database import get_db
 from models.project import Project, ProjectGrade, ProjectStandard, ProjectStatus
 from pydantic import BaseModel
@@ -81,7 +82,7 @@ class ProjectUpdate(BaseModel):
     compliance_fr:   Optional[bool] = None
 
 
-def project_to_dict(p: Project) -> dict:
+def project_to_dict(p: Project, db: Session) -> dict:
     return {
         "id":             p.id,
         "company_id":     p.company_id,
@@ -117,7 +118,7 @@ def project_to_dict(p: Project) -> dict:
         "compliance_fr":    p.compliance_fr,
         "status":           p.status.value if p.status else None,
         "is_inactive":    p.is_inactive,
-        "drawing_count":  len(p.drawings) if p.drawings else 0,
+        "drawing_count":  db.execute(text("SELECT COUNT(*) FROM drawings WHERE project_id = :pid"), {"pid": p.id}).scalar(),
         "created_at":     str(p.created_at) if p.created_at else None,
         "updated_at":     str(p.updated_at) if p.updated_at else None,
     }
@@ -206,7 +207,7 @@ def create_project(data: ProjectCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(project)
 
-    return {"status": "ok", "project": project_to_dict(project)}
+    return {"status": "ok", "project": project_to_dict(project, db)}
 
 
 # ─── LIST ────────────────────────────────────────────────────
@@ -218,8 +219,8 @@ def list_projects(company_id: int, db: Session = Depends(get_db)):
         Project.is_inactive == False,
     ).order_by(Project.project_number).all()
 
-    active   = [project_to_dict(p) for p in projects if p.status == ProjectStatus.active]
-    archived = [project_to_dict(p) for p in projects if p.status == ProjectStatus.archived]
+    active   = [project_to_dict(p, db) for p in projects if p.status == ProjectStatus.active]
+    archived = [project_to_dict(p, db) for p in projects if p.status == ProjectStatus.archived]
 
     return {
         "status": "ok",
@@ -239,7 +240,7 @@ def get_project(project_id: int, db: Session = Depends(get_db)):
     ).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
-    return {"status": "ok", "project": project_to_dict(project)}
+    return {"status": "ok", "project": project_to_dict(project, db)}
 
 
 # ─── UPDATE ──────────────────────────────────────────────────
@@ -274,7 +275,7 @@ def update_project(project_id: int, data: ProjectUpdate, db: Session = Depends(g
     db.commit()
     db.refresh(project)
 
-    return {"status": "ok", "project": project_to_dict(project)}
+    return {"status": "ok", "project": project_to_dict(project, db)}
 
 
 # ─── SOFT DELETE ─────────────────────────────────────────────

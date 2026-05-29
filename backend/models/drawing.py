@@ -3,7 +3,7 @@
 # ─────────────────────────────────────────────────────────────
 
 import enum
-from sqlalchemy import Column, Integer, String, Boolean, DateTime, Float, Enum, ForeignKey, JSON
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, Date, Float, Enum, ForeignKey, JSON
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from database import Base
@@ -11,16 +11,21 @@ from database import Base
 
 class PaperSize(enum.Enum):
     Arch_D  = "Arch_D"
+    Arch_C  = "Arch_C"
     Arch_E  = "Arch_E"
-    Letter  = "Letter"
-    Tabloid = "Tabloid"
+    ANSI_B  = "ANSI_B"
+    ANSI_A  = "ANSI_A"
+    A1      = "A1"
+    A3      = "A3"
 
 
 class DrawingStatus(enum.Enum):
-    draft    = "draft"
-    review   = "review"
-    approved = "approved"
-    issued   = "issued"
+    draft             = "draft"
+    review            = "review"
+    approved          = "approved"
+    submittal_pending = "submittal_pending"   # committed, PDF generated, ready to send
+    submitted         = "submitted"           # sent to client for review
+    issued            = "issued"              # final release after client approval
 
 
 class Drawing(Base):
@@ -48,6 +53,7 @@ class Drawing(Base):
     paper_size  = Column(Enum(PaperSize), default=PaperSize.Arch_D)
     page_number = Column(Integer,         default=1)
     total_pages = Column(Integer,         default=1)
+    page_count  = Column(Integer,         default=1)
 
     # ── Canvas ───────────────────────────────────────────────
     svg_data = Column(JSON, nullable=True)
@@ -71,6 +77,34 @@ class Drawing(Base):
     bom_sheetgoods  = relationship("DrawingBomSheetGoods", back_populates="drawing", cascade="all, delete-orphan")
     bom_edgeband    = relationship("DrawingBomEdgeBand",   back_populates="drawing", cascade="all, delete-orphan")
     bom_parts       = relationship("DrawingBomPart",       back_populates="drawing", cascade="all, delete-orphan")
+    revisions       = relationship("DrawingRevision",      back_populates="drawing", cascade="all, delete-orphan", order_by="DrawingRevision.revision_number")
 
     def __repr__(self):
         return f"<Drawing {self.id} — {self.drawing_number} {self.title}>"
+
+class DrawingRevision(Base):
+    """
+    One row per revision per drawing.
+    Rev 00 is auto-created when a drawing is created.
+    On commit: is_locked = True, pdf_path set, status bumped.
+    New revision row created automatically after commit.
+    """
+    __tablename__ = "drawing_revisions"
+
+    id              = Column(Integer, primary_key=True, index=True)
+    drawing_id      = Column(Integer, ForeignKey("drawings.id", ondelete="CASCADE"), nullable=False, index=True)
+    revision_number = Column(String, nullable=False, default="00")
+    date            = Column(Date, nullable=True)
+    initials        = Column(String, nullable=True)
+    description     = Column(String, nullable=True)
+
+    # Commit fields
+    is_locked       = Column(Boolean, nullable=False, default=False)
+    pdf_path        = Column(String, nullable=True)    # relative path under backend/storage/
+    committed_at    = Column(DateTime(timezone=True), nullable=True)
+    committed_by    = Column(Integer, ForeignKey("users.id"), nullable=True)
+
+    created_at      = Column(DateTime(timezone=True), server_default=func.now())
+
+    # Relationship back to drawing
+    drawing         = relationship("Drawing", back_populates="revisions")
