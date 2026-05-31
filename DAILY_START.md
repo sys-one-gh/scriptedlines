@@ -1,179 +1,230 @@
 # ScriptedLines — Daily Startup Guide
+# Updated: Docker setup complete
+# ─────────────────────────────────────────────────────────────
 
-## Every time you start working, open 3 terminals in this exact order.
 
----
+═══════════════════════════════════════════════════════════════
+WSL DAILY STARTUP
+═══════════════════════════════════════════════════════════════
 
-## Terminal 1 — Start the Database
+Project path: /home/restricted_space/projects/scriptedlines
+Git branch:   working
 
-> Run from any directory
+─── Step 1 — Pull latest code ────────────────────────────────
 
-```bash
-sudo service postgresql start
-```
+  cd ~/projects/scriptedlines
+  git checkout working
+  git pull origin working
 
-Verify it is running:
-```bash
-sudo service postgresql status
-```
 
-You should see: `online`
+─── Step 2 — Start all containers (one command) ──────────────
 
----
+  docker-compose up -d
 
-## Terminal 2 — Start the Python Backend
+  You should see:
+  ✔ Container scriptedlines_db        Healthy
+  ✔ Container scriptedlines_backend   Started
+  ✔ Container scriptedlines_frontend  Started
 
-```bash
-cd /home/restricted_space/projects/scriptedlines/backend
-source m_venv/bin/activate
-uvicorn main:app --reload --port 8000
-```
+  First time after reboot may take 5-10 seconds for DB to be ready.
 
-Verify it is running — open browser and go to:
-```
-http://localhost:8000/api/health
-```
 
-You should see: `{"status":"ok"}`
+─── Step 3 — Open Browser ────────────────────────────────────
 
----
+  http://localhost:5173
 
-## Terminal 3 — Start the React Frontend
+  Automatically redirects to /login
+  Page flow: /login → /projects → /workspace
 
-```bash
-cd /home/restricted_space/projects/scriptedlines/frontend
-npm run dev
-```
 
-Verify it is running — open browser and go to:
-```
-http://localhost:5173
-```
+─── Step 4 — Verify backend (optional) ──────────────────────
 
-You should see the ScriptedLines workspace with `backend: connected ✔` in the top bar.
+  curl http://localhost:8000/api/health
+  → {"status":"ok"}
 
----
 
-## End of Day — Shut Everything Down
+─── Check container status anytime ──────────────────────────
 
-```bash
-# Terminal 3 — stop frontend
-Ctrl + C
+  docker-compose ps
+  docker-compose logs backend     ← backend errors
+  docker-compose logs frontend    ← frontend errors
+  docker-compose logs db          ← database errors
 
-# Terminal 2 — stop backend
-Ctrl + C
 
-# Terminal 1 — stop database
-sudo service postgresql stop
-```
+─── End of Day — WSL ─────────────────────────────────────────
 
----
+  cd ~/projects/scriptedlines
 
-## Quick Reference
+  # Backup database
+  bash scripts/backup_docker.sh
 
-| Service    | Start Command                                      | Directory          | URL                              |
-|------------|----------------------------------------------------|--------------------|----------------------------------|
-| Database   | `sudo service postgresql start`                    | anywhere           | —                                |
-| Backend    | `source m_venv/bin/activate` then `uvicorn main:app --reload --port 8000` | `/backend`  | http://localhost:8000/api/health |
-| Frontend   | `npm run dev`                                      | `/frontend`        | http://localhost:5173            |
+  # Commit and push
+  git add .
+  git commit -m "your message here"
+  git push origin working
+  git checkout develop && git merge working && git push origin develop
+  git checkout mac && git merge develop && git push origin mac
+  git checkout working
 
----
+  # Stop containers
+  docker-compose stop
 
-## If Something Goes Wrong
 
-### Backend port already in use
-```bash
-pkill -f uvicorn
-uvicorn main:app --reload --port 8000
-```
+═══════════════════════════════════════════════════════════════
+MAC DAILY STARTUP
+═══════════════════════════════════════════════════════════════
 
-### Database not connecting
-```bash
-sudo service postgresql restart
-```
+Project path: ~/projects/scriptedlines
+Git branch:   mac
 
-### Frontend not loading
-```bash
-cd /home/restricted_space/projects/scriptedlines/frontend
-npm install
-npm run dev
-```
+─── Step 1 — Pull latest code ────────────────────────────────
 
-### Check all running ports
-```bash
-lsof -i :5173
-lsof -i :8000
-```
+  cd ~/projects/scriptedlines
+  git checkout mac
+  git pull origin mac
 
----
 
-## Project Structure
+─── Step 2 — Start all containers ───────────────────────────
 
-```
-scriptedlines/
-├── frontend/          React app — port 5173
-│   └── src/
-│       ├── components/
-│       ├── pages/
-│       └── data/
-├── backend/           Python FastAPI — port 8000
-│   ├── m_venv/        virtual environment
-│   ├── models/        database table definitions
-│   ├── api/           API route handlers
-│   ├── geometry/      SVG generators
-│   ├── database.py    PostgreSQL connection
-│   ├── main.py        FastAPI server entry point
-│   └── seed.py        creates and populates tables
-└── DAILY_START.md     this file
-```
+  docker-compose up -d
 
----
 
-## Database Access
+─── Step 3 — Open Browser ────────────────────────────────────
 
-### View data in VS Code
-- Open PostgreSQL extension in left sidebar
-- Expand ScriptedLines Local → Databases → scriptedlines_db → Schemas → public → Tables
+  http://localhost:5173
 
-### Connect via terminal
-```bash
-sudo -u postgres psql -d scriptedlines_db
-```
 
-### Useful SQL commands
-```sql
--- See all products
-SELECT code, name, category FROM library_products ORDER BY category;
+─── End of Day — Mac ─────────────────────────────────────────
 
--- Count products
-SELECT COUNT(*) FROM library_products;
+  cd ~/projects/scriptedlines
 
--- Exit
-\q
-```
+  # Backup database
+  bash scripts/backup_docker.sh
 
----
+  # Commit and push
+  git add .
+  git commit -m "your message here"
+  git push origin mac
+  git checkout develop && git merge mac && git push origin develop
+  git checkout working && git merge develop && git push origin working
+  git checkout mac
 
-## Git Workflow
+  # Stop containers
+  docker-compose stop
 
-### Save your work
-```bash
-cd /home/restricted_space/projects/scriptedlines
-git add .
-git commit -m "your message here"
-git push origin mac
-```
 
-### Check current status
-```bash
-git status
-```
+═══════════════════════════════════════════════════════════════
+SYNCING DATABASE BETWEEN WSL AND MAC
+═══════════════════════════════════════════════════════════════
 
-### See commit history
-```bash
-git log --oneline
-```
+  On the source machine (e.g. WSL — after working):
+    bash scripts/sync_db.sh export
+    → dumps DB, commits to git, pushes
 
----
+  On the target machine (e.g. Mac — before starting):
+    git pull
+    bash scripts/sync_db.sh import
+    → restores from latest backup
 
-*Last updated: Phase 1 complete — workspace UI + FastAPI backend + PostgreSQL products table*
+
+═══════════════════════════════════════════════════════════════
+DIFFERENCE BETWEEN WSL AND MAC
+═══════════════════════════════════════════════════════════════
+
+  Feature              WSL                          Mac
+  ─────────────────────────────────────────────────────────────
+  Project path         /home/restricted_space/      ~/projects/
+                       projects/scriptedlines        scriptedlines
+  Git branch           working                      mac
+  Start app            docker-compose up -d         docker-compose up -d
+  Stop app             docker-compose stop          docker-compose stop
+  Everything else      identical                    identical
+
+  No more separate PostgreSQL, venv, or npm management.
+  Docker handles all of it on both machines identically.
+
+
+═══════════════════════════════════════════════════════════════
+CONTAINER MANAGEMENT
+═══════════════════════════════════════════════════════════════
+
+  Start all:          docker-compose up -d
+  Stop all:           docker-compose stop
+  Restart all:        docker-compose restart
+  Rebuild after code  docker-compose up -d --build
+    changes to
+    Dockerfile or
+    requirements.txt:
+
+  View logs:          docker-compose logs -f backend
+  Shell into backend: docker-compose exec backend bash
+  Shell into DB:      docker-compose exec db psql -U scriptedlines_user -d scriptedlines_db
+
+  ⚠️  NEVER run: docker-compose down -v
+      This deletes the database volume permanently.
+      Use: docker-compose down  (data is safe)
+      Or:  docker-compose stop  (containers paused, data safe)
+
+
+═══════════════════════════════════════════════════════════════
+DATABASE REFERENCE
+═══════════════════════════════════════════════════════════════
+
+  Host (inside Docker):  db:5432
+  Host (from your PC):   localhost:5432
+  Database:              scriptedlines_db
+  User:                  scriptedlines_user
+  Password:              scriptedlines2024
+
+  Connect via terminal:
+  docker-compose exec db psql -U scriptedlines_user -d scriptedlines_db
+
+  Useful queries:
+  SELECT COUNT(*) FROM library_products;
+  SELECT id, project_name FROM projects;
+  SELECT id, drawing_number, status FROM drawings;
+
+
+═══════════════════════════════════════════════════════════════
+API ENDPOINTS REFERENCE
+═══════════════════════════════════════════════════════════════
+
+  Health check:    http://localhost:8000/api/health
+  All endpoints:   http://localhost:8000/docs
+  Products:        http://localhost:8000/api/products
+
+
+═══════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+  Backend not starting:
+    docker-compose logs backend
+    → usually a Python import error or DB not ready yet
+    docker-compose restart backend
+
+  Frontend not loading:
+    docker-compose logs frontend
+    docker-compose restart frontend
+
+  Database connection refused:
+    docker-compose ps
+    → check db container is Healthy
+    docker-compose restart db
+
+  Port already in use:
+    sudo lsof -i :8000
+    sudo lsof -i :5173
+    sudo lsof -i :5432
+    → kill the process or stop old containers
+
+  Hot reload not working (WSL):
+    → vite.config.js has usePolling: true — this is required for WSL
+    → if still not working: docker-compose restart frontend
+
+  Rebuild after requirements.txt change:
+    docker-compose up -d --build backend
+
+  Nuclear option — full rebuild (data preserved):
+    docker-compose down
+    docker-compose up -d --build
