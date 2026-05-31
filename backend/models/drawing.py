@@ -77,6 +77,9 @@ class Drawing(Base):
     bom_sheetgoods  = relationship("DrawingBomSheetGoods", back_populates="drawing", cascade="all, delete-orphan")
     bom_edgeband    = relationship("DrawingBomEdgeBand",   back_populates="drawing", cascade="all, delete-orphan")
     bom_parts       = relationship("DrawingBomPart",       back_populates="drawing", cascade="all, delete-orphan")
+    title_block_enabled   = Column(Boolean, default=True)
+    title_block_overrides = Column(JSON, nullable=True, default=dict)
+
     revisions       = relationship("DrawingRevision",      back_populates="drawing", cascade="all, delete-orphan", order_by="DrawingRevision.revision_number")
 
     def __repr__(self):
@@ -108,3 +111,59 @@ class DrawingRevision(Base):
 
     # Relationship back to drawing
     drawing         = relationship("Drawing", back_populates="revisions")
+
+
+class DrawingTemplate(Base):
+    """
+    One template per project — shared across all drawings in that project.
+    Drawing-level overrides stored in drawings.title_block_overrides JSON.
+    Fields that come from existing tables (project_name, drawing_number etc)
+    are NOT stored here — they are read from their source tables at render time.
+    """
+    __tablename__ = "drawing_templates"
+
+    id              = Column(Integer, primary_key=True, index=True)
+    project_id      = Column(Integer, ForeignKey("projects.id", ondelete="CASCADE"), nullable=False, unique=True)
+
+    # Company block
+    company_name    = Column(String, default="")
+    company_address = Column(String, default="")
+    company_phone   = Column(String, default="")
+    company_fax     = Column(String, default="")
+    company_email   = Column(String, default="")
+    company_website = Column(String, default="")
+
+    # Project / client block
+    client_name     = Column(String, default="")
+    client_address  = Column(String, default="")
+    jobsite_name    = Column(String, default="")
+    jobsite_address = Column(String, default="")
+    contractor_name = Column(String, default="")
+    architect_name  = Column(String, default="")
+
+    # Drawing control
+    drawn_by        = Column(String, default="")
+    checked_by      = Column(String, default="")
+    project_manager = Column(String, default="")
+
+    # Notes (user editable — can be overridden per drawing)
+    important_notes = Column(String, default="")
+    material_notes  = Column(String, default="")
+
+    # Finish schedule — [{code, description}]
+    finish_schedule = Column(JSON, default=list)
+
+    # Compliance
+    awmac_member        = Column(Boolean, default=False)
+    awi_member          = Column(Boolean, default=False)
+    compliance_note     = Column(String, default="")
+
+    # Approval stamp
+    approval_stamp_text = Column(String, default="")
+    approval_name       = Column(String, default="")
+    approval_date       = Column(Date, nullable=True)
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+
+    project = relationship("Project", backref="template")

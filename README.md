@@ -1,179 +1,67 @@
-# ScriptedLines — Daily Startup Guide
+# ScriptedLines
 
-## Every time you start working, open 3 terminals in this exact order.
+Millwork drawing SaaS — React + FastAPI + PostgreSQL, running in Docker.
 
----
-
-## Terminal 1 — Start the Database
-
-> Run from any directory
+## Quick Start (WSL)
 
 ```bash
-sudo service postgresql start
+cd ~/projects/scriptedlines
+docker-compose up -d
 ```
 
-Verify it is running:
-```bash
-sudo service postgresql status
-```
+Open: http://localhost:5173
 
-You should see: `online`
+## Quick Start (Mac — first time)
 
----
+See `MAC_SETUP.md`
 
-## Terminal 2 — Start the Python Backend
+## Docs
 
-```bash
-cd /home/restricted_space/projects/scriptedlines/backend
-source m_venv/bin/activate
-uvicorn main:app --reload --port 8000
-```
+| File | Purpose |
+|---|---|
+| `DAILY_START.md` | Start and stop the app every day |
+| `MAC_SETUP.md` | First time Mac setup |
+| `GIT_WORKFLOW.md` | Branches, commits, end of day |
 
-Verify it is running — open browser and go to:
-```
-http://localhost:8000/api/health
-```
+## Stack
 
-You should see: `{"status":"ok"}`
-
----
-
-## Terminal 3 — Start the React Frontend
-
-```bash
-cd /home/restricted_space/projects/scriptedlines/frontend
-npm run dev
-```
-
-Verify it is running — open browser and go to:
-```
-http://localhost:5173
-```
-
-You should see the ScriptedLines workspace with `backend: connected ✔` in the top bar.
-
----
-
-## End of Day — Shut Everything Down
-
-```bash
-# Terminal 3 — stop frontend
-Ctrl + C
-
-# Terminal 2 — stop backend
-Ctrl + C
-
-# Terminal 1 — stop database
-sudo service postgresql stop
-```
-
----
-
-## Quick Reference
-
-| Service    | Start Command                                      | Directory          | URL                              |
-|------------|----------------------------------------------------|--------------------|----------------------------------|
-| Database   | `sudo service postgresql start`                    | anywhere           | —                                |
-| Backend    | `source m_venv/bin/activate` then `uvicorn main:app --reload --port 8000` | `/backend`  | http://localhost:8000/api/health |
-| Frontend   | `npm run dev`                                      | `/frontend`        | http://localhost:5173            |
-
----
-
-## If Something Goes Wrong
-
-### Backend port already in use
-```bash
-pkill -f uvicorn
-uvicorn main:app --reload --port 8000
-```
-
-### Database not connecting
-```bash
-sudo service postgresql restart
-```
-
-### Frontend not loading
-```bash
-cd /home/restricted_space/projects/scriptedlines/frontend
-npm install
-npm run dev
-```
-
-### Check all running ports
-```bash
-lsof -i :5173
-lsof -i :8000
-```
-
----
+| Layer | Technology | Port |
+|---|---|---|
+| Frontend | React + Vite | 5173 |
+| Backend | FastAPI + uvicorn | 8000 |
+| Database | PostgreSQL 16 | 5432 |
 
 ## Project Structure
 
 ```
 scriptedlines/
-├── frontend/          React app — port 5173
+├── frontend/              React app
 │   └── src/
-│       ├── components/
-│       ├── pages/
-│       └── data/
-├── backend/           Python FastAPI — port 8000
-│   ├── m_venv/        virtual environment
-│   ├── models/        database table definitions
-│   ├── api/           API route handlers
-│   ├── geometry/      SVG generators
-│   ├── database.py    PostgreSQL connection
-│   ├── main.py        FastAPI server entry point
-│   └── seed.py        creates and populates tables
-└── DAILY_START.md     this file
+│       ├── components/    CADToolbar, PaperSpace, LeftPanel
+│       ├── pages/         Workspace, ProjectsPage, LoginPage
+│       └── data/          paperSizes.js
+├── backend/               FastAPI
+│   ├── api/               Route handlers
+│   ├── models/            SQLAlchemy table definitions
+│   ├── geometry/          SVG generators
+│   ├── database.py        PostgreSQL connection
+│   └── main.py            App entry point
+├── docker/
+│   └── db/init.sql        DB init (runs once on first startup)
+├── scripts/               Backup, restore, sync, migrate
+├── data/backups/          Database backups (committed to git)
+├── docker-compose.yml     Orchestrates all 3 containers
+├── .env                   Secrets — NEVER commit (gitignored)
+└── .env.example           Template — commit this instead
 ```
 
----
+## Page Flow
 
-## Database Access
-
-### View data in VS Code
-- Open PostgreSQL extension in left sidebar
-- Expand ScriptedLines Local → Databases → scriptedlines_db → Schemas → public → Tables
-
-### Connect via terminal
-```bash
-sudo -u postgres psql -d scriptedlines_db
+```
+/login → /projects → /workspace
 ```
 
-### Useful SQL commands
-```sql
--- See all products
-SELECT code, name, category FROM library_products ORDER BY category;
+## API
 
--- Count products
-SELECT COUNT(*) FROM library_products;
-
--- Exit
-\q
-```
-
----
-
-## Git Workflow
-
-### Save your work
-```bash
-cd /home/restricted_space/projects/scriptedlines
-git add .
-git commit -m "your message here"
-git push origin mac
-```
-
-### Check current status
-```bash
-git status
-```
-
-### See commit history
-```bash
-git log --oneline
-```
-
----
-
-*Last updated: Phase 1 complete — workspace UI + FastAPI backend + PostgreSQL products table*
+- Health: http://localhost:8000/api/health
+- Docs:   http://localhost:8000/docs

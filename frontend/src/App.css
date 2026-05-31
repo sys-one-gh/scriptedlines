@@ -211,36 +211,26 @@ body {
    TAB BUTTON — INACTIVE
 ───────────────────────────────────────────────────────────── */
 .tab {
-  flex: 0 0 auto;
-  height: 32px;
+  flex: 1;
+  height: 100%;
   padding: 0 14px;
   white-space: nowrap;
-  background: var(--color-bg-raised);
-  color: var(--color-text-ghost);
+  background: transparent;
+  color: var(--color-text-disabled);
   border: none;
+  border-bottom: 2px solid transparent;
+  border-right: 1px solid #1e1e1e;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
   font-family: var(--font-ui);
   font-weight: 400;
   font-size: 13px;
-  position: relative;
-  border-radius: 4px 4px 0 0;
-  margin-right: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.tab::after {
-  content: "";
-  position: absolute;
-  right: -2px;
-  top: 50%; transform: translateY(-50%);
-  width: 1px; height: 35%;
-  background: var(--color-border);
-}
-
-.tab:last-child::after { display: none; }
 
 .tab:hover {
-  background: var(--color-bg-hover);
   color: var(--color-text-muted);
 }
 
@@ -249,17 +239,11 @@ body {
    TAB BUTTON — ACTIVE
 ───────────────────────────────────────────────────────────── */
 .tab.active {
-  height: 38px;
-  background: var(--color-bg-panel);
   color: var(--color-text-primary);
+  border-bottom: 2px solid var(--color-accent);
+  background: var(--color-bg-dark);
   font-weight: 600;
-  font-size: 13px;
-  border-top: 2px solid var(--color-accent);
-  border-bottom: 1px solid var(--color-bg-panel);
-  margin-bottom: -1px;
 }
-
-.tab.active::after { display: none; }
 
 
 /* ─────────────────────────────────────────────────────────────
@@ -503,9 +487,9 @@ body {
   flex-direction: column;
   flex-shrink: 0;
   overflow: hidden;
-  padding: 10px;
+
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--color-text-ghost);
 }
 
@@ -697,3 +681,59 @@ body {
 
 .context-item.coming-soon { color: var(--color-text-disabled); cursor: not-allowed; }
 .context-item.coming-soon:hover { background: transparent; color: var(--color-text-disabled); }
+/* ─────────────────────────────────────────────────────────────
+   PP-TAB — shared tab style matching ProjectsPage
+   Used by right panel in Workspace so both panels look identical
+   to the ProjectsPage Active/Archived tabs.
+───────────────────────────────────────────────────────────── */
+.pp-tab {
+  flex: 1; height: 100%;
+  background: transparent;
+  color: var(--color-text-disabled);
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-right: 1px solid #1e1e1e;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: var(--font-ui);
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 0 10px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.pp-tab:hover { color: var(--color-text-mid); }
+.pp-tab--active {
+  color: var(--color-text-primary);
+  border-bottom: 2px solid var(--color-accent);
+  background: var(--color-bg-dark);
+  font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PP-TAB — shared tab style matching ProjectsPage
+   Used by right panel in Workspace so tabs look consistent.
+───────────────────────────────────────────────────────────── */
+.pp-tab {
+  flex: 1; height: 100%;
+  background: transparent;
+  color: var(--color-text-disabled);
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-right: 1px solid #1e1e1e;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: var(--font-ui);
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  padding: 0 10px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.pp-tab:hover { color: #cccccc; }
+.pp-tab--active {
+  color: #ffffff;
+  border-bottom: 2px solid #4f8ef7;
+  background: #111111;
+  font-weight: 600;
+}
