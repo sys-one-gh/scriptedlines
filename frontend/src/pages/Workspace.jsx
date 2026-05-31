@@ -14,9 +14,9 @@ import "../App.css";
 
 // ─── LAYOUT CONSTANTS ────────────────────────────────────────
 const LEFT_MIN  = 10;
-const LEFT_MAX  = 18;
-const RIGHT_MIN = 10;
-const RIGHT_MAX = 22;
+const LEFT_MAX  = 22;
+const RIGHT_MIN = 13;
+const RIGHT_MAX = 28;
 const API       = "http://localhost:8000/api";
 
 // ─── RIGHT PANEL TABS ────────────────────────────────────────
@@ -85,7 +85,7 @@ function Workspace() {
 
   // ── Panel widths ─────────────────────────────────────────
   const [leftWidth,  setLeftWidth]  = useState(15);
-  const [rightWidth, setRightWidth] = useState(13);
+  const [rightWidth, setRightWidth] = useState(18);
   const centerWidth = 100 - leftWidth - rightWidth;
 
   // ── Right panel tab ──────────────────────────────────────
@@ -104,8 +104,12 @@ function Workspace() {
   }
 
   useEffect(() => {
-    const t = setTimeout(checkRightTabOverflow, 50);
-    return () => clearTimeout(t);
+    const t = setTimeout(checkRightTabOverflow, 100);
+    window.addEventListener("resize", checkRightTabOverflow);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", checkRightTabOverflow);
+    };
   }, [rightWidth]);
 
   // ── Load drawing from DB ─────────────────────────────────
@@ -330,8 +334,10 @@ function Workspace() {
         {/* Left resize divider */}
         <div className="panel-divider" onMouseDown={handleLeftDividerMouseDown} title="Drag to resize" />
 
-        {/* Center — CAD toolbar + canvas */}
-        <div className="center-panel" style={{ width: `${centerWidth}%`, display: "flex", flexDirection: "column" }}>
+        {/* Center — CAD toolbar + canvas
+            width uses calc to subtract the two 5px dividers so the
+            total layout never exceeds 100% of the viewport */}
+        <div className="center-panel" style={{ width: `calc(${centerWidth}% - 11px)`, display: "flex", flexDirection: "column" }}>
           <CADToolbar activeTool={activeTool} onToolChange={setActiveTool} onZoomFit={handleZoomFit} />
           <PaperSpace
             paper={paper}
@@ -355,7 +361,7 @@ function Workspace() {
             <button
               className="tab-scroll-btn"
               onClick={() => rightTabBarRef.current?.scrollBy({ left: -80, behavior: "smooth" })}
-              style={{ opacity: rightCanScrollLeft ? 1 : 0, pointerEvents: rightCanScrollLeft ? "auto" : "none" }}
+              style={{ opacity: rightCanScrollLeft ? 1 : 0.25, pointerEvents: rightCanScrollLeft ? "auto" : "none" }}
             >‹</button>
             <div className="tab-bar" ref={rightTabBarRef} onScroll={checkRightTabOverflow}>
               {RIGHT_TABS.map(t => (
@@ -367,11 +373,19 @@ function Workspace() {
             <button
               className="tab-scroll-btn"
               onClick={() => rightTabBarRef.current?.scrollBy({ left: 80, behavior: "smooth" })}
-              style={{ opacity: rightCanScrollRight ? 1 : 0, pointerEvents: rightCanScrollRight ? "auto" : "none" }}
+              style={{ opacity: rightCanScrollRight ? 1 : 0.25, pointerEvents: rightCanScrollRight ? "auto" : "none" }}
             >›</button>
           </div>
 
-          {/* Tab content — .tab-content class = same padding as left panel */}
+          {/* Separator bar — mirrors left panel search bar height for visual consistency */}
+          <div style={{
+            flexShrink:   0,
+            height:       "8px",
+            background:   "var(--color-bg-raised)",
+            borderBottom: "1px solid var(--color-border)",
+          }} />
+
+          {/* Tab content — .tab-content gives equal padding all sides */}
           <div className="tab-content">
             {rightTab === "info"       && <RightPanelInfo       drawing={drawing} paper={paper} project={project} />}
             {rightTab === "products"   && <RightPanelProducts   drawing={drawing} />}
@@ -405,13 +419,21 @@ function RightPanelInfo({ drawing, paper, project }) {
     ["Project",    project?.project_name || "—"],
   ];
   return (
-    <div>
+    <div style={{ width: "100%", boxSizing: "border-box" }}>
       {rows.map(([label, value]) => (
-        <div key={label} style={{ padding: "8px 0", borderBottom: "1px solid #1a1a1a" }}>
-          <div style={{ fontSize: "10px", color: "#555", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: "3px" }}>
+        <div key={label} style={{
+          background:   "#1a1a1a",
+          border:       "1px solid #2a2a2a",
+          borderRadius: "5px",
+          padding:      "8px 10px",
+          marginBottom: "6px",
+          minWidth:     0,
+          overflow:     "hidden",
+        }}>
+          <div style={{ fontSize: "10px", color: "#555", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: "3px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
             {label}
           </div>
-          <div style={{ fontSize: "13px", color: "#cccccc", fontFamily: "var(--font-ui)", wordBreak: "break-word" }}>
+          <div style={{ fontSize: "13px", color: "#cccccc", fontFamily: "var(--font-ui)", wordBreak: "break-word", overflowWrap: "break-word", maxWidth: "100%", minWidth: 0 }}>
             {value}
           </div>
         </div>
