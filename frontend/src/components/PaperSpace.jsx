@@ -38,11 +38,16 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
   const [droppedProduct, setDroppedProduct] = useState(null);
 
   // ── Page system ──────────────────────────────────────────────
-  // pages array is initialised from drawing.page_count in DB.
-  // Each page is { id, label } — label shows in the page nav bar.
   const [pages,            setPages]            = useState([{ id: 1, label: "Page 1" }]);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
-  const [savingPage,       setSavingPage]        = useState(false); // true while PUT is in flight
+  const [savingPage,       setSavingPage]        = useState(false);
+
+  // ── Commit / Submit / Final Release ──────────────────────────
+  // commitModal: null | "commit" | "final"
+  const [commitModal,    setCommitModal]    = useState(null);
+  const [commitLoading,  setCommitLoading]  = useState(false);
+  const [commitError,    setCommitError]    = useState("");
+  const [actionLoading,  setActionLoading]  = useState(false);
 
   // ── Initialise pages from DB on load ─────────────────────────
   // When drawing prop arrives, build the pages array from page_count.
@@ -318,6 +323,94 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
   }
 
 
+  // ─── COMMIT REVISION ────────────────────────────────────────
+  // Locks current revision, sets status → submittal_pending,
+  // creates PDF folder, navigates back to Projects on success.
+  // Phase 8 will generate the actual PDF.
+  async function executeCommit() {
+    if (!drawing?.id) return;
+    setCommitLoading(true);
+    setCommitError("");
+    const user = JSON.parse(localStorage.getItem("sl_user") || "{}");
+    try {
+      const res  = await fetch(`${API}/drawings/${drawing.id}/commit`, {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({
+          committed_by: user.id || null,
+          description:  "Issued for Review",
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setCommitError(data.detail || "Commit failed.");
+        setCommitLoading(false);
+        return;
+      }
+      // Success — navigate back to projects
+      setCommitModal(null);
+      window.location.href = "/projects";
+    } catch {
+      setCommitError("Could not connect to server.");
+      setCommitLoading(false);
+    }
+  }
+
+  // ─── SUBMIT TO CLIENT ────────────────────────────────────────
+  // Status: submittal_pending → submitted
+  async function executeSubmit() {
+    if (!drawing?.id) return;
+    setActionLoading(true);
+    const user = JSON.parse(localStorage.getItem("sl_user") || "{}");
+    try {
+      await fetch(`${API}/drawings/${drawing.id}/submit`, {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ submitted_by: user.id || null }),
+      });
+      window.location.href = "/projects";
+    } catch { /* silent */ }
+    setActionLoading(false);
+  }
+
+  // ─── FINAL RELEASE ───────────────────────────────────────────
+  // Status: submitted | approved → issued (permanent)
+  async function executeFinalCommit() {
+    if (!drawing?.id) return;
+    setCommitLoading(true);
+    setCommitError("");
+    const user = JSON.parse(localStorage.getItem("sl_user") || "{}");
+    try {
+      const res  = await fetch(`${API}/drawings/${drawing.id}/final-commit`, {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({
+          committed_by: user.id || null,
+          description:  "Final Release",
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setCommitError(data.detail || "Final commit failed.");
+        setCommitLoading(false);
+        return;
+      }
+      setCommitModal(null);
+      window.location.href = "/projects";
+    } catch {
+      setCommitError("Could not connect to server.");
+      setCommitLoading(false);
+    }
+  }
+
+  // ─── BUTTON AVAILABILITY ─────────────────────────────────────
+  // Determines which action buttons are enabled based on current status.
+  const status = drawing?.status || "draft";
+  const canCommit       = ["draft", "review", "approved"].includes(status);
+  const canSubmit       = status === "submittal_pending";
+  const canFinalRelease = ["submitted", "approved"].includes(status);
+  const isIssued        = status === "issued";
+
   // ─── CURSOR ──────────────────────────────────────────────────
   function getCursor() {
     if (activeTool === "pan") return isPanning ? "grabbing" : "grab";
@@ -371,7 +464,7 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
               {/* White sheet */}
               <rect x="0" y="0" width={paper.widthMm} height={paper.heightMm} fill="white" />
 
-              {/* Inner printable boundary — 98% of paper */}
+              {/* Inner printable boundary — 98% of paper, 1% equal margin all sides */}
               <rect
                 x={paper.widthMm  * 0.01}
                 y={paper.heightMm * 0.01}
@@ -381,18 +474,7 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
                 stroke="#333"
                 strokeWidth="0.5"
               />
-
-              {/* Page label — in the margin strip below the printable border */}
-              <text
-                x={paper.widthMm  * 0.97}
-                y={paper.heightMm * 0.995}
-                fontFamily="'IBM Plex Sans', monospace"
-                fontSize="2.5"
-                fill="#aaaaaa"
-                textAnchor="end"
-              >
-                {pages[currentPageIndex]?.label || `Page ${currentPageIndex + 1}`}
-              </text>
+              {/* Page number removed — will live in drawing template title block (Phase 8) */}
             </svg>
           </div>
         </div>
@@ -466,7 +548,7 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 
           <div style={barSep} />
 
-          {/* Save */}
+          {/* Save — shell ready, Phase 7 fuels svg_data */}
           <BBtn title="Save drawing (Phase 7)" disabled label="Save">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
@@ -486,33 +568,30 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 
           <div style={barSep} />
 
-          {/* + Rev */}
-          <BBtn title="Add revision (Phase 7)" disabled label="+ Rev">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="8" x2="12" y2="16"/>
-              <line x1="8" y1="12" x2="16" y2="12"/>
-            </svg>
-          </BBtn>
-
-          {/* Commit Rev — locks revision, generates PDF, status → submittal_pending */}
+          {/* Commit Rev — active when status allows, shows confirmation modal */}
           <BBtn
-            title="Commit revision — locks this revision and generates PDF"
-            disabled
+            title={
+              isIssued       ? "Drawing is Final Release — cannot commit" :
+              !canCommit     ? `Cannot commit from status: ${status}` :
+              "Commit revision — locks this revision and generates PDF"
+            }
+            disabled={!canCommit || isIssued}
             label="Commit Rev"
             color="#e6a817"
+            onClick={() => { setCommitModal("commit"); setCommitError(""); }}
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </BBtn>
 
-          {/* Submit to Client — status: submittal_pending → submitted */}
+          {/* Submit to Client */}
           <BBtn
-            title="Submit to client — marks drawing as submitted for review"
-            disabled
-            label="Submit"
+            title={canSubmit ? "Submit to client for review" : `Drawing must be in Submittal Pending to submit`}
+            disabled={!canSubmit || actionLoading}
+            label={actionLoading ? "Submitting..." : "Submit"}
             color="#4f8ef7"
+            onClick={executeSubmit}
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <line x1="22" y1="2" x2="11" y2="13"/>
@@ -520,12 +599,17 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
             </svg>
           </BBtn>
 
-          {/* Final Commit — after client approval, locks forever, status → issued */}
+          {/* Final Release */}
           <BBtn
-            title="Final commit — locks drawing permanently for production. Cannot be undone."
-            disabled
+            title={
+              isIssued         ? "Already Final Release" :
+              !canFinalRelease ? "Drawing must be Submitted or Approved for Final Release" :
+              "Final Release — locks drawing permanently for production"
+            }
+            disabled={!canFinalRelease || isIssued}
             label="Final Release"
             color="#4caf50"
+            onClick={() => { setCommitModal("final"); setCommitError(""); }}
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <polyline points="20 6 9 17 4 12"/>
@@ -557,6 +641,98 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
             <div className="drop-form-actions">
               <button onClick={() => setDroppedProduct(null)}>Cancel</button>
               <button onClick={() => setDroppedProduct(null)}>Add</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── COMMIT CONFIRMATION MODAL ─────────────────────────── */}
+      {commitModal && (
+        <div style={{
+          position:        "fixed",
+          inset:           0,
+          background:      "rgba(0,0,0,0.75)",
+          zIndex:          9999,
+          display:         "flex",
+          alignItems:      "center",
+          justifyContent:  "center",
+        }}>
+          <div style={{
+            background:   "#111111",
+            border:       `1px solid ${commitModal === "final" ? "#2a5a2a" : "#4a3800"}`,
+            borderRadius: "8px",
+            padding:      "28px 32px",
+            maxWidth:     "440px",
+            width:        "90%",
+            display:      "flex",
+            flexDirection:"column",
+            gap:          "16px",
+          }}>
+            {/* Header */}
+            <div style={{ fontSize: "16px", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-ui)" }}>
+              {commitModal === "final" ? "Final Release" : "Commit Revision"}
+            </div>
+
+            {/* Warning */}
+            <div style={{
+              background:   commitModal === "final" ? "#0a1f0a" : "#1a1200",
+              border:       `1px solid ${commitModal === "final" ? "#2a5a2a" : "#4a3800"}`,
+              borderRadius: "4px",
+              padding:      "12px 14px",
+              fontSize:     "12px",
+              color:        commitModal === "final" ? "#4caf50" : "#e6a817",
+              fontFamily:   "var(--font-ui)",
+              lineHeight:   "1.6",
+            }}>
+              {commitModal === "final"
+                ? "This will permanently lock this drawing as the final production release. This action cannot be undone."
+                : `Once you commit Rev ${drawing?.revision || "00"}, you will not be able to edit this revision. A PDF will be generated and saved. The drawing status will change to Submittal Pending.`
+              }
+            </div>
+
+            {/* Error */}
+            {commitError && (
+              <div style={{ fontSize: "12px", color: "#f47070", fontFamily: "var(--font-ui)" }}>
+                {commitError}
+              </div>
+            )}
+
+            {/* Actions */}
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px" }}>
+              <button
+                onClick={() => { setCommitModal(null); setCommitError(""); }}
+                disabled={commitLoading}
+                style={{
+                  padding:      "8px 18px",
+                  background:   "transparent",
+                  border:       "1px solid #2a2a2a",
+                  borderRadius: "4px",
+                  color:        "#888888",
+                  fontSize:     "13px",
+                  cursor:       "pointer",
+                  fontFamily:   "var(--font-ui)",
+                }}
+              >
+                Discard
+              </button>
+              <button
+                onClick={commitModal === "final" ? executeFinalCommit : executeCommit}
+                disabled={commitLoading}
+                style={{
+                  padding:      "8px 20px",
+                  background:   commitModal === "final" ? "#4caf50" : "#e6a817",
+                  border:       "none",
+                  borderRadius: "4px",
+                  color:        "#000000",
+                  fontSize:     "13px",
+                  fontWeight:   "700",
+                  cursor:       commitLoading ? "not-allowed" : "pointer",
+                  fontFamily:   "var(--font-ui)",
+                  opacity:      commitLoading ? 0.6 : 1,
+                }}
+              >
+                {commitLoading ? "Processing..." : commitModal === "final" ? "Final Release" : "Commit"}
+              </button>
             </div>
           </div>
         </div>
@@ -596,11 +772,12 @@ const barSep = {
 // ─── BOTTOM BAR BUTTON ───────────────────────────────────────
 // Small icon + optional label button for the bottom action bar.
 // color prop tints the label when provided.
-function BBtn({ children, title, disabled, label, color }) {
+function BBtn({ children, title, disabled, label, color, onClick }) {
   return (
     <button
       disabled={disabled}
       title={title}
+      onClick={onClick}
       style={{
         display:        "flex",
         alignItems:     "center",
