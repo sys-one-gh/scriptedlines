@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { paperSizes } from "../data/paperSizes";
 import "./ProjectsPage.css";
 
 const API = "http://localhost:8000/api";
@@ -19,8 +18,7 @@ const PAPER_SIZE_LABELS = {
 const AVATARS   = ["🏛", "📐", "📏", "🔩", "🪚", "⚙️", "🔧", "🏗", "✏️", "📋"];
 const COMPLIANCE_OPTIONS = ["LEED", "FSC", "FR"];
 
-// Status display labels — DB stores draft/review/approved/issued
-// UI shows human-readable labels
+// DB stores draft/review/approved/issued — UI shows human-readable labels
 const STATUS_LABELS = {
   draft:             "In Drafting",
   review:            "In Review",
@@ -30,16 +28,16 @@ const STATUS_LABELS = {
   issued:            "Final Release",
 };
 
-const STATUS_CSS = {
-  draft:             { bg: "var(--status-draft-bg)",    color: "var(--status-draft-color)",    border: "var(--status-draft-border)",    dot: "#555" },
-  review:            { bg: "var(--status-review-bg)",   color: "var(--status-review-color)",   border: "var(--status-review-border)",   dot: "#e6a817" },
-  approved:          { bg: "var(--status-approved-bg)", color: "var(--status-approved-color)", border: "var(--status-approved-border)", dot: "#4caf50" },
-  submittal_pending: { bg: "#1a1200",                   color: "#e6a817",                      border: "#4a3800",                       dot: "#e6a817" },
-  submitted:         { bg: "#001a2a",                   color: "#4f8ef7",                      border: "#1a3a6a",                       dot: "#4f8ef7" },
-  issued:            { bg: "var(--status-issued-bg)",   color: "var(--status-issued-color)",   border: "var(--status-issued-border)",   dot: "#4f8ef7" },
+// Status → CSS class suffix. Colors defined in ProjectsPage.css (.pp-status--draft etc)
+const STATUS_CLASS = {
+  draft:             "draft",
+  review:            "review",
+  approved:          "approved",
+  submittal_pending: "subpending",
+  submitted:         "submitted",
+  issued:            "issued",
 };
 
-// Sortable fields for both card and list views
 const SORT_OPTIONS = [
   { value: "drawing_number", label: "Drawing #" },
   { value: "title",          label: "Drawing Name" },
@@ -97,9 +95,6 @@ function ProjectsPage() {
   const [projectTab,       setProjectTab]       = useState("active");
   const [drawingSearch,    setDrawingSearch]    = useState("");
 
-  // ── Sort state ────────────────────────────────────────────
-  // sortField: which field to sort by (drawing_number, title, mw_number, level)
-  // sortDir: "asc" or "desc"
   const [sortField, setSortField] = useState("drawing_number");
   const [sortDir,   setSortDir]   = useState("asc");
 
@@ -129,13 +124,11 @@ function ProjectsPage() {
   const [pLoading, setPLoading] = useState(false);
 
   // ── Drawing form ──────────────────────────────────────────
-  // page_count = number of canvas pages within this drawing (not project sequence)
   const emptyDrawing = { drawing_number:"", mw_number:"", title:"", paper_size:"Arch_D", level:"", location:"", arch_ref:"", item_description:"", page_count: 1 };
   const [dForm,    setDForm]    = useState(emptyDrawing);
   const [dError,   setDError]   = useState("");
   const [dLoading, setDLoading] = useState(false);
 
-  // ── Outside click refs ────────────────────────────────────
   const userMenuRef    = useRef(null);
   const projectMenuRef = useRef(null);
 
@@ -148,11 +141,10 @@ function ProjectsPage() {
     return () => document.removeEventListener("mousedown", handleOutside);
   }, []);
 
-  // ── Load on mount ─────────────────────────────────────────
   useEffect(() => {
     if (!user.id) { navigate("/login"); return; }
     loadProjects();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function loadProjects() {
     setLoadingProjects(true);
@@ -162,7 +154,10 @@ function ProjectsPage() {
       const groups = data.groups || [];
       setActiveProjects(  groups.find(g => g.label === "Active")?.projects   || []);
       setArchivedProjects(groups.find(g => g.label === "Archived")?.projects || []);
-    } catch { setActiveProjects([]); setArchivedProjects([]); }
+    } catch (err) {
+      console.error("loadProjects failed:", err);
+      setActiveProjects([]); setArchivedProjects([]);
+    }
     setLoadingProjects(false);
   }
 
@@ -172,7 +167,10 @@ function ProjectsPage() {
       const res  = await fetch(`${API}/drawings/project/${pid}`);
       const data = await res.json();
       setDrawings(data.drawings || []);
-    } catch { setDrawings([]); }
+    } catch (err) {
+      console.error("loadDrawings failed:", err);
+      setDrawings([]);
+    }
     setLoadingDrawings(false);
   }
 
@@ -209,7 +207,10 @@ function ProjectsPage() {
       setPForm(emptyProject); setPSection(0); setPError("");
       await loadProjects();
       if (!editingProject) selectProject(data.project);
-    } catch { setPError("Could not connect to server."); }
+    } catch (err) {
+      console.error("createProject failed:", err);
+      setPError("Could not connect to server.");
+    }
     setPLoading(false);
   }
 
@@ -240,12 +241,20 @@ function ProjectsPage() {
 
   async function deleteProject(id) {
     setProjectMenuId(null);
-    await fetch(`${API}/projects/${id}`, { method: "DELETE" });
-    if (selectedProject?.id === id) setSelectedProject(null);
-    await loadProjects();
+    try {
+      const res = await fetch(`${API}/projects/${id}`, { method: "DELETE" });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        console.error("deleteProject failed:", data.detail || res.status);
+      }
+      if (selectedProject?.id === id) setSelectedProject(null);
+      await loadProjects();
+    } catch (err) {
+      console.error("deleteProject failed:", err);
+    }
   }
 
-  // ── Delete drawing (with confirmation) ───────────────────
+  // ── Delete drawing ────────────────────────────────────────
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [deleteError,   setDeleteError]   = useState("");
 
@@ -261,7 +270,7 @@ function ProjectsPage() {
       }
       setDeleteConfirm(null);
       await loadDrawings(selectedProject.id);
-      await loadProjects(); // refresh drawing_count on left panel
+      await loadProjects();
     } catch {
       setDeleteError("Could not connect to server.");
     }
@@ -293,20 +302,15 @@ function ProjectsPage() {
   }, [viewerDrawing]);
 
   async function openViewer(d) {
-    // Reset viewer state immediately so modal opens fast
     setZoom(100); setCurrentPage(1);
     setPan({ x: 0, y: 0 }); panOffset.current = { x: 0, y: 0 };
-    // Set basic data first so header renders immediately
     setViewerDrawing(d);
-    // Fetch full drawing data including svg_data from DB
     try {
       const res  = await fetch(`${API}/drawings/${d.id}`);
       const data = await res.json();
-      if (res.ok && data.drawing) {
-        setViewerDrawing(data.drawing);
-      }
-    } catch {
-      // Keep basic data already set above
+      if (res.ok && data.drawing) setViewerDrawing(data.drawing);
+    } catch (err) {
+      console.error("openViewer fetch failed:", err);
     }
   }
   function closeViewer() { setViewerDrawing(null); }
@@ -332,7 +336,7 @@ function ProjectsPage() {
 
   const totalPages = viewerDrawing?.total_pages || 1;
 
-  // ── Viewer sidebar resize ─────────────────────────────────
+  // ── Viewer sidebar resize (stable refs to avoid listener leaks) ──
   const SIDEBAR_MIN = 25; const SIDEBAR_MAX = 40;
   const [sidebarPct,      setSidebarPct]      = useState(28);
   const [sidebarDivHover, setSidebarDivHover] = useState(false);
@@ -341,26 +345,33 @@ function ProjectsPage() {
   const sidebarDragPct = useRef(28);
   const viewerRef      = useRef(null);
 
-  function onSidebarDividerDown(e) {
-    e.preventDefault();
-    isSidebarDrag.current  = true;
-    sidebarDragX.current   = e.clientX;
-    sidebarDragPct.current = sidebarPct;
-    window.addEventListener("mousemove", onSidebarMouseMove);
-    window.addEventListener("mouseup",   onSidebarMouseUp);
-  }
-  function onSidebarMouseMove(e) {
+  const onSidebarMouseMove = useCallback((e) => {
     if (!isSidebarDrag.current || !viewerRef.current) return;
     const vw  = viewerRef.current.getBoundingClientRect().width;
     const dx  = sidebarDragX.current - e.clientX;
     const pct = sidebarDragPct.current + (dx / vw) * 100;
     setSidebarPct(Math.min(SIDEBAR_MAX, Math.max(SIDEBAR_MIN, pct)));
-  }
-  function onSidebarMouseUp() {
+  }, []);
+
+  const onSidebarMouseUp = useCallback(() => {
     isSidebarDrag.current = false;
     setSidebarDivHover(false);
-    window.removeEventListener("mousemove", onSidebarMouseMove);
-    window.removeEventListener("mouseup",   onSidebarMouseUp);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", onSidebarMouseMove);
+    window.addEventListener("mouseup",   onSidebarMouseUp);
+    return () => {
+      window.removeEventListener("mousemove", onSidebarMouseMove);
+      window.removeEventListener("mouseup",   onSidebarMouseUp);
+    };
+  }, [onSidebarMouseMove, onSidebarMouseUp]);
+
+  function onSidebarDividerDown(e) {
+    e.preventDefault();
+    isSidebarDrag.current  = true;
+    sidebarDragX.current   = e.clientX;
+    sidebarDragPct.current = sidebarPct;
   }
 
   // ── Create drawing ────────────────────────────────────────
@@ -388,7 +399,10 @@ function ProjectsPage() {
       if (!res.ok) { setDError(data.detail || "Failed."); setDLoading(false); return; }
       setShowNewDrawing(false); setDForm(emptyDrawing); setDError("");
       await loadDrawings(selectedProject.id);
-    } catch { setDError("Could not connect."); }
+    } catch (err) {
+      console.error("createDrawing failed:", err);
+      setDError("Could not connect.");
+    }
     setDLoading(false);
   }
 
@@ -405,20 +419,11 @@ function ProjectsPage() {
     setDForm({ ...dForm, drawing_number: val }); setDError("");
   }
 
-  // ── Sort toggle (for list view column headers) ───────────
-  // Clicking the same column toggles direction; new column defaults to asc
   function toggleSort(field) {
-    if (sortField === field) {
-      setSortDir(d => d === "asc" ? "desc" : "asc");
-    } else {
-      setSortField(field);
-      setSortDir("asc");
-    }
+    if (sortField === field) setSortDir(d => d === "asc" ? "desc" : "asc");
+    else { setSortField(field); setSortDir("asc"); }
   }
 
-  // ── Filter + sort drawings ────────────────────────────────
-  // Filter by search term across drawing_number and title
-  // Then sort by selected field and direction
   const filtered = drawings
     .filter(d =>
       d.drawing_number.toLowerCase().includes(drawingSearch.toLowerCase()) ||
@@ -434,13 +439,16 @@ function ProjectsPage() {
 
   const displayedProjects = projectTab === "active" ? activeProjects : archivedProjects;
 
+  // Sort arrow for list column headers
+  const sortArrow = (field) =>
+    sortField === field ? <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span> : null;
+
   // ─── RENDER ──────────────────────────────────────────────
   return (
     <div className="pp-page" ref={containerRef}>
 
       {/* ════ TOP BAR ════════════════════════════════════════ */}
       <div className="pp-topbar">
-
         <div className="pp-logo">
           <div className="pp-logo-mark"><span className="pp-logo-mark-text">SL</span></div>
           <div className="pp-logo-words">
@@ -469,20 +477,18 @@ function ProjectsPage() {
 
         <div className="pp-top-right">
           <div className="pp-autosave">
-            <div className="pp-autosave-dot" style={{ background: "#4caf50" }} />
+            <div className="pp-autosave-dot pp-autosave-dot--on" />
             <span>Saved</span>
           </div>
-
           <button className="pp-icon-btn" title="Notifications">🔔</button>
-
-          <div style={{ position: "relative" }} ref={userMenuRef}>
+          <div className="pp-rel" ref={userMenuRef}>
             <button className="pp-avatar-btn" onClick={() => { setShowUserMenu(!showUserMenu); setShowAvatarPicker(false); }}>
-              <span style={{ fontSize: "18px" }}>{userAvatar}</span>
+              <span className="pp-avatar-emoji">{userAvatar}</span>
             </button>
             {showUserMenu && (
               <div className="pp-user-menu">
                 <div className="pp-user-menu-header">
-                  <div style={{ fontSize: "28px" }}>{userAvatar}</div>
+                  <div className="pp-user-menu-avatar">{userAvatar}</div>
                   <div>
                     <div className="pp-user-menu-name">{user.first_name} {user.last_name}</div>
                     <div className="pp-user-menu-role">{user.role}</div>
@@ -506,7 +512,6 @@ function ProjectsPage() {
 
         {/* ── LEFT PANEL ─────────────────────────────────── */}
         <div className="pp-left-panel" style={{ width: `${leftWidth}%` }}>
-
           <div className="pp-explorer-header">
             <span className="pp-explorer-title">PROJECT EXPLORER</span>
             <button className="pp-explorer-add-btn"
@@ -543,12 +548,10 @@ function ProjectsPage() {
               displayedProjects.map(p => {
                 const isActive = selectedProject?.id === p.id;
                 return (
-                  <div
-                    key={p.id}
+                  <div key={p.id}
                     className={`pp-project-row${isActive ? " pp-project-row--active" : ""}`}
-                    onClick={() => selectProject(p)}
-                  >
-                    <div className="pp-health-dot" style={{ background: p.drawing_count > 0 ? "#4caf50" : "#333" }} />
+                    onClick={() => selectProject(p)}>
+                    <div className={`pp-health-dot${p.drawing_count > 0 ? " pp-health-dot--on" : ""}`} />
                     <div className="pp-project-row-body">
                       <div className="pp-project-row-name">{p.project_name}</div>
                       <div className="pp-project-row-meta">
@@ -557,7 +560,7 @@ function ProjectsPage() {
                         {p.drawing_count > 0 && ` · ${p.drawing_count} dwg`}
                       </div>
                     </div>
-                    <div style={{ position: "relative" }} ref={projectMenuId === p.id ? projectMenuRef : null}>
+                    <div className="pp-rel" ref={projectMenuId === p.id ? projectMenuRef : null}>
                       <button className="pp-project-menu-btn"
                         onClick={(e) => { e.stopPropagation(); setProjectMenuId(projectMenuId === p.id ? null : p.id); }}>
                         ⋯
@@ -578,12 +581,10 @@ function ProjectsPage() {
         </div>
 
         {/* ── DIVIDER ─────────────────────────────────────── */}
-        <div
-          className={`pp-divider${dividerHover ? " pp-divider--active" : ""}`}
+        <div className={`pp-divider${dividerHover ? " pp-divider--active" : ""}`}
           onMouseDown={onDividerDown}
           onMouseEnter={() => setDividerHover(true)}
-          onMouseLeave={() => setDividerHover(false)}
-        />
+          onMouseLeave={() => setDividerHover(false)} />
 
         {/* ── MAIN AREA ───────────────────────────────────── */}
         <div className="pp-main">
@@ -599,66 +600,54 @@ function ProjectsPage() {
             </div>
           ) : (
             <>
-              {/* Project header */}
-              <div className="pp-project-header">
-                <div className="pp-project-header-left">
-                  <div className="pp-project-name">{selectedProject.project_name}</div>
-                  <div className="pp-project-tags">
-                    <span className="pp-tag">#{selectedProject.project_number}</span>
-                    {selectedProject.job_number    && <span className="pp-tag">Job# {selectedProject.job_number}</span>}
-                    {selectedProject.client_name   && <span className="pp-tag">{selectedProject.client_name}</span>}
-                    {selectedProject.project_grade && <span className="pp-tag">{selectedProject.project_grade}</span>}
-                    {selectedProject.standard      && <span className="pp-tag">{selectedProject.standard}</span>}
+              {/* Single drawings explorer bar — identity left, controls right */}
+              <div className="pp-explorer-bar">
+
+                {/* Left: project identity */}
+                <div className="pp-explorer-bar-left">
+                  <div className="pp-explorer-bar-line1">
+                    {selectedProject.job_number && <>
+                      <span className="pp-dbar-jobnum pp-dbar-jobnum--blue">{selectedProject.job_number}</span>
+                      <span className="pp-dbar-sep">—</span>
+                    </>}
+                    <span className="pp-project-name pp-project-name--blue">{selectedProject.project_name}</span>
+                  </div>
+                  <div className="pp-explorer-bar-line2">
+                    {selectedProject.project_grade && <span className="pp-spec-badge">{selectedProject.project_grade}</span>}
+                    {selectedProject.standard      && <span className="pp-spec-badge pp-spec-badge--blue">{selectedProject.standard}</span>}
+                    {selectedProject.compliance_leed && <span className="pp-spec-badge pp-spec-badge--green">LEED</span>}
+                    {selectedProject.compliance_fsc  && <span className="pp-spec-badge pp-spec-badge--green">FSC</span>}
+                    {selectedProject.compliance_fr   && <span className="pp-spec-badge pp-spec-badge--red">FR</span>}
                   </div>
                 </div>
-                <div className="pp-project-header-right">
-                  {/* Search drawings */}
+
+                {/* Right: controls */}
+                <div className="pp-explorer-bar-right">
                   <div className="pp-search-wrap">
                     <span className="pp-search-icon">⌕</span>
-                    <input className="pp-search-input" type="text" placeholder="Search drawings..."
+                    <input className="pp-search-input" type="text" placeholder="Search..."
                       value={drawingSearch} onChange={e => setDrawingSearch(e.target.value)} />
                   </div>
-
-                  {/* Sort label + dropdown — works for both card and list view */}
-                  <span style={{ fontSize: "12px", color: "var(--text-dim)", fontFamily: "var(--font-mono)", whiteSpace: "nowrap" }}>
-                    Sort by:
-                  </span>
-                  <select
-                    className="pp-form-select"
-                    style={{ height: "32px", width: "140px", fontSize: "12px" }}
+                  <span className="pp-sort-label">Sort:</span>
+                  <select className="pp-sort-select"
                     value={sortField}
-                    onChange={e => { setSortField(e.target.value); setSortDir("asc"); }}
-                  >
-                    {SORT_OPTIONS.map(o => (
-                      <option key={o.value} value={o.value}>{o.label}</option>
-                    ))}
+                    onChange={e => { setSortField(e.target.value); setSortDir("asc"); }}>
+                    {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
                   </select>
-
-                  {/* Sort direction toggle */}
-                  <button
-                    className="pp-act-btn"
-                    style={{ height: "32px", padding: "0 10px", fontSize: "13px" }}
-                    onClick={() => setSortDir(d => d === "asc" ? "desc" : "asc")}
-                    title={sortDir === "asc" ? "Ascending — click for descending" : "Descending — click for ascending"}
-                  >
+                  <button className="pp-sort-dir-btn"
+                    onClick={() => setSortDir(d => d === "asc" ? "desc" : "asc")}>
                     {sortDir === "asc" ? "↑" : "↓"}
                   </button>
-
-                  {/* View toggle — card or list */}
                   <div className="pp-view-toggle">
                     <button className={`pp-view-btn${viewMode === "card" ? " pp-view-btn--active" : ""}`} onClick={() => setViewMode("card")} title="Card view">⊞</button>
                     <button className={`pp-view-btn${viewMode === "list" ? " pp-view-btn--active" : ""}`} onClick={() => setViewMode("list")} title="List view">≡</button>
                   </div>
-
-                  <button className="pp-btn-outline"
+                  <button className="pp-btn-newdwg"
                     onClick={() => { setShowNewDrawing(true); setDForm(emptyDrawing); setDError(""); }}>
                     + New Drawing
                   </button>
                 </div>
-              </div>
 
-              <div className="pp-drawings-bar">
-                <span className="pp-drawings-bar-title">DRAWINGS EXPLORER</span>
               </div>
 
               {loadingDrawings ? (
@@ -677,63 +666,44 @@ function ProjectsPage() {
 
                 /* CARD VIEW */
                 <div className="pp-cards-grid">
-                  {filtered.map(d => {
-                    const sc = STATUS_CSS[d.status] || STATUS_CSS.draft;
-                    return (
-                      <div key={d.id} className="pp-card">
-
-                        {/* ── Thumbnail — shows PDF thumbnail after first commit.
-                            Empty blueprint grid until then. ── */}
-                        <div className="pp-thumb">
-                          <div className="pp-thumb-grid" />
-                          {/* Status badge — top right */}
-                          <div className="pp-thumb-status" style={{ background: sc.bg, color: sc.color, borderColor: sc.border }}>
-                            <div className="pp-status-dot" style={{ background: sc.dot }} />
-                            {STATUS_LABELS[d.status] || d.status}
-                          </div>
+                  {filtered.map(d => (
+                    <div key={d.id} className="pp-card">
+                      <div className="pp-thumb">
+                        <div className="pp-thumb-grid" />
+                        <div className={`pp-thumb-status pp-status--${STATUS_CLASS[d.status] || "draft"}`}>
+                          <div className="pp-status-dot" />
+                          {STATUS_LABELS[d.status] || d.status}
                         </div>
-
-                        {/* ── Card body — all drawing info ── */}
-                        <div className="pp-card-body">
-
-                          {/* Line 1: Drawing # · Drawing Name (right-aligned Rev) */}
-                          <div className="pp-card-line1">
-                            <span className="pp-card-number">{d.drawing_number}</span>
-                            <span className="pp-card-sep">·</span>
-                            <span className="pp-card-title">{d.title}</span>
-                            <span className="pp-card-rev">Rev {d.revision || "00"}</span>
-                          </div>
-
-                          {/* Line 2: MW# · Level · Location · Arch Ref */}
-                          <div className="pp-card-line2">
-                            {d.mw_number  && <span className="pp-card-meta-item">MW# {d.mw_number}</span>}
-                            {d.level      && <><span className="pp-card-dot">·</span><span className="pp-card-meta-item">Lv {d.level}</span></>}
-                            {d.location   && <><span className="pp-card-dot">·</span><span className="pp-card-meta-item">{d.location}</span></>}
-                            {d.arch_ref   && <><span className="pp-card-dot">·</span><span className="pp-card-meta-item pp-card-arch">{d.arch_ref}</span></>}
-                          </div>
-
-                          {/* Line 3: Paper size · Pages */}
-                          <div className="pp-card-line3">
-                            <span className="pp-card-meta-item">{PAPER_SIZE_LABELS[d.paper_size] || d.paper_size}</span>
-                            <span className="pp-card-dot">·</span>
-                            <span className="pp-card-meta-item">{d.page_count || 1} {(d.page_count || 1) === 1 ? "Page" : "Pages"}</span>
-                          </div>
-
-                        </div>
-
-                        {/* ── Action bar ── */}
-                        <div className="pp-card-actions">
-                          <button className="pp-act-open"   onClick={() => openDrawing(d)}>Open</button>
-                          <button className="pp-act-btn"    disabled>+ Rev</button>
-                          <button className="pp-act-btn pp-act-btn--view" onClick={() => openViewer(d)}>View</button>
-                          <button className="pp-act-btn"    disabled>Export</button>
-                          <button className="pp-act-btn"    disabled>BOM</button>
-                          <button className="pp-act-btn pp-act-btn--danger" onClick={() => setDeleteConfirm(d)}>🗑</button>
-                        </div>
-
                       </div>
-                    );
-                  })}
+                      <div className="pp-card-body">
+                        <div className="pp-card-line1">
+                          <span className="pp-card-number">{d.drawing_number}</span>
+                          <span className="pp-card-sep">·</span>
+                          <span className="pp-card-title">{d.title}</span>
+                          <span className="pp-card-rev">Rev {d.revision || "00"}</span>
+                        </div>
+                        <div className="pp-card-line2">
+                          {d.mw_number  && <span className="pp-card-meta-item">MW# {d.mw_number}</span>}
+                          {d.level      && <><span className="pp-card-dot">·</span><span className="pp-card-meta-item">Lv {d.level}</span></>}
+                          {d.location   && <><span className="pp-card-dot">·</span><span className="pp-card-meta-item">{d.location}</span></>}
+                          {d.arch_ref   && <><span className="pp-card-dot">·</span><span className="pp-card-meta-item pp-card-arch">{d.arch_ref}</span></>}
+                        </div>
+                        <div className="pp-card-line3">
+                          <span className="pp-card-meta-item">{PAPER_SIZE_LABELS[d.paper_size] || d.paper_size}</span>
+                          <span className="pp-card-dot">·</span>
+                          <span className="pp-card-meta-item">{d.page_count || 1} {(d.page_count || 1) === 1 ? "Page" : "Pages"}</span>
+                        </div>
+                      </div>
+                      <div className="pp-card-actions">
+                        <button className="pp-act-open"   onClick={() => openDrawing(d)}>Open</button>
+                        <button className="pp-act-btn"    disabled>+ Rev</button>
+                        <button className="pp-act-btn pp-act-btn--view" onClick={() => openViewer(d)}>View</button>
+                        <button className="pp-act-btn"    disabled>Export</button>
+                        <button className="pp-act-btn"    disabled>BOM</button>
+                        <button className="pp-act-btn pp-act-btn--danger" onClick={() => setDeleteConfirm(d)}>🗑</button>
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
               ) : (
@@ -741,93 +711,50 @@ function ProjectsPage() {
                 /* LIST VIEW */
                 <div className="pp-list-wrap">
                   <div className="pp-list-header">
-
-                    {/* Sortable columns — show ↑↓ indicator on active sort */}
-                    <span className="pp-list-col pp-list-col--sortable" style={{ flex: 1.2 }}
-                      onClick={() => toggleSort("drawing_number")}>
-                      Drawing #
-                      {sortField === "drawing_number" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    <span className="pp-list-col pp-list-col--sortable pp-col-num" onClick={() => toggleSort("drawing_number")}>
+                      Drawing #{sortArrow("drawing_number")}
                     </span>
-
-                    <span className="pp-list-col pp-list-col--sortable" style={{ flex: 1.5 }}
-                      onClick={() => toggleSort("title")}>
-                      Drawing Name
-                      {sortField === "title" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    <span className="pp-list-col pp-list-col--sortable pp-col-name" onClick={() => toggleSort("title")}>
+                      Drawing Name{sortArrow("title")}
                     </span>
-
-                    {/* Rev — not sortable */}
                     <span className="pp-list-col">Rev #</span>
-
-                    <span className="pp-list-col pp-list-col--sortable"
-                      onClick={() => toggleSort("mw_number")}>
-                      MW#
-                      {sortField === "mw_number" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    <span className="pp-list-col pp-list-col--sortable" onClick={() => toggleSort("mw_number")}>
+                      MW#{sortArrow("mw_number")}
                     </span>
-
-                    <span className="pp-list-col pp-list-col--sortable"
-                      onClick={() => toggleSort("level")}>
-                      Level
-                      {sortField === "level" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    <span className="pp-list-col pp-list-col--sortable" onClick={() => toggleSort("level")}>
+                      Level{sortArrow("level")}
                     </span>
-
-                    {/* Status — sortable */}
-                    <span className="pp-list-col pp-list-col--sortable" style={{ flex: 1.4 }}
-                      onClick={() => toggleSort("status")}>
-                      Status
-                      {sortField === "status" && <span className="pp-sort-arrow">{sortDir === "asc" ? " ↑" : " ↓"}</span>}
+                    <span className="pp-list-col pp-list-col--sortable pp-col-status" onClick={() => toggleSort("status")}>
+                      Status{sortArrow("status")}
                     </span>
-
-                    {/* Actions — always last */}
-                    <span className="pp-list-col" style={{ flex: 2 }}>Actions</span>
-
+                    <span className="pp-list-col pp-col-actions">Actions</span>
                   </div>
 
-                  {filtered.map(d => {
-                    const sc = STATUS_CSS[d.status] || STATUS_CSS.draft;
-                    return (
-                      <div key={d.id} className="pp-list-row">
-
-                        <span className="pp-list-cell" style={{ flex: 1.2, color: "var(--accent)", fontWeight: 700, fontFamily: "var(--font-mono)" }}>
-                          {d.drawing_number}
+                  {filtered.map(d => (
+                    <div key={d.id} className="pp-list-row">
+                      <span className="pp-list-cell pp-cell-num">{d.drawing_number}</span>
+                      <span className="pp-list-cell pp-col-name">{d.title}</span>
+                      <span className="pp-list-cell pp-cell-mono">{d.revision || "00"}</span>
+                      <span className="pp-list-cell pp-cell-mono">{d.mw_number || "—"}</span>
+                      <span className="pp-list-cell">{d.level || "—"}</span>
+                      <span className="pp-list-cell pp-col-status">
+                        <span className={`pp-status-badge pp-status--${STATUS_CLASS[d.status] || "draft"}`}>
+                          <div className="pp-status-dot" />
+                          {STATUS_LABELS[d.status] || d.status}
                         </span>
-
-                        <span className="pp-list-cell" style={{ flex: 1.5 }}>{d.title}</span>
-
-                        <span className="pp-list-cell" style={{ fontFamily: "var(--font-mono)" }}>
-                          {d.revision || "00"}
-                        </span>
-
-                        <span className="pp-list-cell" style={{ fontFamily: "var(--font-mono)" }}>
-                          {d.mw_number || "—"}
-                        </span>
-
-                        <span className="pp-list-cell">
-                          {d.level || "—"}
-                        </span>
-
-                        {/* Status with human-readable label */}
-                        <span className="pp-list-cell" style={{ flex: 1.4 }}>
-                          <span className="pp-status-badge" style={{ background: sc.bg, color: sc.color, borderColor: sc.border }}>
-                            <div className="pp-status-dot" style={{ background: sc.dot }} />
-                            {STATUS_LABELS[d.status] || d.status}
-                          </span>
-                        </span>
-
-                        {/* Action buttons — always at end */}
-                        <span className="pp-list-cell" style={{ flex: 2 }}>
-                          <div style={{ display: "flex", gap: "4px" }}>
-                            <button className="pp-act-open"  onClick={() => openDrawing(d)}>Open</button>
-                            <button className="pp-act-btn"   disabled>+ Rev</button>
-                            <button className="pp-act-btn pp-act-btn--view" onClick={() => openViewer(d)}>View</button>
-                            <button className="pp-act-btn"   disabled>Export</button>
-                            <button className="pp-act-btn"   disabled>BOM</button>
-                            <button className="pp-act-btn pp-act-btn--danger" onClick={() => setDeleteConfirm(d)}>🗑</button>
-                          </div>
-                        </span>
-
-                      </div>
-                    );
-                  })}
+                      </span>
+                      <span className="pp-list-cell pp-col-actions">
+                        <div className="pp-list-actions">
+                          <button className="pp-act-open"  onClick={() => openDrawing(d)}>Open</button>
+                          <button className="pp-act-btn"   disabled>+ Rev</button>
+                          <button className="pp-act-btn pp-act-btn--view" onClick={() => openViewer(d)}>View</button>
+                          <button className="pp-act-btn"   disabled>Export</button>
+                          <button className="pp-act-btn"   disabled>BOM</button>
+                          <button className="pp-act-btn pp-act-btn--danger" onClick={() => setDeleteConfirm(d)}>🗑</button>
+                        </div>
+                      </span>
+                    </div>
+                  ))}
                 </div>
               )}
             </>
@@ -838,7 +765,7 @@ function ProjectsPage() {
       {/* ════ AVATAR PICKER ══════════════════════════════════ */}
       {showAvatarPicker && (
         <div className="pp-overlay">
-          <div className="pp-modal" style={{ width: "380px" }}>
+          <div className="pp-modal pp-modal--avatar">
             <div className="pp-modal-header">
               <div className="pp-modal-title">Choose Avatar</div>
               <button className="pp-modal-close" onClick={() => setShowAvatarPicker(false)}>✕</button>
@@ -846,9 +773,7 @@ function ProjectsPage() {
             <div className="pp-avatar-grid">
               {AVATARS.map(a => (
                 <button key={a} className={`pp-avatar-option${userAvatar === a ? " pp-avatar-option--selected" : ""}`}
-                  onClick={() => pickAvatar(a)}>
-                  {a}
-                </button>
+                  onClick={() => pickAvatar(a)}>{a}</button>
               ))}
             </div>
             <div className="pp-avatar-hint">Photo upload — coming soon</div>
@@ -871,9 +796,7 @@ function ProjectsPage() {
               {SECTIONS.map((sec, i) => (
                 <button key={i} type="button"
                   className={`pp-section-tab${pSection === i ? " pp-section-tab--active" : ""}`}
-                  onClick={() => setPSection(i)}>
-                  {sec}
-                </button>
+                  onClick={() => setPSection(i)}>{sec}</button>
               ))}
             </div>
 
@@ -945,11 +868,11 @@ function ProjectsPage() {
                 )}
               </div>
               <div className="pp-modal-footer">
-                <div style={{ display: "flex", gap: "8px" }}>
+                <div className="pp-footer-group">
                   {pSection > 0 && <button type="button" className="pp-btn-prev" onClick={() => setPSection(pSection - 1)}>← Prev</button>}
                   {pSection < SECTIONS.length - 1 && <button type="button" className="pp-btn-next" onClick={() => setPSection(pSection + 1)}>Next →</button>}
                 </div>
-                <div style={{ display: "flex", gap: "8px" }}>
+                <div className="pp-footer-group">
                   <button type="button" className="pp-btn-discard" onClick={() => { setShowNewProject(false); setEditingProject(null); }}>Discard</button>
                   <button type="submit" className="pp-btn-add" disabled={pLoading}>
                     {pLoading ? "Saving..." : editingProject ? "Save Changes" : "Add Project"}
@@ -975,15 +898,9 @@ function ProjectsPage() {
                 <div className="pp-form-grid">
                   <div className="pp-form-field">
                     <label className="pp-form-label">DRAWING NUMBER *</label>
-                    <input
-                      type="text"
-                      value={dForm.drawing_number}
-                      onChange={handleDrawingNumberInput}
-                      placeholder="e.g. D9501"
-                      maxLength={5}
-                      className={`pp-form-input${dForm.drawing_number && !validateDrawingNumber(dForm.drawing_number) ? " pp-form-input--error" : ""}`}
-                      style={{ fontFamily: "var(--font-mono)", letterSpacing: "2px", fontSize: "15px" }}
-                    />
+                    <input type="text" value={dForm.drawing_number} onChange={handleDrawingNumberInput}
+                      placeholder="e.g. D9501" maxLength={5}
+                      className={`pp-form-input pp-input-dwgnum${dForm.drawing_number && !validateDrawingNumber(dForm.drawing_number) ? " pp-form-input--error" : ""}`} />
                     <span className="pp-form-hint">Format: D + 4 digits. Pages: D9501.01, D9501.02</span>
                   </div>
                   <F label="MW# (MILLWORK SCOPE)"  name="mw_number"        val={dForm.mw_number}        set={setDForm} pForm={dForm} placeholder="e.g. MW-01" />
@@ -991,14 +908,9 @@ function ProjectsPage() {
                   <Sel label="PAPER SIZE"          name="paper_size"       val={dForm.paper_size}       set={setDForm} pForm={dForm} opts={PAPER_SIZES} display={p => PAPER_SIZE_LABELS[p]} />
                   <div className="pp-form-field">
                     <label className="pp-form-label">NUMBER OF PAGES</label>
-                    <input
-                      type="number"
-                      min="1"
-                      max="99"
-                      className="pp-form-input"
+                    <input type="number" min="1" max="99" className="pp-form-input"
                       value={dForm.page_count}
-                      onChange={e => setDForm({ ...dForm, page_count: Math.max(1, parseInt(e.target.value) || 1) })}
-                    />
+                      onChange={e => setDForm({ ...dForm, page_count: Math.max(1, parseInt(e.target.value) || 1) })} />
                     <span className="pp-form-hint">How many canvas pages this drawing has (default 1)</span>
                   </div>
                   <F label="LEVEL"                 name="level"            val={dForm.level}            set={setDForm} pForm={dForm} placeholder="e.g. 1G" />
@@ -1009,7 +921,7 @@ function ProjectsPage() {
               </div>
               <div className="pp-modal-footer">
                 <div />
-                <div style={{ display: "flex", gap: "8px" }}>
+                <div className="pp-footer-group">
                   <button type="button" className="pp-btn-discard" onClick={() => setShowNewDrawing(false)}>Discard</button>
                   <button type="submit" className="pp-btn-add" disabled={dLoading}>
                     {dLoading ? "Creating..." : "Create Drawing"}
@@ -1023,7 +935,7 @@ function ProjectsPage() {
 
       {/* ════ DELETE CONFIRMATION ════════════════════════════ */}
       {deleteConfirm && (
-        <div className="pp-overlay" style={{ zIndex: 1100 }}>
+        <div className="pp-overlay pp-overlay--top">
           <div className="pp-modal pp-modal--sm">
             <div className="pp-modal-header">
               <div className="pp-modal-title">Delete Drawing</div>
@@ -1036,11 +948,11 @@ function ProjectsPage() {
                 <div className="pp-delete-info-title">{deleteConfirm.title}</div>
               </div>
               <div className="pp-delete-warning">⚠ This action cannot be undone.</div>
-              {deleteError && <div style={{ marginTop: "10px", fontSize: "13px", color: "var(--danger)", background: "var(--danger-bg)", border: "1px solid var(--border-danger)", borderRadius: "4px", padding: "8px 12px" }}>{deleteError}</div>}
+              {deleteError && <div className="pp-delete-error">{deleteError}</div>}
             </div>
             <div className="pp-modal-footer">
               <div />
-              <div style={{ display: "flex", gap: "8px" }}>
+              <div className="pp-footer-group">
                 <button className="pp-btn-discard" onClick={() => { setDeleteConfirm(null); setDeleteError(""); }}>Cancel</button>
                 <button className="pp-btn-add pp-btn-add--danger" onClick={confirmDeleteDrawing}>Delete Drawing</button>
               </div>
@@ -1053,8 +965,6 @@ function ProjectsPage() {
       {viewerDrawing && (
         <div className="vw-overlay">
           <div className="vw-viewer" ref={viewerRef}>
-
-            {/* Header — full width */}
             <div className="vw-header">
               <div className="vw-header-left">
                 <span className="vw-header-number">{viewerDrawing.drawing_number}</span>
@@ -1076,65 +986,32 @@ function ProjectsPage() {
               </div>
             </div>
 
-            {/* Body row */}
             <div className="vw-body">
-
-              {/* Left column: canvas + bottom bar */}
               <div className="vw-canvas-col">
-
-                  {/* Canvas — shows committed PDF if available.
-                      If no revision has been committed yet, shows a message. */}
-                <div
-                  ref={canvasRef}
-                  className="vw-canvas"
+                <div ref={canvasRef} className="vw-canvas"
                   onMouseDown={handleViewerMouseDown}
                   onMouseMove={handleViewerMouseMove}
                   onMouseUp={handleViewerMouseUp}
-                  onMouseLeave={handleViewerMouseUp}
-                >
-                  {/* Check if any revision has a committed PDF */}
+                  onMouseLeave={handleViewerMouseUp}>
                   {viewerDrawing.revisions && viewerDrawing.revisions.some(r => r.is_locked && r.pdf_path) ? (
-                    /* ── Has committed PDF — Phase 8 will render it via iframe ── */
-                    <div style={{
-                      display:        "flex",
-                      flexDirection:  "column",
-                      alignItems:     "center",
-                      justifyContent: "center",
-                      height:         "100%",
-                      gap:            "12px",
-                    }}>
-                      <div style={{ fontSize: "32px", opacity: 0.3 }}>📄</div>
-                      <div style={{ fontSize: "13px", color: "#888888", fontFamily: "var(--font-mono)" }}>
-                        PDF viewer — Phase 8
-                      </div>
-                      <div style={{ fontSize: "11px", color: "#555555", fontFamily: "var(--font-mono)" }}>
+                    <div className="vw-canvas-msg">
+                      <div className="vw-canvas-msg-icon">📄</div>
+                      <div className="vw-canvas-msg-title">PDF viewer — Phase 8</div>
+                      <div className="vw-canvas-msg-sub">
                         {viewerDrawing.revisions.filter(r => r.is_locked).length} committed revision(s) available
                       </div>
                     </div>
                   ) : (
-                    /* ── No committed revision yet ── */
-                    <div style={{
-                      display:        "flex",
-                      flexDirection:  "column",
-                      alignItems:     "center",
-                      justifyContent: "center",
-                      height:         "100%",
-                      gap:            "14px",
-                      padding:        "40px",
-                      textAlign:      "center",
-                    }}>
-                      <div style={{ fontSize: "40px", opacity: 0.15 }}>⬡</div>
-                      <div style={{ fontSize: "15px", color: "#888888", fontWeight: "600", fontFamily: "var(--font-ui)" }}>
-                        No revision has been committed for this drawing.
-                      </div>
-                      <div style={{ fontSize: "13px", color: "#555555", fontFamily: "var(--font-ui)", maxWidth: "320px", lineHeight: "1.6" }}>
+                    <div className="vw-canvas-empty">
+                      <div className="vw-canvas-empty-glyph">⬡</div>
+                      <div className="vw-canvas-empty-title">No revision has been committed for this drawing.</div>
+                      <div className="vw-canvas-empty-text">
                         Open the drawing in the workspace, complete your work, then commit the revision to generate a PDF.
                       </div>
                     </div>
                   )}
                 </div>
 
-                {/* Bottom bar — only under canvas */}
                 <div className="vw-bottom-bar">
                   <div className="vw-bottom-inner">
                     <div className="vw-zoom-group">
@@ -1157,27 +1034,21 @@ function ProjectsPage() {
                     </div>
                   </div>
                 </div>
+              </div>
 
-              </div>{/* end canvas-col */}
-
-              {/* Sidebar divider */}
-              <div
-                className={`vw-sidebar-divider${sidebarDivHover ? " vw-sidebar-divider--active" : ""}`}
+              <div className={`vw-sidebar-divider${sidebarDivHover ? " vw-sidebar-divider--active" : ""}`}
                 onMouseDown={onSidebarDividerDown}
                 onMouseEnter={() => setSidebarDivHover(true)}
-                onMouseLeave={() => setSidebarDivHover(false)}
-              />
+                onMouseLeave={() => setSidebarDivHover(false)} />
 
-              {/* Right sidebar */}
               <div className="vw-sidebar" style={{ width: `${sidebarPct}%` }}>
                 <div className="vw-sidebar-label">PROPERTIES</div>
                 <div className="vw-sidebar-empty">
-                  <div style={{ fontSize: "32px", opacity: 0.07 }}>⬡</div>
+                  <div className="vw-sidebar-empty-glyph">⬡</div>
                   <div className="vw-sidebar-coming">Coming soon</div>
                 </div>
               </div>
-
-            </div>{/* end body */}
+            </div>
           </div>
         </div>
       )}
