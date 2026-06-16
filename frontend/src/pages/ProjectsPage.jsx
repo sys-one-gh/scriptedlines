@@ -16,6 +16,7 @@ const PAPER_SIZE_LABELS = {
   "A3":     "A3 — 420 × 297 mm",
 };
 const AVATARS   = ["🏛", "📐", "📏", "🔩", "🪚", "⚙️", "🔧", "🏗", "✏️", "📋"];
+const COMPLIANCE_OPTIONS = ["LEED", "FSC", "FR"];
 
 // DB stores draft/review/approved/issued — UI shows human-readable labels
 const STATUS_LABELS = {
@@ -198,9 +199,6 @@ function ProjectsPage() {
         scheduled_start_date:      pForm.scheduled_start_date      || null,
         scheduled_completion_date: pForm.scheduled_completion_date || null,
         project_budget: pForm.project_budget ? parseFloat(pForm.project_budget) : null,
-        compliance_leed: pForm.compliance_leed,
-        compliance_fsc:  pForm.compliance_fsc,
-        compliance_fr:   pForm.compliance_fr,
       };
       const res  = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
       const data = await res.json();

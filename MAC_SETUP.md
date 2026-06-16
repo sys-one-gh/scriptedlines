@@ -1,174 +1,115 @@
-# ScriptedLines — Mac Setup Guide
-# First time setup on Mac. Run these steps once only.
-# ─────────────────────────────────────────────────────────────
+# Mac Setup — ScriptedLines
 
+Setup for working on ScriptedLines from a Mac. The database now lives on
+**Supabase** (shared cloud Postgres), so the Mac and WSL machines connect to
+the **same** database — same login, same projects, same data, no syncing.
 
-## Project Paths
+---
 
-  WSL:  /home/restricted_space/projects/scriptedlines
-  Mac:  ~/projects/scriptedlines
+## Prerequisites
 
+- **Docker Desktop** — install from docker.com, then launch it (whale icon in
+  the menu bar must be steady, not animating, before running any commands).
+- **Git** — `git --version` to confirm.
 
-## Step 1 — Install Prerequisites
+That's it. No Homebrew Postgres, Python, or Node needed — everything runs in
+Docker, and the database is remote.
 
-### Install Homebrew
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+---
 
-### Install Docker Desktop for Mac
-Download from: https://www.docker.com/products/docker-desktop/
-
-After install:
-- Open Docker Desktop
-- Wait for the whale icon in the menu bar to be steady (not animating)
-- That means Docker is running
-
-### Install Git (if not already installed)
-```bash
-brew install git
-```
-
-
-## Step 2 — Create Project Directory
+## First-time setup
 
 ```bash
-mkdir -p ~/projects
+# 1. Clone (or pull) the repo
+git clone <repo-url> ~/projects/scriptedlines
+cd ~/projects/scriptedlines
+
+# 2. Create your .env from the template
+cp .env.example .env
+
+# 3. Edit .env — paste the real Supabase DATABASE_URL + JWT secret
+#    (get the connection string from the Supabase dashboard)
+nano .env
+
+# 4. Start backend + frontend (they connect to Supabase automatically)
+docker-compose up -d --build
+
+# 5. Confirm the backend connected and built/verified the tables
+docker logs scriptedlines_backend
+#    → look for "✔ Database tables verified." and no connection errors
 ```
 
+Then open:
+- Frontend → http://localhost:5173
+- Backend docs → http://localhost:8000/docs
 
-## Step 3 — Clone the Repo
+Because the database is shared, **you do not register again on the Mac** —
+log in with the account you already created. The data is the same everywhere.
 
-```bash
-cd ~/projects
-git clone https://github.com/sys-one-gh/scriptedlines.git
-cd scriptedlines
-git checkout mac
-```
+---
 
-Verify:
-```bash
-ls ~/projects/scriptedlines
-```
-
-
-## Step 4 — Create Your .env File
-
-```bash
-cp ~/projects/scriptedlines/.env.example ~/projects/scriptedlines/.env
-```
-
-The `.env.example` already has the correct dev credentials — no changes needed for local dev.
-
-
-## Step 5 — Build and Start Docker Containers
+## Daily workflow
 
 ```bash
 cd ~/projects/scriptedlines
-docker-compose up -d --build
+git pull
+docker-compose up -d        # start
+# ... work ...
+docker-compose down         # stop (data is safe on Supabase regardless)
 ```
 
-First time takes 3-5 minutes — downloads PostgreSQL, Python, and Node images.
+No backup/restore needed between machines anymore — there's one database.
 
-You should see:
-```
-✔ Container scriptedlines_db        Healthy
-✔ Container scriptedlines_backend   Started
-✔ Container scriptedlines_frontend  Started
-```
+---
 
+## The DATABASE_URL
 
-## Step 6 — Restore the Database
+Get it from: **Supabase Dashboard → Project Settings → Database → Connection
+string → URI → Session pooler** (port 5432). Paste it into `.env` as
+`DATABASE_URL`, replacing the password placeholder with your real database
+password.
+
+- Use the **Session pooler** string (port 5432) — it's IPv4-friendly and works
+  on any network. Avoid the Direct connection (IPv6-only) and the Transaction
+  pooler (port 6543, not suited to SQLAlchemy sessions).
+- Use a password with **letters and numbers only**, or URL-encode special
+  characters, or the connection string won't parse.
+
+---
+
+## Offline fallback (optional)
+
+If you're somewhere with no internet and need a local database:
 
 ```bash
-# Pull latest backup from git (already in data/backups/)
-bash scripts/restore_docker.sh
+# Point DATABASE_URL in .env back to the local container:
+#   postgresql://scriptedlines_user:scriptedlines2024@db:5432/scriptedlines_db
+docker-compose --profile local-db up -d --build
 ```
 
-You should see: `✔ Database restored successfully`
+This starts a local Postgres container. Note: this is a SEPARATE database from
+Supabase — data created here won't sync. Switch DATABASE_URL back to the
+Supabase string when you're back online.
 
-Verify:
-```bash
-docker-compose exec db psql -U scriptedlines_user -d scriptedlines_db \
-  -c "SELECT COUNT(*) FROM library_products;"
-```
-Should return: `81`
-
-
-## Step 7 — Open the App
-
-```
-http://localhost:5173
-```
-
-Automatically redirects to /login.
-Page flow: /login → /projects → /workspace
-
-
-## Step 8 — Verify Backend
-
-```bash
-curl http://localhost:8000/api/health
-```
-Should return: `{"status":"ok"}`
-
-
-## Daily Use After Setup
-
-See `DAILY_START.md` — Mac section. It's just two commands:
-
-```bash
-docker-compose up -d    ← start
-docker-compose stop     ← stop
-```
-
-
-## Difference Between WSL and Mac
-
-| | WSL | Mac |
-|---|---|---|
-| Project path | `/home/restricted_space/projects/scriptedlines` | `~/projects/scriptedlines` |
-| Git branch | `working` | `mac` |
-| Start app | `docker-compose up -d` | `docker-compose up -d` |
-| Stop app | `docker-compose stop` | `docker-compose stop` |
-| Everything else | identical | identical |
-
-Docker removes all platform differences — same commands, same behaviour.
-
+---
 
 ## Troubleshooting
 
-### Docker Desktop not running
-→ Open Docker Desktop app, wait for whale icon to be steady
+**`Cannot connect to the Docker daemon`**
+Docker Desktop isn't running. Launch it and wait for the menu-bar whale icon to
+go steady.
 
-### Port already in use
-```bash
-lsof -i :5173
-lsof -i :8000
-lsof -i :5432
-```
-Kill the process using the port, then retry.
+**Backend log shows connection / password errors**
+- Check the `DATABASE_URL` password is correct (it's the Supabase *database*
+  password, not your account login).
+- Check for unencoded special characters in the password.
+- Confirm you used the Session pooler host (`...pooler.supabase.com:5432`).
 
-### Containers not starting
-```bash
-docker-compose logs backend
-docker-compose logs db
-```
+**Supabase project is paused**
+Free-tier projects pause after ~1 week of inactivity. Open the Supabase
+dashboard and click "Restore" / "Resume," then retry.
 
-### Database empty after restore
-```bash
-git pull                          # make sure you have latest backup
-bash scripts/restore_docker.sh   # restore again
-```
-
-### Full rebuild
-```bash
-docker-compose down
-docker-compose up -d --build
-```
-Data is safe — `down` without `-v` never deletes the database volume.
-
-### ⚠️ NEVER run
-```bash
-docker-compose down -v    # this deletes the database permanently
-```
+**Login fails / "Invalid email or password"**
+Confirm the company row and your user exist:
+- Supabase Dashboard → Table Editor → `companies` (should have id=1)
+- Supabase Dashboard → Table Editor → `users` (should list your account)
