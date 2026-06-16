@@ -1,0 +1,98 @@
+/* ============================================================
+   tokens.css — SINGLE SOURCE OF TRUTH for design tokens
+   Imported once (in main.jsx / App.jsx) before any other CSS.
+
+   Two naming systems are defined here on purpose:
+     --color-*  → used by App.css (Workspace, panels, login, etc.)
+     unprefixed → used by ProjectsPage.css (.pp-* / .vw-* components)
+   Both point at the same values, so neither stylesheet's existing
+   class usages need to change. Edit a value HERE and it updates
+   everywhere. Do not redefine these in other files.
+   ============================================================ */
+
+:root {
+  /* ── Fonts ─────────────────────────────────────────────── */
+  --font-ui:   'DM Sans', sans-serif;
+  --font-tech: 'IBM Plex Sans', monospace;
+  --font-mono: 'IBM Plex Sans', monospace;
+
+  /* ── Backgrounds ───────────────────────────────────────── */
+  --bg-deepest:   #0d0d0d;
+  --bg-deep:      #0f0f0f;
+  --bg-panel:     #111111;
+  --bg-raised:    #161616;
+  --bg-input:     #0d0d0d;
+  --bg-hover:     #1a1a1a;
+  --bg-active:    #0f1e35;
+  --bg-card:      #111111;
+  --bg-thumb:     #0a0f1a;
+  --bg-canvas:    #141414;
+
+  /* ── Borders ───────────────────────────────────────────── */
+  --border-subtle:  #1a1a1a;
+  --border-soft:    #1e1e1e;
+  --border-medium:  #2a2a2a;
+  --border-strong:  #2e2e2e;
+  --border-accent:  #1a3a6a;
+  --border-danger:  #3a1515;
+
+  /* ── Text ──────────────────────────────────────────────── */
+  --text-primary:   #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-muted:     #cccccc;
+  --text-dim:       #aaaaaa;
+  --text-faint:     #888888;
+  --text-ghost:     #666666;
+  --text-disabled:  #555555;
+
+  /* ── Accent ────────────────────────────────────────────── */
+  --accent:         #4f8ef7;
+  --accent-dark:    #2563d4;
+  --accent-bg:      #1a3a6a;
+  --accent-border:  #2a4a8a;
+  --accent-glow:    rgba(79,142,247,0.4);
+
+  /* ── Danger ────────────────────────────────────────────── */
+  --danger:         #f47070;
+  --danger-dark:    #b02a2a;
+  --danger-bg:      #1a0a0a;
+  --danger-border:  #8a1a1a;
+
+  /* ── Radii ─────────────────────────────────────────────── */
+  --radius-sm:  3px;
+  --radius-md:  4px;
+  --radius-lg:  6px;
+  --radius-xl:  8px;
+  --radius-2xl: 10px;
+
+  /* ── Transitions ───────────────────────────────────────── */
+  --transition-fast: 0.12s ease;
+  --transition-std:  0.15s ease;
+
+  /* ── Shadows ───────────────────────────────────────────── */
+  --shadow-menu:    0 16px 48px rgba(0,0,0,0.7);
+  --shadow-modal:   0 32px 80px rgba(0,0,0,0.8);
+  --shadow-popover: 0 8px 32px rgba(0,0,0,0.7);
+  --shadow-viewer:  0 40px 100px rgba(0,0,0,0.9);
+  --shadow-sheet:   0 8px 48px rgba(0,0,0,0.7);
+
+  /* ── App.css aliases (--color-* names → same values) ───── */
+  --color-bg-deepest:     var(--bg-deepest);
+  --color-bg-panel:       var(--bg-panel);
+  --color-bg-raised:      var(--bg-raised);
+  --color-bg-canvas:      #1a1a1a;       /* App.css used #1a1a1a here, preserved */
+  --color-bg-hover:       var(--bg-hover);
+  --color-bg-dark:        #111111;
+  --color-border:         var(--border-medium);
+  --color-border-soft:    var(--border-soft);
+  --color-accent:         var(--accent);
+  --color-accent-dark:    var(--accent-dark);
+  --color-text-primary:   var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted:     var(--text-muted);
+  --color-text-dim:       var(--text-dim);
+  --color-text-faint:     var(--text-faint);
+  --color-text-ghost:     var(--text-ghost);
+  --color-text-disabled:  var(--text-disabled);
+  --color-danger:         var(--danger);
+}

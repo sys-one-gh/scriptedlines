@@ -1,32 +1,9 @@
 /* ─────────────────────────────────────────────────────────────
    App.css — ScriptedLines global styles
+   Design tokens now live in tokens.css (imported once in main.jsx).
 ───────────────────────────────────────────────────────────── */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
-
-:root {
-  --color-bg-deepest:     #0d0d0d;
-  --color-bg-panel:       #111111;
-  --color-bg-raised:      #161616;
-  --color-bg-canvas:      #1a1a1a;
-  --color-bg-hover:       #1a1a1a;
-  --color-bg-dark:        #111111;
-  --color-border:         #2a2a2a;
-  --color-border-soft:    #1e1e1e;
-  --color-accent:         #4f8ef7;
-  --color-accent-dark:    #2563d4;
-  --color-text-primary:   #ffffff;
-  --color-text-secondary: #e0e0e0;
-  --color-text-muted:     #cccccc;
-  --color-text-dim:       #aaaaaa;
-  --color-text-faint:     #888888;
-  --color-text-ghost:     #666666;
-  --color-text-disabled:  #555555;
-  --color-danger:         #f47070;
-  --font-ui:   'DM Sans', sans-serif;
-  --font-tech: 'IBM Plex Sans', monospace;
-  --font-mono: 'IBM Plex Sans', monospace;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
