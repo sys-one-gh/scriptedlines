@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProjectsPage.css";
+import ProjectsPageActionButtons from "../components/ProjectsPageActionButtons";
 
 const API = "http://localhost:8000/api";
 const GRADES    = ["Custom", "Premium", "Standard", "Commercial", "Institutional"];
@@ -238,7 +239,7 @@ function ProjectsPage() {
     setPSection(0); setPError("");
     setShowNewProject(true); setProjectMenuId(null);
   }
-
+  // ── Delete project async fnction  ────────────────────────────────────────
   async function deleteProject(id) {
     setProjectMenuId(null);
     try {
@@ -254,9 +255,53 @@ function ProjectsPage() {
     }
   }
 
-  // ── Delete drawing ────────────────────────────────────────
+  // ── Archive project async fnction  ────────────────────────────────────────
+  async function archiveProject(id) {
+  try {
+    const res = await fetch(`${API}/projects/${id}`, {
+      method:  "PUT",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ status: "archived" }),
+    });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      console.error("archiveProject failed:", data.detail || res.status);
+      return;
+    }
+    // If the archived project was the one open in the main area, clear it
+    if (selectedProject?.id === id) setSelectedProject(null);
+    setArchiveConfirm(null);   // close the modal
+    await loadProjects();      // refresh — project now appears in Archived tab
+  } catch (err) {
+    console.error("archiveProject failed:", err);
+  }
+  }
+  // ── Restore project async fnction  ────────────────────────────────────────
+
+  async function restoreProject(id) {
+  try {
+    const res = await fetch(`${API}/projects/${id}`, {
+      method:  "PUT",
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify({ status: "active" }),
+    });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      console.error("restoreProject failed:", data.detail || res.status);
+      return;
+    }
+    setProjectMenuId(null);
+    await loadProjects();   // project now returns to Active tab
+  } catch (err) {
+    console.error("restoreProject failed:", err);
+  }
+  }
+  // ── Delete drawing / Archive project  ────────────────────────────────────────
+  
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [deleteError,   setDeleteError]   = useState("");
+  const [archiveConfirm, setArchiveConfirm] = useState(null);
+  const [archivedNotice, setArchivedNotice] = useState(false);
 
   async function confirmDeleteDrawing() {
     if (!deleteConfirm) return;
@@ -438,6 +483,8 @@ function ProjectsPage() {
     });
 
   const displayedProjects = projectTab === "active" ? activeProjects : archivedProjects;
+  const isArchived = selectedProject?.status === "archived";
+  console.log("isArchived:", isArchived, "status:", selectedProject?.status);
 
   // Sort arrow for list column headers
   const sortArrow = (field) =>
@@ -553,11 +600,15 @@ function ProjectsPage() {
                     onClick={() => selectProject(p)}>
                     <div className={`pp-health-dot${p.drawing_count > 0 ? " pp-health-dot--on" : ""}`} />
                     <div className="pp-project-row-body">
-                      <div className="pp-project-row-name">{p.project_name}</div>
+                      <div className="pp-project-row-name">
+                        {p.job_number && <>
+                          <span className="pp-project-row-jobnum">{p.job_number}</span>
+                          <span className="pp-project-row-sep"> — </span>
+                        </>}
+                        {p.project_name}
+                      </div>
                       <div className="pp-project-row-meta">
-                        #{p.project_number}
-                        {p.job_number && ` · Job# ${p.job_number}`}
-                        {p.drawing_count > 0 && ` · ${p.drawing_count} dwg`}
+                        {p.drawing_count > 0 ? `${p.drawing_count} dwg` : "No drawings"}
                       </div>
                     </div>
                     <div className="pp-rel" ref={projectMenuId === p.id ? projectMenuRef : null}>
@@ -567,9 +618,19 @@ function ProjectsPage() {
                       </button>
                       {projectMenuId === p.id && (
                         <div className="pp-project-popover" onClick={e => e.stopPropagation()}>
-                          <button className="pp-popover-item" onClick={() => openEditProject(p)}>✏️  Edit Project</button>
-                          <div className="pp-menu-divider" />
-                          <button className="pp-popover-item pp-popover-item--danger" onClick={() => deleteProject(p.id)}>🗑  Delete Project</button>
+                          {projectTab === "active" ? (
+                            <>
+                              <button className="pp-popover-item" onClick={() => openEditProject(p)}>✏️  Edit Project</button>
+                              <div className="pp-menu-divider" />
+                              <button className="pp-popover-item" onClick={() => { setArchiveConfirm(p); setProjectMenuId(null); }}>📦  Archive Project</button>
+                            </>
+                          ) : (
+                            <>
+                              <button className="pp-popover-item" onClick={() => restoreProject(p.id)}>↩  Restore Project</button>
+                              <div className="pp-menu-divider" />
+                              <button className="pp-popover-item pp-popover-item--danger" disabled title="Permanent delete — coming soon">🗑  Delete Permanently</button>
+                            </>
+                          )}
                         </div>
                       )}
                     </div>
@@ -643,7 +704,7 @@ function ProjectsPage() {
                     <button className={`pp-view-btn${viewMode === "list" ? " pp-view-btn--active" : ""}`} onClick={() => setViewMode("list")} title="List view">≡</button>
                   </div>
                   <button className="pp-btn-newdwg"
-                    onClick={() => { setShowNewDrawing(true); setDForm(emptyDrawing); setDError(""); }}>
+                    onClick={() => { if (isArchived) { setArchivedNotice(true); return; } setShowNewDrawing(true); setDForm(emptyDrawing); setDError(""); }}>
                     + New Drawing
                   </button>
                 </div>
@@ -658,7 +719,7 @@ function ProjectsPage() {
                   <div className="pp-empty-title">No Drawings Yet</div>
                   <div className="pp-empty-text">Create the first drawing for this project.</div>
                   <button className="pp-btn-primary"
-                    onClick={() => { setShowNewDrawing(true); setDForm(emptyDrawing); setDError(""); }}>
+                    onClick={() => { if (isArchived) { setArchivedNotice(true); return; } setShowNewDrawing(true); setDForm(emptyDrawing); setDError(""); }}>
                     + New Drawing
                   </button>
                 </div>
@@ -695,12 +756,14 @@ function ProjectsPage() {
                         </div>
                       </div>
                       <div className="pp-card-actions">
-                        <button className="pp-act-open"   onClick={() => openDrawing(d)}>Open</button>
-                        <button className="pp-act-btn"    disabled>+ Rev</button>
-                        <button className="pp-act-btn pp-act-btn--view" onClick={() => openViewer(d)}>View</button>
-                        <button className="pp-act-btn"    disabled>Export</button>
-                        <button className="pp-act-btn"    disabled>BOM</button>
-                        <button className="pp-act-btn pp-act-btn--danger" onClick={() => setDeleteConfirm(d)}>🗑</button>
+                        <ProjectsPageActionButtons
+                          d={d}
+                          isArchived={isArchived}
+                          onOpen={openDrawing}
+                          onView={openViewer}
+                          onDelete={setDeleteConfirm}
+                          onBlocked={() => setArchivedNotice(true)}
+                        />
                       </div>
                     </div>
                   ))}
@@ -745,12 +808,14 @@ function ProjectsPage() {
                       </span>
                       <span className="pp-list-cell pp-col-actions">
                         <div className="pp-list-actions">
-                          <button className="pp-act-open"  onClick={() => openDrawing(d)}>Open</button>
-                          <button className="pp-act-btn"   disabled>+ Rev</button>
-                          <button className="pp-act-btn pp-act-btn--view" onClick={() => openViewer(d)}>View</button>
-                          <button className="pp-act-btn"   disabled>Export</button>
-                          <button className="pp-act-btn"   disabled>BOM</button>
-                          <button className="pp-act-btn pp-act-btn--danger" onClick={() => setDeleteConfirm(d)}>🗑</button>
+                          <ProjectsPageActionButtons
+                            d={d}
+                            isArchived={isArchived}
+                            onOpen={openDrawing}
+                            onView={openViewer}
+                            onDelete={setDeleteConfirm}
+                            onBlocked={() => setArchivedNotice(true)}
+                          />
                         </div>
                       </span>
                     </div>
@@ -960,7 +1025,63 @@ function ProjectsPage() {
           </div>
         </div>
       )}
-
+      {/* ════ ARCHIVE CONFIRMATION ═══════════════════════════════ */}
+      {archiveConfirm && (
+        <div className="pp-overlay pp-overlay--top">
+          <div className="pp-modal pp-modal--sm">
+            <div className="pp-modal-header">
+              <div className="pp-modal-title">Archive Project</div>
+              <button className="pp-modal-close" onClick={() => setArchiveConfirm(null)}>✕</button>
+            </div>
+            <div className="pp-delete-info">
+              <div className="pp-delete-info-text">
+                Archive this project?
+              </div>
+              <div className="pp-delete-info-card">
+                <div className="pp-archive-line">
+                  {archiveConfirm.job_number && <>
+                    <span className="pp-archive-jobnum">{archiveConfirm.job_number}</span>
+                    <span className="pp-archive-sep"> — </span>
+                  </>}
+                  <span className="pp-archive-pname">{archiveConfirm.project_name}</span>
+                </div>
+              </div>
+              <div className="pp-delete-warning">
+                ⚠ Archiving sets this project to read-only. You won't be able to add or edit drawings until you restore it from the Archive tab.
+              </div>
+            </div>
+            <div className="pp-modal-footer">
+              <div />
+              <div className="pp-footer-group">
+                <button className="pp-btn-discard" onClick={() => setArchiveConfirm(null)}>Discard</button>
+                <button className="pp-btn-add" onClick={() => archiveProject(archiveConfirm.id)}>Archive Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* ════ ARCHIVED — READ ONLY NOTICE ════════════════════════ */}
+      {archivedNotice && (
+        <div className="pp-overlay pp-overlay--top">
+          <div className="pp-modal pp-modal--sm">
+            <div className="pp-modal-header">
+              <div className="pp-modal-title">Project Archived</div>
+              <button className="pp-modal-close" onClick={() => setArchivedNotice(false)}>✕</button>
+            </div>
+            <div className="pp-delete-info">
+              <div className="pp-delete-warning">
+                ⚠ This is an archived project. You won't be able to create or edit drawings until you restore the project from the Archive tab.
+              </div>
+            </div>
+            <div className="pp-modal-footer">
+              <div />
+              <div className="pp-footer-group">
+                <button className="pp-btn-add" onClick={() => setArchivedNotice(false)}>Got it</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {/* ════ DRAWING VIEWER ══════════════════════════════════ */}
       {viewerDrawing && (
         <div className="vw-overlay">
