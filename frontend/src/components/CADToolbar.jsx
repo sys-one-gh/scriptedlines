@@ -12,13 +12,17 @@
 // All other tools are visible placeholders with tooltips.
 // They activate in later phases as the canvas engine is built.
 //
+// On narrow screens the strip overflows; ‹ / › arrows on each
+// side scroll it. Arrows dim to 0.25 when there's nothing more
+// to scroll in that direction.
+//
 // Props:
 //   activeTool   — string, currently active tool id
 //   onToolChange — function(toolId)
 //   onZoomFit    — function() resets zoom to fit in PaperSpace
 // ─────────────────────────────────────────────────────────────
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 // ─── COLOR CONSTANTS ─────────────────────────────────────────
 const C = {
@@ -298,6 +302,31 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
   const [tooltip, setTooltip] = useState(null);
   const btnRefs = useRef({});
 
+  // ── Horizontal scroll for overflow (small screens) ──────────
+  const stripRef = useRef(null);
+  const [canScrollLeft,  setCanScrollLeft]  = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = stripRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(checkScroll, 100);
+    window.addEventListener("resize", checkScroll);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", checkScroll);
+    };
+  }, [checkScroll]);
+
+  function scrollStrip(dir) {
+    stripRef.current?.scrollBy({ left: dir * 120, behavior: "smooth" });
+  }
+
   function handleClick(tool) {
     if (!tool.active) return;
     if (tool.id === "zoomfit") {
@@ -326,89 +355,154 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
 
   return (
     <>
-      {/* ── HORIZONTAL TOOLBAR STRIP ───────────────────────── */}
+      {/* ── TOOLBAR ROW: arrow + scrollable strip + arrow ──── */}
       <div style={{
-        width:          "100%",
-        height:         "38px",
-        flexShrink:     0,
-        background:     C.barBg,
-        borderBottom:   `1px solid ${C.barBorder}`,
-        display:        "flex",
-        alignItems:     "center",
-        padding:        "0 8px",
-        gap:            "0",
-        overflowX:      "auto",
-        overflowY:      "visible",
-        scrollbarWidth: "none",
-        zIndex:         10,
+        width:        "100%",
+        height:       "38px",
+        flexShrink:   0,
+        background:   C.barBg,
+        borderBottom: `1px solid ${C.barBorder}`,
+        display:      "flex",
+        alignItems:   "center",
+        zIndex:       10,
       }}>
 
-        {TOOL_GROUPS.map((group, gi) => (
-          <div key={gi} style={{ display: "flex", alignItems: "center", gap: "0" }}>
+        {/* Left scroll arrow */}
+        <button
+          onClick={() => scrollStrip(-1)}
+          title="Scroll left"
+          style={{
+            flex:           "0 0 26px",
+            width:          "26px",
+            height:         "100%",
+            background:     C.barBg,
+            border:         "none",
+            borderRight:    `1px solid ${C.sepColor}`,
+            color:          C.iconEnabled,
+            fontSize:       "18px",
+            lineHeight:     1,
+            cursor:         "pointer",
+            display:        "flex",
+            alignItems:     "center",
+            justifyContent: "center",
+            flexShrink:     0,
+            opacity:        canScrollLeft ? 1 : 0.25,
+            pointerEvents:  canScrollLeft ? "auto" : "none",
+            transition:     "opacity 0.15s",
+          }}
+        >‹</button>
 
-            {/* Group label — visible grey */}
-            <span style={{
-              fontSize:      "9px",
-              color:         C.groupLabel,
-              fontFamily:    "'IBM Plex Sans', monospace",
-              letterSpacing: "0.8px",
-              padding:       "0 5px 0 4px",
-              whiteSpace:    "nowrap",
-              userSelect:    "none",
-              textTransform: "uppercase",
-            }}>
-              {group.label}
-            </span>
+        {/* Scrollable strip */}
+        <div
+          ref={stripRef}
+          onScroll={checkScroll}
+          style={{
+            flex:           1,
+            minWidth:       0,
+            height:         "100%",
+            display:        "flex",
+            alignItems:     "center",
+            padding:        "0 8px",
+            overflowX:      "auto",
+            overflowY:      "visible",
+            scrollbarWidth: "none",
+          }}
+        >
 
-            {/* Tool buttons */}
-            {group.tools.map(tool => {
-              const isActive  = activeTool === tool.id;
-              const isEnabled = tool.active;
+          {TOOL_GROUPS.map((group, gi) => (
+            <div key={gi} style={{ display: "flex", alignItems: "center", gap: "0" }}>
 
-              return (
-                <button
-                  key={tool.id}
-                  ref={el => btnRefs.current[tool.id] = el}
-                  onClick={() => handleClick(tool)}
-                  onMouseEnter={e => handleMouseEnter(e, tool)}
-                  onMouseLeave={handleMouseLeave}
-                  style={{
-                    width:          "30px",
-                    height:         "30px",
-                    background:     isActive ? C.activeBg : "transparent",
-                    border:         `1px solid ${isActive ? C.activeBorder : "transparent"}`,
-                    borderRadius:   "4px",
-                    color:          isActive
-                                      ? C.iconActive
-                                      : isEnabled
-                                        ? C.iconEnabled
-                                        : C.iconDisabled,
-                    cursor:         isEnabled ? "pointer" : "not-allowed",
-                    display:        "flex",
-                    alignItems:     "center",
-                    justifyContent: "center",
-                    flexShrink:     0,
-                    transition:     "background 0.1s, color 0.1s, border-color 0.1s",
-                  }}
-                >
-                  {tool.icon}
-                </button>
-              );
-            })}
+              {/* Group label — visible grey */}
+              <span style={{
+                fontSize:      "9px",
+                color:         C.groupLabel,
+                fontFamily:    "'IBM Plex Sans', monospace",
+                letterSpacing: "0.8px",
+                padding:       "0 5px 0 4px",
+                whiteSpace:    "nowrap",
+                userSelect:    "none",
+                textTransform: "uppercase",
+              }}>
+                {group.label}
+              </span>
 
-            {/* Group separator — not after last group */}
-            {gi < TOOL_GROUPS.length - 1 && (
-              <div style={{
-                width:      "1px",
-                height:     "20px",
-                background: C.sepColor,
-                margin:     "0 6px",
-                flexShrink: 0,
-              }} />
-            )}
+              {/* Tool buttons */}
+              {group.tools.map(tool => {
+                const isActive  = activeTool === tool.id;
+                const isEnabled = tool.active;
 
-          </div>
-        ))}
+                return (
+                  <button
+                    key={tool.id}
+                    ref={el => btnRefs.current[tool.id] = el}
+                    onClick={() => handleClick(tool)}
+                    onMouseEnter={e => handleMouseEnter(e, tool)}
+                    onMouseLeave={handleMouseLeave}
+                    style={{
+                      width:          "30px",
+                      height:         "30px",
+                      background:     isActive ? C.activeBg : "transparent",
+                      border:         `1px solid ${isActive ? C.activeBorder : "transparent"}`,
+                      borderRadius:   "4px",
+                      color:          isActive
+                                        ? C.iconActive
+                                        : isEnabled
+                                          ? C.iconEnabled
+                                          : C.iconDisabled,
+                      cursor:         isEnabled ? "pointer" : "not-allowed",
+                      display:        "flex",
+                      alignItems:     "center",
+                      justifyContent: "center",
+                      flexShrink:     0,
+                      transition:     "background 0.1s, color 0.1s, border-color 0.1s",
+                    }}
+                  >
+                    {tool.icon}
+                  </button>
+                );
+              })}
+
+              {/* Group separator — not after last group */}
+              {gi < TOOL_GROUPS.length - 1 && (
+                <div style={{
+                  width:      "1px",
+                  height:     "20px",
+                  background: C.sepColor,
+                  margin:     "0 6px",
+                  flexShrink: 0,
+                }} />
+              )}
+
+            </div>
+          ))}
+
+        </div>
+
+        {/* Right scroll arrow */}
+        <button
+          onClick={() => scrollStrip(1)}
+          title="Scroll right"
+          style={{
+            flex:           "0 0 26px",
+            width:          "26px",
+            height:         "100%",
+            background:     C.barBg,
+            border:         "none",
+            borderLeft:     `1px solid ${C.sepColor}`,
+            color:          C.iconEnabled,
+            fontSize:       "18px",
+            lineHeight:     1,
+            cursor:         "pointer",
+            display:        "flex",
+            alignItems:     "center",
+            justifyContent: "center",
+            flexShrink:     0,
+            opacity:        canScrollRight ? 1 : 0.25,
+            pointerEvents:  canScrollRight ? "auto" : "none",
+            transition:     "opacity 0.15s",
+          }}
+        >›</button>
+
       </div>
 
       {/* ── TOOLTIP — floats below hovered button ─────────── */}

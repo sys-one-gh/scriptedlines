@@ -100,8 +100,22 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
     }
 
     calculateBaseSize();
+
+    // Watch the container itself, not just the window — so dragging
+    // the side panel dividers (which resizes this element without
+    // firing a window resize) recalculates the paper fit too.
+    const frame = scrollRef.current;
+    let observer;
+    if (frame && typeof ResizeObserver !== "undefined") {
+      observer = new ResizeObserver(calculateBaseSize);
+      observer.observe(frame);
+    }
+
     window.addEventListener("resize", calculateBaseSize);
-    return () => window.removeEventListener("resize", calculateBaseSize);
+    return () => {
+      window.removeEventListener("resize", calculateBaseSize);
+      if (observer) observer.disconnect();
+    };
   }, [paper]);
 
 
