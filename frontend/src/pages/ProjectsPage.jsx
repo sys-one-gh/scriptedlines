@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProjectsPage.css";
 import ProjectsPageActionButtons from "../components/ProjectsPageActionButtons";
+import ProjectSetup from "../components/ProjectSetup";
 
 const API = "http://localhost:8000/api";
 const GRADES    = ["Custom", "Premium", "Standard", "Commercial", "Institutional"];
@@ -297,11 +298,12 @@ function ProjectsPage() {
   }
   }
   // ── Delete drawing / Archive project  ────────────────────────────────────────
-  
+
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [deleteError,   setDeleteError]   = useState("");
   const [archiveConfirm, setArchiveConfirm] = useState(null);
   const [archivedNotice, setArchivedNotice] = useState(false);
+  const [showSetup, setShowSetup] = useState(false);
 
   async function confirmDeleteDrawing() {
     if (!deleteConfirm) return;
@@ -484,7 +486,6 @@ function ProjectsPage() {
 
   const displayedProjects = projectTab === "active" ? activeProjects : archivedProjects;
   const isArchived = selectedProject?.status === "archived";
-  console.log("isArchived:", isArchived, "status:", selectedProject?.status);
 
   // Sort arrow for list column headers
   const sortArrow = (field) =>
@@ -703,6 +704,11 @@ function ProjectsPage() {
                     <button className={`pp-view-btn${viewMode === "card" ? " pp-view-btn--active" : ""}`} onClick={() => setViewMode("card")} title="Card view">⊞</button>
                     <button className={`pp-view-btn${viewMode === "list" ? " pp-view-btn--active" : ""}`} onClick={() => setViewMode("list")} title="List view">≡</button>
                   </div>
+                  <button className="pp-btn-setup"
+                    onClick={() => setShowSetup(true)}
+                    title="Project setup — materials, hardware, defaults">
+                    ⚙ Project Setup
+                  </button>
                   <button className="pp-btn-newdwg"
                     onClick={() => { if (isArchived) { setArchivedNotice(true); return; } setShowNewDrawing(true); setDForm(emptyDrawing); setDError(""); }}>
                     + New Drawing
@@ -1172,6 +1178,14 @@ function ProjectsPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* ════ PROJECT SETUP ══════════════════════════════════════ */}
+      {showSetup && selectedProject && (
+        <ProjectSetup
+          project={selectedProject}
+          onClose={() => setShowSetup(false)}
+        />
       )}
 
     </div>

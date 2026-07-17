@@ -242,6 +242,24 @@
 }
 .pp-btn-newdwg:hover { background: rgba(79,142,247,0.08); }
 
+/* ── project setup button ────────────────────────────────── */
+.pp-btn-setup {
+  height: 30px;
+  padding: 0 14px;
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-ui);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--transition-std);
+}
+.pp-btn-setup:hover { background: #3a7de8; }
+
 /* ── SEARCH & VIEW CONTROLS ────────────────────────────────── */
 .pp-search-wrap { position: relative; display: flex; align-items: center; flex-shrink: 0; }
 .pp-search-icon { position: absolute; left: 10px; font-size: 16px; color: #444; pointer-events: none; }
