@@ -2,15 +2,13 @@
 // PaperSpace.jsx
 //
 // The main drawing canvas component.
-// Receives:
-//   paper   — paper size object from paperSizes.js
-//   drawing — full drawing object from DB (can be null)
 //
-// Page system:
-//   page_count comes from drawing.page_count in DB.
-//   Pages are initialised from DB on load.
-//   Adding a page calls PUT /api/drawings/:id to persist count.
-//   Navigation: bottom bar with ‹ prev / Page x of y / next ›
+// Font sizes use --fs-base/--fs-md tokens (see tokens.css) for
+// UI chrome (bottom bar, modals). The exportToPDF() SVG text
+// (font-size="2.5") is physical mm-based sizing for the printed
+// sheet — drawing-space content, NOT part of the UI token scale,
+// left untouched. navBtnStyle's fontSize sizes icon characters
+// (−, +, ‹, ›) — not tokenized, separate pass.
 // ─────────────────────────────────────────────────────────────
 
 import { useEffect, useRef, useState } from "react";
@@ -19,39 +17,29 @@ const API = "http://localhost:8000/api";
 
 function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit }) {
 
-  // ─── REFS ────────────────────────────────────────────────────
-  const scrollRef = useRef(null);  // black frame scroll container
-  const paperRef  = useRef(null);  // SVG sheet element
+  const scrollRef = useRef(null);
+  const paperRef  = useRef(null);
 
-  // ─── CONSTANTS ───────────────────────────────────────────────
-  const GAP = 60;  // fixed black border visible on all 4 sides
+  const GAP = 60;
 
-  // ─── STATE ───────────────────────────────────────────────────
   const [zoom,        setZoom]        = useState(1);
   const [baseSize,    setBaseSize]    = useState({ width: 800, height: 533 });
   const [frameSize,   setFrameSize]   = useState({ width: 0, height: 0 });
-  // activeTool comes from Workspace via prop — do not redeclare here
   const [isPanning,   setIsPanning]   = useState(false);
   const [panStart,    setPanStart]    = useState({ x: 0, y: 0 });
   const [scrollStart, setScrollStart] = useState({ left: 0, top: 0 });
-  const [contextMenu, setContextMenu] = useState(null); // kept for now, menu removed
+  const [contextMenu, setContextMenu] = useState(null);
   const [droppedProduct, setDroppedProduct] = useState(null);
 
-  // ── Page system ──────────────────────────────────────────────
   const [pages,            setPages]            = useState([{ id: 1, label: "Page 1" }]);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const [savingPage,       setSavingPage]        = useState(false);
 
-  // ── Commit / Submit / Final Release ──────────────────────────
-  // commitModal: null | "commit" | "final"
   const [commitModal,    setCommitModal]    = useState(null);
   const [commitLoading,  setCommitLoading]  = useState(false);
   const [commitError,    setCommitError]    = useState("");
   const [actionLoading,  setActionLoading]  = useState(false);
 
-  // ── Initialise pages from DB on load ─────────────────────────
-  // When drawing prop arrives, build the pages array from page_count.
-  // e.g. page_count=3 → [Page 1, Page 2, Page 3]
   useEffect(() => {
     if (!drawing) return;
     const count = drawing.page_count || 1;
@@ -60,20 +48,14 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
       label: `Page ${i + 1}`,
     }));
     setPages(initialPages);
-    setCurrentPageIndex(0); // always start on first page
+    setCurrentPageIndex(0);
   }, [drawing]);
 
-  // ── Register zoom fit function with parent ────────────────────
-  // Workspace passes registerZoomFit prop so CADToolbar's
-  // Zoom to Fit button can trigger setZoom(1) directly.
   useEffect(() => {
     if (registerZoomFit) registerZoomFit(() => setZoom(1));
   }, [registerZoomFit]);
 
 
-  // ─── BASE SIZE + FRAME SIZE CALCULATION ─────────────────────
-  // Calculates pixel size of white paper at zoom = 1.
-  // Paper fits inside the black frame at 90% of available space.
   useEffect(() => {
     function calculateBaseSize() {
       const frame = scrollRef.current;
@@ -87,7 +69,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
       const availableWidth  = frameWidth  - GAP * 2;
       const availableHeight = frameHeight - GAP * 2;
 
-      // Fit to 90% of available space — paper occupies 90% at zoom=1
       let width  = availableWidth  * 0.9;
       let height = width / ratio;
 
@@ -101,9 +82,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 
     calculateBaseSize();
 
-    // Watch the container itself, not just the window — so dragging
-    // the side panel dividers (which resizes this element without
-    // firing a window resize) recalculates the paper fit too.
     const frame = scrollRef.current;
     let observer;
     if (frame && typeof ResizeObserver !== "undefined") {
@@ -119,9 +97,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
   }, [paper]);
 
 
-  // ─── ZOOM — CTRL + SCROLL WHEEL ─────────────────────────────
-  // Ctrl + scroll = zoom toward cursor.
-  // Min zoom = 1 (fit), Max zoom = 64 (6400%).
   useEffect(() => {
     const frame = scrollRef.current;
     if (!frame) return;
@@ -155,7 +130,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
   }, [baseSize]);
 
 
-  // ─── PAN — HAND TOOL ────────────────────────────────────────
   function handleMouseDown(event) {
     if (event.button !== 0 || activeTool !== "pan") return;
     const frame = scrollRef.current;
@@ -184,7 +158,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
   }, [isPanning, panStart, scrollStart]);
 
 
-  // ─── RIGHT-CLICK CONTEXT MENU ────────────────────────────────
   function handleContextMenu(event) {
     event.preventDefault();
     setContextMenu({ x: event.clientX, y: event.clientY });
@@ -202,24 +175,18 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
   }, []);
 
 
-  // ─── PAGE SYSTEM ─────────────────────────────────────────────
-
-  // Navigate to previous page — resets zoom to fit
   function goToPrevPage() {
     if (currentPageIndex <= 0) return;
     setCurrentPageIndex(currentPageIndex - 1);
     setZoom(1);
   }
 
-  // Navigate to next page — resets zoom to fit
   function goToNextPage() {
     if (currentPageIndex >= pages.length - 1) return;
     setCurrentPageIndex(currentPageIndex + 1);
     setZoom(1);
   }
 
-  // Add a new blank page after the current page.
-  // Persists the new page_count to DB via PUT /api/drawings/:id.
   async function addPage() {
     setContextMenu(null);
 
@@ -238,7 +205,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
     setCurrentPageIndex(currentPageIndex + 1);
     setZoom(1);
 
-    // Persist new page_count to DB if we have a drawing
     if (drawing?.id) {
       setSavingPage(true);
       try {
@@ -256,6 +222,9 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 
 
   // ─── PDF EXPORT ──────────────────────────────────────────────
+  // Drawing-space / print content — the SVG text font-size here is
+  // in millimeters, relative to the physical paper sheet. NOT part
+  // of the UI token scale. Left untouched intentionally.
   function exportToPDF() {
     setContextMenu(null);
 
@@ -325,7 +294,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
   }
 
 
-  // ─── DRAG AND DROP ───────────────────────────────────────────
   function handleDragOver(event) { event.preventDefault(); }
 
   function handleDrop(event) {
@@ -337,10 +305,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
   }
 
 
-  // ─── COMMIT REVISION ────────────────────────────────────────
-  // Locks current revision, sets status → submittal_pending,
-  // creates PDF folder, navigates back to Projects on success.
-  // Phase 8 will generate the actual PDF.
   async function executeCommit() {
     if (!drawing?.id) return;
     setCommitLoading(true);
@@ -361,7 +325,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
         setCommitLoading(false);
         return;
       }
-      // Success — navigate back to projects
       setCommitModal(null);
       window.location.href = "/projects";
     } catch {
@@ -370,8 +333,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
     }
   }
 
-  // ─── SUBMIT TO CLIENT ────────────────────────────────────────
-  // Status: submittal_pending → submitted
   async function executeSubmit() {
     if (!drawing?.id) return;
     setActionLoading(true);
@@ -387,8 +348,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
     setActionLoading(false);
   }
 
-  // ─── FINAL RELEASE ───────────────────────────────────────────
-  // Status: submitted | approved → issued (permanent)
   async function executeFinalCommit() {
     if (!drawing?.id) return;
     setCommitLoading(true);
@@ -417,33 +376,27 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
     }
   }
 
-  // ─── BUTTON AVAILABILITY ─────────────────────────────────────
-  // Determines which action buttons are enabled based on current status.
   const status = drawing?.status || "draft";
   const canCommit       = ["draft", "review", "approved"].includes(status);
   const canSubmit       = status === "submittal_pending";
   const canFinalRelease = ["submitted", "approved"].includes(status);
   const isIssued        = status === "issued";
 
-  // ─── CURSOR ──────────────────────────────────────────────────
   function getCursor() {
     if (activeTool === "pan") return isPanning ? "grabbing" : "grab";
     return "default";
   }
 
 
-  // ─── DERIVED SIZES ───────────────────────────────────────────
   const paperWidth  = baseSize.width  * zoom;
   const paperHeight = baseSize.height * zoom;
   const stageWidth  = Math.max(paperWidth  + GAP * 2, frameSize.width);
   const stageHeight = Math.max(paperHeight + GAP * 2, frameSize.height);
 
 
-  // ─── RENDER ──────────────────────────────────────────────────
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%", overflow: "hidden" }}>
 
-      {/* ── CANVAS AREA ─────────────────────────────────────── */}
       <div
         className="paper-scroll-area"
         ref={scrollRef}
@@ -475,10 +428,8 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
               viewBox={`0 0 ${paper.widthMm} ${paper.heightMm}`}
               className="paper-svg"
             >
-              {/* White sheet */}
               <rect x="0" y="0" width={paper.widthMm} height={paper.heightMm} fill="white" />
 
-              {/* Inner printable boundary — 98% of paper, 1% equal margin all sides */}
               <rect
                 x={paper.widthMm  * 0.01}
                 y={paper.heightMm * 0.01}
@@ -488,20 +439,12 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
                 stroke="#333"
                 strokeWidth="0.5"
               />
-              {/* Page number removed — will live in drawing template title block (Phase 8) */}
             </svg>
           </div>
         </div>
       </div>
 
 
-      {/* ── BOTTOM ACTION BAR ───────────────────────────────────
-          Full-width bar below the canvas.
-          Left:   zoom controls
-          Center: page navigation + add page
-          Right:  save, undo/redo, export, +rev, commit, final commit
-          All action buttons are stubbed — Phase 7 wires real logic.
-      ──────────────────────────────────────────────────────── */}
       <div style={{
         height:         "44px",
         flexShrink:     0,
@@ -515,10 +458,9 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
         gap:            "8px",
       }}>
 
-        {/* ── LEFT: zoom controls ─────────────────────────── */}
         <div style={{ display: "flex", alignItems: "center", gap: "6px", flexShrink: 0 }}>
           <button onClick={() => setZoom(z => Math.max(1, z / 1.25))} disabled={zoom <= 1}  style={navBtnStyle} title="Zoom out">−</button>
-          <span onClick={() => setZoom(1)} title="Click to reset zoom" style={{ fontSize: "12px", color: "#ffffff", fontFamily: "'IBM Plex Sans', monospace", cursor: "pointer", minWidth: "42px", textAlign: "center" }}>
+          <span onClick={() => setZoom(1)} title="Click to reset zoom" style={{ fontSize: "var(--fs-base)", color: "#ffffff", fontFamily: "'IBM Plex Sans', monospace", cursor: "pointer", minWidth: "42px", textAlign: "center" }}>
             {Math.round(zoom * 100)}%
           </span>
           <button onClick={() => setZoom(z => Math.min(64, z * 1.25))} disabled={zoom >= 64} style={navBtnStyle} title="Zoom in">+</button>
@@ -526,34 +468,30 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 
         <div style={barSep} />
 
-        {/* ── CENTER: page navigation ─────────────────────── */}
         <div style={{ display: "flex", alignItems: "center", gap: "6px", flexShrink: 0 }}>
           <button onClick={goToPrevPage} disabled={currentPageIndex <= 0}              style={navBtnStyle} title="Previous page">‹</button>
           <div style={{ display: "flex", alignItems: "center", gap: "5px", padding: "3px 12px", background: "#161616", border: "1px solid #2a2a2a", borderRadius: "4px" }}>
-            <span style={{ fontSize: "11px", color: "#888888", fontFamily: "'IBM Plex Sans', monospace" }}>Page</span>
-            <span style={{ fontSize: "13px", fontWeight: "700", color: "#ffffff", fontFamily: "'IBM Plex Sans', monospace" }}>{currentPageIndex + 1}</span>
-            <span style={{ fontSize: "11px", color: "#888888", fontFamily: "'IBM Plex Sans', monospace" }}>of</span>
-            <span style={{ fontSize: "13px", fontWeight: "600", color: "#4f8ef7", fontFamily: "'IBM Plex Sans', monospace" }}>{pages.length}</span>
+            <span style={{ fontSize: "var(--fs-base)", color: "#888888", fontFamily: "'IBM Plex Sans', monospace" }}>Page</span>
+            <span style={{ fontSize: "var(--fs-base)", fontWeight: "700", color: "#ffffff", fontFamily: "'IBM Plex Sans', monospace" }}>{currentPageIndex + 1}</span>
+            <span style={{ fontSize: "var(--fs-base)", color: "#888888", fontFamily: "'IBM Plex Sans', monospace" }}>of</span>
+            <span style={{ fontSize: "var(--fs-base)", fontWeight: "600", color: "#4f8ef7", fontFamily: "'IBM Plex Sans', monospace" }}>{pages.length}</span>
           </div>
           <button onClick={goToNextPage} disabled={currentPageIndex >= pages.length - 1} style={navBtnStyle} title="Next page">›</button>
-          <button onClick={addPage} style={{ ...navBtnStyle, width: "auto", padding: "0 10px", fontSize: "11px" }} title="Add page after current">
+          <button onClick={addPage} style={{ ...navBtnStyle, width: "auto", padding: "0 10px", fontSize: "var(--fs-base)" }} title="Add page after current">
             {savingPage ? "Saving..." : "+ Page"}
           </button>
         </div>
 
         <div style={{ flex: 1 }} />
 
-        {/* ── RIGHT: action buttons ───────────────────────── */}
         <div style={{ display: "flex", alignItems: "center", gap: "4px", flexShrink: 0 }}>
 
-          {/* Undo */}
           <BBtn title="Undo (Phase 7)" disabled>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/>
             </svg>
           </BBtn>
 
-          {/* Redo */}
           <BBtn title="Redo (Phase 7)" disabled>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13"/>
@@ -562,7 +500,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 
           <div style={barSep} />
 
-          {/* Save — shell ready, Phase 7 fuels svg_data */}
           <BBtn title="Save drawing (Phase 7)" disabled label="Save">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
@@ -571,7 +508,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
             </svg>
           </BBtn>
 
-          {/* Export Draft */}
           <BBtn title="Export draft PDF (Phase 8)" disabled label="Export">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -582,7 +518,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 
           <div style={barSep} />
 
-          {/* Commit Rev — active when status allows, shows confirmation modal */}
           <BBtn
             title={
               isIssued       ? "Drawing is Final Release — cannot commit" :
@@ -599,7 +534,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
             </svg>
           </BBtn>
 
-          {/* Submit to Client */}
           <BBtn
             title={canSubmit ? "Submit to client for review" : `Drawing must be in Submittal Pending to submit`}
             disabled={!canSubmit || actionLoading}
@@ -613,7 +547,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
             </svg>
           </BBtn>
 
-          {/* Final Release */}
           <BBtn
             title={
               isIssued         ? "Already Final Release" :
@@ -632,15 +565,13 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 
         </div>
 
-        {/* Paper size label — far right */}
-        <div style={{ fontSize: "11px", color: "#444444", fontFamily: "'IBM Plex Sans', monospace", flexShrink: 0, paddingLeft: "8px" }}>
+        <div style={{ fontSize: "var(--fs-base)", color: "#444444", fontFamily: "'IBM Plex Sans', monospace", flexShrink: 0, paddingLeft: "8px" }}>
           {paper.label}
         </div>
 
       </div>
 
 
-      {/* ── DROP FORM MODAL — Phase 6 ─────────────────────────── */}
       {droppedProduct && (
         <div className="drop-form-overlay">
           <div className="drop-form">
@@ -660,7 +591,6 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
         </div>
       )}
 
-      {/* ── COMMIT CONFIRMATION MODAL ─────────────────────────── */}
       {commitModal && (
         <div style={{
           position:        "fixed",
@@ -682,18 +612,16 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
             flexDirection:"column",
             gap:          "16px",
           }}>
-            {/* Header */}
-            <div style={{ fontSize: "16px", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-ui)" }}>
+            <div style={{ fontSize: "var(--fs-md)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-ui)" }}>
               {commitModal === "final" ? "Final Release" : "Commit Revision"}
             </div>
 
-            {/* Warning */}
             <div style={{
               background:   commitModal === "final" ? "#0a1f0a" : "#1a1200",
               border:       `1px solid ${commitModal === "final" ? "#2a5a2a" : "#4a3800"}`,
               borderRadius: "4px",
               padding:      "12px 14px",
-              fontSize:     "12px",
+              fontSize:     "var(--fs-base)",
               color:        commitModal === "final" ? "#4caf50" : "#e6a817",
               fontFamily:   "var(--font-ui)",
               lineHeight:   "1.6",
@@ -704,14 +632,12 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
               }
             </div>
 
-            {/* Error */}
             {commitError && (
-              <div style={{ fontSize: "12px", color: "#f47070", fontFamily: "var(--font-ui)" }}>
+              <div style={{ fontSize: "var(--fs-base)", color: "#f47070", fontFamily: "var(--font-ui)" }}>
                 {commitError}
               </div>
             )}
 
-            {/* Actions */}
             <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px" }}>
               <button
                 onClick={() => { setCommitModal(null); setCommitError(""); }}
@@ -722,7 +648,7 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
                   border:       "1px solid #2a2a2a",
                   borderRadius: "4px",
                   color:        "#888888",
-                  fontSize:     "13px",
+                  fontSize:     "var(--fs-base)",
                   cursor:       "pointer",
                   fontFamily:   "var(--font-ui)",
                 }}
@@ -738,7 +664,7 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
                   border:       "none",
                   borderRadius: "4px",
                   color:        "#000000",
-                  fontSize:     "13px",
+                  fontSize:     "var(--fs-base)",
                   fontWeight:   "700",
                   cursor:       commitLoading ? "not-allowed" : "pointer",
                   fontFamily:   "var(--font-ui)",
@@ -757,6 +683,7 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 }
 
 // ─── NAV BUTTON STYLE ────────────────────────────────────────
+// fontSize here sizes icon characters (−, +, ‹, ›) — not tokenized.
 const navBtnStyle = {
   width:          "28px",
   height:         "28px",
@@ -774,7 +701,6 @@ const navBtnStyle = {
   transition:     "color 0.12s, border-color 0.12s, background 0.12s",
 };
 
-// ─── BOTTOM BAR SEPARATOR ────────────────────────────────────
 const barSep = {
   width:      "1px",
   height:     "18px",
@@ -783,9 +709,6 @@ const barSep = {
   margin:     "0 2px",
 };
 
-// ─── BOTTOM BAR BUTTON ───────────────────────────────────────
-// Small icon + optional label button for the bottom action bar.
-// color prop tints the label when provided.
 function BBtn({ children, title, disabled, label, color, onClick }) {
   return (
     <button
@@ -804,7 +727,7 @@ function BBtn({ children, title, disabled, label, color, onClick }) {
         color:          disabled ? "#333333" : (color || "#aaaaaa"),
         cursor:         disabled ? "not-allowed" : "pointer",
         fontFamily:     "'DM Sans', sans-serif",
-        fontSize:       "11px",
+        fontSize:       "var(--fs-base)",
         whiteSpace:     "nowrap",
         transition:     "background 0.12s, border-color 0.12s",
       }}

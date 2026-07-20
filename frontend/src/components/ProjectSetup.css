@@ -6,6 +6,9 @@
    ProjectsPage.css) and the workspace tab system (.tab,
    .tab-bar-wrapper, .tab-scroll-btn from App.css). Only the
    setup-specific pieces (ps-*) live here.
+
+   Font sizes use --fs-base/--fs-md/--fs-lg tokens (see tokens.css).
+   Icon/glyph font-sizes are left as hardcoded px — separate pass.
    ============================================================ */
 
 /* ── HEADER: main tabs on the left, identity + close on right ── */
@@ -22,7 +25,7 @@
   overflow: hidden;
 }
 /* main tabs are a touch wider than default .tab for prominence */
-.ps-header-tabs .tab { min-width: 130px; font-size: 13px; }
+.ps-header-tabs .tab { min-width: 130px; font-size: var(--fs-base); }
 
 .ps-header-right {
   display: flex;
@@ -39,11 +42,11 @@
   max-width: 340px;
 }
 .ps-header-jobnum {
-  font-size: 13px; font-weight: 700; color: var(--accent);
+  font-size: var(--fs-base); font-weight: 700; color: var(--accent);
   font-family: var(--font-mono); white-space: nowrap; flex-shrink: 0;
 }
 .ps-header-pname {
-  font-size: 13px; color: var(--text-secondary);
+  font-size: var(--fs-base); color: var(--text-secondary);
   font-family: var(--font-ui); white-space: nowrap;
   overflow: hidden; text-overflow: ellipsis;
 }
@@ -63,7 +66,7 @@
   border-bottom: 1px solid var(--border-soft);
 }
 .ps-dataset-title {
-  font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+  font-size: var(--fs-base); font-weight: 700; letter-spacing: 1.5px;
   color: var(--text-primary); font-family: var(--font-mono);
   text-transform: uppercase;
 }
@@ -94,7 +97,7 @@
   position: sticky; top: 0; z-index: 2;
   background: var(--bg-panel);
   color: var(--text-dim);
-  font-size: 11px; font-weight: 600;
+  font-size: var(--fs-base); font-weight: 600;
   letter-spacing: 0.8px; text-transform: uppercase;
   font-family: var(--font-mono);
   text-align: left; white-space: nowrap;
@@ -103,7 +106,7 @@
   border-right: 1px solid var(--border-subtle);
 }
 .ps-table tbody td {
-  font-size: 13px; color: var(--text-secondary);
+  font-size: var(--fs-base); color: var(--text-secondary);
   padding: 9px 14px; white-space: nowrap;
   border-bottom: 1px solid #141414;
   border-right: 1px solid var(--border-subtle);
@@ -123,13 +126,13 @@
   align-items: center; justify-content: center;
   height: 100%; gap: 12px; padding: 48px; text-align: center;
 }
-.ps-placeholder-glyph { font-size: 40px; opacity: 0.12; }
+.ps-placeholder-glyph { font-size: 40px; opacity: 0.12; } /* icon — not tokenized */
 .ps-placeholder-title {
-  font-size: 15px; font-weight: 600; color: var(--text-faint);
+  font-size: var(--fs-md); font-weight: 600; color: var(--text-faint);
   font-family: var(--font-ui);
 }
 .ps-placeholder-text {
-  font-size: 13px; color: var(--text-disabled);
+  font-size: var(--fs-base); color: var(--text-disabled);
   font-family: var(--font-ui); line-height: 1.6; max-width: 340px;
 }
 
@@ -154,14 +157,14 @@
 .ps-func-body::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
 
 .ps-func-section {
-  font-size: 11px; color: var(--accent);
+  font-size: var(--fs-base); color: var(--accent);
   font-family: var(--font-mono); letter-spacing: 1px;
   text-transform: uppercase;
   padding: 4px 0 10px;
 }
 .ps-func-label {
   display: block;
-  font-size: 11px; color: var(--text-dim);
+  font-size: var(--fs-base); color: var(--text-dim);
   font-family: var(--font-mono); text-transform: uppercase;
   letter-spacing: 0.8px; margin: 10px 0 4px;
 }
@@ -169,7 +172,7 @@
   width: 100%; height: 34px; padding: 0 10px;
   background: var(--bg-input); color: var(--text-secondary);
   border: 1px solid var(--border-soft); border-radius: var(--radius-md);
-  outline: none; font-size: 13px; font-family: var(--font-ui);
+  outline: none; font-size: var(--fs-base); font-family: var(--font-ui);
   transition: border-color var(--transition-std);
 }
 .ps-func-input:focus { border-color: var(--accent); }
@@ -178,7 +181,7 @@
   width: 100%; height: 36px; margin-top: 14px;
   background: var(--accent); color: #fff;
   border: none; border-radius: var(--radius-md);
-  font-size: 13px; font-weight: 600; font-family: var(--font-ui);
+  font-size: var(--fs-base); font-weight: 600; font-family: var(--font-ui);
   cursor: pointer; transition: background var(--transition-std);
 }
 .ps-func-add:hover:not(:disabled) { background: #3a7de8; }
@@ -194,6 +197,6 @@
   margin: 18px 0 4px;
 }
 .ps-func-hint {
-  font-size: 12px; color: var(--text-disabled);
+  font-size: var(--fs-base); color: var(--text-disabled);
   font-family: var(--font-ui); line-height: 1.5; margin-bottom: 4px;
 }

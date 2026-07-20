@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-// Company id is fixed to 1 (ScriptedLines) for now.
-// Multi-company registration added when billing is built.
 const COMPANY_ID = 1;
 
 function RegisterPage() {
@@ -78,7 +76,6 @@ function RegisterPage() {
         return;
       }
 
-      // Registration successful — go to login
       navigate("/login");
 
     } catch {
@@ -90,13 +87,11 @@ function RegisterPage() {
   return (
     <div style={styles.page}>
 
-      {/* ── BACKGROUND GRID ──────────────────────────────────── */}
       <div style={styles.grid} />
 
-      {/* ── CARD ─────────────────────────────────────────────── */}
       <div style={styles.card}>
 
-        {/* Logo */}
+        {/* Logo — intentionally excluded from font-size token scale */}
         <div style={styles.logoBlock}>
           <div style={styles.logoMark}>SL</div>
           <div style={styles.logoText}>ScriptedLines</div>
@@ -104,13 +99,10 @@ function RegisterPage() {
 
         <p style={styles.subtitle}>Create your account</p>
 
-        {/* Error */}
         {error && <div style={styles.errorBox}>{error}</div>}
 
-        {/* Form */}
         <form onSubmit={handleSubmit} style={styles.form}>
 
-          {/* Name row */}
           <div style={styles.row}>
             <div style={{ ...styles.fieldGroup, flex: 1 }}>
               <label style={styles.label}>FIRST NAME</label>
@@ -137,7 +129,6 @@ function RegisterPage() {
             </div>
           </div>
 
-          {/* Email + Initials row */}
           <div style={styles.row}>
             <div style={{ ...styles.fieldGroup, flex: 2 }}>
               <label style={styles.label}>EMAIL</label>
@@ -165,7 +156,6 @@ function RegisterPage() {
             </div>
           </div>
 
-          {/* Password */}
           <div style={styles.fieldGroup}>
             <label style={styles.label}>PASSWORD</label>
             <div style={styles.passwordWrap}>
@@ -189,12 +179,10 @@ function RegisterPage() {
             </div>
           </div>
 
-          {/* Password hint */}
           <p style={styles.hint}>
             Must include uppercase, lowercase, number, and special character (!@#$%^&* etc).
           </p>
 
-          {/* Confirm Password */}
           <div style={styles.fieldGroup}>
             <label style={styles.label}>CONFIRM PASSWORD</label>
             <div style={styles.passwordWrap}>
@@ -228,7 +216,6 @@ function RegisterPage() {
 
         </form>
 
-        {/* Login link */}
         <p style={styles.footerText}>
           Already have an account?{" "}
           <Link to="/login" style={styles.link}>Sign in</Link>
@@ -241,6 +228,9 @@ function RegisterPage() {
 
 
 // ─── STYLES ──────────────────────────────────────────────────
+// Font sizes use --fs-base/--fs-md/--fs-lg tokens (see tokens.css).
+// logoMark/logoText are the ScriptedLines brand mark — intentionally
+// left hardcoded. eyeBtn sizes an emoji icon (🙈/👁) — not tokenized.
 const styles = {
   page: {
     width:           "100vw",
@@ -288,7 +278,7 @@ const styles = {
     display:         "flex",
     alignItems:      "center",
     justifyContent:  "center",
-    fontSize:        "13px",
+    fontSize:        "13px",   /* logo — intentionally excluded */
     fontWeight:      "700",
     color:           "#ffffff",
     letterSpacing:   "0.5px",
@@ -296,14 +286,14 @@ const styles = {
   },
 
   logoText: {
-    fontSize:        "20px",
+    fontSize:        "20px",   /* logo — intentionally excluded */
     fontWeight:      "600",
     color:           "#ffffff",
     letterSpacing:   "0.3px",
   },
 
   subtitle: {
-    fontSize:        "13px",
+    fontSize:        "var(--fs-base)",
     color:           "#666666",
     marginBottom:    "28px",
     marginTop:       "4px",
@@ -314,7 +304,7 @@ const styles = {
     border:          "1px solid #5a2020",
     borderRadius:    "4px",
     padding:         "10px 14px",
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     color:           "#f47070",
     marginBottom:    "20px",
   },
@@ -337,7 +327,7 @@ const styles = {
   },
 
   label: {
-    fontSize:        "10px",
+    fontSize:        "var(--fs-base)",
     fontWeight:      "500",
     color:           "#555555",
     letterSpacing:   "1px",
@@ -352,7 +342,7 @@ const styles = {
     border:          "1px solid #333333",
     borderRadius:    "4px",
     outline:         "none",
-    fontSize:        "13px",
+    fontSize:        "var(--fs-base)",
     fontFamily:      "'DM Sans', sans-serif",
     width:           "100%",
     boxSizing:       "border-box",
@@ -371,7 +361,7 @@ const styles = {
     background:      "transparent",
     border:          "none",
     cursor:          "pointer",
-    fontSize:        "14px",
+    fontSize:        "14px",   /* icon (emoji) — not tokenized */
     padding:         "0",
     lineHeight:      "1",
   },
@@ -382,7 +372,7 @@ const styles = {
     color:           "#ffffff",
     border:          "none",
     borderRadius:    "4px",
-    fontSize:        "14px",
+    fontSize:        "var(--fs-md)",
     fontWeight:      "600",
     fontFamily:      "'DM Sans', sans-serif",
     cursor:          "pointer",
@@ -391,7 +381,7 @@ const styles = {
   },
 
   footerText: {
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     color:           "#555555",
     textAlign:       "center",
     marginTop:       "24px",
@@ -404,7 +394,7 @@ const styles = {
   },
 
   hint: {
-    fontSize:        "11px",
+    fontSize:        "var(--fs-base)",
     color:           "#555555",
     marginTop:       "-8px",
     lineHeight:      "1.5",

@@ -1,37 +1,21 @@
 // ─────────────────────────────────────────────────────────────
 // CADToolbar.jsx
 //
-// Horizontal CAD tool strip — sits between the top bar and
-// the paper canvas, full width of the center panel.
+// Horizontal CAD tool strip.
 //
-// Active tools:
-//   select   — cursor / select objects
-//   pan      — hand tool / drag to pan
-//   zoomfit  — zoom to fit paper in view (calls onZoomFit)
-//
-// All other tools are visible placeholders with tooltips.
-// They activate in later phases as the canvas engine is built.
-//
-// On narrow screens the strip overflows; ‹ / › arrows on each
-// side scroll it. Arrows dim to 0.25 when there's nothing more
-// to scroll in that direction.
-//
-// Props:
-//   activeTool   — string, currently active tool id
-//   onToolChange — function(toolId)
-//   onZoomFit    — function() resets zoom to fit in PaperSpace
+// Font sizes use --fs-base token (see tokens.css) for text labels.
+// Scroll arrow chars (‹ ›) are icons — not tokenized, separate pass.
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useRef, useEffect, useCallback } from "react";
 
-// ─── COLOR CONSTANTS ─────────────────────────────────────────
 const C = {
   barBg:       "#0f0f0f",
   barBorder:   "#1e1e1e",
-  groupLabel:  "#888888",   // visible grey for group labels
-  iconActive:  "#4f8ef7",   // blue — active tool
-  iconEnabled: "#cccccc",   // white-ish — enabled but not active
-  iconDisabled:"#555555",   // dim but still visible — placeholders
+  groupLabel:  "#888888",
+  iconActive:  "#4f8ef7",
+  iconEnabled: "#cccccc",
+  iconDisabled:"#555555",
   activeBg:    "#0f1e35",
   activeBorder:"#4f8ef7",
   sepColor:    "#222222",
@@ -41,7 +25,6 @@ const C = {
   tooltipSoon: "#666666",
 };
 
-// ─── TOOL DEFINITIONS ────────────────────────────────────────
 const TOOL_GROUPS = [
   {
     label: "SELECT",
@@ -298,11 +281,9 @@ const TOOL_GROUPS = [
 // ─── COMPONENT ───────────────────────────────────────────────
 function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
 
-  // Tooltip state: stores { label, active, x, y } or null
   const [tooltip, setTooltip] = useState(null);
   const btnRefs = useRef({});
 
-  // ── Horizontal scroll for overflow (small screens) ──────────
   const stripRef = useRef(null);
   const [canScrollLeft,  setCanScrollLeft]  = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -330,7 +311,6 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
   function handleClick(tool) {
     if (!tool.active) return;
     if (tool.id === "zoomfit") {
-      // Wire zoom fit directly — does not change activeTool
       if (onZoomFit) onZoomFit();
       return;
     }
@@ -338,14 +318,12 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
   }
 
   function handleMouseEnter(e, tool) {
-    // Calculate tooltip position from the button's actual DOM rect
-    // so it always appears directly below the hovered button
     const rect = e.currentTarget.getBoundingClientRect();
     setTooltip({
       label:  tool.label,
       active: tool.active,
-      x:      rect.left + rect.width / 2,   // center of button
-      y:      rect.bottom + 6,              // 6px below button
+      x:      rect.left + rect.width / 2,
+      y:      rect.bottom + 6,
     });
   }
 
@@ -355,7 +333,6 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
 
   return (
     <>
-      {/* ── TOOLBAR ROW: arrow + scrollable strip + arrow ──── */}
       <div style={{
         width:        "100%",
         height:       "38px",
@@ -367,7 +344,6 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
         zIndex:       10,
       }}>
 
-        {/* Left scroll arrow */}
         <button
           onClick={() => scrollStrip(-1)}
           title="Scroll left"
@@ -379,7 +355,7 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
             border:         "none",
             borderRight:    `1px solid ${C.sepColor}`,
             color:          C.iconEnabled,
-            fontSize:       "18px",
+            fontSize:       "18px",   /* icon (‹) — not tokenized */
             lineHeight:     1,
             cursor:         "pointer",
             display:        "flex",
@@ -392,7 +368,6 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
           }}
         >‹</button>
 
-        {/* Scrollable strip */}
         <div
           ref={stripRef}
           onScroll={checkScroll}
@@ -412,9 +387,8 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
           {TOOL_GROUPS.map((group, gi) => (
             <div key={gi} style={{ display: "flex", alignItems: "center", gap: "0" }}>
 
-              {/* Group label — visible grey */}
               <span style={{
-                fontSize:      "9px",
+                fontSize:      "var(--fs-base)",
                 color:         C.groupLabel,
                 fontFamily:    "'IBM Plex Sans', monospace",
                 letterSpacing: "0.8px",
@@ -426,7 +400,6 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
                 {group.label}
               </span>
 
-              {/* Tool buttons */}
               {group.tools.map(tool => {
                 const isActive  = activeTool === tool.id;
                 const isEnabled = tool.active;
@@ -462,7 +435,6 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
                 );
               })}
 
-              {/* Group separator — not after last group */}
               {gi < TOOL_GROUPS.length - 1 && (
                 <div style={{
                   width:      "1px",
@@ -478,7 +450,6 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
 
         </div>
 
-        {/* Right scroll arrow */}
         <button
           onClick={() => scrollStrip(1)}
           title="Scroll right"
@@ -490,7 +461,7 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
             border:         "none",
             borderLeft:     `1px solid ${C.sepColor}`,
             color:          C.iconEnabled,
-            fontSize:       "18px",
+            fontSize:       "18px",   /* icon (›) — not tokenized */
             lineHeight:     1,
             cursor:         "pointer",
             display:        "flex",
@@ -505,13 +476,12 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
 
       </div>
 
-      {/* ── TOOLTIP — floats below hovered button ─────────── */}
       {tooltip && (
         <div style={{
           position:     "fixed",
           left:         `${tooltip.x}px`,
           top:          `${tooltip.y}px`,
-          transform:    "translateX(-50%)",  // center under button
+          transform:    "translateX(-50%)",
           background:   C.tooltipBg,
           border:       `1px solid ${C.tooltipBorder}`,
           borderRadius: "4px",
@@ -524,11 +494,11 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
           whiteSpace:   "nowrap",
           boxShadow:    "0 4px 16px rgba(0,0,0,0.6)",
         }}>
-          <span style={{ fontSize: "12px", color: C.tooltipText, fontFamily: "'DM Sans', sans-serif" }}>
+          <span style={{ fontSize: "var(--fs-base)", color: C.tooltipText, fontFamily: "'DM Sans', sans-serif" }}>
             {tooltip.label}
           </span>
           {!tooltip.active && (
-            <span style={{ fontSize: "10px", color: C.tooltipSoon, fontFamily: "'IBM Plex Sans', monospace", letterSpacing: "0.5px" }}>
+            <span style={{ fontSize: "var(--fs-base)", color: C.tooltipSoon, fontFamily: "'IBM Plex Sans', monospace", letterSpacing: "0.5px" }}>
               coming soon
             </span>
           )}

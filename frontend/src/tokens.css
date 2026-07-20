@@ -16,6 +16,38 @@
   --font-tech: 'IBM Plex Sans', monospace;
   --font-mono: 'IBM Plex Sans', monospace;
 
+  /* ── Font Sizes (UI chrome only) ───────────────────────────
+     3-tier scale, 14px floor. Applies to interface text ONLY —
+     NOT drawing-space/canvas text (dimensions, title blocks,
+     annotations — those get their own paper-relative system in
+     Phase 8), and NOT icon/glyph font-sizes (‹ › ✕ ⋯ ⬡ ⌕ ≡ ⊞,
+     emoji) — icons are a separate pass, still hardcoded for now.
+     The ScriptedLines logo/wordmark is also intentionally left
+     hardcoded everywhere — brand mark, not scaled UI copy.
+
+     --fs-base (14px) — the floor. Everything that used to be
+       9–13px collapses here: form labels, hint text, badges,
+       status pills, table/list cells, sort labels, tooltips,
+       mono meta text (rev numbers, MW#, level, timestamps),
+       input fields, body copy, placeholder/empty-state text.
+       This is the workhorse size — most UI text lands here.
+
+     --fs-md (16px) — one step up. Everything that used to be
+       14–17px collapses here: primary/secondary buttons
+       (Save, Add Project, Sign In), project/card/row names,
+       drawing numbers in card headers, modal titles, top-bar
+       drawing identity text, drawing-viewer header text.
+
+     --fs-lg (19px) — page-level emphasis only. Everything that
+       used to be 18px (non-logo) collapses here: empty-state
+       titles ("No Project Selected", "No Drawings Yet"), and
+       any other top-of-hierarchy heading text that isn't the
+       ScriptedLines logo itself.
+     ──────────────────────────────────────────────────────── */
+  --fs-base: 13px;
+  --fs-md:   14px;
+  --fs-lg:   16px;
+
   /* ── Backgrounds ───────────────────────────────────────── */
   --bg-deepest:   #0d0d0d;
   --bg-deep:      #0f0f0f;

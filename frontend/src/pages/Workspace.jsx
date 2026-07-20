@@ -2,6 +2,11 @@
 // Workspace.jsx
 // Main drawing workspace — top bar, left panel, canvas, right panel.
 // Standards: SCRIPTEDLINES_STANDARDS.md
+//
+// Font sizes use --fs-base/--fs-md/--fs-lg tokens (see tokens.css).
+// The ScriptedLines "SL" mark, wordmark, and "DESIGN STUDIO"
+// sub-label are the brand mark — intentionally left hardcoded.
+// The PanelEmpty glyph (⬡) is an icon — not tokenized, separate pass.
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useCallback, useRef } from "react";
@@ -31,7 +36,7 @@ const RIGHT_TABS = [
 
 // ─── SHARED STYLES ───────────────────────────────────────────
 const LABEL_STYLE = {
-  fontSize:      "11px",
+  fontSize:      "var(--fs-base)",
   color:         "#555555",
   fontFamily:    "var(--font-mono)",
   textTransform: "uppercase",
@@ -45,7 +50,7 @@ const INPUT_STYLE = {
   border:       "1px solid #2a2a2a",
   borderRadius: "3px",
   color:        "#cccccc",
-  fontSize:     "13px",
+  fontSize:     "var(--fs-base)",
   fontFamily:   "var(--font-ui)",
   padding:      "6px 8px",
   marginBottom: "10px",
@@ -59,7 +64,7 @@ const READONLY_STYLE = {
   cursor:     "not-allowed",
 };
 const SECTION_STYLE = {
-  fontSize:      "11px",
+  fontSize:      "var(--fs-base)",
   color:         "#4f8ef7",
   fontFamily:    "var(--font-mono)",
   letterSpacing: "1px",
@@ -73,7 +78,6 @@ const SECTION_STYLE = {
 function Workspace() {
   const navigate = useNavigate();
 
-  // ── State ────────────────────────────────────────────────
   const [drawing,       setDrawing]       = useState(null);
   const [project,       setProject]       = useState(null);
   const [paper,         setPaper]         = useState(paperSizes.Arch_D);
@@ -83,15 +87,12 @@ function Workspace() {
   const [activeTool,    setActiveTool]    = useState("select");
   const [unsaved,       setUnsaved]       = useState(false);
 
-  // ── Panel widths ─────────────────────────────────────────
   const [leftWidth,  setLeftWidth]  = useState(15);
   const [rightWidth, setRightWidth] = useState(18);
   const centerWidth = 100 - leftWidth - rightWidth;
 
-  // ── Right panel tab ──────────────────────────────────────
   const [rightTab, setRightTab] = useState("info");
 
-  // Right tab scroll — mirrors LeftPanel overflow detection
   const rightTabBarRef        = useRef(null);
   const [rightCanScrollLeft,  setRightCanScrollLeft]  = useState(false);
   const [rightCanScrollRight, setRightCanScrollRight] = useState(false);
@@ -112,7 +113,6 @@ function Workspace() {
     };
   }, [rightWidth]);
 
-  // ── Load drawing from DB ─────────────────────────────────
   useEffect(() => {
     async function loadDrawing() {
       setLoading(true);
@@ -145,7 +145,6 @@ function Workspace() {
     loadDrawing();
   }, []);
 
-  // ── Backend health check ─────────────────────────────────
   useEffect(() => {
     fetch(`${API}/health`)
       .then(r => r.json())
@@ -153,7 +152,6 @@ function Workspace() {
       .catch(() => setBackendStatus("disconnected"));
   }, []);
 
-  // ── Panel resize drag ────────────────────────────────────
   const isDraggingLeft  = useRef(false);
   const isDraggingRight = useRef(false);
   const dragStartX      = useRef(0);
@@ -201,13 +199,11 @@ function Workspace() {
     };
   }, [handleMouseMove, handleMouseUp]);
 
-  // ── Zoom fit ─────────────────────────────────────────────
   const zoomFitRef = useRef(null);
   function handleZoomFit() {
     if (zoomFitRef.current) zoomFitRef.current();
   }
 
-  // ── Save shell (Phase 7 fuels svg_data) ──────────────────
   async function handleSave() {
     if (!drawing) return;
     try {
@@ -220,7 +216,6 @@ function Workspace() {
     } catch { /* Phase 7 error handling */ }
   }
 
-  // ── Sign out ─────────────────────────────────────────────
   function signOut() {
     localStorage.removeItem("sl_user");
     localStorage.removeItem("sl_drawing");
@@ -228,11 +223,10 @@ function Workspace() {
     navigate("/login");
   }
 
-  // ── Loading / error screens ──────────────────────────────
   if (loading) {
     return (
       <div className="app-container" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <span style={{ color: "#888", fontFamily: "var(--font-mono)", fontSize: "14px" }}>Loading drawing...</span>
+        <span style={{ color: "#888", fontFamily: "var(--font-mono)", fontSize: "var(--fs-md)" }}>Loading drawing...</span>
       </div>
     );
   }
@@ -240,7 +234,7 @@ function Workspace() {
   if (loadError) {
     return (
       <div className="app-container" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px" }}>
-        <span style={{ color: "#f47070", fontFamily: "var(--font-mono)", fontSize: "14px" }}>{loadError}</span>
+        <span style={{ color: "#f47070", fontFamily: "var(--font-mono)", fontSize: "var(--fs-md)" }}>{loadError}</span>
         <button onClick={() => navigate("/projects")} style={{ padding: "8px 20px", background: "#4f8ef7", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer" }}>
           ← Back to Projects
         </button>
@@ -248,15 +242,10 @@ function Workspace() {
     );
   }
 
-  // ── Render ───────────────────────────────────────────────
   return (
     <div className="app-container">
 
-      {/* ══ TOP BAR ══════════════════════════════════════════
-          Height matches ProjectsPage (52px).
-          Left:  SL logo + Design Studio + drawing identity
-          Right: connection status + sign out
-      ════════════════════════════════════════════════════════ */}
+      {/* ══ TOP BAR ══════════════════════════════════════════ */}
       <div style={{
         height:         "52px",
         flexShrink:     0,
@@ -269,10 +258,9 @@ function Workspace() {
         zIndex:         100,
       }}>
 
-        {/* Left — logo + drawing info */}
         <div style={{ display: "flex", alignItems: "center", gap: "0" }}>
 
-          {/* SL logo */}
+          {/* SL logo — brand mark, intentionally excluded */}
           <div style={{
             width: "34px", height: "34px", flexShrink: 0,
             background:   "linear-gradient(135deg, #4f8ef7 0%, #2563eb 100%)",
@@ -282,7 +270,7 @@ function Workspace() {
             <span style={{ color: "#fff", fontSize: "13px", fontWeight: "800", fontFamily: "var(--font-ui)", letterSpacing: "-0.5px" }}>SL</span>
           </div>
 
-          {/* Wordmark */}
+          {/* Wordmark — brand mark, intentionally excluded */}
           <div style={{ marginLeft: "10px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <span style={{ color: "#fff", fontSize: "14px", fontWeight: "700", fontFamily: "var(--font-ui)", letterSpacing: "-0.3px", lineHeight: 1.1 }}>ScriptedLines</span>
             <span style={{ color: "#4f8ef7", fontSize: "9px", fontFamily: "var(--font-mono)", letterSpacing: "1.5px", textTransform: "uppercase" }}>DESIGN STUDIO</span>
@@ -290,33 +278,30 @@ function Workspace() {
 
           <div style={{ width: "1px", height: "22px", background: "#1e1e1e", margin: "0 16px", flexShrink: 0 }} />
 
-          {/* Back to Projects */}
-          <button onClick={() => navigate("/projects")} style={{ background: "transparent", border: "1px solid #2a2a2a", borderRadius: "4px", color: "#888", fontSize: "12px", fontFamily: "var(--font-ui)", padding: "4px 10px", cursor: "pointer", flexShrink: 0 }}>
+          <button onClick={() => navigate("/projects")} style={{ background: "transparent", border: "1px solid #2a2a2a", borderRadius: "4px", color: "#888", fontSize: "var(--fs-base)", fontFamily: "var(--font-ui)", padding: "4px 10px", cursor: "pointer", flexShrink: 0 }}>
             ← Projects
           </button>
 
           <div style={{ width: "1px", height: "22px", background: "#1e1e1e", margin: "0 16px", flexShrink: 0 }} />
 
-          {/* Drawing identity: D1080 — Title · Rev 00 */}
           {drawing && (
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ color: "#4f8ef7", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-mono)" }}>{drawing.drawing_number}</span>
+              <span style={{ color: "#4f8ef7", fontSize: "var(--fs-base)", fontWeight: "700", fontFamily: "var(--font-mono)" }}>{drawing.drawing_number}</span>
               <span style={{ color: "#333" }}>—</span>
-              <span style={{ color: "#cccccc", fontSize: "13px", fontFamily: "var(--font-ui)", fontWeight: "500" }}>{drawing.title}</span>
+              <span style={{ color: "#cccccc", fontSize: "var(--fs-base)", fontFamily: "var(--font-ui)", fontWeight: "500" }}>{drawing.title}</span>
               <span style={{ color: "#333" }}>·</span>
-              <span style={{ color: "#888", fontSize: "12px", fontFamily: "var(--font-mono)" }}>Rev {drawing.revision || "00"}</span>
+              <span style={{ color: "#888", fontSize: "var(--fs-base)", fontFamily: "var(--font-mono)" }}>Rev {drawing.revision || "00"}</span>
             </div>
           )}
         </div>
 
-        {/* Right — connection + sign out */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
             <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: backendStatus === "connected" ? "#4caf50" : "#f44336" }} />
-            <span style={{ fontSize: "11px", color: backendStatus === "connected" ? "#4caf50" : "#f44336", fontFamily: "var(--font-mono)" }}>{backendStatus}</span>
+            <span style={{ fontSize: "var(--fs-base)", color: backendStatus === "connected" ? "#4caf50" : "#f44336", fontFamily: "var(--font-mono)" }}>{backendStatus}</span>
           </div>
           <div style={{ width: "1px", height: "18px", background: "#1e1e1e" }} />
-          <button onClick={signOut} style={{ background: "transparent", border: "1px solid #2a2a2a", borderRadius: "4px", color: "#888", fontSize: "11px", fontFamily: "var(--font-ui)", padding: "4px 10px", cursor: "pointer" }}>
+          <button onClick={signOut} style={{ background: "transparent", border: "1px solid #2a2a2a", borderRadius: "4px", color: "#888", fontSize: "var(--fs-base)", fontFamily: "var(--font-ui)", padding: "4px 10px", cursor: "pointer" }}>
             Sign Out
           </button>
         </div>
@@ -326,17 +311,12 @@ function Workspace() {
       {/* ══ MAIN LAYOUT ══════════════════════════════════════ */}
       <div className="main-layout" ref={containerRef}>
 
-        {/* Left panel */}
         <div className="left-panel" style={{ width: `${leftWidth}%` }}>
           <LeftPanel leftWidth={leftWidth} />
         </div>
 
-        {/* Left resize divider */}
         <div className="panel-divider" onMouseDown={handleLeftDividerMouseDown} title="Drag to resize" />
 
-        {/* Center — CAD toolbar + canvas
-            width uses calc to subtract the two 5px dividers so the
-            total layout never exceeds 100% of the viewport */}
         <div className="center-panel" style={{ width: `calc(${centerWidth}% - 11px)`, display: "flex", flexDirection: "column" }}>
           <CADToolbar activeTool={activeTool} onToolChange={setActiveTool} onZoomFit={handleZoomFit} />
           <PaperSpace
@@ -350,13 +330,10 @@ function Workspace() {
           />
         </div>
 
-        {/* Right resize divider */}
         <div className="panel-divider" onMouseDown={handleRightDividerMouseDown} title="Drag to resize" />
 
-        {/* Right panel — drawing brain */}
         <div className="right-panel" style={{ width: `${rightWidth}%`, display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
-          {/* Tab bar — identical structure to LeftPanel */}
           <div className="tab-bar-wrapper">
             <button
               className="tab-scroll-btn"
@@ -377,7 +354,6 @@ function Workspace() {
             >›</button>
           </div>
 
-          {/* Separator bar — mirrors left panel search bar height for visual consistency */}
           <div style={{
             flexShrink:   0,
             height:       "8px",
@@ -385,7 +361,6 @@ function Workspace() {
             borderBottom: "1px solid var(--color-border)",
           }} />
 
-          {/* Tab content — .tab-content gives equal padding all sides */}
           <div className="tab-content">
             {rightTab === "info"       && <RightPanelInfo       drawing={drawing} paper={paper} project={project} />}
             {rightTab === "products"   && <RightPanelProducts   drawing={drawing} />}
@@ -430,10 +405,10 @@ function RightPanelInfo({ drawing, paper, project }) {
           minWidth:     0,
           overflow:     "hidden",
         }}>
-          <div style={{ fontSize: "10px", color: "#555", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: "3px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+          <div style={{ fontSize: "var(--fs-base)", color: "#555", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: "3px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
             {label}
           </div>
-          <div style={{ fontSize: "13px", color: "#cccccc", fontFamily: "var(--font-ui)", wordBreak: "break-word", overflowWrap: "break-word", maxWidth: "100%", minWidth: 0 }}>
+          <div style={{ fontSize: "var(--fs-base)", color: "#cccccc", fontFamily: "var(--font-ui)", wordBreak: "break-word", overflowWrap: "break-word", maxWidth: "100%", minWidth: 0 }}>
             {value}
           </div>
         </div>
@@ -442,32 +417,22 @@ function RightPanelInfo({ drawing, paper, project }) {
   );
 }
 
-// ─── RIGHT PANEL — PRODUCTS ──────────────────────────────────
 function RightPanelProducts() {
   return <PanelEmpty label="Products" sub="Drop products onto canvas to see them here" />;
 }
 
-// ─── RIGHT PANEL — BOM ───────────────────────────────────────
 function RightPanelBOM() {
   return <PanelEmpty label="Bill of Materials" sub="Generated when products are on canvas" />;
 }
 
-// ─── RIGHT PANEL — HARDWARE ──────────────────────────────────
 function RightPanelHardware() {
   return <PanelEmpty label="Hardware" sub="Hardware items from BOM" />;
 }
 
-// ─── RIGHT PANEL — NOTES ─────────────────────────────────────
 function RightPanelNotes() {
   return <PanelEmpty label="Notes" sub="Drawing notes — Phase 7" />;
 }
 
-// ─── RIGHT PANEL — TITLE BLOCK ───────────────────────────────
-// Loads drawing_templates record for this project.
-// Read-only fields come from existing DB tables.
-// Editable fields save to drawing_templates via PUT /api/templates/project/:id.
-// Compliance fields (AWMAC, AWI) set at project creation — not shown here.
-// Per-drawing overrides: drawings.title_block_overrides JSON (Phase 8).
 function RightPanelTitleBlock({ drawing, project }) {
   const [template, setTemplate] = useState(null);
   const [loading,  setLoading]  = useState(true);
@@ -508,7 +473,6 @@ function RightPanelTitleBlock({ drawing, project }) {
   return (
     <div>
 
-      {/* Read-only — from DB */}
       <div style={SECTION_STYLE}>From Database</div>
       {[
         ["Project",      project?.project_name     || ""],
@@ -525,7 +489,6 @@ function RightPanelTitleBlock({ drawing, project }) {
         </div>
       ))}
 
-      {/* Company — editable */}
       <div style={SECTION_STYLE}>Company</div>
       {[
         ["Company Name",    "company_name"],
@@ -540,7 +503,6 @@ function RightPanelTitleBlock({ drawing, project }) {
         </div>
       ))}
 
-      {/* Project team — editable */}
       <div style={SECTION_STYLE}>Project Team</div>
       {[
         ["Client Name",   "client_name"],
@@ -556,28 +518,25 @@ function RightPanelTitleBlock({ drawing, project }) {
         </div>
       ))}
 
-      {/* Notes — editable */}
       <div style={SECTION_STYLE}>Notes</div>
       <span style={LABEL_STYLE}>Important Notes</span>
       <textarea style={{ ...INPUT_STYLE, height: "72px", resize: "vertical" }} value={template.important_notes || ""} onChange={e => update("important_notes", e.target.value)} />
       <span style={LABEL_STYLE}>Material Core Notes</span>
       <textarea style={{ ...INPUT_STYLE, height: "72px", resize: "vertical" }} value={template.material_notes || ""} onChange={e => update("material_notes", e.target.value)} />
 
-      {/* Approval stamp */}
       <div style={SECTION_STYLE}>Approval Stamp</div>
       <span style={LABEL_STYLE}>Stamp Text</span>
       <input style={INPUT_STYLE} value={template.approval_stamp_text || ""} onChange={e => update("approval_stamp_text", e.target.value)} />
       <span style={LABEL_STYLE}>Approved By</span>
       <input style={INPUT_STYLE} value={template.approval_name || ""} onChange={e => update("approval_name", e.target.value)} />
 
-      {/* Save */}
       <button
         onClick={saveTemplate}
         disabled={saving}
         style={{
           width: "100%", padding: "9px",
           background: "#4f8ef7", border: "none", borderRadius: "4px",
-          color: "#fff", fontSize: "13px", fontWeight: "600",
+          color: "#fff", fontSize: "var(--fs-base)", fontWeight: "600",
           fontFamily: "var(--font-ui)",
           cursor: saving ? "not-allowed" : "pointer",
           marginTop: "8px", opacity: saving ? 0.7 : 1,
@@ -590,13 +549,12 @@ function RightPanelTitleBlock({ drawing, project }) {
   );
 }
 
-// ─── EMPTY STATE ─────────────────────────────────────────────
 function PanelEmpty({ label, sub }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "8px", padding: "32px 8px", textAlign: "center" }}>
       <div style={{ fontSize: "24px", opacity: 0.1 }}>⬡</div>
-      <div style={{ fontSize: "12px", color: "#444", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.5px" }}>{label}</div>
-      {sub && <div style={{ fontSize: "12px", color: "#333", fontFamily: "var(--font-ui)", lineHeight: 1.5 }}>{sub}</div>}
+      <div style={{ fontSize: "var(--fs-base)", color: "#444", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.5px" }}>{label}</div>
+      {sub && <div style={{ fontSize: "var(--fs-base)", color: "#333", fontFamily: "var(--font-ui)", lineHeight: 1.5 }}>{sub}</div>}
     </div>
   );
 }
