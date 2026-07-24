@@ -2,9 +2,8 @@
    App.css — ScriptedLines global styles
    Design tokens now live in tokens.css (imported once in main.jsx).
 
-   Font sizes use --fs-base/--fs-md/--fs-lg tokens (see tokens.css).
-   Icon/glyph font-sizes (‹ › arrows) are left as hardcoded px —
-   separate pass, not yet tokenized.
+   Font sizes use --fs-base/--fs-md/--fs-lg tokens; icon/glyph sizes
+   (‹ › arrows) use --icon-* tokens (see tokens.css).
 ───────────────────────────────────────────────────────────── */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
@@ -138,7 +137,7 @@ body {
   padding: 0;
   margin: 0;
   color: var(--color-text-dim);
-  font-size: 18px; line-height: 1; /* icon (‹ ›) — not tokenized */
+  font-size: var(--icon-md); line-height: 1;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: color 0.15s, background 0.15s;

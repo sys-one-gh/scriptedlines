@@ -48,7 +48,7 @@
 
 /* ── TOP BAR ───────────────────────────────────────────────── */
 .ws-topbar {
-  height: 52px;
+  height: 60px;
   flex-shrink: 0;
   background: var(--color-bg-panel);
   border-bottom: 1px solid var(--color-border-soft);
@@ -63,26 +63,26 @@
 
 /* Brand mark — intentionally not tokenized, see file header. */
 .ws-logo-mark {
-  width: 34px; height: 34px; flex-shrink: 0;
+  width: 40px; height: 40px; flex-shrink: 0;
   background: linear-gradient(135deg, #4f8ef7 0%, #2563eb 100%);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
 }
 .ws-logo-mark-text {
-  color: #fff; font-size: 13px; font-weight: 800;
-  font-family: var(--font-ui); letter-spacing: -0.5px;
+  color: #fff; font-size: 14px; font-weight: 800;
+  font-family: var(--font-mono); letter-spacing: 0.5px;
 }
 .ws-logo-words {
-  margin-left: 10px;
-  display: flex; flex-direction: column; justify-content: center;
+  margin-left: 12px;
+  display: flex; flex-direction: column; justify-content: center; gap: 1px;
 }
 .ws-logo-main {
-  color: #fff; font-size: 14px; font-weight: 700;
-  font-family: var(--font-ui); letter-spacing: -0.3px; line-height: 1.1;
+  color: var(--color-text-primary); font-size: 17px; font-weight: 700;
+  font-family: var(--font-ui); letter-spacing: 0.2px; line-height: 1;
 }
 .ws-logo-sub {
-  color: #4f8ef7; font-size: 9px;
-  font-family: var(--font-mono); letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--color-accent); font-size: 9px;
+  font-family: var(--font-mono); letter-spacing: 2.5px; line-height: 1;
 }
 
 .ws-topbar-divider {
@@ -228,7 +228,7 @@
   align-items: center; justify-content: center;
   gap: 8px; padding: 32px 8px; text-align: center;
 }
-.ws-panel-empty-icon { font-size: 24px; opacity: 0.1; }
+.ws-panel-empty-icon { font-size: var(--icon-lg); opacity: 0.1; }
 .ws-panel-empty-label {
   font-size: var(--fs-base);
   color: #444; /* no matching token, single use site */

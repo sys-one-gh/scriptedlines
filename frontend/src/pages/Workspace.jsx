@@ -6,7 +6,7 @@
 // Font sizes use --fs-base/--fs-md/--fs-lg tokens (see tokens.css).
 // The ScriptedLines "SL" mark, wordmark, and "DESIGN STUDIO"
 // sub-label are the brand mark — intentionally left hardcoded.
-// The PanelEmpty glyph (⬡) is an icon — not tokenized, separate pass.
+// The PanelEmpty glyph (⬡) is an icon — uses --icon-lg (see Workspace.css).
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useRef } from "react";

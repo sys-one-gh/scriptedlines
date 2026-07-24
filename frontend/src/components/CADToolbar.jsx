@@ -4,7 +4,7 @@
 // Horizontal CAD tool strip.
 //
 // Font sizes use --fs-base token (see tokens.css) for text labels.
-// Scroll arrow chars (‹ ›) are icons — not tokenized, separate pass.
+// Scroll arrow chars (‹ ›) are icons — use --icon-md.
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useRef, useEffect, useCallback } from "react";
@@ -355,7 +355,7 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
             border:         "none",
             borderRight:    `1px solid ${C.sepColor}`,
             color:          C.iconEnabled,
-            fontSize:       "18px",   /* icon (‹) — not tokenized */
+            fontSize:       "var(--icon-md)",   /* icon (‹) */
             lineHeight:     1,
             cursor:         "pointer",
             display:        "flex",
@@ -461,7 +461,7 @@ function CADToolbar({ activeTool, onToolChange, onZoomFit }) {
             border:         "none",
             borderLeft:     `1px solid ${C.sepColor}`,
             color:          C.iconEnabled,
-            fontSize:       "18px",   /* icon (›) — not tokenized */
+            fontSize:       "var(--icon-md)",   /* icon (›) */
             lineHeight:     1,
             cursor:         "pointer",
             display:        "flex",

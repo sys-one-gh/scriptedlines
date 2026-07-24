@@ -8,7 +8,7 @@
 // (font-size="2.5") is physical mm-based sizing for the printed
 // sheet — drawing-space content, NOT part of the UI token scale,
 // left untouched. navBtnStyle's fontSize sizes icon characters
-// (−, +, ‹, ›) — not tokenized, separate pass.
+// (−, +, ‹, ›) — uses --icon-sm.
 // ─────────────────────────────────────────────────────────────
 
 import { useEffect, useRef, useState } from "react";
@@ -669,14 +669,14 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
 }
 
 // ─── NAV BUTTON STYLE ────────────────────────────────────────
-// fontSize here sizes icon characters (−, +, ‹, ›) — not tokenized.
+// fontSize here sizes icon characters (−, +, ‹, ›) — uses --icon-sm.
 const navBtnStyle = {
   width:          "28px",
   height:         "28px",
   background:     "#161616",
   border:         "1px solid #2a2a2a",
   color:          "#cccccc",
-  fontSize:       "16px",
+  fontSize:       "var(--icon-sm)",
   lineHeight:     "1",
   borderRadius:   "4px",
   cursor:         "pointer",

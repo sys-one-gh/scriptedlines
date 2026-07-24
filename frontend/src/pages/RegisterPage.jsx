@@ -372,7 +372,7 @@ function RegisterPage() {
 // ─── STYLES ──────────────────────────────────────────────────
 // Font sizes use --fs-base/--fs-md/--fs-lg tokens (see tokens.css).
 // logoMark/logoText are the ScriptedLines brand mark — intentionally
-// left hardcoded. eyeBtn sizes an emoji icon (🙈/👁) — not tokenized.
+// left hardcoded. eyeBtn sizes an emoji icon (🙈/👁) — uses --icon-sm.
 const styles = {
   page: {
     width:           "100vw",
@@ -503,7 +503,7 @@ const styles = {
     background:      "transparent",
     border:          "none",
     cursor:          "pointer",
-    fontSize:        "14px",   /* icon (emoji) — not tokenized */
+    fontSize:        "var(--icon-sm)",
     padding:         "0",
     lineHeight:      "1",
   },

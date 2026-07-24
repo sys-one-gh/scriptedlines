@@ -33,7 +33,7 @@
      NOT drawing-space/canvas text (dimensions, title blocks,
      annotations — those get their own paper-relative system in
      Phase 8), and NOT icon/glyph font-sizes (‹ › ✕ ⋯ ⬡ ⌕ ≡ ⊞,
-     emoji) — icons are a separate pass, still hardcoded for now.
+     emoji) — those use the separate --icon-* scale below.
      The ScriptedLines logo/wordmark is also intentionally left
      hardcoded everywhere — brand mark, not scaled UI copy.
 
@@ -59,6 +59,31 @@
   --fs-base: 13px;
   --fs-md:   14px;
   --fs-lg:   16px;
+
+  /* ── Icon Sizes (glyphs, emoji-as-icon, arrows — not UI text) ──
+     The "separate pass" mentioned above — 12 one-off hardcoded
+     values consolidated into this 6-step scale. 16px is a hard
+     floor: nothing renders smaller than --icon-sm anywhere.
+
+     --icon-sm  (16px) — standard control icons: buttons, search,
+       menu items, form icons, sort arrows.
+     --icon-md  (18px) — toolbar/nav arrows, modal close, zoom/page
+       nav, avatar button.
+     --icon-lg  (28px) — avatar-weight glyphs: picker options,
+       user-menu header avatar, workspace empty-panel icon.
+     --icon-xl  (32px) — medium empty-state icons (canvas message,
+       sidebar empty glyph).
+     --icon-2xl (40px) — large empty-state glyphs (canvas/project
+       setup placeholder).
+     --icon-3xl (48px) — the single biggest glyph in the app
+       ("No Project Selected").
+     ──────────────────────────────────────────────────────── */
+  --icon-sm:  16px;
+  --icon-md:  18px;
+  --icon-lg:  28px;
+  --icon-xl:  32px;
+  --icon-2xl: 40px;
+  --icon-3xl: 48px;
 
   /* ── Backgrounds ───────────────────────────────────────── */
   --bg-deepest:   #0d0d0d;

@@ -7,8 +7,8 @@
    .tab-bar-wrapper, .tab-scroll-btn from App.css). Only the
    setup-specific pieces (ps-*) live here.
 
-   Font sizes use --fs-base/--fs-md/--fs-lg tokens (see tokens.css).
-   Icon/glyph font-sizes are left as hardcoded px — separate pass.
+   Font sizes use --fs-base/--fs-md/--fs-lg tokens; icon/glyph sizes
+   use --icon-* tokens (see tokens.css).
    ============================================================ */
 
 /* ── HEADER: main tabs on the left, identity + close on right ── */
@@ -126,7 +126,7 @@
   align-items: center; justify-content: center;
   height: 100%; gap: 12px; padding: 48px; text-align: center;
 }
-.ps-placeholder-glyph { font-size: 40px; opacity: 0.12; } /* icon — not tokenized */
+.ps-placeholder-glyph { font-size: var(--icon-2xl); opacity: 0.12; }
 .ps-placeholder-title {
   font-size: var(--fs-md); font-weight: 600; color: var(--text-faint);
   font-family: var(--font-ui);
