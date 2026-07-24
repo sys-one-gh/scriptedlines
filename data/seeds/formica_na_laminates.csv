@@ -1,0 +1,391 @@
+id,finish_number,finish_name,collection,variant,sku_code,grain,product_type,manufacturer,region,availability_notes,texture_58,texture_90,texture_34,texture_43,texture_46,texture_BH,texture_ML,texture_NG,texture_PA,texture_PG,texture_PX,texture_26,texture_WR,texture_11,texture_DP,texture_MC,texture_SP,texture_42,grade_12,grade_20,grade_V4,grade_V5,grade_13,grade_CC,grade_C9,size_4x8,size_4x10,size_4x12,size_5x12,fire_rated_eligible,fire_rated_grade_32,fire_rated_grade_50,fire_rated_size_4x8,fire_rated_size_5x10,fire_rated_size_5x12,compact_available
+1,3420,Dolce Vita,180fx,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,0
+2,3422,Crema Mascarello,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+3,3460,Calacatta Marble,180fx,,,0,Laminate,Formica,NA,,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+4,3466,Antique Mascarello,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+5,3476,Jet Sequoia,180fx,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,0
+6,3546,River Gold,180fx,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,0
+7,3547,Lapidus Brown,180fx,,,0,Laminate,Formica,NA,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+8,3700,White Alabaster,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+9,3701,Manhattan Marble,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+10,3702,Mediterranean Marble,180fx,,,0,Laminate,Formica,NA,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+11,3703,Woodland Marble,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+12,3704,Marbled Gray,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+13,5014,White Painted Marble,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+14,5015,Black Painted Marble,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+15,5018,Calacatta Cava,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+16,6319,CafÃ© Azul,180fx,,,0,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+17,6320,Black Fusion,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+18,7402,Pietra Grafite,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+19,7403,Nero Marquina,180fx,,,0,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+20,7404,Neapolitan Stone,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+21,9284,Classic Crystal Granite,180fx,,,0,Laminate,Formica,NA,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+22,9302,Fantasy Marble,180fx,,,0,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+23,9303,Azul Aran,180fx,,,0,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+24,9479,Wide Planked Walnut,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,1,1,1,1,0,0
+25,9483,Ferro Grafite,180fx,,,0,Laminate,Formica,NA,,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+26,9534,Sea Pearl,180fx,,,0,Laminate,Formica,NA,,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,0
+27,9536,Quartzite Bianco,180fx,,,0,Laminate,Formica,NA,,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,0
+28,9537,Stormy Night Granite,180fx,,,0,Laminate,Formica,NA,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+29,9915,Prosecco Quartzite,180fx,,,0,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+30,9916,Fractured Marble,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+31,9917,Hazelnut Travertine,180fx,,,0,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+32,9918,Brecca Mojave,180fx,,,0,Laminate,Formica,NA,,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+33,9919,Jatoba Brown,180fx,,,0,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+34,9920,Jatoba Green,180fx,,,0,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,0
+35,9921,Sahara Noir,180fx,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,0
+36,459,Brite White,Antimicrobial,,459A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+37,464,Graystone,Antimicrobial,,464A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+38,909,Black,Antimicrobial,,909A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+39,912,Storm,Antimicrobial,,912A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+40,949,White,Antimicrobial,,949A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+41,961,Fog,Antimicrobial,,961A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+42,5488,Smoky Brown Pear,Antimicrobial,,5488A,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+43,5883,Pecan Woodline,Antimicrobial,,5883A,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+44,5887,Millennium Oak,Antimicrobial,,5887A,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+45,6413,Silver Riftwood,Antimicrobial,,6413A,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+46,6698,Paloma Polar,Antimicrobial,,6698A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+47,7197,Dover White,Antimicrobial,,7197A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+48,8826,Neutral Twill,Antimicrobial,,8826A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+49,8829,Graphite Twill,Antimicrobial,,8829A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+50,8841,White Ash,Antimicrobial,,8841A,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+51,8843,Natural Ash,Antimicrobial,,8843A,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+52,8844,Aged Ash,Antimicrobial,,8844A,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+53,8846,Oiled Legno,Antimicrobial,,8846A,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+54,9283,Walnut Riftwood,Antimicrobial,,9283A,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+55,9285,White Twill,Antimicrobial,,9285A,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+56,85983,Almond,Cabinet Liners,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+57,P0909,Black,Cabinet Liners,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+58,P9167,Basic White 1,Cabinet Liners,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+59,P9168,Basic White 2,Cabinet Liners,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+60,845,Spectrum Red,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+61,909,Black,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+62,912,Storm,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+63,923,Surf,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+64,927,Folkstone,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+65,928,Mouse,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+66,933,Misson White,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+67,949,White,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0
+68,961,Fog,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+69,6696,Carrara Bianco,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+70,7223,New White,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0
+71,8841,White Ash,ColorCore2,,,1,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+72,9285,White Twill,ColorCore2,,,0,Laminate,Formica,NA,Multiple simultaneous textures possible per decor - no single sku_code can be inferred; left blank.,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+73,909,Black,Crystal,,909-42,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+74,949,White,Crystal,,949-42,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+75,8253,Gold Veined Taupe Marble,InDepth Surfacing,Marble,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0
+76,8254,Brass Veined Black Marble,InDepth Surfacing,Marble,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0
+77,8255,Natural Silk Oak,InDepth Surfacing,Wood,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0
+78,8256,Fumed Silk Oak,InDepth Surfacing,Wood,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0
+79,8257,Oxidized Silk Oak,InDepth Surfacing,Wood,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0
+80,8258,Bleached Luster Walnut,InDepth Surfacing,Wood,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0
+81,8259,Steamed Luster Walnut,InDepth Surfacing,Wood,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0
+82,463,Sail White,MicroDot,,463-MC,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+83,909,Black,MicroDot,,909-MC,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+84,949,White,MicroDot,,949-MC,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+85,961,Fog,MicroDot,,961-MC,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+86,1097,Citadel,MicroDot,,1097-MC,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+87,2200,Dark Chocolate,MicroDot,,2200-MC,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+88,2297,Terril,MicroDot,,2297-MC,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+89,6901,Vibrant Green,MicroDot,,6901-MC,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+90,6903,Cassis,MicroDot,,6903-MC,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+91,271,Blackstone,Patterns,,,0,Laminate,Formica,NA,,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+92,299,Ebony Oxide,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+93,503,Stone Grafix,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+94,507,Folkstone Grafix,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+95,515,Graphite Grafix,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+96,692,Folkstone Celesta,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+97,827,White Onyx,Patterns,,,0,Laminate,Formica,NA,,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+98,3450,Mineral Jet,Patterns,,,0,Laminate,Formica,NA,,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+99,3456,Mocha Travertine,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+100,3496,Belmonte Granite,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+101,3505,Storm Solidz,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+102,3517,Sand Crystall,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+103,3518,Flint Crystall,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+104,3522,Perlato Granite,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+105,3526,Travertine,Patterns,,,0,Laminate,Formica,NA,,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+106,3690,Basalt Slate,Patterns,,,0,Laminate,Formica,NA,,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+107,3692,Labrador Granite,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+108,3705,Sugar Glass,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+109,3706,Patine Concrete,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+110,3707,Patine Bronze,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+111,3708,Burnished Coin,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+112,3709,Burnished Iron,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+113,3710,Smoke Onyx,Patterns,,,0,Laminate,Formica,NA,,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+114,3711,Slate Noir,Patterns,,,0,Laminate,Formica,NA,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+115,4971,Natural Gray Felt,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+116,4972,Yellow Felt,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+117,4973,Orange Felt,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+118,4974,Green Felt,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+119,5019,Black Bardiglio,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+120,5875,Neutral Weft,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,0
+121,5880,Earthen Warp,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+122,5882,Citadel Warp,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+123,6001,Bianco Antico,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+124,6124,Raw Cloth,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+125,6125,Pampas Cloth,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+126,6126,Sheer Fabric,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+127,6127,Muslin Fabric,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+128,6128,Sisal Fabric,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+129,6129,Gray Fabric,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+130,6130,Chambray Fabric,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+131,6131,Palma Fabric,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+132,6212,Wheat Strand,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+133,6220,Smoke Quarstone,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+134,6222,Brazilian Brown Granite,Patterns,,,0,Laminate,Formica,NA,,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+135,6226,Ivory Kashmire,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+136,6280,Midnight Stone,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+137,6306,Wenge Strand,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+138,6307,Burnt Strand,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+139,6314,Neo Cloud,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+140,6696,Carrara Bianco,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+141,6697,Argento Romano,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+142,6698,Paloma Polar,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+143,6942,Charcoal Boomerang,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+144,6997,Pale Brushstroke,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+145,6998,Wood Brushstroke,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+146,6999,Earthenware Brushstroke,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+147,7018,Navy Grafix,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+148,7213,Earth Wash,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+149,7264,Lime Stone,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+150,7267,Concrete Stone,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+151,7406,Marmara Beige,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+152,7407,Marmara Gray,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+153,7408,Ice Onyx,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+154,7494,Carrara Envision,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+155,7708,Flax Gauze,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+156,7732,Butterum Granite,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+157,7734,Jamocha Granite,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+158,7735,Portico Marble,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+159,7812,MDF Solidz,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+160,7813,Cardboard Solidz,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+161,8678,Starched Paperfold,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+162,8679,Origami Paperfold,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+163,8680,Washi Paperfold,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+164,8681,Cotton Cloth,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+165,8682,Woolen Cloth,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+166,8683,Glass Cloth,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+167,8684,Birchbark,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+168,8824,White Drops,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+169,8826,Neutral Twill,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+170,8827,Sarum Twill,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+171,8828,Earthen Twill,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+172,8829,Graphite Twill,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+173,8830,Elemental Concrete,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+174,8831,Elemental Stone,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+175,8866,Silver Alloy,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+176,8918,Blackened Steel,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+177,8919,Bronzed Steel,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+178,9036,Limed Siltstone,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+179,9037,Flint Siltstone,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+180,9285,White Twill,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+181,9300,Gray Graphix,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+182,9306,White Bardiglio,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+183,9307,Silver Shalestone,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+184,9308,Geriba Gray,Patterns,,,0,Laminate,Formica,NA,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+185,9309,Star Dune,Patterns,,,0,Laminate,Formica,NA,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+186,9310,White Marble Herringbone,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+187,9318,Aluminum,Patterns,,,0,Laminate,Formica,NA,,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1
+188,9319,Stainless,Patterns,,,0,Laminate,Formica,NA,,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+189,9320,Blue Felt,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+190,9476,White Ice Granite,Patterns,,,0,Laminate,Formica,NA,,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+191,9497,Silver Quartzite,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+192,9512,Layered White Sand,Patterns,,,0,Laminate,Formica,NA,,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,0,1,0,0,0,0,0,0,1
+193,9525,White Shalestone,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+194,9527,Black Shalestone,Patterns,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+195,9529,Sea Salt,Patterns,,,0,Laminate,Formica,NA,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+196,9922,Taj Mahal,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+197,9923,Patine Chalk,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+198,9924,Patine Stone,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+199,9925,Foliage,Patterns,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+200,909,Black,Sculpted,,909-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+201,918,Neutral White,Sculpted,,918-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+202,927,Folkstone,Sculpted,,927-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+203,949,White,Sculpted,,949-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+204,2200,Dark Chocolate,Sculpted,,2200-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+205,3505,Storm Solidz,Sculpted,,3505-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+206,5342,Earth,Sculpted,,5342-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+207,5349,Fossil,Sculpted,,5349-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+208,7812,MDF Solidz,Sculpted,,7812-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+209,7813,Cardboard Solidz,Sculpted,,7813-SP,0,Laminate,Formica,NA,SKU suffix inferred using the standard BASE-TEXTURECODE convention seen elsewhere in this catalog; not explicitly confirmed by source material.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+210,098,Fiery Red,Solid Colors,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+211,459,Brite White,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+212,463,Sail White,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+213,464,Graystone,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+214,837,Graphite,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+215,839,Stop Red,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+216,845,Spectrum Red,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+217,851,Spectrum Blue,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+218,858,Pumice,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+219,899,Desert Beige,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+220,902,Platinum,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+221,909,Black,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+222,912,Storm,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+223,914,Marine Blue,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+224,918,Neutral White,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+225,920,Almond,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+226,923,Surf,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+227,927,Folkstone,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+228,928,Mouse,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+229,929,Oyster Gray,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+230,932,Antique White,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+231,933,Misson White,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+232,934,Pearl,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+233,949,White,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+234,961,Fog,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+235,969,Navy Blue,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+236,1097,Citadel,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+237,1193,Gold Braze,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+238,1196,Purple Dye,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+239,1198,Jadeite,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+240,1485,Chrome Yellow,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+241,2200,Dark Chocolate,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+242,2297,Terril,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+243,2770,Sarum Grey,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+244,2962,Clementine,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+245,3202,Otter,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+246,3245,Smoke,Solid Colors,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+247,3720,White Pearl Cascade,Solid Colors,,,0,Laminate,Formica,NA,,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,0,0,0,0,0,0,1
+248,5323,Nocturne,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+249,5342,Earth,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+250,5349,Fossil,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+251,6901,Vibrant Green,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+252,6903,Cassis,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+253,7197,Dover White,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+254,7223,New White,Solid Colors,,,0,Laminate,Formica,NA,"No standalone Solid Colors laminate exists for this decor - confirmed ColorCore2-exclusive per the ColorCore2 Size & Grade Guide (icon-marked across all 4 textures, same treatment as 949 White). See the ColorCore2 row for this finish_number for actual texture/grade/size data.",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+255,7872,Moonstone,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+256,7897,Spectrum Green,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+257,7966,New Burgundy,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+258,8235,Solar Orange,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+259,8238,Blush,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+260,8240,Liquid Glass,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+261,8241,Earthenware,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+262,8243,Night Shade,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+263,8244,Night Forest,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+264,8751,Mojave,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+265,8792,Winter Sky,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+266,8793,Green Slate,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+267,8795,Matrix Blue,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+268,8796,Algae,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+269,8812,Tinted Paper Terrazzo,Solid Colors,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+270,8813,Tonal Paper Terrazzo,Solid Colors,,,0,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0
+271,8822,Denim,Solid Colors,,,0,Laminate,Formica,NA,,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+272,8858,Just Rose,Solid Colors,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+273,9242,Gull Grey,Solid Colors,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+274,9243,Zen Grey,Solid Colors,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+275,9244,Classic White,Solid Colors,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+276,9271,Reclaimed Denim Fiber,Solid Colors,,,0,Laminate,Formica,NA,,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,0,0,0,0,0,0,0
+277,9634,Milk,Solid Colors,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+278,9685,Black Recycled Kraft,Solid Colors,,,0,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+279,118,Finnish Oak,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+280,346,Natural Oak,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+281,756,Natural Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+282,756,Natural Maple,Woodgrains,Cross Grain,,1,Laminate,Formica,NA,Cross-grain SKU suffix: 9294-58,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+283,758,Blossom Cherrywood,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+284,1545,Raw Cedar,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+285,1547,Noir Cedar,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+286,3485,Black Walnut,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+287,3712,Walnut Butcherblock,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+288,4923,Cream Softwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+289,4924,Greige Softwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+290,4925,Walnut Softwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+291,5487,Oiled Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+292,5488,Smoky Brown Pear,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+293,5489,Espresso Pear,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+294,5782,Formal Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+295,5783,Antique Mango,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+296,5784,Ashwood Bone,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+297,5785,Ashwood Beige,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+298,5786,Ashwood Oak,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+299,5787,Taupe Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+300,5788,Hazel Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+301,5789,Clove Spice Cherry,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+302,5790,Nut Brown Cherry,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+303,5791,Grayed Oak,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+304,5792,Inked Oak,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+305,5793,Buff Elm,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+306,5794,Beige Elm,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+307,5795,Camel Elm,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+308,5796,Graphite Elm,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+309,5883,Pecan Woodline,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+310,5884,Chestnut Woodline,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+311,5886,Sorrel Cherry,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+312,5887,Millennium Oak,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+313,5904,Wild Cherry,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+314,5904,Wild Cherry,Woodgrains,Cross Grain,,1,Laminate,Formica,NA,Cross-grain SKU suffix: 9293-58,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+315,6206,Planked Deluxe Pear,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+316,6208,Glamour Cherry,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+317,6209,Prestige Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+318,6209,Prestige Walnut,Woodgrains,Cross Grain,,1,Laminate,Formica,NA,Cross-grain SKU suffix: 9297-58,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+319,6330,Air White,Woodgrains,,,1,Laminate,Formica,NA,CONFLICT: Number Index lists 6330 as Woodgrain; Solid Colors table also lists 6330 Air White. Confirm before loading.,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+320,6372,White Washed Birchply,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+321,6402,Thermo Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+322,6413,Silver Riftwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+323,6414,Black Riftwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+324,6477,Seasoned Planked Elm,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+325,6925,Maple Woodline,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+326,6932,Macchiato Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+327,6994,Ceruse Gray Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+328,6995,Cherry Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+329,6996,Pecan Walnut,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+330,7008,Acajou Mahogany,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+331,7012,Amber Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+332,7288,Ginger Root Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+333,7412,Planked Raw Oak,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+334,7413,Planked Coffee Oak,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+335,7481,Natural Birch,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+336,7738,Cognac Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+337,7739,Cocoa Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+338,7747,Pencil Wood,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+339,7747,Pencil Wood,Woodgrains,Cross Grain,,1,Laminate,Formica,NA,Cross-grain SKU suffix: 9289-58,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+340,7759,Select Cherry,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+341,8349,Gallery Teak,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+342,8552,Black Birchply,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+343,8576,Blond Cedar,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+344,8589,Tula Oak,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+345,8676,Swede Rift Oak,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+346,8677,Scandi Rift Oak,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+347,8685,Luxe Mango,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+348,8841,White Ash,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+349,8842,Weathered Ash,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+350,8843,Natural Ash,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+351,8844,Aged Ash,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+352,8845,Bleached Legno,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+353,8846,Oiled Legno,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+354,8848,Blackened Legno,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+355,8849,Natural Teak,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+356,8861,Traditional Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+357,8863,Natural Cerise,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+358,8864,Brown Cerise,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+359,8902,White Painted Wood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+360,8905,Waxed Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+361,8906,Danish Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+362,8907,Fox Teakwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+363,8908,Storm Teakwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+364,8909,Cascara Teakwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+365,8910,Raw Birchply,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+366,8914,Weathered Fiberwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+367,8915,Walnut Fiberwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+368,8916,Blackened Fiberwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+369,8955,Cinnamon Cherry,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+370,9012,Ebony,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+371,9038,Natural White Oak,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+372,9039,Silver Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+373,9040,Fumed Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+374,9041,Natural Refined Hickory,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+375,9042,Brun Refined Hickory,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+376,9043,Coco Tamarind,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+377,9236,Noble Mahogany,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+378,9237,Sand Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+379,9238,Chelsea Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+380,9240,Cherry Heartwood,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+381,9281,Ash Riftwood,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+382,9282,Natural Riftwood,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,1,1
+383,9283,Walnut Riftwood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+384,9288,Kona,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+385,9312,Planked Urban Oak,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+386,9374,Cocoa Oak,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1,0,1
+387,9484,Oxidized Beamwood,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1
+388,9642,Oxidized Wood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+389,9643,Cinder Wood,Woodgrains,,,1,Laminate,Formica,NA,,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,0,1
+390,86992,Hard Rock Maple,Woodgrains,,,1,Laminate,Formica,NA,,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1

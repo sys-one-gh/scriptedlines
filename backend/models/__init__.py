@@ -12,11 +12,14 @@ from models.product         import Product
 from models.material_lookups  import Manufacturer, SheetSize, Finish
 from models.material_core     import MaterialCore
 from models.material_melamine import MaterialMelamine
-from models.material_laminate import MaterialLaminate
+
+# ── Laminate catalog: self-contained, per-manufacturer children ──
+from models.laminate import Laminate, LaminateFormica
 
 from models.company         import Company
 from models.user            import User
 from models.project         import Project
+from models.project_laminate import ProjectLaminate
 from models.drawing         import Drawing
 from models.drawing_product import DrawingProduct
 from models.drawing_bom     import (
