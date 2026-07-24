@@ -23,6 +23,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { apiFetch } from "../api";
 import "./ProjectSetup.css";
 
 // ─── MAIN TABS ───────────────────────────────────────────────
@@ -71,6 +72,13 @@ const CATEGORY_COLUMNS = {
 function columnsFor(subtabId) {
   return CATEGORY_COLUMNS[subtabId] || CATEGORY_COLUMNS._default;
 }
+
+// Real columns for laminates added to a project (live data, unlike the
+// reference-only CATEGORY_COLUMNS above).
+const LAMINATE_ROW_COLUMNS = [
+  "Code", "Finish #", "Finish Name", "Manufacturer", "Collection",
+  "Texture", "Grade", "Thickness (in / mm)", "Sizes", "",
+];
 
 function ProjectSetup({ project, onClose }) {
 
@@ -151,6 +159,95 @@ function ProjectSetup({ project, onClose }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  // ── LAMINATES: search + add-to-project ────────────────────
+  const isLaminatesTab = mainTab === "material" && materialSub === "laminates";
+
+  const [lamManufacturers, setLamManufacturers] = useState([]);
+  const [lamQuery,         setLamQuery]         = useState("");
+  const [lamManufacturer,  setLamManufacturer]  = useState("");
+  const [lamResults,       setLamResults]       = useState([]);
+  const [lamSearching,     setLamSearching]     = useState(false);
+  const [lamSelected,      setLamSelected]      = useState(null);
+  const [lamCode,          setLamCode]          = useState("");
+  const [lamAdding,        setLamAdding]        = useState(false);
+  const [lamAdded,         setLamAdded]         = useState([]);
+  const [lamAddedLoading,  setLamAddedLoading]  = useState(false);
+  const [lamError,         setLamError]         = useState("");
+
+  const loadProjectLaminates = useCallback(async () => {
+    if (!project) return;
+    setLamAddedLoading(true);
+    try {
+      const res = await apiFetch(`/projects/${project.id}/laminates`);
+      const data = await res.json();
+      if (res.ok) setLamAdded(data.laminates || []);
+    } finally {
+      setLamAddedLoading(false);
+    }
+  }, [project]);
+
+  useEffect(() => {
+    if (!isLaminatesTab) return;
+    apiFetch("/laminates/manufacturers")
+      .then(res => res.json())
+      .then(data => setLamManufacturers(data.manufacturers || []))
+      .catch(() => {});
+    loadProjectLaminates();
+  }, [isLaminatesTab, loadProjectLaminates]);
+
+  // Debounced search-as-you-type — only fires once the user has given
+  // the search something to narrow on (typed text or picked a
+  // manufacturer). Opening the tab with no criteria shouldn't pull the
+  // whole catalog.
+  useEffect(() => {
+    if (!isLaminatesTab) return;
+    if (!lamQuery.trim() && !lamManufacturer) {
+      setLamResults([]);
+      setLamSearching(false);
+      return;
+    }
+    setLamSearching(true);
+    const t = setTimeout(() => {
+      const params = new URLSearchParams();
+      if (lamQuery.trim())     params.set("q", lamQuery.trim());
+      if (lamManufacturer)     params.set("manufacturer", lamManufacturer);
+      apiFetch(`/laminates/search?${params.toString()}`)
+        .then(res => res.json())
+        .then(data => setLamResults(data.results || []))
+        .catch(() => setLamResults([]))
+        .finally(() => setLamSearching(false));
+    }, 250);
+    return () => clearTimeout(t);
+  }, [isLaminatesTab, lamQuery, lamManufacturer]);
+
+  async function handleAddLaminate() {
+    if (!lamSelected || !project || !lamCode.trim()) return;
+    setLamAdding(true);
+    setLamError("");
+    try {
+      const res = await apiFetch(`/projects/${project.id}/laminates`, {
+        method: "POST",
+        body: JSON.stringify({ variant_id: lamSelected.variant_id, project_code: lamCode.trim() }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setLamError(data.detail || "Could not add laminate");
+        return;
+      }
+      setLamSelected(null);
+      setLamCode("");
+      await loadProjectLaminates();
+    } finally {
+      setLamAdding(false);
+    }
+  }
+
+  async function handleRemoveLaminate(rowId) {
+    if (!project) return;
+    const res = await apiFetch(`/projects/${project.id}/laminates/${rowId}`, { method: "DELETE" });
+    if (res.ok) setLamAdded(prev => prev.filter(r => r.id !== rowId));
+  }
+
   const activeSubLabel = activeSubtabs.find(s => s.id === activeSub)?.label || "";
 
   // ─── RENDER ──────────────────────────────────────────────
@@ -208,6 +305,12 @@ function ProjectSetup({ project, onClose }) {
                     Coming soon.
                   </div>
                 </div>
+              ) : isLaminatesTab ? (
+                <LaminateDatasetTable
+                  rows={lamAdded}
+                  loading={lamAddedLoading}
+                  onRemove={handleRemoveLaminate}
+                />
               ) : (
                 <DatasetTable columns={columnsFor(activeSub)} categoryLabel={activeSubLabel} />
               )}
@@ -260,15 +363,63 @@ function ProjectSetup({ project, onClose }) {
                 <div className="ps-func-section">ADD TO {activeSubLabel.toUpperCase()}</div>
 
                 <label className="ps-func-label">Search Global Library</label>
-                <input className="ps-func-input" placeholder={`Search ${activeSubLabel}...`} />
+                <input
+                  className="ps-func-input"
+                  placeholder={`Search ${activeSubLabel}...`}
+                  value={isLaminatesTab ? lamQuery : ""}
+                  onChange={isLaminatesTab ? (e => setLamQuery(e.target.value)) : undefined}
+                  disabled={!isLaminatesTab}
+                />
 
                 <label className="ps-func-label">Manufacturer</label>
-                <select className="ps-func-input">
-                  <option>— Any —</option>
+                <select
+                  className="ps-func-input"
+                  value={isLaminatesTab ? lamManufacturer : ""}
+                  onChange={isLaminatesTab ? (e => setLamManufacturer(e.target.value)) : undefined}
+                  disabled={!isLaminatesTab}
+                >
+                  <option value="">— Any —</option>
+                  {isLaminatesTab && lamManufacturers.map(m => (
+                    <option key={m} value={m}>{m}</option>
+                  ))}
                 </select>
 
-                <button className="ps-func-add" disabled>
-                  + Add to {activeSubLabel}
+                {isLaminatesTab && (
+                  <LaminateResultsList
+                    results={lamResults}
+                    loading={lamSearching}
+                    selected={lamSelected}
+                    onSelect={setLamSelected}
+                    hasQuery={!!(lamQuery.trim() || lamManufacturer)}
+                  />
+                )}
+
+                {isLaminatesTab && lamSelected && (
+                  <>
+                    <label className="ps-func-label">Project Code</label>
+                    <input
+                      className="ps-func-input"
+                      placeholder="e.g. PL-01"
+                      value={lamCode}
+                      onChange={e => setLamCode(e.target.value)}
+                    />
+                    <div className="ps-func-hint">
+                      Identifies this material on drawings for this project only.
+                      Entered by you — not assigned automatically.
+                    </div>
+                  </>
+                )}
+
+                {isLaminatesTab && lamError && (
+                  <div className="ps-func-hint" style={{ color: "var(--danger, #e05555)" }}>{lamError}</div>
+                )}
+
+                <button
+                  className="ps-func-add"
+                  disabled={isLaminatesTab ? (!lamSelected || !lamCode.trim() || lamAdding) : true}
+                  onClick={isLaminatesTab ? handleAddLaminate : undefined}
+                >
+                  {lamAdding ? "Adding…" : `+ Add to ${activeSubLabel}`}
                 </button>
 
                 <div className="ps-func-divider" />
@@ -315,6 +466,102 @@ function DatasetTable({ columns, categoryLabel }) {
               </div>
             </td>
           </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+// ─── LAMINATE SEARCH RESULTS (right panel) ────────────────────
+function LaminateResultsList({ results, loading, selected, onSelect, hasQuery }) {
+  if (!hasQuery) {
+    return <div className="ps-lam-results-idle">Type a finish name/code or pick a manufacturer to search.</div>;
+  }
+  return (
+    <div className="ps-lam-results">
+      {loading ? (
+        <div className="ps-lam-results-hint">Searching…</div>
+      ) : results.length === 0 ? (
+        <div className="ps-lam-results-hint">No matches</div>
+      ) : (
+        results.map(r => (
+          <button
+            key={r.variant_id}
+            className={`ps-lam-result${selected?.variant_id === r.variant_id ? " selected" : ""}`}
+            onClick={() => onSelect(r)}
+            type="button"
+          >
+            <div className="ps-lam-result-title">
+              {r.finish_code} — {r.finish_name}
+            </div>
+            <div className="ps-lam-result-sub">
+              {r.manufacturer}{r.collection ? ` · ${r.collection}` : ""}
+              {r.texture_name ? ` · ${r.texture_name}` : ""}
+              {r.grade_code ? ` · Grade ${r.grade_code}` : ""}
+            </div>
+          </button>
+        ))
+      )}
+    </div>
+  );
+}
+
+// ─── LAMINATES ADDED TO PROJECT (left dataset table) ──────────
+function LaminateDatasetTable({ rows, loading, onRemove }) {
+  if (loading) {
+    return (
+      <div className="ps-table-empty">
+        <div className="ps-placeholder-title">Loading…</div>
+      </div>
+    );
+  }
+  if (rows.length === 0) {
+    return (
+      <div className="ps-table-wrap">
+        <table className="ps-table">
+          <thead>
+            <tr>{LAMINATE_ROW_COLUMNS.map(c => <th key={c || "_actions"}>{c}</th>)}</tr>
+          </thead>
+          <tbody>
+            <tr className="ps-table-empty-row">
+              <td colSpan={LAMINATE_ROW_COLUMNS.length}>
+                <div className="ps-table-empty">
+                  <div className="ps-placeholder-glyph">⬡</div>
+                  <div className="ps-placeholder-title">No Laminates in this project</div>
+                  <div className="ps-placeholder-text">
+                    Search the global library on the right and add a finish to get started.
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+  return (
+    <div className="ps-table-wrap">
+      <table className="ps-table">
+        <thead>
+          <tr>{LAMINATE_ROW_COLUMNS.map(c => <th key={c || "_actions"}>{c}</th>)}</tr>
+        </thead>
+        <tbody>
+          {rows.map(r => (
+            <tr key={r.id}>
+              <td>{r.project_code}</td>
+              <td>{r.finish_code}</td>
+              <td>{r.finish_name}</td>
+              <td>{r.manufacturer}</td>
+              <td>{r.collection}</td>
+              <td>{r.texture_name}</td>
+              <td>{r.grade_code}</td>
+              <td>{r.thickness_in ?? "—"} / {r.thickness_mm ?? "—"}</td>
+              <td>{(r.sizes || []).join(", ")}</td>
+              <td>
+                <button className="ps-lam-remove" onClick={() => onRemove(r.id)} title="Remove from project">✕</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

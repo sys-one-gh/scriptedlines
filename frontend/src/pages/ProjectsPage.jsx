@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./ProjectsPage.css";
 import ProjectsPageActionButtons from "../components/ProjectsPageActionButtons";
 import ProjectSetup from "../components/ProjectSetup";
+import { apiFetch, getUser, clearSession } from "../api.js";
 
-const API = "http://localhost:8000/api";
 const GRADES    = ["Custom", "Premium", "Standard", "Commercial", "Institutional"];
 const STANDARDS = ["AWMAC", "AWI", "WI"];
 const PAPER_SIZES = ["Arch_D", "Arch_C", "Arch_E", "ANSI_B", "ANSI_A", "A1", "A3"];
@@ -56,7 +56,7 @@ function validateDrawingNumber(val) {
 
 function ProjectsPage() {
   const navigate = useNavigate();
-  const user     = JSON.parse(localStorage.getItem("sl_user") || "{}");
+  const user     = getUser() || {};
 
   // ── Left panel resize ──────────────────────────────────────
   const [leftWidth, setLeftWidth] = useState(20);
@@ -151,7 +151,7 @@ function ProjectsPage() {
   async function loadProjects() {
     setLoadingProjects(true);
     try {
-      const res  = await fetch(`${API}/projects?company_id=${user.company_id}`);
+      const res  = await apiFetch(`/projects`);
       const data = await res.json();
       const groups = data.groups || [];
       setActiveProjects(  groups.find(g => g.label === "Active")?.projects   || []);
@@ -166,7 +166,7 @@ function ProjectsPage() {
   async function loadDrawings(pid) {
     setLoadingDrawings(true); setDrawings([]);
     try {
-      const res  = await fetch(`${API}/drawings/project/${pid}`);
+      const res  = await apiFetch(`/drawings/project/${pid}`);
       const data = await res.json();
       setDrawings(data.drawings || []);
     } catch (err) {
@@ -183,7 +183,7 @@ function ProjectsPage() {
     loadDrawings(p.id);
   }
 
-  function signOut() { localStorage.removeItem("sl_user"); navigate("/login"); }
+  function signOut() { clearSession(); navigate("/login"); }
   function pickAvatar(a) { setUserAvatar(a); localStorage.setItem("sl_avatar", a); setShowAvatarPicker(false); }
 
   // ── Create / Edit project ─────────────────────────────────
@@ -192,17 +192,17 @@ function ProjectsPage() {
     if (!pForm.project_name.trim()) { setPError("Project name is required."); return; }
     setPLoading(true); setPError("");
     try {
-      const url    = editingProject ? `${API}/projects/${editingProject.id}` : `${API}/projects`;
+      const url    = editingProject ? `/projects/${editingProject.id}` : `/projects`;
       const method = editingProject ? "PUT" : "POST";
       const body   = {
-        company_id: user.company_id, created_by: user.id, ...pForm,
+        ...pForm,
         project_grade: pForm.project_grade || null,
         standard:      pForm.standard      || null,
         scheduled_start_date:      pForm.scheduled_start_date      || null,
         scheduled_completion_date: pForm.scheduled_completion_date || null,
         project_budget: pForm.project_budget ? parseFloat(pForm.project_budget) : null,
       };
-      const res  = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      const res  = await apiFetch(url, { method, body: JSON.stringify(body) });
       const data = await res.json();
       if (!res.ok) { setPError(data.detail || "Failed."); setPLoading(false); return; }
       setShowNewProject(false); setEditingProject(null);
@@ -244,7 +244,7 @@ function ProjectsPage() {
   async function deleteProject(id) {
     setProjectMenuId(null);
     try {
-      const res = await fetch(`${API}/projects/${id}`, { method: "DELETE" });
+      const res = await apiFetch(`/projects/${id}`, { method: "DELETE" });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         console.error("deleteProject failed:", data.detail || res.status);
@@ -259,9 +259,8 @@ function ProjectsPage() {
   // ── Archive project async fnction  ────────────────────────────────────────
   async function archiveProject(id) {
   try {
-    const res = await fetch(`${API}/projects/${id}`, {
+    const res = await apiFetch(`/projects/${id}`, {
       method:  "PUT",
-      headers: { "Content-Type": "application/json" },
       body:    JSON.stringify({ status: "archived" }),
     });
     if (!res.ok) {
@@ -281,9 +280,8 @@ function ProjectsPage() {
 
   async function restoreProject(id) {
   try {
-    const res = await fetch(`${API}/projects/${id}`, {
+    const res = await apiFetch(`/projects/${id}`, {
       method:  "PUT",
-      headers: { "Content-Type": "application/json" },
       body:    JSON.stringify({ status: "active" }),
     });
     if (!res.ok) {
@@ -309,7 +307,7 @@ function ProjectsPage() {
     if (!deleteConfirm) return;
     setDeleteError("");
     try {
-      const res = await fetch(`${API}/drawings/${deleteConfirm.id}`, { method: "DELETE" });
+      const res = await apiFetch(`/drawings/${deleteConfirm.id}`, { method: "DELETE" });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         setDeleteError(data.detail || `Server error ${res.status}`);
@@ -353,7 +351,7 @@ function ProjectsPage() {
     setPan({ x: 0, y: 0 }); panOffset.current = { x: 0, y: 0 };
     setViewerDrawing(d);
     try {
-      const res  = await fetch(`${API}/drawings/${d.id}`);
+      const res  = await apiFetch(`/drawings/${d.id}`);
       const data = await res.json();
       if (res.ok && data.drawing) setViewerDrawing(data.drawing);
     } catch (err) {
@@ -432,11 +430,10 @@ function ProjectsPage() {
     if (!dForm.title.trim()) { setDError("Title is required."); return; }
     setDLoading(true); setDError("");
     try {
-      const res  = await fetch(`${API}/drawings`, {
-        method: "POST", headers: { "Content-Type": "application/json" },
+      const res  = await apiFetch(`/drawings`, {
+        method: "POST",
         body: JSON.stringify({
           project_id:  selectedProject.id,
-          created_by:  user.id,
           ...dForm,
           drawing_number: dForm.drawing_number.toUpperCase(),
           page_count: dForm.page_count || 1,
