@@ -28,3 +28,6 @@ Thumbs.db
 data/backups/*.bak
 backend/storage/
 !backend/storage/.gitkeep
+
+# Test login credentials — even test-only passwords shouldn't land in git.
+data/test_login_credentials.txt

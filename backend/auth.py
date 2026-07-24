@@ -5,9 +5,16 @@
 # every protected route depends on. Tenant isolation (a user can
 # only touch rows belonging to their own company) is enforced via
 # require_same_company(), called after loading the target row.
+#
+# Password hashing lives here too (not in api/users.py) since it's
+# an auth concern every router is allowed to import from — the
+# convention in this codebase is that api/*.py files never import
+# from each other, only from models.* and auth.py.
 # ─────────────────────────────────────────────────────────────
 
 import os
+import hashlib
+import bcrypt
 from datetime import datetime, timedelta, timezone
 
 from fastapi import Depends, HTTPException
@@ -28,14 +35,30 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 days
 _bearer_scheme = HTTPBearer(auto_error=False)
 
 
+# ─── PASSWORD HASHING ────────────────────────────────────────
+# SHA256 pre-hash bypasses bcrypt's 72-byte input limit.
+# bcrypt used directly — no passlib dependency.
+
+def _prehash(password: str) -> bytes:
+    """SHA256 pre-hash — output is always 64 hex chars (well under 72 bytes)."""
+    return hashlib.sha256(password.encode()).hexdigest().encode()
+
+def hash_password(password: str) -> str:
+    return bcrypt.hashpw(_prehash(password), bcrypt.gensalt()).decode()
+
+def verify_password(plain: str, hashed: str) -> bool:
+    return bcrypt.checkpw(_prehash(plain), hashed.encode())
+
+
 def create_access_token(user: User) -> str:
     now = datetime.now(timezone.utc)
     payload = {
-        "sub":        str(user.id),
-        "company_id": user.company_id,
-        "role":       user.role.value if user.role else None,
-        "iat":        now,
-        "exp":        now + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES),
+        "sub":                str(user.id),
+        "company_id":         user.company_id,
+        "role":               user.role.value if user.role else None,
+        "is_platform_admin":  user.is_platform_admin,
+        "iat":                now,
+        "exp":                now + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES),
     }
     return jwt.encode(payload, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
 
@@ -44,6 +67,11 @@ def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(_bearer_scheme),
     db: Session = Depends(get_db),
 ) -> User:
+    # Only `sub` is read from the token — `role`/`company_id`/
+    # `is_platform_admin` in the payload exist for frontend convenience
+    # only. The user row is re-fetched live so every permission check
+    # downstream (require_same_company, require_platform_admin, ...)
+    # reflects current DB state, not a stale token claim.
     if credentials is None:
         raise HTTPException(status_code=401, detail="Not authenticated")
 
@@ -63,4 +91,16 @@ def get_current_user(
 def require_same_company(resource_company_id: int, user: User):
     """Raises 404 (not 403) so a foreign-tenant ID doesn't confirm it exists."""
     if resource_company_id != user.company_id:
+        raise HTTPException(status_code=404, detail="Not found")
+
+
+def require_platform_admin(user: User):
+    """
+    Gates ScriptedLines-internal endpoints (none exist yet — this is
+    the reusable guard future ones will use). Not to be confused with
+    UserRole.admin, which is a company-scoped role; this is a platform-
+    level tier orthogonal to it. Raises 404, matching require_same_company's
+    reasoning — don't confirm an endpoint exists to an unauthorized caller.
+    """
+    if not user.is_platform_admin:
         raise HTTPException(status_code=404, detail="Not found")

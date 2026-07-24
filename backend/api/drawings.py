@@ -60,6 +60,32 @@ def _load_owned_drawing(drawing_id: int, db: Session, current_user: User) -> Dra
     return drawing
 
 
+# ─── READ-ONLY VARIANTS ────────────────────────────────────────
+# Used only by the two GET routes below (list_drawings, get_drawing).
+# Every write route (create/update/delete/commit/submit/final-commit)
+# keeps using _load_owned_project/_load_owned_drawing above, unchanged —
+# tenant isolation for writes stays absolute regardless of platform-
+# admin status. Never repurpose these for a write route.
+
+def _load_project_for_read(project_id: int, db: Session, current_user: User) -> Project:
+    """Read-only — platform admins may view any company's project."""
+    project = db.query(Project).filter(Project.id == project_id).first()
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+    if not current_user.is_platform_admin:
+        require_same_company(project.company_id, current_user)
+    return project
+
+
+def _load_drawing_for_read(drawing_id: int, db: Session, current_user: User) -> Drawing:
+    """Read-only counterpart to _load_owned_drawing — see above."""
+    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
+    if not drawing:
+        raise HTTPException(status_code=404, detail="Drawing not found")
+    _load_project_for_read(drawing.project_id, db, current_user)
+    return drawing
+
+
 # ─── REVISION NUMBER HELPERS ─────────────────────────────────
 
 def next_revision_number(current: str) -> str:
@@ -309,7 +335,7 @@ def create_drawing(data: DrawingCreate, db: Session = Depends(get_db), current_u
 # ─── LIST DRAWINGS FOR PROJECT ───────────────────────────────
 @router.get("/drawings/project/{project_id}")
 def list_drawings(project_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    _load_owned_project(project_id, db, current_user)
+    _load_project_for_read(project_id, db, current_user)
     drawings = db.query(Drawing).filter(
         Drawing.project_id == project_id
     ).order_by(Drawing.page_number).all()
@@ -319,7 +345,7 @@ def list_drawings(project_id: int, db: Session = Depends(get_db), current_user: 
 # ─── GET SINGLE DRAWING ──────────────────────────────────────
 @router.get("/drawings/{drawing_id}")
 def get_drawing(drawing_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    drawing = _load_owned_drawing(drawing_id, db, current_user)
+    drawing = _load_drawing_for_read(drawing_id, db, current_user)
     return {"status": "ok", "drawing": drawing_to_dict(drawing, include_relations=True)}
 
 

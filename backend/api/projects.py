@@ -225,10 +225,14 @@ def create_project(data: ProjectCreate, db: Session = Depends(get_db), current_u
 @router.get("/projects")
 def list_projects(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    projects = db.query(Project).filter(
-        Project.company_id == current_user.company_id,
-        Project.is_inactive == False,
-    ).order_by(Project.project_number).all()
+    # Platform admins get read-only visibility across every company —
+    # everyone else stays scoped to their own. This is the only
+    # exception to tenant isolation anywhere in this file; create/update/
+    # delete below are untouched and always company-scoped.
+    query = db.query(Project).filter(Project.is_inactive == False)
+    if not current_user.is_platform_admin:
+        query = query.filter(Project.company_id == current_user.company_id)
+    projects = query.order_by(Project.project_number).all()
 
     active   = [project_to_dict(p, db) for p in projects if p.status == ProjectStatus.active]
     archived = [project_to_dict(p, db) for p in projects if p.status == ProjectStatus.archived]
@@ -251,7 +255,9 @@ def get_project(project_id: int, db: Session = Depends(get_db), current_user: Us
     ).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
-    require_same_company(project.company_id, current_user)
+    # Read-only platform-admin exception — see list_projects above.
+    if not current_user.is_platform_admin:
+        require_same_company(project.company_id, current_user)
     return {"status": "ok", "project": project_to_dict(project, db)}
 
 

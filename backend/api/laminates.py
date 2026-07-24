@@ -20,7 +20,7 @@ from models.laminate import Laminate, LaminateFormica
 from models.project_laminate import ProjectLaminate
 from models.project import Project
 from models.user import User
-from auth import get_current_user, require_same_company
+from auth import get_current_user
 from pydantic import BaseModel
 from typing import Optional
 
@@ -31,7 +31,17 @@ def _load_owned_project(project_id: int, db: Session, current_user: User) -> Pro
     project = db.query(Project).filter(Project.id == project_id).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
-    require_same_company(project.company_id, current_user)
+    if project.company_id != current_user.company_id:
+        if current_user.is_platform_admin:
+            # Platform admins already have legitimate read access to this
+            # project (GET /projects, GET /drawings/...), so there's no
+            # anti-enumeration reason to hide behind a vague 404 here —
+            # a clear message is strictly better UX with no info leak.
+            raise HTTPException(
+                status_code=403,
+                detail="ScriptedLines admins have read-only access and can't edit project setup for a project outside their own company.",
+            )
+        raise HTTPException(status_code=404, detail="Not found")
     return project
 
 
