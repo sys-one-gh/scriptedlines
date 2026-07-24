@@ -12,8 +12,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useEffect, useRef, useState } from "react";
-
-const API = "http://localhost:8000/api";
+import { apiFetch } from "../api.js";
 
 function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit }) {
 
@@ -208,9 +207,8 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
     if (drawing?.id) {
       setSavingPage(true);
       try {
-        await fetch(`${API}/drawings/${drawing.id}`, {
+        await apiFetch(`/drawings/${drawing.id}`, {
           method:  "PUT",
-          headers: { "Content-Type": "application/json" },
           body:    JSON.stringify({ page_count: updatedPages.length }),
         });
       } catch {
@@ -309,15 +307,10 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
     if (!drawing?.id) return;
     setCommitLoading(true);
     setCommitError("");
-    const user = JSON.parse(localStorage.getItem("sl_user") || "{}");
     try {
-      const res  = await fetch(`${API}/drawings/${drawing.id}/commit`, {
+      const res  = await apiFetch(`/drawings/${drawing.id}/commit`, {
         method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({
-          committed_by: user.id || null,
-          description:  "Issued for Review",
-        }),
+        body:    JSON.stringify({ description: "Issued for Review" }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -336,12 +329,10 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
   async function executeSubmit() {
     if (!drawing?.id) return;
     setActionLoading(true);
-    const user = JSON.parse(localStorage.getItem("sl_user") || "{}");
     try {
-      await fetch(`${API}/drawings/${drawing.id}/submit`, {
-        method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ submitted_by: user.id || null }),
+      await apiFetch(`/drawings/${drawing.id}/submit`, {
+        method: "POST",
+        body:   JSON.stringify({}),
       });
       window.location.href = "/projects";
     } catch { /* silent */ }
@@ -352,15 +343,10 @@ function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit 
     if (!drawing?.id) return;
     setCommitLoading(true);
     setCommitError("");
-    const user = JSON.parse(localStorage.getItem("sl_user") || "{}");
     try {
-      const res  = await fetch(`${API}/drawings/${drawing.id}/final-commit`, {
+      const res  = await apiFetch(`/drawings/${drawing.id}/final-commit`, {
         method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({
-          committed_by: user.id || null,
-          description:  "Final Release",
-        }),
+        body:    JSON.stringify({ description: "Final Release" }),
       });
       const data = await res.json();
       if (!res.ok) {

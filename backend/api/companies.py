@@ -2,14 +2,16 @@
 # api/companies.py
 #
 # Company API routes.
-# GET  /api/companies/:id  → get company info
-# PUT  /api/companies/:id  → update company info
+# GET  /api/companies/:id  → get company info (same company only)
+# PUT  /api/companies/:id  → update company info (same company, admin/owner only)
 # ─────────────────────────────────────────────────────────────
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
 from models.company import Company
+from models.user import User, UserRole
+from auth import get_current_user, require_same_company
 from pydantic import BaseModel
 from typing import Optional
 
@@ -52,7 +54,9 @@ def company_to_dict(c: Company) -> dict:
 
 # ─── GET COMPANY ─────────────────────────────────────────────
 @router.get("/companies/{company_id}")
-def get_company(company_id: int, db: Session = Depends(get_db)):
+def get_company(company_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    require_same_company(company_id, current_user)
+
     company = db.query(Company).filter(
         Company.id == company_id,
         Company.is_active == True
@@ -66,7 +70,12 @@ def get_company(company_id: int, db: Session = Depends(get_db)):
 
 # ─── UPDATE COMPANY ──────────────────────────────────────────
 @router.put("/companies/{company_id}")
-def update_company(company_id: int, data: CompanyUpdate, db: Session = Depends(get_db)):
+def update_company(company_id: int, data: CompanyUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    require_same_company(company_id, current_user)
+
+    if current_user.role not in (UserRole.owner, UserRole.admin):
+        raise HTTPException(status_code=403, detail="Only an owner or admin can edit company details")
+
     company = db.query(Company).filter(Company.id == company_id).first()
 
     if not company:

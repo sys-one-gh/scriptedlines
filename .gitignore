@@ -21,7 +21,10 @@ frontend/node_modules/
 .DS_Store
 Thumbs.db
 
-# Keep latest backup in git
-data/backups/scriptedlines_latest.bak
+# Database dumps — never commit these. They contain the full schema,
+# including users.password_hash, and (once seeded) real customer data.
+# Both dev machines point at the shared Supabase DB directly (see .env),
+# so there's no need to sync a dump through git at all.
+data/backups/*.bak
 backend/storage/
 !backend/storage/.gitkeep

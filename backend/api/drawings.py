@@ -10,6 +10,10 @@
 # POST   /api/drawings/:id/commit             → commit current revision
 # POST   /api/drawings/:id/submit             → mark as submitted to client
 # POST   /api/drawings/:id/final-commit       → final release after approval
+#
+# Every route loads the drawing's project and checks it belongs to the
+# caller's company before doing anything else — see _load_owned_project /
+# _load_owned_drawing below.
 # ─────────────────────────────────────────────────────────────
 
 import re
@@ -20,6 +24,8 @@ from sqlalchemy.orm import Session
 from database import get_db
 from models.drawing import Drawing, DrawingRevision, PaperSize, DrawingStatus
 from models.project import Project
+from models.user import User
+from auth import get_current_user, require_same_company
 from pydantic import BaseModel
 from typing import Optional, Any
 
@@ -35,6 +41,24 @@ STORAGE_BASE = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "storage"
 )
+
+# ─── OWNERSHIP HELPERS ────────────────────────────────────────
+
+def _load_owned_project(project_id: int, db: Session, current_user: User) -> Project:
+    project = db.query(Project).filter(Project.id == project_id).first()
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+    require_same_company(project.company_id, current_user)
+    return project
+
+
+def _load_owned_drawing(drawing_id: int, db: Session, current_user: User) -> Drawing:
+    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
+    if not drawing:
+        raise HTTPException(status_code=404, detail="Drawing not found")
+    _load_owned_project(drawing.project_id, db, current_user)
+    return drawing
+
 
 # ─── REVISION NUMBER HELPERS ─────────────────────────────────
 
@@ -68,7 +92,6 @@ def ensure_storage_dir(rel_path: str) -> str:
 
 class DrawingCreate(BaseModel):
     project_id:       int
-    created_by:       int
     drawing_number:   str
     mw_number:        Optional[str] = ""
     title:            str
@@ -98,15 +121,13 @@ class DrawingUpdate(BaseModel):
     page_count:        Optional[int]  = None
 
 class CommitRequest(BaseModel):
-    committed_by: int                    # user id committing
-    description:  Optional[str] = ""    # revision description e.g. "Issued for Review"
+    description: Optional[str] = ""    # revision description e.g. "Issued for Review"
 
 class SubmitRequest(BaseModel):
-    submitted_by: int
+    pass
 
 class FinalCommitRequest(BaseModel):
-    committed_by: int
-    description:  Optional[str] = ""
+    description: Optional[str] = ""
 
 
 # ─── SERIALIZERS ─────────────────────────────────────────────
@@ -184,11 +205,9 @@ def _update_total_pages(project_id: int, db: Session):
 
 # ─── CREATE DRAWING ──────────────────────────────────────────
 @router.post("/drawings")
-def create_drawing(data: DrawingCreate, db: Session = Depends(get_db)):
+def create_drawing(data: DrawingCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    project = db.query(Project).filter(Project.id == data.project_id).first()
-    if not project:
-        raise HTTPException(status_code=404, detail="Project not found")
+    project = _load_owned_project(data.project_id, db, current_user)
 
     if not DRAWING_NUMBER_RE.match(data.drawing_number.upper()):
         raise HTTPException(status_code=400, detail="Drawing number must be D + 4 digits (e.g. D9501)")
@@ -248,7 +267,7 @@ def create_drawing(data: DrawingCreate, db: Session = Depends(get_db)):
 
     drawing = Drawing(
         project_id       = data.project_id,
-        created_by       = data.created_by,
+        created_by       = current_user.id,
         drawing_number   = data.drawing_number,
         mw_number        = data.mw_number        or "",
         title            = data.title,
@@ -289,7 +308,8 @@ def create_drawing(data: DrawingCreate, db: Session = Depends(get_db)):
 
 # ─── LIST DRAWINGS FOR PROJECT ───────────────────────────────
 @router.get("/drawings/project/{project_id}")
-def list_drawings(project_id: int, db: Session = Depends(get_db)):
+def list_drawings(project_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    _load_owned_project(project_id, db, current_user)
     drawings = db.query(Drawing).filter(
         Drawing.project_id == project_id
     ).order_by(Drawing.page_number).all()
@@ -298,19 +318,15 @@ def list_drawings(project_id: int, db: Session = Depends(get_db)):
 
 # ─── GET SINGLE DRAWING ──────────────────────────────────────
 @router.get("/drawings/{drawing_id}")
-def get_drawing(drawing_id: int, db: Session = Depends(get_db)):
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+def get_drawing(drawing_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
     return {"status": "ok", "drawing": drawing_to_dict(drawing, include_relations=True)}
 
 
 # ─── UPDATE DRAWING ──────────────────────────────────────────
 @router.put("/drawings/{drawing_id}")
-def update_drawing(drawing_id: int, data: DrawingUpdate, db: Session = Depends(get_db)):
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+def update_drawing(drawing_id: int, data: DrawingUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     updates = data.model_dump(exclude_none=True)
 
@@ -336,10 +352,8 @@ def update_drawing(drawing_id: int, data: DrawingUpdate, db: Session = Depends(g
 
 # ─── HARD DELETE ─────────────────────────────────────────────
 @router.delete("/drawings/{drawing_id}")
-def delete_drawing(drawing_id: int, db: Session = Depends(get_db)):
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+def delete_drawing(drawing_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     project_id = drawing.project_id
     db.delete(drawing)
@@ -352,11 +366,9 @@ def delete_drawing(drawing_id: int, db: Session = Depends(get_db)):
 # Locks the current revision, generates PDF path, bumps revision number,
 # changes status to submittal_pending, creates next editable revision row.
 @router.post("/drawings/{drawing_id}/commit")
-def commit_revision(drawing_id: int, data: CommitRequest, db: Session = Depends(get_db)):
+def commit_revision(drawing_id: int, data: CommitRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     # Find the current unlocked revision
     current_rev = db.query(DrawingRevision).filter(
@@ -387,7 +399,7 @@ def commit_revision(drawing_id: int, data: CommitRequest, db: Session = Depends(
     current_rev.is_locked    = True
     current_rev.pdf_path     = rel_path
     current_rev.committed_at = datetime.now(timezone.utc)
-    current_rev.committed_by = data.committed_by
+    current_rev.committed_by = current_user.id
     current_rev.description  = data.description or current_rev.description
     current_rev.date         = datetime.now(timezone.utc).date()
 
@@ -419,11 +431,9 @@ def commit_revision(drawing_id: int, data: CommitRequest, db: Session = Depends(
 # Marks drawing as submitted — status: submittal_pending → submitted.
 # Called after the PDF has been sent to the client.
 @router.post("/drawings/{drawing_id}/submit")
-def submit_to_client(drawing_id: int, data: SubmitRequest, db: Session = Depends(get_db)):
+def submit_to_client(drawing_id: int, data: SubmitRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     if drawing.status != DrawingStatus.submittal_pending:
         raise HTTPException(
@@ -444,11 +454,9 @@ def submit_to_client(drawing_id: int, data: SubmitRequest, db: Session = Depends
 # Status: submitted or approved → issued
 # This is permanent — the drawing cannot be edited after final commit.
 @router.post("/drawings/{drawing_id}/final-commit")
-def final_commit(drawing_id: int, data: FinalCommitRequest, db: Session = Depends(get_db)):
+def final_commit(drawing_id: int, data: FinalCommitRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     allowed_statuses = {DrawingStatus.submitted, DrawingStatus.approved}
     if drawing.status not in allowed_statuses:
@@ -480,7 +488,7 @@ def final_commit(drawing_id: int, data: FinalCommitRequest, db: Session = Depend
         current_rev.is_locked    = True
         current_rev.pdf_path     = rel_path
         current_rev.committed_at = datetime.now(timezone.utc)
-        current_rev.committed_by = data.committed_by
+        current_rev.committed_by = current_user.id
         current_rev.description  = data.description or "Final Release"
         current_rev.date         = datetime.now(timezone.utc).date()
 

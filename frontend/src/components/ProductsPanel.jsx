@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { apiFetch } from "../api.js";
 
 function ProductsPanel({ searchText }) {
 
@@ -13,7 +14,7 @@ function ProductsPanel({ searchText }) {
   // ─── FETCH FROM API ────────────────────────────────────────
   // Data comes from PostgreSQL via FastAPI — not toolLibrary.js
   useEffect(() => {
-    fetch("http://localhost:8000/api/products")
+    apiFetch("/products")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data.categories);

@@ -15,6 +15,7 @@ import { paperSizes } from "../data/paperSizes";
 import PaperSpace from "../components/PaperSpace";
 import CADToolbar from "../components/CADToolbar";
 import LeftPanel  from "../components/LeftPanel";
+import { API_BASE, apiFetch, clearSession } from "../api.js";
 import "../App.css";
 
 // ─── LAYOUT CONSTANTS ────────────────────────────────────────
@@ -22,7 +23,6 @@ const LEFT_MIN  = 10;
 const LEFT_MAX  = 22;
 const RIGHT_MIN = 13;
 const RIGHT_MAX = 28;
-const API       = "http://localhost:8000/api";
 
 // ─── RIGHT PANEL TABS ────────────────────────────────────────
 const RIGHT_TABS = [
@@ -127,7 +127,7 @@ function Workspace() {
       const projectMeta = JSON.parse(storedProject);
       setProject(projectMeta);
       try {
-        const res  = await fetch(`${API}/drawings/${drawingMeta.id}`);
+        const res  = await apiFetch(`/drawings/${drawingMeta.id}`);
         const data = await res.json();
         if (!res.ok || !data.drawing) {
           setLoadError("Drawing not found.");
@@ -146,7 +146,7 @@ function Workspace() {
   }, []);
 
   useEffect(() => {
-    fetch(`${API}/health`)
+    fetch(`${API_BASE}/health`)
       .then(r => r.json())
       .then(d => setBackendStatus(d.status === "ok" ? "connected" : "disconnected"))
       .catch(() => setBackendStatus("disconnected"));
@@ -207,9 +207,8 @@ function Workspace() {
   async function handleSave() {
     if (!drawing) return;
     try {
-      const res = await fetch(`${API}/drawings/${drawing.id}`, {
+      const res = await apiFetch(`/drawings/${drawing.id}`, {
         method:  "PUT",
-        headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ svg_data: drawing.svg_data || null }),
       });
       if (res.ok) setUnsaved(false);
@@ -217,7 +216,7 @@ function Workspace() {
   }
 
   function signOut() {
-    localStorage.removeItem("sl_user");
+    clearSession();
     localStorage.removeItem("sl_drawing");
     localStorage.removeItem("sl_project");
     navigate("/login");
@@ -442,7 +441,7 @@ function RightPanelTitleBlock({ drawing, project }) {
   useEffect(() => {
     if (!project?.id) return;
     setLoading(true);
-    fetch(`${API}/templates/project/${project.id}`)
+    apiFetch(`/templates/project/${project.id}`)
       .then(r => r.json())
       .then(d => { setTemplate(d.template || {}); setLoading(false); })
       .catch(() => { setTemplate({}); setLoading(false); });
@@ -453,9 +452,8 @@ function RightPanelTitleBlock({ drawing, project }) {
     setSaving(true);
     setSaveMsg("");
     try {
-      const res = await fetch(`${API}/templates/project/${project.id}`, {
+      const res = await apiFetch(`/templates/project/${project.id}`, {
         method:  "PUT",
-        headers: { "Content-Type": "application/json" },
         body:    JSON.stringify(template),
       });
       setSaveMsg(res.ok ? "Saved ✓" : "Error saving");

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { API_BASE, setSession } from "../api.js";
 
 const MAX_ATTEMPTS = 3;
 
@@ -54,7 +55,7 @@ function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/users/login", {
+      const res = await fetch(`${API_BASE}/users/login`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ email: form.email, password: form.password }),
@@ -76,7 +77,7 @@ function LoginPage() {
         return;
       }
 
-      localStorage.setItem("sl_user", JSON.stringify(data.user));
+      setSession(data.user, data.access_token);
       navigate("/projects");
 
     } catch {

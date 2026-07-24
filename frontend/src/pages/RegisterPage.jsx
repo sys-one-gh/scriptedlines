@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { API_BASE, setSession } from "../api.js";
 
+// TODO: there is no self-serve company signup flow yet (no POST /companies).
+// Every registration is pinned to the first seeded company until that
+// exists — see the architecture review, finding #7.
 const COMPANY_ID = 1;
 
 function RegisterPage() {
@@ -54,7 +58,7 @@ function RegisterPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/users/register", {
+      const res = await fetch(`${API_BASE}/users/register`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -76,7 +80,8 @@ function RegisterPage() {
         return;
       }
 
-      navigate("/login");
+      setSession(data.user, data.access_token);
+      navigate("/projects");
 
     } catch {
       setError("Could not connect to server. Make sure the backend is running.");
