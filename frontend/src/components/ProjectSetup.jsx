@@ -81,6 +81,12 @@ const LAMINATE_ROW_COLUMNS = [
   "Texture", "Grade", "Thickness (in / mm)", "Sizes", "",
 ];
 
+// Real columns for cores added to a project (live data).
+const CORE_ROW_COLUMNS = [
+  "Code", "Core Code", "Description", "Substrate",
+  "Sizes", "Thickness (mm)", "Grain", "FR", "LEED", "FSC", "Ext", "CARB", "",
+];
+
 function ProjectSetup({ project, onClose }) {
 
   // ── Main + sub tab state ─────────────────────────────────
@@ -215,6 +221,93 @@ function ProjectSetup({ project, onClose }) {
     if (res.ok) setLamAdded(prev => prev.filter(r => r.id !== rowId));
   }
 
+  // ── CORE: search + add-to-project ─────────────────────────
+  // Mirrors the LAMINATES block above exactly — same shape, only the
+  // endpoint prefix and add-body field name (core_id vs variant_id) differ.
+  const isCoreTab = mainTab === "material" && materialSub === "core";
+
+  const [coreSubstrateTypes, setCoreSubstrateTypes] = useState([]);
+  const [coreQuery,         setCoreQuery]         = useState("");
+  const [coreSubstrateType, setCoreSubstrateType] = useState("");
+  const [coreResults,       setCoreResults]       = useState([]);
+  const [coreSearching,     setCoreSearching]     = useState(false);
+  const [coreSelected,      setCoreSelected]      = useState(null);
+  const [coreCode,          setCoreCode]          = useState("");
+  const [coreAdding,        setCoreAdding]        = useState(false);
+  const [coreAdded,         setCoreAdded]         = useState([]);
+  const [coreAddedLoading,  setCoreAddedLoading]  = useState(false);
+  const [coreError,         setCoreError]         = useState("");
+
+  const loadProjectCores = useCallback(async () => {
+    if (!project) return;
+    setCoreAddedLoading(true);
+    try {
+      const res = await apiFetch(`/projects/${project.id}/cores`);
+      const data = await res.json();
+      if (res.ok) setCoreAdded(data.cores || []);
+    } finally {
+      setCoreAddedLoading(false);
+    }
+  }, [project]);
+
+  useEffect(() => {
+    if (!isCoreTab) return;
+    apiFetch("/cores/substrate-types")
+      .then(res => res.json())
+      .then(data => setCoreSubstrateTypes(data.substrate_types || []))
+      .catch(() => {});
+    loadProjectCores();
+  }, [isCoreTab, loadProjectCores]);
+
+  useEffect(() => {
+    if (!isCoreTab) return;
+    if (!coreQuery.trim() && !coreSubstrateType) {
+      setCoreResults([]);
+      setCoreSearching(false);
+      return;
+    }
+    setCoreSearching(true);
+    const t = setTimeout(() => {
+      const params = new URLSearchParams();
+      if (coreQuery.trim())    params.set("q", coreQuery.trim());
+      if (coreSubstrateType)   params.set("substrate_type", coreSubstrateType);
+      apiFetch(`/cores/search?${params.toString()}`)
+        .then(res => res.json())
+        .then(data => setCoreResults(data.results || []))
+        .catch(() => setCoreResults([]))
+        .finally(() => setCoreSearching(false));
+    }, 250);
+    return () => clearTimeout(t);
+  }, [isCoreTab, coreQuery, coreSubstrateType]);
+
+  async function handleAddCore() {
+    if (!coreSelected || !project || !coreCode.trim()) return;
+    setCoreAdding(true);
+    setCoreError("");
+    try {
+      const res = await apiFetch(`/projects/${project.id}/cores`, {
+        method: "POST",
+        body: JSON.stringify({ core_id: coreSelected.core_id, project_code: coreCode.trim() }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setCoreError(data.detail || "Could not add core");
+        return;
+      }
+      setCoreSelected(null);
+      setCoreCode("");
+      await loadProjectCores();
+    } finally {
+      setCoreAdding(false);
+    }
+  }
+
+  async function handleRemoveCore(rowId) {
+    if (!project) return;
+    const res = await apiFetch(`/projects/${project.id}/cores/${rowId}`, { method: "DELETE" });
+    if (res.ok) setCoreAdded(prev => prev.filter(r => r.id !== rowId));
+  }
+
   const activeSubLabel = activeSubtabs.find(s => s.id === activeSub)?.label || "";
 
   // ─── RENDER ──────────────────────────────────────────────
@@ -278,6 +371,12 @@ function ProjectSetup({ project, onClose }) {
                   loading={lamAddedLoading}
                   onRemove={handleRemoveLaminate}
                 />
+              ) : isCoreTab ? (
+                <CoreDatasetTable
+                  rows={coreAdded}
+                  loading={coreAddedLoading}
+                  onRemove={handleRemoveCore}
+                />
               ) : (
                 <DatasetTable columns={columnsFor(activeSub)} categoryLabel={activeSubLabel} />
               )}
@@ -333,21 +432,32 @@ function ProjectSetup({ project, onClose }) {
                 <input
                   className="ps-func-input"
                   placeholder={`Search ${activeSubLabel}...`}
-                  value={isLaminatesTab ? lamQuery : ""}
-                  onChange={isLaminatesTab ? (e => setLamQuery(e.target.value)) : undefined}
-                  disabled={!isLaminatesTab}
+                  value={isLaminatesTab ? lamQuery : isCoreTab ? coreQuery : ""}
+                  onChange={
+                    isLaminatesTab ? (e => setLamQuery(e.target.value)) :
+                    isCoreTab      ? (e => setCoreQuery(e.target.value)) :
+                    undefined
+                  }
+                  disabled={!isLaminatesTab && !isCoreTab}
                 />
 
-                <label className="ps-func-label">Manufacturer</label>
+                <label className="ps-func-label">{isCoreTab ? "Substrate" : "Manufacturer"}</label>
                 <select
                   className="ps-func-input"
-                  value={isLaminatesTab ? lamManufacturer : ""}
-                  onChange={isLaminatesTab ? (e => setLamManufacturer(e.target.value)) : undefined}
-                  disabled={!isLaminatesTab}
+                  value={isLaminatesTab ? lamManufacturer : isCoreTab ? coreSubstrateType : ""}
+                  onChange={
+                    isLaminatesTab ? (e => setLamManufacturer(e.target.value)) :
+                    isCoreTab      ? (e => setCoreSubstrateType(e.target.value)) :
+                    undefined
+                  }
+                  disabled={!isLaminatesTab && !isCoreTab}
                 >
                   <option value="">— Any —</option>
                   {isLaminatesTab && lamManufacturers.map(m => (
                     <option key={m} value={m}>{m}</option>
+                  ))}
+                  {isCoreTab && coreSubstrateTypes.map(s => (
+                    <option key={s} value={s}>{s}</option>
                   ))}
                 </select>
 
@@ -358,6 +468,16 @@ function ProjectSetup({ project, onClose }) {
                     selected={lamSelected}
                     onSelect={setLamSelected}
                     hasQuery={!!(lamQuery.trim() || lamManufacturer)}
+                  />
+                )}
+
+                {isCoreTab && (
+                  <CoreResultsList
+                    results={coreResults}
+                    loading={coreSearching}
+                    selected={coreSelected}
+                    onSelect={setCoreSelected}
+                    hasQuery={!!(coreQuery.trim() || coreSubstrateType)}
                   />
                 )}
 
@@ -377,16 +497,44 @@ function ProjectSetup({ project, onClose }) {
                   </>
                 )}
 
+                {isCoreTab && coreSelected && (
+                  <>
+                    <label className="ps-func-label">Project Code</label>
+                    <input
+                      className="ps-func-input"
+                      placeholder="e.g. CR-01"
+                      value={coreCode}
+                      onChange={e => setCoreCode(e.target.value)}
+                    />
+                    <div className="ps-func-hint">
+                      Identifies this material on drawings for this project only.
+                      Entered by you — not assigned automatically.
+                    </div>
+                  </>
+                )}
+
                 {isLaminatesTab && lamError && (
                   <div className="ps-func-hint ps-func-hint--error">{lamError}</div>
                 )}
 
+                {isCoreTab && coreError && (
+                  <div className="ps-func-hint ps-func-hint--error">{coreError}</div>
+                )}
+
                 <button
                   className="ps-func-add"
-                  disabled={isLaminatesTab ? (!lamSelected || !lamCode.trim() || lamAdding) : true}
-                  onClick={isLaminatesTab ? handleAddLaminate : undefined}
+                  disabled={
+                    isLaminatesTab ? (!lamSelected || !lamCode.trim() || lamAdding) :
+                    isCoreTab      ? (!coreSelected || !coreCode.trim() || coreAdding) :
+                    true
+                  }
+                  onClick={
+                    isLaminatesTab ? handleAddLaminate :
+                    isCoreTab      ? handleAddCore :
+                    undefined
+                  }
                 >
-                  {lamAdding ? "Adding…" : `+ Add to ${activeSubLabel}`}
+                  {(isLaminatesTab && lamAdding) || (isCoreTab && coreAdding) ? "Adding…" : `+ Add to ${activeSubLabel}`}
                 </button>
 
                 <div className="ps-func-divider" />
@@ -524,6 +672,105 @@ function LaminateDatasetTable({ rows, loading, onRemove }) {
               <td>{r.grade_code}</td>
               <td>{r.thickness_in ?? "—"} / {r.thickness_mm ?? "—"}</td>
               <td>{(r.sizes || []).join(", ")}</td>
+              <td>
+                <button className="ps-lam-remove" onClick={() => onRemove(r.id)} title="Remove from project">✕</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+// ─── CORE SEARCH RESULTS (right panel) ────────────────────────
+function CoreResultsList({ results, loading, selected, onSelect, hasQuery }) {
+  if (!hasQuery) {
+    return <div className="ps-lam-results-idle">Type a code/description or pick a substrate to search.</div>;
+  }
+  return (
+    <div className="ps-lam-results">
+      {loading ? (
+        <div className="ps-lam-results-hint">Searching…</div>
+      ) : results.length === 0 ? (
+        <div className="ps-lam-results-hint">No matches</div>
+      ) : (
+        results.map(r => (
+          <button
+            key={r.core_id}
+            className={`ps-lam-result${selected?.core_id === r.core_id ? " selected" : ""}`}
+            onClick={() => onSelect(r)}
+            type="button"
+          >
+            <div className="ps-lam-result-title">
+              {r.code} — {r.description}
+            </div>
+            <div className="ps-lam-result-sub">
+              {r.substrate_type} · {r.thickness_mm}mm
+              {r.grain ? ` · ${r.grain} Grain` : ""}
+              {(r.sizes || []).length ? ` · ${r.sizes.join(", ")}` : ""}
+            </div>
+          </button>
+        ))
+      )}
+    </div>
+  );
+}
+
+// ─── CORES ADDED TO PROJECT (left dataset table) ──────────────
+function CoreDatasetTable({ rows, loading, onRemove }) {
+  if (loading) {
+    return (
+      <div className="ps-table-empty">
+        <div className="ps-placeholder-title">Loading…</div>
+      </div>
+    );
+  }
+  if (rows.length === 0) {
+    return (
+      <div className="ps-table-wrap">
+        <table className="ps-table">
+          <thead>
+            <tr>{CORE_ROW_COLUMNS.map((c, i) => <th key={c || `_actions_${i}`}>{c}</th>)}</tr>
+          </thead>
+          <tbody>
+            <tr className="ps-table-empty-row">
+              <td colSpan={CORE_ROW_COLUMNS.length}>
+                <div className="ps-table-empty">
+                  <div className="ps-placeholder-glyph">⬡</div>
+                  <div className="ps-placeholder-title">No Core in this project</div>
+                  <div className="ps-placeholder-text">
+                    Search the global library on the right and add a core to get started.
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+  return (
+    <div className="ps-table-wrap">
+      <table className="ps-table">
+        <thead>
+          <tr>{CORE_ROW_COLUMNS.map((c, i) => <th key={c || `_actions_${i}`}>{c}</th>)}</tr>
+        </thead>
+        <tbody>
+          {rows.map(r => (
+            <tr key={r.id}>
+              <td>{r.project_code}</td>
+              <td>{r.code}</td>
+              <td>{r.description}</td>
+              <td>{r.substrate_type}</td>
+              <td>{(r.sizes || []).join(", ")}</td>
+              <td>{r.thickness_mm}</td>
+              <td>{r.grain || "—"}</td>
+              <td>{r.fr_rated ? "✓" : "—"}</td>
+              <td>{r.leed ? "✓" : "—"}</td>
+              <td>{r.fsc ? "✓" : "—"}</td>
+              <td>{r.exterior_grade ? "✓" : "—"}</td>
+              <td>{r.carb_p2 ? "✓" : "—"}</td>
               <td>
                 <button className="ps-lam-remove" onClick={() => onRemove(r.id)} title="Remove from project">✕</button>
               </td>

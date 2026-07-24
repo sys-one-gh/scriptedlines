@@ -23,6 +23,8 @@ from api.drawing_products import router as drawing_products_router
 from api.bom              import router as bom_router
 from api.templates        import router as templates_router
 from api.laminates        import router as laminates_router
+from api.cores              import router as cores_router
+
 
 
 app = FastAPI(
@@ -68,6 +70,7 @@ app.include_router(drawing_products_router, prefix="/api")
 app.include_router(bom_router,             prefix="/api")
 app.include_router(templates_router,        prefix="/api")
 app.include_router(laminates_router,        prefix="/api")
+app.include_router(cores_router,            prefix="/api")
 
 
 @app.get("/api/health")

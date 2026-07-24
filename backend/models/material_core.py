@@ -6,16 +6,23 @@
 #
 # Cores are the base panel with NO decorative face, so they carry
 # no finish reference. Compliance is broken out per standard.
-# Referenced by BOMs via the string `code` (forward-compat rule);
-# related to manufacturer + sheet_size via FK internally.
+# Referenced by BOMs via the string `code` (forward-compat rule).
+#
+# Deliberately has NO manufacturer field — unlike laminates (a specific
+# decor is proprietary to one manufacturer), a core is a commodity spec.
+# Any vendor supplying a matching spec is interchangeable, so the row
+# represents a procurement requirement, not one manufacturer's product.
+#
+# Self-contained — no shared sheet_size lookup table, same pattern as
+# models/laminate.py (see that file's header comment for why the
+# shared-lookup design was abandoned).
 # ─────────────────────────────────────────────────────────────
 
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime
 from sqlalchemy.sql import func
 from database import Base
 
@@ -30,11 +37,24 @@ class MaterialCore(Base):
     description    = Column(String, nullable=False)
     substrate_type = Column(String, nullable=False, index=True)  # MDF / PB / Ply / MR-MDF
 
-    manufacturer_id = Column(Integer, ForeignKey("manufacturers.id"), nullable=False, index=True)
-    sheet_size_id   = Column(Integer, ForeignKey("sheet_sizes.id"),   nullable=False, index=True)
+    # ── SHEET SIZE AVAILABILITY ──────────────────────────────
+    # Same pattern as LaminateFormica — a core SKU is commonly stocked
+    # in several sheet sizes at once, not just one. size_5x5 is the one
+    # addition beyond the laminate set (5x5 is a ply-core-only size).
+    size_4x8  = Column(Boolean, default=False)
+    size_5x8  = Column(Boolean, default=False)
+    size_4x10 = Column(Boolean, default=False)
+    size_4x12 = Column(Boolean, default=False)
+    size_5x12 = Column(Boolean, default=False)
+    size_5x10 = Column(Boolean, default=False)
+    size_5x5  = Column(Boolean, default=False)
 
     thickness_mm = Column(Float, nullable=False)
     core_color   = Column(String, default="")   # some FR cores are dyed
+    # Only meaningful for plywood-family substrates (e.g. flex ply, where
+    # it determines which axis the panel bends along). Blank for MDF/PB —
+    # same convention as MaterialMelamine.grain.
+    grain        = Column(String, default="")   # "Short" / "Long" / ""
 
     # ── COMPLIANCE (per standard) ────────────────────────────
     fr_rated       = Column(Boolean, default=False)
@@ -51,10 +71,6 @@ class MaterialCore(Base):
     is_active  = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
-
-    # ── RELATIONSHIPS ────────────────────────────────────────
-    manufacturer = relationship("Manufacturer")
-    sheet_size   = relationship("SheetSize")
 
     def __repr__(self):
         return f"<MaterialCore {self.code} — {self.description}>"
