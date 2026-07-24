@@ -12,7 +12,7 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useEffect, useRef, useState } from "react";
-import { apiFetch } from "../api.js";
+import { apiFetch } from "../api/client.js";
 
 function PaperSpace({ paper, drawing, activeTool, onToolChange, registerZoomFit }) {
 

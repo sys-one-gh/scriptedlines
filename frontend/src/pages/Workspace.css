@@ -1,0 +1,244 @@
+/* ─────────────────────────────────────────────────────────────
+   Workspace.css
+   Static styling for Workspace.jsx, migrated off inline style={{}}
+   objects (see tokens.css's "Styling boundary convention"). Uses
+   the --color-* token names, matching the rest of App.css's
+   consumers.
+
+   The SL logo mark, wordmark, and "DESIGN STUDIO" sub-label keep
+   their exact hardcoded colors (not tokenized) — same brand-mark
+   exclusion already noted at the top of Workspace.jsx.
+
+   A handful of one-off values (5px row radius, 24px empty-state
+   icon, #444 empty-state label) have no matching token and are
+   left as literal hex/px, same precedent as tokens.css's own
+   still-hardcoded icon glyph sizes — not worth inventing a token
+   for a single use site.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── LOADING / ERROR STATES ───────────────────────────────── */
+.ws-loading,
+.ws-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ws-error {
+  flex-direction: column;
+  gap: 16px;
+}
+.ws-loading-text {
+  color: var(--color-text-faint);
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+}
+.ws-error-text {
+  color: var(--color-danger);
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+}
+.ws-error-btn {
+  padding: 8px 20px;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+/* ── TOP BAR ───────────────────────────────────────────────── */
+.ws-topbar {
+  height: 52px;
+  flex-shrink: 0;
+  background: var(--color-bg-panel);
+  border-bottom: 1px solid var(--color-border-soft);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  justify-content: space-between;
+  z-index: 100;
+}
+.ws-topbar-left  { display: flex; align-items: center; gap: 0; }
+.ws-topbar-right { display: flex; align-items: center; gap: 12px; }
+
+/* Brand mark — intentionally not tokenized, see file header. */
+.ws-logo-mark {
+  width: 34px; height: 34px; flex-shrink: 0;
+  background: linear-gradient(135deg, #4f8ef7 0%, #2563eb 100%);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ws-logo-mark-text {
+  color: #fff; font-size: 13px; font-weight: 800;
+  font-family: var(--font-ui); letter-spacing: -0.5px;
+}
+.ws-logo-words {
+  margin-left: 10px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.ws-logo-main {
+  color: #fff; font-size: 14px; font-weight: 700;
+  font-family: var(--font-ui); letter-spacing: -0.3px; line-height: 1.1;
+}
+.ws-logo-sub {
+  color: #4f8ef7; font-size: 9px;
+  font-family: var(--font-mono); letter-spacing: 1.5px; text-transform: uppercase;
+}
+
+.ws-topbar-divider {
+  width: 1px; height: 22px;
+  background: var(--color-border-soft);
+  margin: 0 16px;
+  flex-shrink: 0;
+}
+.ws-topbar-divider--sm {
+  width: 1px; height: 18px;
+  background: var(--color-border-soft);
+}
+
+.ws-ghost-btn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-faint);
+  font-size: var(--fs-base);
+  font-family: var(--font-ui);
+  padding: 4px 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ws-drawing-identity { display: flex; align-items: center; gap: 8px; }
+.ws-drawing-number {
+  color: var(--color-accent); font-size: var(--fs-base);
+  font-weight: 700; font-family: var(--font-mono);
+}
+/* #333 has no exact token — snapped to --color-border-strong,
+   reused below for the empty-state sub-text too. */
+.ws-identity-sep { color: var(--color-border-strong); }
+.ws-drawing-title {
+  color: var(--color-text-muted); font-size: var(--fs-base);
+  font-family: var(--font-ui); font-weight: 500;
+}
+.ws-drawing-rev {
+  color: var(--color-text-faint); font-size: var(--fs-base);
+  font-family: var(--font-mono);
+}
+
+.ws-status-group { display: flex; align-items: center; gap: 5px; }
+.ws-status-dot { width: 6px; height: 6px; border-radius: 50%; }
+.ws-status-dot--connected    { background: var(--color-success); }
+.ws-status-dot--disconnected { background: var(--color-error); }
+.ws-status-text { font-size: var(--fs-base); font-family: var(--font-mono); }
+.ws-status-text--connected    { color: var(--color-success); }
+.ws-status-text--disconnected { color: var(--color-error); }
+
+/* ── RIGHT PANEL: tab strip divider ───────────────────────── */
+.ws-tabbar-strip {
+  flex-shrink: 0;
+  height: 8px;
+  background: var(--color-bg-raised);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── RIGHT PANEL: Info tab ────────────────────────────────── */
+.ws-info-list { width: 100%; box-sizing: border-box; }
+.ws-info-row {
+  background: var(--color-bg-hover);
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  min-width: 0;
+  overflow: hidden;
+}
+.ws-info-row-label {
+  font-size: var(--fs-base);
+  color: var(--color-text-disabled);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 3px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.ws-info-row-value {
+  font-size: var(--fs-base);
+  color: var(--color-text-muted);
+  font-family: var(--font-ui);
+  word-break: break-word; overflow-wrap: break-word;
+  max-width: 100%; min-width: 0;
+}
+
+/* ── RIGHT PANEL: Title Block tab ─────────────────────────── */
+.ws-tb-section {
+  font-size: var(--fs-base);
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 0 6px;
+  border-bottom: 1px solid var(--color-border-soft);
+  margin-bottom: 10px;
+}
+.ws-tb-label {
+  display: block;
+  font-size: var(--fs-base);
+  color: var(--color-text-disabled);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 3px;
+}
+.ws-tb-input {
+  width: 100%;
+  background: var(--bg-canvas);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  color: var(--color-text-muted);
+  font-size: var(--fs-base);
+  font-family: var(--font-ui);
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  outline: none;
+  box-sizing: border-box;
+}
+.ws-tb-input--readonly {
+  color: var(--color-text-disabled);
+  background: var(--color-bg-deepest);
+  cursor: not-allowed;
+}
+.ws-tb-textarea {
+  height: 72px;
+  resize: vertical;
+}
+.ws-tb-save-btn {
+  width: 100%; padding: 9px;
+  background: var(--color-accent);
+  border: none; border-radius: var(--radius-md);
+  color: #fff; font-size: var(--fs-base); font-weight: 600;
+  font-family: var(--font-ui);
+  cursor: pointer;
+  margin-top: 8px;
+}
+.ws-tb-save-btn:disabled { cursor: not-allowed; opacity: 0.7; }
+
+/* ── PANEL EMPTY STATE ─────────────────────────────────────── */
+.ws-panel-empty {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px; padding: 32px 8px; text-align: center;
+}
+.ws-panel-empty-icon { font-size: 24px; opacity: 0.1; }
+.ws-panel-empty-label {
+  font-size: var(--fs-base);
+  color: #444; /* no matching token, single use site */
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.ws-panel-empty-sub {
+  font-size: var(--fs-base);
+  color: var(--color-border-strong);
+  font-family: var(--font-ui);
+  line-height: 1.5;
+}

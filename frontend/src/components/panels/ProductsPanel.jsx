@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { apiFetch } from "../api.js";
+import { apiFetch } from "../../api/client.js";
 
 function ProductsPanel({ searchText }) {
 

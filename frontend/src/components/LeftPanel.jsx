@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import ToolButton from "./ToolButton";
-import WallsPanel from "./WallsPanel";
-import ProductsPanel from "./ProductsPanel";
-import SubassembliesPanel from "./SubassembliesPanel";
-import PartsPanel from "./PartsPanel";
-import HardwarePanel from "./HardwarePanel";
-import MaterialsPanel from "./MaterialsPanel";
+import WallsPanel from "./panels/WallsPanel";
+import ProductsPanel from "./panels/ProductsPanel";
+import SubassembliesPanel from "./panels/SubassembliesPanel";
+import PartsPanel from "./panels/PartsPanel";
+import HardwarePanel from "./panels/HardwarePanel";
+import MaterialsPanel from "./panels/MaterialsPanel";
 
 function LeftPanel({ leftWidth }) {
 

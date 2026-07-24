@@ -1,4 +1,58 @@
 SCRIPTEDLINES — NEXT STEPS
+Session handoff · frontend architecture cleanup (2026-07-24)
+================================================================
+
+FRONTEND ARCHITECTURE CLEANUP — DONE THIS SESSION
+--------------------------------------------------
+
+Fixed 4 issues from the architecture review:
+
+  15. API base URL — moved src/api.js -> src/api/client.js, single
+      source of truth, all 8 consumers updated.
+  16. Page-to-page state handoff — replaced the sl_drawing/sl_project
+      localStorage blobs with routing: /workspace/:drawingId, fetched
+      fresh from the API on load (project lookup soft-fails, drawing
+      lookup hard-fails). Workspace URLs are now bookmarkable/refresh-
+      safe, which they weren't before.
+  17. ProjectsPage.jsx God Component (1215 lines) — decomposed into
+      src/pages/ProjectsPage/ (hooks/ + components/), plus a new
+      src/shared/ for useResizableSidebar, useOutsideClick, FormField,
+      FormSelect — used across ProjectsPage, ProjectSetup, and
+      Workspace. Fixed two real bugs found during the split: creating
+      a drawing didn't refresh the project list's drawing_count badge,
+      and deleting/archiving a project didn't close an open viewer on
+      that project's drawing.
+  18. Styling boundary — documented the convention in tokens.css
+      (tokens = tokens only, *.css = static styling, inline style =
+      dynamic/computed values only) and fully migrated Workspace.jsx
+      (the file named in the finding) into a new Workspace.css.
+
+STYLING FOLLOW-UP — NOT YET DONE, ORDERED
+-------------------------------------------
+
+Point 18 above was deliberately scoped to Workspace.jsx only. The
+rest of the inline-style backlog (from the same `grep -rn "style={{"`
+audit), in the order it should get done:
+
+  1. NEXT — PaperSpace.jsx (26 sites) + CADToolbar.jsx (11 sites).
+     Same screen as Workspace.jsx, same visual system — do these
+     before the gap between "migrated" and "not yet" screens is
+     visually obvious to someone flipping between tabs.
+  2. LATER — LoginPage.jsx (11 sites) + RegisterPage.jsx (7 sites).
+     Both already use a hoisted `styles` object spread at call sites
+     (same shape of problem as Workspace's old LABEL_STYLE consts),
+     but isolated to screens not viewed side-by-side with Workspace,
+     so lower urgency.
+
+ProjectSetup.jsx's 4 inline-style sites and LeftPanel.jsx's 2 were
+already resolved/confirmed-fine as part of this session (ProjectSetup
+adopted the shared resize hook + fixed 1 static color; LeftPanel's 2
+are genuinely dynamic scroll-overflow state, correctly left inline).
+
+================================================================
+
+
+SCRIPTEDLINES — NEXT STEPS
 Session handoff · material catalog + Project Setup + typography
 ================================================================
 

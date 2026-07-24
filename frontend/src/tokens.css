@@ -8,6 +8,18 @@
    Both point at the same values, so neither stylesheet's existing
    class usages need to change. Edit a value HERE and it updates
    everywhere. Do not redefine these in other files.
+
+   ── Styling boundary convention ─────────────────────────────
+   tokens.css     → design tokens ONLY (colors, type scale, radii,
+                    shadows, transitions). Never component rules.
+   *.css files    → ALL static styling, keyed by className. This
+                    is where a new style should go by default.
+   inline style={{}} in JSX → reserved for genuinely dynamic,
+                    computed-per-render values only (drag-resize
+                    percentages, computed pixel offsets/sizes).
+                    Never for static styling, even a single color
+                    override — that belongs in the component's
+                    .css file as a class, referencing a token.
    ============================================================ */
 
 :root {
@@ -90,6 +102,13 @@
   --danger-bg:      #1a0a0a;
   --danger-border:  #8a1a1a;
 
+  /* ── Status (backend-connection dot, save-state indicators) ──
+     Added while migrating Workspace.jsx off inline styles — these
+     hex values were already duplicated as raw hardcoded hex in
+     ProjectsPage.css and PaperSpace.jsx before this token existed. */
+  --success: #4caf50;
+  --error:   #f44336;
+
   /* ── Radii ─────────────────────────────────────────────── */
   --radius-sm:  3px;
   --radius-md:  4px;
@@ -117,6 +136,7 @@
   --color-bg-dark:        #111111;
   --color-border:         var(--border-medium);
   --color-border-soft:    var(--border-soft);
+  --color-border-strong:  var(--border-strong);
   --color-accent:         var(--accent);
   --color-accent-dark:    var(--accent-dark);
   --color-text-primary:   var(--text-primary);
@@ -127,4 +147,6 @@
   --color-text-ghost:     var(--text-ghost);
   --color-text-disabled:  var(--text-disabled);
   --color-danger:         var(--danger);
+  --color-success:        var(--success);
+  --color-error:          var(--error);
 }

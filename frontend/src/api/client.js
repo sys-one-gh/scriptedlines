@@ -1,15 +1,24 @@
 // ─────────────────────────────────────────────────────────────
-// api.js
+// api/client.js
 //
 // Single source of truth for talking to the backend:
 //   - API_BASE reads VITE_API_URL (falls back to localhost for
-//     plain `npm run dev` outside Docker).
+//     plain `npm run dev` outside Docker). In the Docker dev stack,
+//     VITE_API_URL is set in docker-compose.yml's `environment:`
+//     block for the frontend service and read live by the Vite
+//     dev server on each request — it is NOT baked in at build
+//     time, so changing it in docker-compose.yml just needs a
+//     container restart, not a rebuild.
 //   - Session (user + JWT) lives in localStorage under two keys.
 //   - apiFetch() attaches the Authorization header automatically
 //     and, on a 401, clears the stale session and bounces to
 //     /login — used for every call made *after* the user is
 //     signed in. Login/register themselves use plain fetch()
 //     since there's no token yet.
+//
+// Every frontend module that talks to the backend imports from
+// here — there should be no other place in the codebase that
+// hardcodes an API origin or touches sl_user/sl_token directly.
 // ─────────────────────────────────────────────────────────────
 
 export const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000/api";

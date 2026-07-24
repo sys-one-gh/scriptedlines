@@ -1,9 +1,11 @@
 // ─────────────────────────────────────────────────────────────
-// ProjectsPageActionButtons.jsx
+// DrawingActionButtons.jsx
 //
-// The per-drawing action buttons used on the Projects page.
-// Rendered in BOTH the card view and the list view so the markup
-// lives in one place instead of being duplicated.
+// Renamed from ProjectsPageActionButtons.jsx — the old name
+// described where it's used, not what it operates on. It's the
+// per-drawing-row action buttons, rendered in both the card view
+// and the list view so the markup lives in one place instead of
+// being duplicated.
 //
 // Behavior:
 //   - View     → always enabled (archived projects are view-only)
@@ -20,7 +22,7 @@
 //   onBlocked()  — called when an archived action is attempted (shows notice)
 // ─────────────────────────────────────────────────────────────
 
-function ProjectsPageActionButtons({ d, isArchived, onOpen, onView, onDelete, onBlocked }) {
+function DrawingActionButtons({ d, isArchived, onOpen, onView, onDelete, onBlocked }) {
   return (
     <>
       <button
@@ -57,4 +59,4 @@ function ProjectsPageActionButtons({ d, isArchived, onOpen, onView, onDelete, on
   );
 }
 
-export default ProjectsPageActionButtons;
+export default DrawingActionButtons;

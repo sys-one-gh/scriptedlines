@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { API_BASE, setSession } from "../api.js";
+import { API_BASE, setSession } from "../api/client.js";
 
 const MAX_ATTEMPTS = 3;
 

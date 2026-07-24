@@ -200,6 +200,9 @@
   font-size: var(--fs-base); color: var(--text-disabled);
   font-family: var(--font-ui); line-height: 1.5; margin-bottom: 4px;
 }
+.ps-func-hint--error {
+  color: var(--danger);
+}
 
 /* ── LAMINATE SEARCH RESULTS ──────────────────────────────── */
 .ps-lam-results {

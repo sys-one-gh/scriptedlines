@@ -23,7 +23,8 @@
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { apiFetch } from "../api";
+import { apiFetch } from "../api/client";
+import { useResizableSidebar } from "../shared/useResizableSidebar.js";
 import "./ProjectSetup.css";
 
 // ─── MAIN TABS ───────────────────────────────────────────────
@@ -113,44 +114,10 @@ function ProjectSetup({ project, onClose }) {
     return () => { clearTimeout(t); window.removeEventListener("resize", checkSubOverflow); };
   }, [checkSubOverflow, mainTab]);
 
-  // ── Right-panel (functionality) resize — clone of viewer ──
-  const SIDEBAR_MIN = 25;
-  const SIDEBAR_MAX = 40;
-  const [sidebarPct, setSidebarPct]           = useState(30);
-  const [sidebarDivHover, setSidebarDivHover]  = useState(false);
-  const isSidebarDrag   = useRef(false);
-  const sidebarDragX    = useRef(0);
-  const sidebarDragPct  = useRef(30);
-  const setupRef        = useRef(null);
-
-  const onSidebarMouseMove = useCallback((e) => {
-    if (!isSidebarDrag.current || !setupRef.current) return;
-    const vw  = setupRef.current.getBoundingClientRect().width;
-    const dx  = sidebarDragX.current - e.clientX;
-    const pct = sidebarDragPct.current + (dx / vw) * 100;
-    setSidebarPct(Math.min(SIDEBAR_MAX, Math.max(SIDEBAR_MIN, pct)));
-  }, []);
-
-  const onSidebarMouseUp = useCallback(() => {
-    isSidebarDrag.current = false;
-    setSidebarDivHover(false);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("mousemove", onSidebarMouseMove);
-    window.addEventListener("mouseup",   onSidebarMouseUp);
-    return () => {
-      window.removeEventListener("mousemove", onSidebarMouseMove);
-      window.removeEventListener("mouseup",   onSidebarMouseUp);
-    };
-  }, [onSidebarMouseMove, onSidebarMouseUp]);
-
-  function onSidebarDividerDown(e) {
-    e.preventDefault();
-    isSidebarDrag.current  = true;
-    sidebarDragX.current   = e.clientX;
-    sidebarDragPct.current = sidebarPct;
-  }
+  // ── Right-panel (functionality) resize ────────────────────
+  const setupRef = useRef(null);
+  const sidebar = useResizableSidebar({ containerRef: setupRef, initial: 30, min: 25, max: 40, invert: true });
+  const [sidebarDivHover, setSidebarDivHover] = useState(false);
 
   // ── Esc to close ─────────────────────────────────────────
   useEffect(() => {
@@ -317,11 +284,11 @@ function ProjectSetup({ project, onClose }) {
             </div>
           </div>
 
-          {/* ── DIVIDER (clone of viewer sidebar divider) ── */}
+          {/* ── DIVIDER ── */}
           {mainTab !== "data" && (
             <div
-              className={`vw-sidebar-divider${sidebarDivHover ? " vw-sidebar-divider--active" : ""}`}
-              onMouseDown={onSidebarDividerDown}
+              className={`vw-sidebar-divider${(sidebar.isDragging || sidebarDivHover) ? " vw-sidebar-divider--active" : ""}`}
+              onMouseDown={sidebar.onDividerDown}
               onMouseEnter={() => setSidebarDivHover(true)}
               onMouseLeave={() => setSidebarDivHover(false)}
             />
@@ -329,7 +296,7 @@ function ProjectSetup({ project, onClose }) {
 
           {/* ── RIGHT: sub-tabs + functionality ── */}
           {mainTab !== "data" && (
-            <div className="vw-sidebar ps-func" style={{ width: `${sidebarPct}%` }}>
+            <div className="vw-sidebar ps-func" style={{ width: `${sidebar.pct}%` }}>
 
               {/* sub-tab bar — workspace .tab system + overflow scroll */}
               <div className="tab-bar-wrapper ps-subtab-bar">
@@ -411,7 +378,7 @@ function ProjectSetup({ project, onClose }) {
                 )}
 
                 {isLaminatesTab && lamError && (
-                  <div className="ps-func-hint" style={{ color: "var(--danger, #e05555)" }}>{lamError}</div>
+                  <div className="ps-func-hint ps-func-hint--error">{lamError}</div>
                 )}
 
                 <button

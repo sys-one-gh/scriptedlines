@@ -96,6 +96,7 @@
 .pp-user-menu-header { display: flex; align-items: center; gap: 12px; padding: 16px; }
 .pp-user-menu-name { font-size: var(--fs-md); color: var(--text-primary); font-weight: 600; }
 .pp-user-menu-role { font-size: var(--fs-base); color: var(--text-disabled); text-transform: capitalize; font-family: var(--font-mono); }
+.pp-user-menu-badge { display: inline-block; margin-top: 4px; }
 .pp-menu-divider { height: 1px; background: var(--border-soft); margin: 4px 0; }
 .pp-menu-item { width: 100%; padding: 11px 16px; background: transparent; border: none; color: var(--text-muted); font-size: var(--fs-base); font-family: var(--font-ui); cursor: pointer; text-align: left; display: block; transition: background var(--transition-fast), color var(--transition-fast); }
 .pp-menu-item:hover { background: var(--bg-hover); color: var(--text-primary); }
