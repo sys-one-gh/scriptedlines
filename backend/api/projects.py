@@ -13,8 +13,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from database import get_db
 from models.project import Project, ProjectGrade, ProjectStandard, ProjectStatus
-from models.user import User
-from auth import get_current_user, require_same_company
+from models.user import User, UserRole
+from auth import get_current_user, require_same_company, require_not_viewer
 from pydantic import BaseModel
 from typing import Optional
 from datetime import date
@@ -141,6 +141,21 @@ def _next_project_number(user_id: int, db: Session) -> int:
     return count + 1
 
 
+def _require_write_access(project: Project, current_user: User):
+    """Company-boundary check for project writes. require_same_company itself
+    stays untouched (read paths and other routers still rely on its plain
+    404) — this local helper only adds a clearer 403 for the one case where
+    it's safe to be specific: a platform admin, who already has legitimate
+    read access to this project, hitting the read-only boundary."""
+    if project.company_id != current_user.company_id:
+        if current_user.role == UserRole.scriptedlines_admin:
+            raise HTTPException(
+                status_code=403,
+                detail="ScriptedLines admins have read-only access and can't create or edit projects outside their own company.",
+            )
+        raise HTTPException(status_code=404, detail="Not found")
+
+
 def _validate_job_number(job_number: str, user_id: int, db: Session, exclude_id: int = None):
     """Job number must be unique per user."""
     if not job_number or not job_number.strip():
@@ -163,6 +178,8 @@ def _validate_job_number(job_number: str, user_id: int, db: Session, exclude_id:
 # ─── CREATE ──────────────────────────────────────────────────
 @router.post("/projects")
 def create_project(data: ProjectCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+
+    require_not_viewer(current_user, "create projects")
 
     # Validate job number uniqueness
     _validate_job_number(data.job_number, current_user.id, db)
@@ -230,7 +247,7 @@ def list_projects(db: Session = Depends(get_db), current_user: User = Depends(ge
     # exception to tenant isolation anywhere in this file; create/update/
     # delete below are untouched and always company-scoped.
     query = db.query(Project).filter(Project.is_inactive == False)
-    if not current_user.is_platform_admin:
+    if current_user.role != UserRole.scriptedlines_admin:
         query = query.filter(Project.company_id == current_user.company_id)
     projects = query.order_by(Project.project_number).all()
 
@@ -256,7 +273,7 @@ def get_project(project_id: int, db: Session = Depends(get_db), current_user: Us
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     # Read-only platform-admin exception — see list_projects above.
-    if not current_user.is_platform_admin:
+    if current_user.role != UserRole.scriptedlines_admin:
         require_same_company(project.company_id, current_user)
     return {"status": "ok", "project": project_to_dict(project, db)}
 
@@ -268,7 +285,8 @@ def update_project(project_id: int, data: ProjectUpdate, db: Session = Depends(g
     project = db.query(Project).filter(Project.id == project_id).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
-    require_same_company(project.company_id, current_user)
+    _require_write_access(project, current_user)
+    require_not_viewer(current_user, "edit projects")
 
     updates = data.model_dump(exclude_none=True)
 
@@ -303,7 +321,8 @@ def delete_project(project_id: int, db: Session = Depends(get_db), current_user:
     project = db.query(Project).filter(Project.id == project_id).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
-    require_same_company(project.company_id, current_user)
+    _require_write_access(project, current_user)
+    require_not_viewer(current_user, "archive projects")
     project.is_inactive = True
     project.status      = ProjectStatus.archived
     db.commit()

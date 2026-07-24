@@ -19,8 +19,8 @@ from database import get_db
 from models.laminate import Laminate, LaminateFormica
 from models.project_laminate import ProjectLaminate
 from models.project import Project
-from models.user import User
-from auth import get_current_user
+from models.user import User, UserRole
+from auth import get_current_user, require_not_viewer
 from pydantic import BaseModel
 from typing import Optional
 
@@ -32,7 +32,7 @@ def _load_owned_project(project_id: int, db: Session, current_user: User) -> Pro
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     if project.company_id != current_user.company_id:
-        if current_user.is_platform_admin:
+        if current_user.role == UserRole.scriptedlines_admin:
             # Platform admins already have legitimate read access to this
             # project (GET /projects, GET /drawings/...), so there's no
             # anti-enumeration reason to hide behind a vague 404 here —
@@ -135,6 +135,7 @@ class AddProjectLaminate(BaseModel):
 @router.post("/projects/{project_id}/laminates")
 def add_project_laminate(project_id: int, data: AddProjectLaminate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     _load_owned_project(project_id, db, current_user)
+    require_not_viewer(current_user, "add laminates")
 
     project_code = data.project_code.strip()
     if not project_code:
@@ -177,6 +178,7 @@ def add_project_laminate(project_id: int, data: AddProjectLaminate, db: Session 
 @router.delete("/projects/{project_id}/laminates/{row_id}")
 def remove_project_laminate(project_id: int, row_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     _load_owned_project(project_id, db, current_user)
+    require_not_viewer(current_user, "remove laminates")
 
     row = db.query(ProjectLaminate).filter(
         ProjectLaminate.id == row_id,

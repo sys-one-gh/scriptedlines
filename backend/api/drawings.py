@@ -24,8 +24,8 @@ from sqlalchemy.orm import Session
 from database import get_db
 from models.drawing import Drawing, DrawingRevision, PaperSize, DrawingStatus
 from models.project import Project
-from models.user import User
-from auth import get_current_user, require_same_company
+from models.user import User, UserRole
+from auth import get_current_user, require_same_company, require_not_viewer
 from pydantic import BaseModel
 from typing import Optional, Any
 
@@ -48,7 +48,17 @@ def _load_owned_project(project_id: int, db: Session, current_user: User) -> Pro
     project = db.query(Project).filter(Project.id == project_id).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
-    require_same_company(project.company_id, current_user)
+    if project.company_id != current_user.company_id:
+        if current_user.role == UserRole.scriptedlines_admin:
+            # Platform admins already have legitimate read access to this
+            # project (see _load_project_for_read below), so there's no
+            # anti-enumeration reason to hide behind a vague 404 here —
+            # a clear message is strictly better UX with no info leak.
+            raise HTTPException(
+                status_code=403,
+                detail="ScriptedLines admins have read-only access and can't create or edit drawings for a project outside their own company.",
+            )
+        raise HTTPException(status_code=404, detail="Not found")
     return project
 
 
@@ -72,7 +82,7 @@ def _load_project_for_read(project_id: int, db: Session, current_user: User) -> 
     project = db.query(Project).filter(Project.id == project_id).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
-    if not current_user.is_platform_admin:
+    if current_user.role != UserRole.scriptedlines_admin:
         require_same_company(project.company_id, current_user)
     return project
 
@@ -234,6 +244,7 @@ def _update_total_pages(project_id: int, db: Session):
 def create_drawing(data: DrawingCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
     project = _load_owned_project(data.project_id, db, current_user)
+    require_not_viewer(current_user, "create drawings")
 
     if not DRAWING_NUMBER_RE.match(data.drawing_number.upper()):
         raise HTTPException(status_code=400, detail="Drawing number must be D + 4 digits (e.g. D9501)")
@@ -353,6 +364,7 @@ def get_drawing(drawing_id: int, db: Session = Depends(get_db), current_user: Us
 @router.put("/drawings/{drawing_id}")
 def update_drawing(drawing_id: int, data: DrawingUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     drawing = _load_owned_drawing(drawing_id, db, current_user)
+    require_not_viewer(current_user, "edit drawings")
 
     updates = data.model_dump(exclude_none=True)
 
@@ -380,6 +392,7 @@ def update_drawing(drawing_id: int, data: DrawingUpdate, db: Session = Depends(g
 @router.delete("/drawings/{drawing_id}")
 def delete_drawing(drawing_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     drawing = _load_owned_drawing(drawing_id, db, current_user)
+    require_not_viewer(current_user, "delete drawings")
 
     project_id = drawing.project_id
     db.delete(drawing)
@@ -395,6 +408,7 @@ def delete_drawing(drawing_id: int, db: Session = Depends(get_db), current_user:
 def commit_revision(drawing_id: int, data: CommitRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
+    require_not_viewer(current_user, "commit drawing revisions")
 
     # Find the current unlocked revision
     current_rev = db.query(DrawingRevision).filter(
@@ -460,6 +474,7 @@ def commit_revision(drawing_id: int, data: CommitRequest, db: Session = Depends(
 def submit_to_client(drawing_id: int, data: SubmitRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
+    require_not_viewer(current_user, "submit drawings to a client")
 
     if drawing.status != DrawingStatus.submittal_pending:
         raise HTTPException(
@@ -483,6 +498,7 @@ def submit_to_client(drawing_id: int, data: SubmitRequest, db: Session = Depends
 def final_commit(drawing_id: int, data: FinalCommitRequest, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
+    require_not_viewer(current_user, "finalize drawings")
 
     allowed_statuses = {DrawingStatus.submitted, DrawingStatus.approved}
     if drawing.status not in allowed_statuses:

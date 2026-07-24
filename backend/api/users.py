@@ -41,13 +41,15 @@ class UserRegister(BaseModel):
     # joins — a raw company_id is never accepted (sequential integers
     # are guessable; a real credential is required to join a company).
     # join_code: the target company's join code (see api/companies.py).
-    # platform_admin_secret: matches PLATFORM_ADMIN_SECRET -> flags
-    #   is_platform_admin and attaches to the internal ScriptedLines
-    #   company instead, ignoring join_code entirely.
+    # platform_admin_secret: matches PLATFORM_ADMIN_SECRET -> role becomes
+    #   UserRole.scriptedlines_admin and attaches to the internal
+    #   ScriptedLines company instead, ignoring join_code entirely.
     # role is never client-supplied — self-registration always starts
-    # as draftsman (or owner, only via POST /companies/register);
-    # elevation happens afterward via PUT /users/:id, which is
-    # properly permission-gated.
+    # as draftsman (or owner, only via POST /companies/register; or
+    # scriptedlines_admin, only via the secret above); elevation to
+    # owner/admin happens afterward via PUT /users/:id, which is
+    # properly permission-gated (scriptedlines_admin is explicitly
+    # blocked there — see update_user below).
     join_code:              Optional[str] = None
     platform_admin_secret:  Optional[str] = None
 
@@ -74,7 +76,6 @@ def user_to_dict(u: User) -> dict:
         "role":               u.role.value if u.role else None,
         "initials":           u.initials,
         "is_active":          u.is_active,
-        "is_platform_admin":  u.is_platform_admin,
         "last_login":         str(u.last_login) if u.last_login else None,
         "created_at":         str(u.created_at) if u.created_at else None,
     }
@@ -116,8 +117,7 @@ def register(data: UserRegister, db: Session = Depends(get_db)):
         email              = data.email,
         password_hash      = hash_password(data.password),
         initials           = data.initials or "",
-        role               = UserRole.draftsman,
-        is_platform_admin  = is_platform_admin,
+        role               = UserRole.scriptedlines_admin if is_platform_admin else UserRole.draftsman,
     )
 
     db.add(user)
@@ -190,6 +190,14 @@ def update_user(user_id: int, data: UserUpdate, db: Session = Depends(get_db), c
 
     if data.role is not None and not is_admin:
         raise HTTPException(status_code=403, detail="Only an owner or admin can change roles")
+
+    # scriptedlines_admin is a platform-level tier, not a company-scoped
+    # role — it must only ever be granted through the secret-gated
+    # registration path (see register() above), never through this
+    # generic role-setter. Without this, any company's owner/admin
+    # could grant one of their own users read access to every company.
+    if data.role == "scriptedlines_admin":
+        raise HTTPException(status_code=403, detail="ScriptedLines Admin can only be granted at registration, not by changing a role")
 
     if data.first_name is not None:
         user.first_name = data.first_name

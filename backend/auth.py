@@ -23,7 +23,7 @@ from jose import JWTError, jwt
 from sqlalchemy.orm import Session
 
 from database import get_db
-from models.user import User
+from models.user import User, UserRole
 
 JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
 if not JWT_SECRET_KEY:
@@ -56,7 +56,6 @@ def create_access_token(user: User) -> str:
         "sub":                str(user.id),
         "company_id":         user.company_id,
         "role":               user.role.value if user.role else None,
-        "is_platform_admin":  user.is_platform_admin,
         "iat":                now,
         "exp":                now + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES),
     }
@@ -67,9 +66,9 @@ def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(_bearer_scheme),
     db: Session = Depends(get_db),
 ) -> User:
-    # Only `sub` is read from the token — `role`/`company_id`/
-    # `is_platform_admin` in the payload exist for frontend convenience
-    # only. The user row is re-fetched live so every permission check
+    # Only `sub` is read from the token — `role`/`company_id` in the
+    # payload exist for frontend convenience only. The user row is
+    # re-fetched live so every permission check
     # downstream (require_same_company, require_platform_admin, ...)
     # reflects current DB state, not a stale token claim.
     if credentials is None:
@@ -94,13 +93,22 @@ def require_same_company(resource_company_id: int, user: User):
         raise HTTPException(status_code=404, detail="Not found")
 
 
+def require_not_viewer(user: User, action: str):
+    """Viewer-role users are read-only for projects/drawings. Raises 403,
+    unlike require_same_company's 404 — the user already knows this
+    resource exists (it's in their own company), so there's no
+    enumeration risk in telling them why they're blocked."""
+    if user.role == UserRole.viewer:
+        raise HTTPException(status_code=403, detail=f"Viewer accounts don't have permission to {action}.")
+
+
 def require_platform_admin(user: User):
     """
     Gates ScriptedLines-internal endpoints (none exist yet — this is
-    the reusable guard future ones will use). Not to be confused with
-    UserRole.admin, which is a company-scoped role; this is a platform-
-    level tier orthogonal to it. Raises 404, matching require_same_company's
+    the reusable guard future ones will use). Checks UserRole.scriptedlines_admin
+    specifically — not to be confused with UserRole.admin, which is a
+    company-scoped role. Raises 404, matching require_same_company's
     reasoning — don't confirm an endpoint exists to an unauthorized caller.
     """
-    if not user.is_platform_admin:
+    if user.role != UserRole.scriptedlines_admin:
         raise HTTPException(status_code=404, detail="Not found")

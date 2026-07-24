@@ -14,10 +14,16 @@ from database import Base
 
 
 class UserRole(enum.Enum):
-    owner     = "owner"
-    admin     = "admin"
-    draftsman = "draftsman"
-    viewer    = "viewer"
+    owner              = "owner"
+    admin              = "admin"
+    draftsman          = "draftsman"
+    viewer             = "viewer"
+    # Platform-level tier — only ever set at registration via a secret
+    # code (see api/users.py), and explicitly blocked from the generic
+    # role-change endpoint (PUT /users/:id) so no company owner/admin
+    # can grant it to their own users. Not to be confused with
+    # UserRole.admin, which is company-scoped.
+    scriptedlines_admin = "scriptedlines_admin"
 
 
 class User(Base):
@@ -41,11 +47,6 @@ class User(Base):
     # ── STATUS ───────────────────────────────────────────────
     is_active  = Column(Boolean, default=True)
     last_login = Column(DateTime(timezone=True), nullable=True)
-
-    # Platform-level tier, orthogonal to `role` (which is company-scoped).
-    # Set only at registration, via a secret code — see api/users.py.
-    # Not to be confused with UserRole.admin.
-    is_platform_admin = Column(Boolean, nullable=False, server_default="false")
 
     # ── TIMESTAMPS ───────────────────────────────────────────
     created_at = Column(DateTime(timezone=True), server_default=func.now())

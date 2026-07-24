@@ -105,7 +105,6 @@ def register_company(data: CompanyRegister, db: Session = Depends(get_db)):
         password_hash = hash_password(data.password),
         initials      = data.initials or "",
         role          = UserRole.owner,
-        is_platform_admin = False,
     )
     db.add(user)
     db.commit()  # single commit for both company + user
@@ -118,7 +117,6 @@ def register_company(data: CompanyRegister, db: Session = Depends(get_db)):
         "user": {
             "id": user.id, "company_id": user.company_id, "first_name": user.first_name,
             "last_name": user.last_name, "email": user.email, "role": user.role.value,
-            "is_platform_admin": user.is_platform_admin,
         },
         "company": {**company_to_dict(company), "join_code": company.join_code},
         "access_token": token,

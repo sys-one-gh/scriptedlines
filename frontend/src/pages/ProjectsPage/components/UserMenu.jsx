@@ -40,8 +40,14 @@ function UserMenu({ user, onSignOut }) {
               <div className="pp-user-menu-avatar">{userAvatar}</div>
               <div>
                 <div className="pp-user-menu-name">{user.first_name} {user.last_name}</div>
-                <div className="pp-user-menu-role">{user.role}</div>
-                {user.is_platform_admin && (
+                {/* scriptedlines_admin is a real role now, but showing the raw
+                    enum value would render as "Scriptedlines_admin" — the
+                    text-transform:capitalize CSS doesn't handle snake_case —
+                    so it gets the nice badge instead of the plain role line. */}
+                {user.role !== "scriptedlines_admin" && (
+                  <div className="pp-user-menu-role">{user.role}</div>
+                )}
+                {user.role === "scriptedlines_admin" && (
                   <span className="pp-spec-badge pp-spec-badge--blue pp-user-menu-badge">
                     ScriptedLines Admin
                   </span>
@@ -49,12 +55,22 @@ function UserMenu({ user, onSignOut }) {
               </div>
             </div>
             <div className="pp-menu-divider" />
-            <button className="pp-menu-item" onClick={() => { setShowAvatarPicker(true); setShowUserMenu(false); }}>🖼  Change Avatar</button>
-            <button className="pp-menu-item">👤  Account Settings</button>
-            <button className="pp-menu-item">⚙️  Company Settings</button>
-            <button className="pp-menu-item">💳  Manage Subscription</button>
+            <button className="pp-menu-item" onClick={() => { setShowAvatarPicker(true); setShowUserMenu(false); }}>
+              <span className="pp-menu-icon">🖼</span><span className="pp-menu-label">Change Avatar</span>
+            </button>
+            <button className="pp-menu-item">
+              <span className="pp-menu-icon">👤</span><span className="pp-menu-label">Account Settings</span>
+            </button>
+            <button className="pp-menu-item">
+              <span className="pp-menu-icon">⚙️</span><span className="pp-menu-label">Company Settings</span>
+            </button>
+            <button className="pp-menu-item">
+              <span className="pp-menu-icon">💳</span><span className="pp-menu-label">Manage Subscription</span>
+            </button>
             <div className="pp-menu-divider" />
-            <button className="pp-menu-item pp-menu-item--danger" onClick={onSignOut}>→  Sign Out</button>
+            <button className="pp-menu-item pp-menu-item--danger" onClick={onSignOut}>
+              <span className="pp-menu-icon">→</span><span className="pp-menu-label">Sign Out</span>
+            </button>
           </div>
         )}
       </div>
