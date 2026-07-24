@@ -13,6 +13,8 @@ import { useOutsideClick } from "../../../shared/useOutsideClick.js";
 
 function ProjectSidebar({
   widthPct, activeProjects, archivedProjects, loadingProjects,
+  filteredActiveProjects, filteredArchivedProjects,
+  projectSearch, setProjectSearch,
   projectTab, setProjectTab, selectedProject,
   onSelect, onNewProject, onEditProject, onArchiveProject, onRestoreProject,
 }) {
@@ -20,7 +22,9 @@ function ProjectSidebar({
   const projectMenuRef = useRef(null);
   useOutsideClick(projectMenuRef, () => setProjectMenuId(null));
 
-  const displayedProjects = projectTab === "active" ? activeProjects : archivedProjects;
+  // Tab badges show the true total; the list below reflects the search.
+  const displayedProjects = projectTab === "active" ? filteredActiveProjects : filteredArchivedProjects;
+  const hasSearch = projectSearch.trim().length > 0;
 
   function handleSelect(p) {
     setProjectMenuId(null);
@@ -45,14 +49,33 @@ function ProjectSidebar({
         </button>
       </div>
 
+      <div className="pp-sidebar-search-strip">
+        <div className="pp-search-wrap">
+          <span className="pp-search-icon">⌕</span>
+          <input
+            className="pp-search-input pp-sidebar-search-input"
+            type="text"
+            placeholder="Search projects..."
+            value={projectSearch}
+            onChange={e => setProjectSearch(e.target.value)}
+          />
+        </div>
+      </div>
+
       <div className="pp-explorer-list">
         {loadingProjects ? (
           <div className="pp-placeholder">Loading...</div>
         ) : displayedProjects.length === 0 ? (
           <div className="pp-placeholder">
-            {projectTab === "active" ? "No active projects." : "No archived projects."}
-            {projectTab === "active" && (
-              <button className="pp-inline-btn" onClick={onNewProject}>+ Create first project</button>
+            {hasSearch ? (
+              `No ${projectTab} projects match "${projectSearch.trim()}".`
+            ) : (
+              <>
+                {projectTab === "active" ? "No active projects." : "No archived projects."}
+                {projectTab === "active" && (
+                  <button className="pp-inline-btn" onClick={onNewProject}>+ Create first project</button>
+                )}
+              </>
             )}
           </div>
         ) : (

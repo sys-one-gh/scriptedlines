@@ -9,7 +9,7 @@
 // in ProjectsPage.jsx instead of being hidden inside this hook.
 // ─────────────────────────────────────────────────────────────
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { apiFetch } from "../../../api/client.js";
 
 export function useProjects() {
@@ -18,6 +18,7 @@ export function useProjects() {
   const [loadingProjects,  setLoadingProjects]  = useState(true);
   const [projectTab,       setProjectTab]       = useState("active");
   const [selectedProject,  setSelectedProject]  = useState(null);
+  const [projectSearch,    setProjectSearch]    = useState("");
 
   const refresh = useCallback(async () => {
     setLoadingProjects(true);
@@ -83,8 +84,24 @@ export function useProjects() {
   function archive(id) { return update(id, { status: "archived" }); }
   function restore(id) { return update(id, { status: "active" }); }
 
+  // Client-side filter — the project list is already fetched in full,
+  // and matching on name/job number this way scales fine well past the
+  // point (~100+ projects) where scanning the raw list by eye stops
+  // working. Search text persists across the Active/Archived tabs.
+  const matches = useCallback((p) => {
+    const q = projectSearch.trim().toLowerCase();
+    if (!q) return true;
+    return p.project_name.toLowerCase().includes(q) ||
+           (p.job_number || "").toLowerCase().includes(q);
+  }, [projectSearch]);
+
+  const filteredActiveProjects   = useMemo(() => activeProjects.filter(matches),   [activeProjects, matches]);
+  const filteredArchivedProjects = useMemo(() => archivedProjects.filter(matches), [archivedProjects, matches]);
+
   return {
     activeProjects, archivedProjects, loadingProjects,
+    filteredActiveProjects, filteredArchivedProjects,
+    projectSearch, setProjectSearch,
     projectTab, setProjectTab,
     selectedProject, select, clear,
     refresh, create, update, remove, archive, restore,

@@ -164,6 +164,10 @@ function ProjectsPage() {
           widthPct={leftPanel.pct}
           activeProjects={projects.activeProjects}
           archivedProjects={projects.archivedProjects}
+          filteredActiveProjects={projects.filteredActiveProjects}
+          filteredArchivedProjects={projects.filteredArchivedProjects}
+          projectSearch={projects.projectSearch}
+          setProjectSearch={projects.setProjectSearch}
           loadingProjects={projects.loadingProjects}
           projectTab={projects.projectTab}
           setProjectTab={projects.setProjectTab}
