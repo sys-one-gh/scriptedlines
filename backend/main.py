@@ -24,6 +24,13 @@ from api.bom              import router as bom_router
 from api.templates        import router as templates_router
 from api.laminates        import router as laminates_router
 from api.cores              import router as cores_router
+from api.layups              import router as layups_router
+from api.melamine             import router as melamine_router
+from api.edgebands             import router as edgebands_router
+from api.hinges                import router as hinges_router
+from api.drawer_slides         import router as drawer_slides_router
+from api.handles               import router as handles_router
+from api.shelf_supports        import router as shelf_supports_router
 
 
 
@@ -71,6 +78,13 @@ app.include_router(bom_router,             prefix="/api")
 app.include_router(templates_router,        prefix="/api")
 app.include_router(laminates_router,        prefix="/api")
 app.include_router(cores_router,            prefix="/api")
+app.include_router(layups_router,           prefix="/api")
+app.include_router(melamine_router,         prefix="/api")
+app.include_router(edgebands_router,        prefix="/api")
+app.include_router(hinges_router,           prefix="/api")
+app.include_router(drawer_slides_router,    prefix="/api")
+app.include_router(handles_router,          prefix="/api")
+app.include_router(shelf_supports_router,   prefix="/api")
 
 
 @app.get("/api/health")
