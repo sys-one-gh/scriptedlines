@@ -15,8 +15,6 @@
 # Password hashing lives in auth.py, not here — see that file.
 # ─────────────────────────────────────────────────────────────
 
-import os
-import secrets
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
@@ -41,9 +39,9 @@ class UserRegister(BaseModel):
     # joins — a raw company_id is never accepted (sequential integers
     # are guessable; a real credential is required to join a company).
     # join_code: the target company's join code (see api/companies.py).
-    # platform_admin_secret: matches PLATFORM_ADMIN_SECRET -> role becomes
-    #   UserRole.scriptedlines_admin and attaches to the internal
-    #   ScriptedLines company instead, ignoring join_code entirely.
+    # platform_admin_secret: matches the internal ScriptedLines company's
+    #   platform_admin_secret_hash -> role becomes UserRole.scriptedlines_admin
+    #   and attaches to that company instead, ignoring join_code entirely.
     # role is never client-supplied — self-registration always starts
     # as draftsman (or owner, only via POST /companies/register; or
     # scriptedlines_admin, only via the secret above); elevation to
@@ -91,18 +89,18 @@ def register(data: UserRegister, db: Session = Depends(get_db)):
 
     is_platform_admin = False
     if data.platform_admin_secret:
-        expected = os.getenv("PLATFORM_ADMIN_SECRET")
-        if not expected or not secrets.compare_digest(data.platform_admin_secret, expected):
-            raise HTTPException(status_code=400, detail="Invalid admin code")
-        is_platform_admin = True
-
-    if is_platform_admin:
         # Platform admins always attach to the one internal ScriptedLines
-        # company — join_code, if also sent, is ignored.
+        # company — join_code, if also sent, is ignored. The secret's hash
+        # lives on that company row in the shared DB (not an env var), so
+        # it's identical no matter whose machine the backend runs on.
         company = db.query(Company).filter(Company.is_platform_org == True).first()
         if not company:
             raise HTTPException(status_code=500, detail="Internal ScriptedLines company not configured")
-    else:
+        if not company.platform_admin_secret_hash or not verify_password(data.platform_admin_secret, company.platform_admin_secret_hash):
+            raise HTTPException(status_code=400, detail="Invalid admin code")
+        is_platform_admin = True
+
+    if not is_platform_admin:
         if not data.join_code:
             raise HTTPException(status_code=400, detail="Company join code is required")
         code = data.join_code.strip().upper().replace("-", "")

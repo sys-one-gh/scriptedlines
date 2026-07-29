@@ -30,11 +30,10 @@ services:
     restart: unless-stopped
     environment:
       # Comes straight from .env — points at Supabase (or local-db if you override)
-      DATABASE_URL:          ${DATABASE_URL}
-      JWT_SECRET_KEY:        ${JWT_SECRET_KEY}
-      JWT_ALGORITHM:         HS256
-      PLATFORM_ADMIN_SECRET: ${PLATFORM_ADMIN_SECRET}
-      ENV:                   ${ENV:-development}
+      DATABASE_URL:   ${DATABASE_URL}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+      JWT_ALGORITHM:  HS256
+      ENV:            ${ENV:-development}
     volumes:
       # Hot reload — edits on host reflected immediately
       - ./backend:/app
