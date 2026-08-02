@@ -8,6 +8,18 @@
    Both point at the same values, so neither stylesheet's existing
    class usages need to change. Edit a value HERE and it updates
    everywhere. Do not redefine these in other files.
+
+   ── Styling boundary convention ─────────────────────────────
+   tokens.css     → design tokens ONLY (colors, type scale, radii,
+                    shadows, transitions). Never component rules.
+   *.css files    → ALL static styling, keyed by className. This
+                    is where a new style should go by default.
+   inline style={{}} in JSX → reserved for genuinely dynamic,
+                    computed-per-render values only (drag-resize
+                    percentages, computed pixel offsets/sizes).
+                    Never for static styling, even a single color
+                    override — that belongs in the component's
+                    .css file as a class, referencing a token.
    ============================================================ */
 
 :root {
@@ -15,6 +27,63 @@
   --font-ui:   'DM Sans', sans-serif;
   --font-tech: 'IBM Plex Sans', monospace;
   --font-mono: 'IBM Plex Sans', monospace;
+
+  /* ── Font Sizes (UI chrome only) ───────────────────────────
+     3-tier scale, 14px floor. Applies to interface text ONLY —
+     NOT drawing-space/canvas text (dimensions, title blocks,
+     annotations — those get their own paper-relative system in
+     Phase 8), and NOT icon/glyph font-sizes (‹ › ✕ ⋯ ⬡ ⌕ ≡ ⊞,
+     emoji) — those use the separate --icon-* scale below.
+     The ScriptedLines logo/wordmark is also intentionally left
+     hardcoded everywhere — brand mark, not scaled UI copy.
+
+     --fs-base (14px) — the floor. Everything that used to be
+       9–13px collapses here: form labels, hint text, badges,
+       status pills, table/list cells, sort labels, tooltips,
+       mono meta text (rev numbers, MW#, level, timestamps),
+       input fields, body copy, placeholder/empty-state text.
+       This is the workhorse size — most UI text lands here.
+
+     --fs-md (16px) — one step up. Everything that used to be
+       14–17px collapses here: primary/secondary buttons
+       (Save, Add Project, Sign In), project/card/row names,
+       drawing numbers in card headers, modal titles, top-bar
+       drawing identity text, drawing-viewer header text.
+
+     --fs-lg (19px) — page-level emphasis only. Everything that
+       used to be 18px (non-logo) collapses here: empty-state
+       titles ("No Project Selected", "No Drawings Yet"), and
+       any other top-of-hierarchy heading text that isn't the
+       ScriptedLines logo itself.
+     ──────────────────────────────────────────────────────── */
+  --fs-base: 13px;
+  --fs-md:   14px;
+  --fs-lg:   16px;
+
+  /* ── Icon Sizes (glyphs, emoji-as-icon, arrows — not UI text) ──
+     The "separate pass" mentioned above — 12 one-off hardcoded
+     values consolidated into this 6-step scale. 16px is a hard
+     floor: nothing renders smaller than --icon-sm anywhere.
+
+     --icon-sm  (16px) — standard control icons: buttons, search,
+       menu items, form icons, sort arrows.
+     --icon-md  (18px) — toolbar/nav arrows, modal close, zoom/page
+       nav, avatar button.
+     --icon-lg  (28px) — avatar-weight glyphs: picker options,
+       user-menu header avatar, workspace empty-panel icon.
+     --icon-xl  (32px) — medium empty-state icons (canvas message,
+       sidebar empty glyph).
+     --icon-2xl (40px) — large empty-state glyphs (canvas/project
+       setup placeholder).
+     --icon-3xl (48px) — the single biggest glyph in the app
+       ("No Project Selected").
+     ──────────────────────────────────────────────────────── */
+  --icon-sm:  16px;
+  --icon-md:  18px;
+  --icon-lg:  28px;
+  --icon-xl:  32px;
+  --icon-2xl: 40px;
+  --icon-3xl: 48px;
 
   /* ── Backgrounds ───────────────────────────────────────── */
   --bg-deepest:   #0d0d0d;
@@ -58,6 +127,13 @@
   --danger-bg:      #1a0a0a;
   --danger-border:  #8a1a1a;
 
+  /* ── Status (backend-connection dot, save-state indicators) ──
+     Added while migrating Workspace.jsx off inline styles — these
+     hex values were already duplicated as raw hardcoded hex in
+     ProjectsPage.css and PaperSpace.jsx before this token existed. */
+  --success: #4caf50;
+  --error:   #f44336;
+
   /* ── Radii ─────────────────────────────────────────────── */
   --radius-sm:  3px;
   --radius-md:  4px;
@@ -85,6 +161,7 @@
   --color-bg-dark:        #111111;
   --color-border:         var(--border-medium);
   --color-border-soft:    var(--border-soft);
+  --color-border-strong:  var(--border-strong);
   --color-accent:         var(--accent);
   --color-accent-dark:    var(--accent-dark);
   --color-text-primary:   var(--text-primary);
@@ -95,4 +172,6 @@
   --color-text-ghost:     var(--text-ghost);
   --color-text-disabled:  var(--text-disabled);
   --color-danger:         var(--danger);
+  --color-success:        var(--success);
+  --color-error:          var(--error);
 }

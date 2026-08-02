@@ -14,10 +14,16 @@ from database import Base
 
 
 class UserRole(enum.Enum):
-    owner     = "owner"
-    admin     = "admin"
-    draftsman = "draftsman"
-    viewer    = "viewer"
+    owner              = "owner"
+    admin              = "admin"
+    draftsman          = "draftsman"
+    viewer             = "viewer"
+    # Platform-level tier — only ever set at registration via a secret
+    # code (see api/users.py), and explicitly blocked from the generic
+    # role-change endpoint (PUT /users/:id) so no company owner/admin
+    # can grant it to their own users. Not to be confused with
+    # UserRole.admin, which is company-scoped.
+    scriptedlines_admin = "scriptedlines_admin"
 
 
 class User(Base):

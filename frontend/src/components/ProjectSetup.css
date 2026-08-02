@@ -1,0 +1,320 @@
+/* ============================================================
+   ProjectSetup.css
+   Styles specific to the Project Setup popup.
+
+   The popup REUSES the drawing-viewer shell (vw-* from
+   ProjectsPage.css) and the workspace tab system (.tab,
+   .tab-bar-wrapper, .tab-scroll-btn from App.css). Only the
+   setup-specific pieces (ps-*) live here.
+
+   Font sizes use --fs-base/--fs-md/--fs-lg tokens; icon/glyph sizes
+   use --icon-* tokens (see tokens.css).
+   ============================================================ */
+
+/* ── HEADER: main tabs on the left, identity + close on right ── */
+.ps-header {
+  padding: 0;                 /* tabs sit flush; override vw-header's 0 18px */
+  gap: 0;
+}
+.ps-header-tabs {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+/* main tabs are a touch wider than default .tab for prominence */
+.ps-header-tabs .tab { min-width: 130px; font-size: var(--fs-base); }
+
+.ps-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  padding: 0 14px 0 12px;
+}
+.ps-header-project {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  max-width: 340px;
+}
+.ps-header-jobnum {
+  font-size: var(--fs-base); font-weight: 700; color: var(--accent);
+  font-family: var(--font-mono); white-space: nowrap; flex-shrink: 0;
+}
+.ps-header-pname {
+  font-size: var(--fs-base); color: var(--text-secondary);
+  font-family: var(--font-ui); white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ── LEFT COLUMN: dataset viewer ──────────────────────────── */
+.ps-dataset-col { min-width: 0; }
+
+/* dataset header bar — fixed 38px, independent of the (now variable-
+   height, grouped) sub-tab bar on the right; no longer needs to match it */
+.ps-dataset-header {
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--border-soft);
+}
+.ps-dataset-title {
+  font-size: var(--fs-base); font-weight: 700; letter-spacing: 1.5px;
+  color: var(--text-primary); font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+/* dataset body — the 4-way scroll region */
+.ps-dataset-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;                 /* scroll both axes */
+  background: var(--bg-deepest);
+  position: relative;
+}
+.ps-dataset-body::-webkit-scrollbar { width: 10px; height: 10px; }
+.ps-dataset-body::-webkit-scrollbar-track { background: var(--bg-deepest); }
+.ps-dataset-body::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 5px; }
+.ps-dataset-body::-webkit-scrollbar-thumb:hover { background: var(--text-ghost); }
+.ps-dataset-body::-webkit-scrollbar-corner { background: var(--bg-deepest); }
+
+/* ── DATASET TABLE ────────────────────────────────────────── */
+.ps-table-wrap { min-width: max-content; }
+.ps-table {
+  border-collapse: collapse;
+  width: max-content;
+  min-width: 100%;
+  font-family: var(--font-ui);
+}
+.ps-table thead th {
+  position: sticky; top: 0; z-index: 2;
+  background: var(--bg-panel);
+  color: var(--text-dim);
+  font-size: var(--fs-base); font-weight: 600;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  font-family: var(--font-mono);
+  text-align: left; white-space: nowrap;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-medium);
+  border-right: 1px solid var(--border-subtle);
+}
+.ps-table tbody td {
+  font-size: var(--fs-base); color: var(--text-secondary);
+  padding: 9px 14px; white-space: nowrap;
+  border-bottom: 1px solid #141414;
+  border-right: 1px solid var(--border-subtle);
+}
+.ps-table tbody tr:hover td { background: var(--bg-hover); }
+
+.ps-table-empty-row td { border-right: none; }
+.ps-table-empty {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px; padding: 60px 20px; text-align: center;
+}
+
+/* ── PLACEHOLDER (Project Data tab, empty tables) ─────────── */
+.ps-placeholder {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%; gap: 12px; padding: 48px; text-align: center;
+}
+.ps-placeholder-glyph { font-size: var(--icon-2xl); opacity: 0.12; }
+.ps-placeholder-title {
+  font-size: var(--fs-md); font-weight: 600; color: var(--text-faint);
+  font-family: var(--font-ui);
+}
+.ps-placeholder-text {
+  font-size: var(--fs-base); color: var(--text-disabled);
+  font-family: var(--font-ui); line-height: 1.6; max-width: 340px;
+}
+
+/* ── RIGHT COLUMN: functionality panel ────────────────────── */
+.ps-func {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+/* Grouped sub-tab bar — wraps into rows instead of horizontal-
+   scrolling a single strip, so it no longer matches .ps-dataset-header's
+   fixed 38px (that's fine, nothing depends on the two staying equal). */
+.ps-subtab-groups {
+  flex-shrink: 0;
+  padding: 12px 14px 10px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border-soft);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ps-subtab-group { display: flex; flex-direction: column; gap: 6px; }
+.ps-subtab-group-label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: var(--fs-base); font-weight: 700; color: var(--text-dim);
+  font-family: var(--font-mono); letter-spacing: 1px; text-transform: uppercase;
+}
+.ps-subtab-soon {
+  font-size: var(--fs-base); font-weight: 500; color: var(--text-disabled);
+  font-family: var(--font-ui); text-transform: none; letter-spacing: 0;
+  background: var(--bg-hover); border-radius: var(--radius-sm);
+  padding: 1px 6px;
+}
+.ps-subtab-group-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.ps-subtab {
+  background: var(--bg-hover); border: 1px solid var(--border-medium);
+  color: var(--text-muted); border-radius: var(--radius-md);
+  font-size: var(--fs-base); font-family: var(--font-ui);
+  padding: 5px 12px; cursor: pointer; white-space: nowrap;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+.ps-subtab:hover { border-color: var(--accent); color: var(--text-primary); }
+.ps-subtab.active {
+  background: var(--accent-bg); border-color: var(--accent);
+  color: var(--accent); font-weight: 600;
+}
+.ps-subtab--soon { opacity: 0.55; }
+.ps-subtab--soon:hover { opacity: 0.85; }
+.ps-subtab--soon.active { opacity: 1; }
+
+.ps-func-body {
+  flex: 1; min-height: 0;
+  overflow-y: auto; overflow-x: hidden;
+  padding: 14px;
+}
+.ps-func-body::-webkit-scrollbar { width: 4px; }
+.ps-func-body::-webkit-scrollbar-track { background: transparent; }
+.ps-func-body::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+
+.ps-func-section {
+  font-size: var(--fs-base); color: var(--accent);
+  font-family: var(--font-mono); letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 0 10px;
+}
+.ps-func-label {
+  display: block;
+  font-size: var(--fs-base); color: var(--text-dim);
+  font-family: var(--font-mono); text-transform: uppercase;
+  letter-spacing: 0.8px; margin: 10px 0 4px;
+}
+.ps-func-input {
+  width: 100%; height: 34px; padding: 0 10px;
+  background: var(--bg-input); color: var(--text-secondary);
+  border: 1px solid var(--border-soft); border-radius: var(--radius-md);
+  outline: none; font-size: var(--fs-base); font-family: var(--font-ui);
+  transition: border-color var(--transition-std);
+}
+.ps-func-input:focus { border-color: var(--accent); }
+
+.ps-func-add {
+  width: 100%; height: 36px; margin-top: 14px;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: var(--radius-md);
+  font-size: var(--fs-base); font-weight: 600; font-family: var(--font-ui);
+  cursor: pointer; transition: background var(--transition-std);
+}
+.ps-func-add:hover:not(:disabled) { background: #3a7de8; }
+.ps-func-add:disabled { opacity: 0.4; cursor: not-allowed; }
+.ps-func-add--ghost {
+  background: transparent; color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.ps-func-add--ghost:hover:not(:disabled) { background: rgba(79,142,247,0.08); }
+
+.ps-func-divider {
+  height: 1px; background: var(--border-soft);
+  margin: 18px 0 4px;
+}
+.ps-func-hint {
+  font-size: var(--fs-base); color: var(--text-disabled);
+  font-family: var(--font-ui); line-height: 1.5; margin-bottom: 4px;
+}
+.ps-func-hint--error {
+  color: var(--danger);
+}
+
+/* ── LAMINATE SEARCH RESULTS ──────────────────────────────── */
+.ps-lam-results {
+  margin-top: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+}
+.ps-lam-results-hint {
+  padding: 14px; text-align: center;
+  font-size: var(--fs-base); color: var(--text-disabled);
+  font-family: var(--font-ui);
+}
+.ps-lam-results-idle {
+  margin-top: 8px; padding: 10px 2px;
+  font-size: var(--fs-base); color: var(--text-disabled);
+  font-family: var(--font-ui); line-height: 1.5;
+}
+.ps-lam-result {
+  display: block; width: 100%; text-align: left;
+  padding: 8px 10px; background: transparent; border: none;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer; font-family: var(--font-ui);
+}
+.ps-lam-result:last-child { border-bottom: none; }
+.ps-lam-result:hover { background: var(--bg-hover); }
+.ps-lam-result.selected { background: rgba(79,142,247,0.12); }
+.ps-lam-result-title {
+  font-size: var(--fs-base); font-weight: 600; color: var(--text-primary);
+}
+.ps-lam-result-sub {
+  font-size: var(--fs-base); color: var(--text-dim); margin-top: 2px;
+}
+
+.ps-lam-remove {
+  background: transparent; border: none; color: var(--text-disabled);
+  cursor: pointer; font-size: var(--fs-base); padding: 2px 6px;
+  border-radius: var(--radius-md); transition: color var(--transition-std), background var(--transition-std);
+}
+.ps-lam-remove:hover { color: #e05555; background: rgba(224,85,85,0.1); }
+
+/* ── LAYUP COMPOSER SLOTS ─────────────────────────────────── */
+.ps-layup-slot { margin-top: 12px; }
+.ps-layup-slot:first-child { margin-top: 0; }
+.ps-layup-slot-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
+}
+.ps-layup-slot-label { margin: 0; }
+.ps-layup-slot-choose {
+  background: transparent; border: 1px dashed var(--border-medium);
+  color: var(--accent); border-radius: var(--radius-md);
+  font-size: var(--fs-base); font-family: var(--font-ui);
+  padding: 4px 10px; cursor: pointer;
+  transition: border-color var(--transition-std), background var(--transition-std);
+}
+.ps-layup-slot-choose:hover { background: rgba(79,142,247,0.08); border-color: var(--accent); }
+.ps-layup-slot-filled {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(79,142,247,0.12); border-radius: var(--radius-md);
+  padding: 3px 4px 3px 10px; max-width: 100%;
+}
+.ps-layup-slot-summary {
+  font-size: var(--fs-base); color: var(--text-primary);
+  font-family: var(--font-ui); white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.ps-layup-slot-picker { margin-top: 6px; }
+
+/* ── EDGEBAND THICKNESS DROPDOWN (inline, in the table) ────── */
+.ps-edgeband-thickness-select {
+  height: 26px; padding: 0 6px;
+  background: var(--bg-input); color: var(--text-secondary);
+  border: 1px solid var(--border-medium); border-radius: var(--radius-sm);
+  outline: none; font-size: var(--fs-base); font-family: var(--font-ui);
+  cursor: pointer;
+}
+.ps-edgeband-thickness-select:hover,
+.ps-edgeband-thickness-select:focus { border-color: var(--accent); }

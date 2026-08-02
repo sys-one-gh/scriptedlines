@@ -42,54 +42,61 @@ class Project(Base):
     # ── Identity ─────────────────────────────────────────────
     # project_number: auto-assigned by system per user (1, 2, 3...)
     # job_number:     user-assigned workplace number (e.g. 1930) — unique per user
+    #
+    # Below: NOT NULL wherever "" / false / "active" IS the value
+    # when nothing's been entered — not "unknown". Left nullable
+    # (project_grade, standard, scheduled_*, project_budget,
+    # updated_at) where NULL means something genuinely different
+    # from any concrete value: "not yet specified," which a
+    # fabricated default (e.g. budget=0) would misrepresent.
     project_name   = Column(String,  nullable=False)
     project_number = Column(Integer, nullable=False)  # auto-assigned
-    job_number     = Column(String,  default="")      # user workplace number
-    description    = Column(Text,    default="")
+    job_number     = Column(String, nullable=False, server_default="")  # user workplace number
+    description    = Column(Text,   nullable=False, server_default="")
 
     # ── Classification ───────────────────────────────────────
     project_grade = Column(Enum(ProjectGrade),    nullable=True)
     standard      = Column(Enum(ProjectStandard), nullable=True)
 
     # ── Client ───────────────────────────────────────────────
-    client_name    = Column(String, default="")
-    client_address = Column(String, default="")
-    client_phone   = Column(String, default="")
-    client_fax     = Column(String, default="")
-    client_email   = Column(String, default="")
+    client_name    = Column(String, nullable=False, server_default="")
+    client_address = Column(String, nullable=False, server_default="")
+    client_phone   = Column(String, nullable=False, server_default="")
+    client_fax     = Column(String, nullable=False, server_default="")
+    client_email   = Column(String, nullable=False, server_default="")
 
     # ── Job site ─────────────────────────────────────────────
-    jobsite_name    = Column(String, default="")
-    jobsite_address = Column(String, default="")
-    jobsite_phone   = Column(String, default="")
-    jobsite_fax     = Column(String, default="")
-    jobsite_email   = Column(String, default="")
+    jobsite_name    = Column(String, nullable=False, server_default="")
+    jobsite_address = Column(String, nullable=False, server_default="")
+    jobsite_phone   = Column(String, nullable=False, server_default="")
+    jobsite_fax     = Column(String, nullable=False, server_default="")
+    jobsite_email   = Column(String, nullable=False, server_default="")
 
     # ── Team ─────────────────────────────────────────────────
-    contractor_name = Column(String, default="")
-    architect_name  = Column(String, default="")
-    estimator_name  = Column(String, default="")
-    project_manager = Column(String, default="")
-    draftsman       = Column(String, default="")
-    drawn_by        = Column(String, default="")
-    checked_by      = Column(String, default="")
+    contractor_name = Column(String, nullable=False, server_default="")
+    architect_name  = Column(String, nullable=False, server_default="")
+    estimator_name  = Column(String, nullable=False, server_default="")
+    project_manager = Column(String, nullable=False, server_default="")
+    draftsman       = Column(String, nullable=False, server_default="")
+    drawn_by        = Column(String, nullable=False, server_default="")
+    checked_by      = Column(String, nullable=False, server_default="")
 
     # ── Schedule and budget ───────────────────────────────────
     scheduled_start_date        = Column(Date,  nullable=True)
     scheduled_completion_date   = Column(Date,  nullable=True)
-    project_budget              = Column(Float, nullable=True)
+    project_budget               = Column(Float, nullable=True)
 
     # ── Compliance ───────────────────────────────────────────
-    compliance_leed = Column(Boolean, default=False)
-    compliance_fsc  = Column(Boolean, default=False)
-    compliance_fr   = Column(Boolean, default=False)
+    compliance_leed = Column(Boolean, nullable=False, server_default="false")
+    compliance_fsc  = Column(Boolean, nullable=False, server_default="false")
+    compliance_fr   = Column(Boolean, nullable=False, server_default="false")
 
     # ── Status ───────────────────────────────────────────────
-    status      = Column(Enum(ProjectStatus), default=ProjectStatus.active)
-    is_inactive = Column(Boolean, default=False)
+    status      = Column(Enum(ProjectStatus), nullable=False, server_default=ProjectStatus.active.value)
+    is_inactive = Column(Boolean, nullable=False, server_default="false")
 
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), nullable=True, onupdate=func.now())
 
     # ── Relationships ────────────────────────────────────────
     company         = relationship("Company", back_populates="projects")

@@ -16,11 +16,25 @@ from sqlalchemy.orm import Session
 from database import get_db
 from models.drawing_product import DrawingProduct
 from models.drawing import Drawing
+from models.project import Project
 from models.product import Product
+from models.user import User
+from auth import get_current_user, require_same_company
 from pydantic import BaseModel
 from typing import Optional
 
 router = APIRouter()
+
+
+def _load_owned_drawing(drawing_id: int, db: Session, current_user: User) -> Drawing:
+    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
+    if not drawing:
+        raise HTTPException(status_code=404, detail="Drawing not found")
+    project = db.query(Project).filter(Project.id == drawing.project_id).first()
+    if not project:
+        raise HTTPException(status_code=404, detail="Drawing not found")
+    require_same_company(project.company_id, current_user)
+    return drawing
 
 
 # ─── SCHEMAS ─────────────────────────────────────────────────
@@ -172,11 +186,9 @@ def _generate_instance_code(drawing_id: int, product_code: str, db: Session) -> 
 
 # ─── SAVE PRODUCT TO DRAWING ─────────────────────────────────
 @router.post("/drawings/{drawing_id}/products")
-def save_product(drawing_id: int, data: DrawingProductCreate, db: Session = Depends(get_db)):
+def save_product(drawing_id: int, data: DrawingProductCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    _load_owned_drawing(drawing_id, db, current_user)
 
     library_product = db.query(Product).filter(Product.id == data.product_id).first()
     if not library_product:
@@ -234,7 +246,9 @@ def save_product(drawing_id: int, data: DrawingProductCreate, db: Session = Depe
 
 # ─── LIST PRODUCTS ON DRAWING ────────────────────────────────
 @router.get("/drawings/{drawing_id}/products")
-def list_products(drawing_id: int, db: Session = Depends(get_db)):
+def list_products(drawing_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+
+    _load_owned_drawing(drawing_id, db, current_user)
 
     products = db.query(DrawingProduct).filter(
         DrawingProduct.drawing_id == drawing_id,
@@ -249,7 +263,9 @@ def list_products(drawing_id: int, db: Session = Depends(get_db)):
 
 # ─── UPDATE PRODUCT ──────────────────────────────────────────
 @router.put("/drawings/{drawing_id}/products/{product_id}")
-def update_product(drawing_id: int, product_id: int, data: DrawingProductUpdate, db: Session = Depends(get_db)):
+def update_product(drawing_id: int, product_id: int, data: DrawingProductUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+
+    _load_owned_drawing(drawing_id, db, current_user)
 
     dp = db.query(DrawingProduct).filter(
         DrawingProduct.id         == product_id,
@@ -270,7 +286,9 @@ def update_product(drawing_id: int, product_id: int, data: DrawingProductUpdate,
 
 # ─── REMOVE PRODUCT FROM DRAWING ────────────────────────────
 @router.delete("/drawings/{drawing_id}/products/{product_id}")
-def remove_product(drawing_id: int, product_id: int, db: Session = Depends(get_db)):
+def remove_product(drawing_id: int, product_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+
+    _load_owned_drawing(drawing_id, db, current_user)
 
     dp = db.query(DrawingProduct).filter(
         DrawingProduct.id         == product_id,

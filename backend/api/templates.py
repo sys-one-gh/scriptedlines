@@ -11,6 +11,8 @@ from sqlalchemy.orm import Session
 from database import get_db
 from models.drawing import DrawingTemplate
 from models.project import Project
+from models.user import User
+from auth import get_current_user, require_same_company
 from pydantic import BaseModel
 from typing import Optional, Any
 from datetime import date
@@ -79,7 +81,7 @@ def template_to_dict(t: DrawingTemplate) -> dict:
 
 
 @router.get("/templates/project/{project_id}")
-def get_template(project_id: int, db: Session = Depends(get_db)):
+def get_template(project_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     """
     Get template for a project.
     Auto-creates an empty template if none exists yet —
@@ -89,6 +91,7 @@ def get_template(project_id: int, db: Session = Depends(get_db)):
     project = db.query(Project).filter(Project.id == project_id).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
+    require_same_company(project.company_id, current_user)
 
     template = db.query(DrawingTemplate).filter(
         DrawingTemplate.project_id == project_id
@@ -116,7 +119,12 @@ def get_template(project_id: int, db: Session = Depends(get_db)):
 
 
 @router.put("/templates/project/{project_id}")
-def update_template(project_id: int, data: TemplateUpdate, db: Session = Depends(get_db)):
+def update_template(project_id: int, data: TemplateUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    project = db.query(Project).filter(Project.id == project_id).first()
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+    require_same_company(project.company_id, current_user)
+
     template = db.query(DrawingTemplate).filter(
         DrawingTemplate.project_id == project_id
     ).first()

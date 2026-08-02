@@ -3,6 +3,9 @@
 #
 # project_number — auto-assigned integer per user (1, 2, 3...)
 # job_number     — user-assigned, validated unique per user
+#
+# company_id / created_by are derived from the authenticated user,
+# never accepted from the client.
 # ─────────────────────────────────────────────────────────────
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -10,6 +13,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from database import get_db
 from models.project import Project, ProjectGrade, ProjectStandard, ProjectStatus
+from models.user import User, UserRole
+from auth import get_current_user, require_same_company, require_not_viewer
 from pydantic import BaseModel
 from typing import Optional
 from datetime import date
@@ -18,8 +23,6 @@ router = APIRouter()
 
 
 class ProjectCreate(BaseModel):
-    company_id:     int
-    created_by:     int
     project_name:   str
     job_number:     Optional[str] = ""
     description:    Optional[str] = ""
@@ -125,9 +128,32 @@ def project_to_dict(p: Project, db: Session) -> dict:
 
 
 def _next_project_number(user_id: int, db: Session) -> int:
-    """Auto-assigns next project number for this user starting from 1."""
+    """
+    Auto-assigns next project number for this user starting from 1.
+    Uses SELECT ... FOR UPDATE to serialize concurrent creates from the
+    same user so two simultaneous requests can't be handed the same number.
+    """
+    db.execute(
+        text("SELECT id FROM projects WHERE created_by = :uid FOR UPDATE"),
+        {"uid": user_id},
+    )
     count = db.query(Project).filter(Project.created_by == user_id).count()
     return count + 1
+
+
+def _require_write_access(project: Project, current_user: User):
+    """Company-boundary check for project writes. require_same_company itself
+    stays untouched (read paths and other routers still rely on its plain
+    404) — this local helper only adds a clearer 403 for the one case where
+    it's safe to be specific: a platform admin, who already has legitimate
+    read access to this project, hitting the read-only boundary."""
+    if project.company_id != current_user.company_id:
+        if current_user.role == UserRole.scriptedlines_admin:
+            raise HTTPException(
+                status_code=403,
+                detail="ScriptedLines admins have read-only access and can't create or edit projects outside their own company.",
+            )
+        raise HTTPException(status_code=404, detail="Not found")
 
 
 def _validate_job_number(job_number: str, user_id: int, db: Session, exclude_id: int = None):
@@ -151,10 +177,12 @@ def _validate_job_number(job_number: str, user_id: int, db: Session, exclude_id:
 
 # ─── CREATE ──────────────────────────────────────────────────
 @router.post("/projects")
-def create_project(data: ProjectCreate, db: Session = Depends(get_db)):
+def create_project(data: ProjectCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+
+    require_not_viewer(current_user, "create projects")
 
     # Validate job number uniqueness
-    _validate_job_number(data.job_number, data.created_by, db)
+    _validate_job_number(data.job_number, current_user.id, db)
 
     # Resolve enums
     grade = None
@@ -168,10 +196,10 @@ def create_project(data: ProjectCreate, db: Session = Depends(get_db)):
         except KeyError: raise HTTPException(status_code=400, detail=f"Invalid standard: {data.standard}")
 
     project = Project(
-        company_id      = data.company_id,
-        created_by      = data.created_by,
+        company_id      = current_user.company_id,
+        created_by      = current_user.id,
         project_name    = data.project_name,
-        project_number  = _next_project_number(data.created_by, db),
+        project_number  = _next_project_number(current_user.id, db),
         job_number      = data.job_number     or "",
         description     = data.description    or "",
         project_grade   = grade,
@@ -212,12 +240,16 @@ def create_project(data: ProjectCreate, db: Session = Depends(get_db)):
 
 # ─── LIST ────────────────────────────────────────────────────
 @router.get("/projects")
-def list_projects(company_id: int, db: Session = Depends(get_db)):
+def list_projects(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    projects = db.query(Project).filter(
-        Project.company_id == company_id,
-        Project.is_inactive == False,
-    ).order_by(Project.project_number).all()
+    # Platform admins get read-only visibility across every company —
+    # everyone else stays scoped to their own. This is the only
+    # exception to tenant isolation anywhere in this file; create/update/
+    # delete below are untouched and always company-scoped.
+    query = db.query(Project).filter(Project.is_inactive == False)
+    if current_user.role != UserRole.scriptedlines_admin:
+        query = query.filter(Project.company_id == current_user.company_id)
+    projects = query.order_by(Project.project_number).all()
 
     active   = [project_to_dict(p, db) for p in projects if p.status == ProjectStatus.active]
     archived = [project_to_dict(p, db) for p in projects if p.status == ProjectStatus.archived]
@@ -233,23 +265,28 @@ def list_projects(company_id: int, db: Session = Depends(get_db)):
 
 # ─── GET ─────────────────────────────────────────────────────
 @router.get("/projects/{project_id}")
-def get_project(project_id: int, db: Session = Depends(get_db)):
+def get_project(project_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     project = db.query(Project).filter(
         Project.id == project_id,
         Project.is_inactive == False,
     ).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
+    # Read-only platform-admin exception — see list_projects above.
+    if current_user.role != UserRole.scriptedlines_admin:
+        require_same_company(project.company_id, current_user)
     return {"status": "ok", "project": project_to_dict(project, db)}
 
 
 # ─── UPDATE ──────────────────────────────────────────────────
 @router.put("/projects/{project_id}")
-def update_project(project_id: int, data: ProjectUpdate, db: Session = Depends(get_db)):
+def update_project(project_id: int, data: ProjectUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
     project = db.query(Project).filter(Project.id == project_id).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
+    _require_write_access(project, current_user)
+    require_not_viewer(current_user, "edit projects")
 
     updates = data.model_dump(exclude_none=True)
 
@@ -280,10 +317,12 @@ def update_project(project_id: int, data: ProjectUpdate, db: Session = Depends(g
 
 # ─── SOFT DELETE ─────────────────────────────────────────────
 @router.delete("/projects/{project_id}")
-def delete_project(project_id: int, db: Session = Depends(get_db)):
+def delete_project(project_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     project = db.query(Project).filter(Project.id == project_id).first()
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
+    _require_write_access(project, current_user)
+    require_not_viewer(current_user, "archive projects")
     project.is_inactive = True
     project.status      = ProjectStatus.archived
     db.commit()

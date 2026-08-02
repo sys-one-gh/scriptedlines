@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
-// Company id is fixed to 1 (ScriptedLines) for now.
-// Multi-company registration added when billing is built.
-const COMPANY_ID = 1;
+import { API_BASE, setSession } from "../api/client.js";
 
 function RegisterPage() {
 
@@ -23,6 +20,20 @@ function RegisterPage() {
   const [showPass,    setShowPass]    = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
+  const [isPlatformAdmin, setIsPlatformAdmin] = useState(false);
+  const [adminSecret,     setAdminSecret]     = useState("");
+
+  const [mode,        setMode]        = useState("join"); // "join" | "create"
+  const [joinCode,    setJoinCode]    = useState("");
+  const [companyName, setCompanyName] = useState("");
+
+  // Set after a successful "create company" registration — swaps the
+  // form out for a one-time reveal of the join code. There's no
+  // company-settings screen to view it again later yet, so this is
+  // the only moment it's shown (besides the owner/admin-gated API).
+  const [createdCompany, setCreatedCompany] = useState(null);
+  const [copied,         setCopied]         = useState(false);
+
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
     setError("");
@@ -41,6 +52,9 @@ function RegisterPage() {
     if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(form.password))
                                                return "Password must contain at least one special character (!@#$%^&* etc).";
     if (form.password !== form.confirm)        return "Passwords do not match.";
+    if (isPlatformAdmin && !adminSecret.trim()) return "Admin secret code is required.";
+    if (!isPlatformAdmin && mode === "join" && !joinCode.trim())     return "Company join code is required.";
+    if (!isPlatformAdmin && mode === "create" && !companyName.trim()) return "Company name is required.";
     return null;
   }
 
@@ -55,19 +69,32 @@ function RegisterPage() {
 
     setLoading(true);
 
-    try {
-      const res = await fetch("http://localhost:8000/api/users/register", {
-        method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          company_id: COMPANY_ID,
+    const isCreatingCompany = !isPlatformAdmin && mode === "create";
+    const endpoint = isCreatingCompany ? "/companies/register" : "/users/register";
+    const body = isCreatingCompany
+      ? {
+          company_name: companyName.trim(),
+          first_name:   form.first_name.trim(),
+          last_name:    form.last_name.trim(),
+          email:        form.email.trim().toLowerCase(),
+          password:     form.password,
+          initials:     form.initials.trim().toUpperCase(),
+        }
+      : {
           first_name: form.first_name.trim(),
           last_name:  form.last_name.trim(),
           email:      form.email.trim().toLowerCase(),
           password:   form.password,
           initials:   form.initials.trim().toUpperCase(),
-          role:       "draftsman",
-        }),
+          join_code:              isPlatformAdmin ? undefined : joinCode.trim(),
+          platform_admin_secret:  isPlatformAdmin ? adminSecret : undefined,
+        };
+
+    try {
+      const res = await fetch(`${API_BASE}${endpoint}`, {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
       });
 
       const data = await res.json();
@@ -78,8 +105,14 @@ function RegisterPage() {
         return;
       }
 
-      // Registration successful — go to login
-      navigate("/login");
+      setSession(data.user, data.access_token);
+
+      if (isCreatingCompany) {
+        setCreatedCompany(data.company);
+        setLoading(false);
+      } else {
+        navigate("/projects");
+      }
 
     } catch {
       setError("Could not connect to server. Make sure the backend is running.");
@@ -87,30 +120,54 @@ function RegisterPage() {
     }
   }
 
+  function copyJoinCode() {
+    navigator.clipboard.writeText(createdCompany.join_code).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    });
+  }
+
   return (
     <div style={styles.page}>
 
-      {/* ── BACKGROUND GRID ──────────────────────────────────── */}
       <div style={styles.grid} />
 
-      {/* ── CARD ─────────────────────────────────────────────── */}
       <div style={styles.card}>
 
-        {/* Logo */}
+        {/* Logo — intentionally excluded from font-size token scale */}
         <div style={styles.logoBlock}>
           <div style={styles.logoMark}>SL</div>
           <div style={styles.logoText}>ScriptedLines</div>
         </div>
 
+        {createdCompany ? (
+          <>
+            <p style={styles.subtitle}>Company created 🎉</p>
+
+            <div style={styles.revealPanel}>
+              <p style={styles.revealCompanyName}>{createdCompany.company_name}</p>
+              <p style={styles.revealHint}>Share this code with your team so they can join:</p>
+              <div style={styles.revealCodeRow}>
+                <span style={styles.revealCode}>{createdCompany.join_code}</span>
+                <button type="button" onClick={copyJoinCode} style={styles.copyBtn}>
+                  {copied ? "Copied ✓" : "Copy"}
+                </button>
+              </div>
+            </div>
+
+            <button type="button" onClick={() => navigate("/projects")} style={styles.submitBtn}>
+              Continue to Projects →
+            </button>
+          </>
+        ) : (
+        <>
+
         <p style={styles.subtitle}>Create your account</p>
 
-        {/* Error */}
         {error && <div style={styles.errorBox}>{error}</div>}
 
-        {/* Form */}
         <form onSubmit={handleSubmit} style={styles.form}>
 
-          {/* Name row */}
           <div style={styles.row}>
             <div style={{ ...styles.fieldGroup, flex: 1 }}>
               <label style={styles.label}>FIRST NAME</label>
@@ -137,7 +194,6 @@ function RegisterPage() {
             </div>
           </div>
 
-          {/* Email + Initials row */}
           <div style={styles.row}>
             <div style={{ ...styles.fieldGroup, flex: 2 }}>
               <label style={styles.label}>EMAIL</label>
@@ -165,7 +221,6 @@ function RegisterPage() {
             </div>
           </div>
 
-          {/* Password */}
           <div style={styles.fieldGroup}>
             <label style={styles.label}>PASSWORD</label>
             <div style={styles.passwordWrap}>
@@ -189,12 +244,10 @@ function RegisterPage() {
             </div>
           </div>
 
-          {/* Password hint */}
           <p style={styles.hint}>
             Must include uppercase, lowercase, number, and special character (!@#$%^&* etc).
           </p>
 
-          {/* Confirm Password */}
           <div style={styles.fieldGroup}>
             <label style={styles.label}>CONFIRM PASSWORD</label>
             <div style={styles.passwordWrap}>
@@ -218,21 +271,97 @@ function RegisterPage() {
             </div>
           </div>
 
+          {!isPlatformAdmin && (
+            <>
+              <div style={styles.modeToggle}>
+                <button
+                  type="button"
+                  onClick={() => { setMode("join"); setError(""); }}
+                  style={{ ...styles.modeBtn, ...(mode === "join" ? styles.modeBtnActive : {}) }}
+                >
+                  Join a Company
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setMode("create"); setError(""); }}
+                  style={{ ...styles.modeBtn, ...(mode === "create" ? styles.modeBtnActive : {}) }}
+                >
+                  Create a Company
+                </button>
+              </div>
+
+              {mode === "join" ? (
+                <div style={styles.fieldGroup}>
+                  <label style={styles.label}>COMPANY JOIN CODE</label>
+                  <input
+                    name="joinCode"
+                    type="text"
+                    value={joinCode}
+                    onChange={e => { setJoinCode(e.target.value); setError(""); }}
+                    placeholder="e.g. WHRK7F3M"
+                    style={styles.input}
+                    autoCapitalize="characters"
+                  />
+                </div>
+              ) : (
+                <div style={styles.fieldGroup}>
+                  <label style={styles.label}>COMPANY NAME</label>
+                  <input
+                    name="companyName"
+                    type="text"
+                    value={companyName}
+                    onChange={e => { setCompanyName(e.target.value); setError(""); }}
+                    placeholder="e.g. Thunder Bay Millwork"
+                    style={styles.input}
+                  />
+                </div>
+              )}
+            </>
+          )}
+
+          <label style={styles.checkboxLabel}>
+            <input
+              type="checkbox"
+              checked={isPlatformAdmin}
+              onChange={e => { setIsPlatformAdmin(e.target.checked); setError(""); }}
+            />
+            Register as a ScriptedLines Admin
+          </label>
+
+          {isPlatformAdmin && (
+            <div style={styles.fieldGroup}>
+              <label style={styles.label}>ADMIN SECRET CODE</label>
+              <input
+                name="adminSecret"
+                type="password"
+                value={adminSecret}
+                onChange={e => { setAdminSecret(e.target.value); setError(""); }}
+                placeholder="Provided by ScriptedLines"
+                style={styles.input}
+                autoComplete="off"
+              />
+            </div>
+          )}
+
           <button
             type="submit"
             style={{ ...styles.submitBtn, opacity: loading ? 0.7 : 1 }}
             disabled={loading}
           >
-            {loading ? "Creating account..." : "Create Account"}
+            {loading
+              ? "Creating..."
+              : !isPlatformAdmin && mode === "create" ? "Create Company" : "Create Account"}
           </button>
 
         </form>
 
-        {/* Login link */}
         <p style={styles.footerText}>
           Already have an account?{" "}
           <Link to="/login" style={styles.link}>Sign in</Link>
         </p>
+
+        </>
+        )}
 
       </div>
     </div>
@@ -241,6 +370,9 @@ function RegisterPage() {
 
 
 // ─── STYLES ──────────────────────────────────────────────────
+// Font sizes use --fs-base/--fs-md/--fs-lg tokens (see tokens.css).
+// logoMark/logoText are the ScriptedLines brand mark — intentionally
+// left hardcoded. eyeBtn sizes an emoji icon (🙈/👁) — uses --icon-sm.
 const styles = {
   page: {
     width:           "100vw",
@@ -288,7 +420,7 @@ const styles = {
     display:         "flex",
     alignItems:      "center",
     justifyContent:  "center",
-    fontSize:        "13px",
+    fontSize:        "13px",   /* logo — intentionally excluded */
     fontWeight:      "700",
     color:           "#ffffff",
     letterSpacing:   "0.5px",
@@ -296,14 +428,14 @@ const styles = {
   },
 
   logoText: {
-    fontSize:        "20px",
+    fontSize:        "20px",   /* logo — intentionally excluded */
     fontWeight:      "600",
     color:           "#ffffff",
     letterSpacing:   "0.3px",
   },
 
   subtitle: {
-    fontSize:        "13px",
+    fontSize:        "var(--fs-base)",
     color:           "#666666",
     marginBottom:    "28px",
     marginTop:       "4px",
@@ -314,7 +446,7 @@ const styles = {
     border:          "1px solid #5a2020",
     borderRadius:    "4px",
     padding:         "10px 14px",
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     color:           "#f47070",
     marginBottom:    "20px",
   },
@@ -337,7 +469,7 @@ const styles = {
   },
 
   label: {
-    fontSize:        "10px",
+    fontSize:        "var(--fs-base)",
     fontWeight:      "500",
     color:           "#555555",
     letterSpacing:   "1px",
@@ -352,7 +484,7 @@ const styles = {
     border:          "1px solid #333333",
     borderRadius:    "4px",
     outline:         "none",
-    fontSize:        "13px",
+    fontSize:        "var(--fs-base)",
     fontFamily:      "'DM Sans', sans-serif",
     width:           "100%",
     boxSizing:       "border-box",
@@ -371,7 +503,7 @@ const styles = {
     background:      "transparent",
     border:          "none",
     cursor:          "pointer",
-    fontSize:        "14px",
+    fontSize:        "var(--icon-sm)",
     padding:         "0",
     lineHeight:      "1",
   },
@@ -382,7 +514,7 @@ const styles = {
     color:           "#ffffff",
     border:          "none",
     borderRadius:    "4px",
-    fontSize:        "14px",
+    fontSize:        "var(--fs-md)",
     fontWeight:      "600",
     fontFamily:      "'DM Sans', sans-serif",
     cursor:          "pointer",
@@ -391,7 +523,7 @@ const styles = {
   },
 
   footerText: {
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     color:           "#555555",
     textAlign:       "center",
     marginTop:       "24px",
@@ -404,11 +536,100 @@ const styles = {
   },
 
   hint: {
-    fontSize:        "11px",
+    fontSize:        "var(--fs-base)",
     color:           "#555555",
     marginTop:       "-8px",
     lineHeight:      "1.5",
     fontFamily:      "'IBM Plex Sans', monospace",
+  },
+
+  checkboxLabel: {
+    display:         "flex",
+    alignItems:      "center",
+    gap:             "8px",
+    fontSize:        "var(--fs-base)",
+    color:           "#aaaaaa",
+    fontFamily:      "'DM Sans', sans-serif",
+    cursor:          "pointer",
+  },
+
+  modeToggle: {
+    display:         "flex",
+    gap:             "8px",
+    marginBottom:    "-4px",
+  },
+
+  modeBtn: {
+    flex:            1,
+    height:          "36px",
+    background:      "transparent",
+    color:           "#888888",
+    border:          "1px solid #333333",
+    borderRadius:    "4px",
+    fontSize:        "var(--fs-base)",
+    fontWeight:      "500",
+    fontFamily:      "'DM Sans', sans-serif",
+    cursor:          "pointer",
+    transition:      "border-color 0.15s, color 0.15s",
+  },
+
+  modeBtnActive: {
+    color:           "#4f8ef7",
+    border:          "1px solid #4f8ef7",
+  },
+
+  revealPanel: {
+    background:      "#141b2e",
+    border:          "1px solid #1a3a6a",
+    borderRadius:    "6px",
+    padding:         "18px",
+    marginBottom:    "8px",
+  },
+
+  revealCompanyName: {
+    fontSize:        "var(--fs-md)",
+    fontWeight:      "600",
+    color:           "#ffffff",
+    marginBottom:    "4px",
+  },
+
+  revealHint: {
+    fontSize:        "var(--fs-base)",
+    color:           "#888888",
+    marginBottom:    "12px",
+  },
+
+  revealCodeRow: {
+    display:         "flex",
+    alignItems:      "center",
+    gap:             "10px",
+  },
+
+  revealCode: {
+    flex:            1,
+    fontSize:        "var(--fs-lg)",
+    fontWeight:      "700",
+    letterSpacing:   "2px",
+    color:           "#4f8ef7",
+    fontFamily:      "'IBM Plex Sans', monospace",
+    background:      "#0d0d0d",
+    border:          "1px solid #2a2a2a",
+    borderRadius:    "4px",
+    padding:         "10px 14px",
+    textAlign:       "center",
+  },
+
+  copyBtn: {
+    height:          "40px",
+    padding:         "0 16px",
+    background:      "transparent",
+    color:           "#4f8ef7",
+    border:          "1px solid #4f8ef7",
+    borderRadius:    "4px",
+    fontSize:        "var(--fs-base)",
+    fontWeight:      "600",
+    fontFamily:      "'DM Sans', sans-serif",
+    cursor:          "pointer",
   },
 };
 

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { API_BASE, setSession } from "../api/client.js";
 
 const MAX_ATTEMPTS = 3;
 
-// ─── VIEWS ───────────────────────────────────────────────────
 // "login"       → normal login form
 // "restore"     → choose restore method (email or phone)
 // "code"        → enter the verification code sent
@@ -19,7 +19,6 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
-  // ─── LOGIN STATE ─────────────────────────────────────────
   const [form,        setForm]        = useState({ email: "", password: "" });
   const [error,       setError]       = useState("");
   const [loading,     setLoading]     = useState(false);
@@ -27,9 +26,8 @@ function LoginPage() {
   const [attempts,    setAttempts]    = useState(0);
   const [locked,      setLocked]      = useState(false);
 
-  // ─── RESTORE STATE ───────────────────────────────────────
   const [view,           setView]           = useState(VIEWS.LOGIN);
-  const [restoreMethod,  setRestoreMethod]  = useState("email");  // "email" or "phone"
+  const [restoreMethod,  setRestoreMethod]  = useState("email");
   const [restoreContact, setRestoreContact] = useState("");
   const [restoreCode,    setRestoreCode]    = useState("");
   const [enteredCode,    setEnteredCode]    = useState("");
@@ -40,7 +38,6 @@ function LoginPage() {
   const [showNewPass,    setShowNewPass]    = useState(false);
 
 
-  // ─── LOGIN HANDLERS ──────────────────────────────────────
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
     setError("");
@@ -58,7 +55,7 @@ function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/users/login", {
+      const res = await fetch(`${API_BASE}/users/login`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ email: form.email, password: form.password }),
@@ -80,7 +77,7 @@ function LoginPage() {
         return;
       }
 
-      localStorage.setItem("sl_user", JSON.stringify(data.user));
+      setSession(data.user, data.access_token);
       navigate("/projects");
 
     } catch {
@@ -90,7 +87,6 @@ function LoginPage() {
   }
 
 
-  // ─── RESTORE HANDLERS ────────────────────────────────────
   function handleRestoreSubmit(e) {
     e.preventDefault();
     setRestoreError("");
@@ -100,8 +96,6 @@ function LoginPage() {
       return;
     }
 
-    // TODO: In auth phase — call API to send real email/SMS code
-    // For now generate a fake 6-digit code and log it
     const code = Math.floor(100000 + Math.random() * 900000).toString();
     setRestoreCode(code);
     console.log(`[DEV] Restore code for ${restoreContact}: ${code}`);
@@ -159,8 +153,6 @@ function LoginPage() {
       return;
     }
 
-    // TODO: In auth phase — call API to update password
-    // For now reset to login with cleared attempts
     setAttempts(0);
     setLocked(false);
     setForm({ email: restoreContact, password: "" });
@@ -175,14 +167,13 @@ function LoginPage() {
   }
 
 
-  // ─── RENDER ──────────────────────────────────────────────
   return (
     <div style={styles.page}>
       <div style={styles.grid} />
 
       <div style={styles.card}>
 
-        {/* Logo */}
+        {/* Logo — intentionally excluded from font-size token scale */}
         <div style={styles.logoBlock}>
           <div style={styles.logoMark}>SL</div>
           <div style={styles.logoText}>ScriptedLines</div>
@@ -196,7 +187,6 @@ function LoginPage() {
             {error        && <div style={styles.errorBox}>{error}</div>}
             {restoreSuccess && <div style={styles.successBox}>{restoreSuccess}</div>}
 
-            {/* Attempt indicator */}
             {attempts > 0 && !locked && (
               <div style={styles.attemptBar}>
                 {[...Array(MAX_ATTEMPTS)].map((_, i) => (
@@ -256,7 +246,6 @@ function LoginPage() {
                 </div>
               </div>
 
-              {/* Main button — Sign In OR Restore Password */}
               {!locked ? (
                 <button
                   type="submit"
@@ -277,7 +266,6 @@ function LoginPage() {
 
             </form>
 
-            {/* Forgot password link — always visible */}
             {!locked && (
               <p style={{ ...styles.footerText, marginTop: "12px" }}>
                 <button
@@ -307,7 +295,6 @@ function LoginPage() {
 
             {restoreError && <div style={styles.errorBox}>{restoreError}</div>}
 
-            {/* Method toggle */}
             <div style={styles.methodToggle}>
               <button
                 type="button"
@@ -362,7 +349,7 @@ function LoginPage() {
               A 6-digit code was sent to <strong style={{ color: "#e0e0e0" }}>{restoreContact}</strong>.
               {" "}Check your {restoreMethod === "email" ? "inbox" : "messages"}.
             </p>
-            <p style={{ ...styles.bodyText, color: "#4f8ef7", fontSize: "11px" }}>
+            <p style={{ ...styles.bodyText, color: "#4f8ef7", fontSize: "var(--fs-base)" }}>
               [DEV] Check browser console for the code.
             </p>
 
@@ -377,7 +364,7 @@ function LoginPage() {
                   onChange={(e) => { setEnteredCode(e.target.value); setRestoreError(""); }}
                   placeholder="000000"
                   maxLength={6}
-                  style={{ ...styles.input, letterSpacing: "6px", fontSize: "18px", textAlign: "center" }}
+                  style={{ ...styles.input, letterSpacing: "6px", fontSize: "var(--fs-lg)", textAlign: "center" }}
                   autoFocus
                 />
               </div>
@@ -454,6 +441,10 @@ function LoginPage() {
 
 
 // ─── STYLES ──────────────────────────────────────────────────
+// Font sizes use --fs-base/--fs-md/--fs-lg tokens (see tokens.css).
+// logoMark/logoText are the ScriptedLines brand mark — intentionally
+// left hardcoded, not part of the token scale. eyeBtn sizes an emoji
+// icon (🙈/👁) — uses --icon-sm.
 const styles = {
   page: {
     width:           "100vw",
@@ -501,7 +492,7 @@ const styles = {
     display:         "flex",
     alignItems:      "center",
     justifyContent:  "center",
-    fontSize:        "13px",
+    fontSize:        "13px",   /* logo — intentionally excluded */
     fontWeight:      "700",
     color:           "#ffffff",
     letterSpacing:   "0.5px",
@@ -509,21 +500,21 @@ const styles = {
   },
 
   logoText: {
-    fontSize:        "20px",
+    fontSize:        "20px",   /* logo — intentionally excluded */
     fontWeight:      "600",
     color:           "#ffffff",
     letterSpacing:   "0.3px",
   },
 
   subtitle: {
-    fontSize:        "13px",
+    fontSize:        "var(--fs-base)",
     color:           "#666666",
     marginBottom:    "20px",
     marginTop:       "4px",
   },
 
   bodyText: {
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     color:           "#777777",
     marginBottom:    "20px",
     lineHeight:      "1.6",
@@ -534,7 +525,7 @@ const styles = {
     border:          "1px solid #5a2020",
     borderRadius:    "4px",
     padding:         "10px 14px",
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     color:           "#f47070",
     marginBottom:    "16px",
   },
@@ -544,12 +535,11 @@ const styles = {
     border:          "1px solid #205a20",
     borderRadius:    "4px",
     padding:         "10px 14px",
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     color:           "#70c870",
     marginBottom:    "16px",
   },
 
-  // Attempt dots indicator
   attemptBar: {
     display:         "flex",
     alignItems:      "center",
@@ -565,7 +555,7 @@ const styles = {
   },
 
   attemptText: {
-    fontSize:        "11px",
+    fontSize:        "var(--fs-base)",
     color:           "#f47070",
     marginLeft:      "4px",
     fontFamily:      "'IBM Plex Sans', monospace",
@@ -584,7 +574,7 @@ const styles = {
   },
 
   label: {
-    fontSize:        "10px",
+    fontSize:        "var(--fs-base)",
     fontWeight:      "500",
     color:           "#555555",
     letterSpacing:   "1px",
@@ -599,7 +589,7 @@ const styles = {
     border:          "1px solid #333333",
     borderRadius:    "4px",
     outline:         "none",
-    fontSize:        "13px",
+    fontSize:        "var(--fs-base)",
     fontFamily:      "'DM Sans', sans-serif",
     width:           "100%",
     boxSizing:       "border-box",
@@ -618,7 +608,7 @@ const styles = {
     background:      "transparent",
     border:          "none",
     cursor:          "pointer",
-    fontSize:        "14px",
+    fontSize:        "var(--icon-sm)",
     padding:         "0",
     lineHeight:      "1",
   },
@@ -629,28 +619,26 @@ const styles = {
     color:           "#ffffff",
     border:          "none",
     borderRadius:    "4px",
-    fontSize:        "14px",
+    fontSize:        "var(--fs-md)",
     fontWeight:      "600",
     fontFamily:      "'DM Sans', sans-serif",
     cursor:          "pointer",
     transition:      "background 0.15s",
   },
 
-  // Restore button — orange/warning color to signal account is locked
   restoreBtn: {
     height:          "42px",
     background:      "#c8712a",
     color:           "#ffffff",
     border:          "none",
     borderRadius:    "4px",
-    fontSize:        "14px",
+    fontSize:        "var(--fs-md)",
     fontWeight:      "600",
     fontFamily:      "'DM Sans', sans-serif",
     cursor:          "pointer",
     transition:      "background 0.15s",
   },
 
-  // Method toggle buttons (email / phone)
   methodToggle: {
     display:         "flex",
     gap:             "8px",
@@ -664,7 +652,7 @@ const styles = {
     color:           "#777777",
     border:          "1px solid #333333",
     borderRadius:    "4px",
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     fontFamily:      "'DM Sans', sans-serif",
     cursor:          "pointer",
     transition:      "all 0.15s",
@@ -677,7 +665,7 @@ const styles = {
   },
 
   footerText: {
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     color:           "#555555",
     textAlign:       "center",
     marginTop:       "20px",
@@ -693,14 +681,14 @@ const styles = {
     background:      "none",
     border:          "none",
     color:           "#4f8ef7",
-    fontSize:        "12px",
+    fontSize:        "var(--fs-base)",
     cursor:          "pointer",
     fontFamily:      "'DM Sans', sans-serif",
     padding:         "0",
   },
 
   hint: {
-    fontSize:        "11px",
+    fontSize:        "var(--fs-base)",
     color:           "#555555",
     lineHeight:      "1.5",
     fontFamily:      "'IBM Plex Sans', monospace",

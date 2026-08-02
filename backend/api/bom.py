@@ -18,6 +18,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
 from models.drawing import Drawing
+from models.project import Project
+from models.user import User
 from models.drawing_bom import (
     DrawingBomProduct,
     DrawingBomHardware,
@@ -25,11 +27,23 @@ from models.drawing_bom import (
     DrawingBomEdgeBand,
     DrawingBomPart,
 )
+from auth import get_current_user, require_same_company
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
 router = APIRouter()
+
+
+def _load_owned_drawing(drawing_id: int, db: Session, current_user: User) -> Drawing:
+    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
+    if not drawing:
+        raise HTTPException(status_code=404, detail="Drawing not found")
+    project = db.query(Project).filter(Project.id == drawing.project_id).first()
+    if not project:
+        raise HTTPException(status_code=404, detail="Drawing not found")
+    require_same_company(project.company_id, current_user)
+    return drawing
 
 
 # ─── SCHEMAS ─────────────────────────────────────────────────
@@ -97,11 +111,9 @@ class BomPartCreate(BaseModel):
 
 # ─── GET FULL BOM ────────────────────────────────────────────
 @router.get("/bom/{drawing_id}")
-def get_bom(drawing_id: int, db: Session = Depends(get_db)):
+def get_bom(drawing_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     products   = db.query(DrawingBomProduct).filter(DrawingBomProduct.drawing_id   == drawing_id).order_by(DrawingBomProduct.sort_order).all()
     hardware   = db.query(DrawingBomHardware).filter(DrawingBomHardware.drawing_id  == drawing_id).order_by(DrawingBomHardware.sort_order).all()
@@ -123,11 +135,9 @@ def get_bom(drawing_id: int, db: Session = Depends(get_db)):
 
 # ─── ADD BOM PRODUCT ─────────────────────────────────────────
 @router.post("/bom/{drawing_id}/products")
-def add_bom_product(drawing_id: int, data: BomProductCreate, db: Session = Depends(get_db)):
+def add_bom_product(drawing_id: int, data: BomProductCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     item = DrawingBomProduct(
         drawing_id      = drawing_id,
@@ -154,11 +164,9 @@ def add_bom_product(drawing_id: int, data: BomProductCreate, db: Session = Depen
 
 # ─── ADD BOM HARDWARE ────────────────────────────────────────
 @router.post("/bom/{drawing_id}/hardware")
-def add_bom_hardware(drawing_id: int, data: BomHardwareCreate, db: Session = Depends(get_db)):
+def add_bom_hardware(drawing_id: int, data: BomHardwareCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     # Aggregate — if code already exists, add quantity
     existing = db.query(DrawingBomHardware).filter(
@@ -189,11 +197,9 @@ def add_bom_hardware(drawing_id: int, data: BomHardwareCreate, db: Session = Dep
 
 # ─── ADD BOM SHEET GOODS ─────────────────────────────────────
 @router.post("/bom/{drawing_id}/sheetgoods")
-def add_bom_sheetgoods(drawing_id: int, data: BomSheetGoodsCreate, db: Session = Depends(get_db)):
+def add_bom_sheetgoods(drawing_id: int, data: BomSheetGoodsCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     # Aggregate — if material_code + thickness already exists, add sheets
     existing = db.query(DrawingBomSheetGoods).filter(
@@ -227,11 +233,9 @@ def add_bom_sheetgoods(drawing_id: int, data: BomSheetGoodsCreate, db: Session =
 
 # ─── ADD BOM EDGEBAND ────────────────────────────────────────
 @router.post("/bom/{drawing_id}/edgeband")
-def add_bom_edgeband(drawing_id: int, data: BomEdgeBandCreate, db: Session = Depends(get_db)):
+def add_bom_edgeband(drawing_id: int, data: BomEdgeBandCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     # Aggregate — if code already exists, add length
     existing = db.query(DrawingBomEdgeBand).filter(
@@ -263,11 +267,9 @@ def add_bom_edgeband(drawing_id: int, data: BomEdgeBandCreate, db: Session = Dep
 
 # ─── ADD BOM PARTS ───────────────────────────────────────────
 @router.post("/bom/{drawing_id}/parts")
-def add_bom_parts(drawing_id: int, data: BomPartCreate, db: Session = Depends(get_db)):
+def add_bom_parts(drawing_id: int, data: BomPartCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     item = DrawingBomPart(
         drawing_id         = drawing_id,
@@ -291,12 +293,10 @@ def add_bom_parts(drawing_id: int, data: BomPartCreate, db: Session = Depends(ge
 
 # ─── CLEAR ENTIRE BOM ────────────────────────────────────────
 @router.delete("/bom/{drawing_id}/clear")
-def clear_bom(drawing_id: int, db: Session = Depends(get_db)):
+def clear_bom(drawing_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     """Clears all BOM data for a drawing. Called by geometry engine before recalculating."""
 
-    drawing = db.query(Drawing).filter(Drawing.id == drawing_id).first()
-    if not drawing:
-        raise HTTPException(status_code=404, detail="Drawing not found")
+    drawing = _load_owned_drawing(drawing_id, db, current_user)
 
     db.query(DrawingBomProduct).filter(DrawingBomProduct.drawing_id     == drawing_id).delete()
     db.query(DrawingBomHardware).filter(DrawingBomHardware.drawing_id   == drawing_id).delete()
