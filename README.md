@@ -138,10 +138,59 @@ its first user as `owner`) or join an existing one via join code
 project/drawing by ID gets a vague 404 (anti-enumeration), except
 `scriptedlines_admin`, which gets an explicit 403 explaining the read-only boundary.
 
+### Row-Level Security
+Tenant isolation used to be enforced by application code alone — every
+`api/*.py` router filters by `company_id`/`project_id`, but nothing at the
+database layer backed that up, and the app connected as the Postgres
+`postgres` superuser (`BYPASSRLS`), so a missed filter in a future endpoint
+would have leaked data with nothing to catch it. Every project/drawing-scoped
+table now has real Postgres RLS policies as a second, independent backstop:
+
+- The app connects as `scriptedlines_app`, a restricted role with no
+  `BYPASSRLS` — policies actually apply to it. `auth.py`'s `get_current_user`
+  sets `app.company_id`/`app.user_role` as session-level Postgres GUCs (not
+  `LOCAL` — several endpoints `commit()` mid-request and keep querying
+  afterward, e.g. `db.add(); db.commit(); db.refresh()`, and a `LOCAL` value
+  resets at end-of-transaction, breaking exactly that pattern) right after
+  resolving the JWT, before any RLS-relevant query runs.
+- `projects`, `drawings`, `drawing_revisions`, `drawing_products` — company-
+  scoped, **plus** a `scriptedlines_admin` SELECT-only carve-out matching
+  what those endpoints already allow in application code (list/view any
+  company's projects and drawings, never write). Insert/update/delete has no
+  carve-out — matches `_require_write_access`'s existing 403 for admins.
+- `drawing_bom_*`, `drawing_templates`, and every `project_*` material/
+  hardware junction table (`project_laminates`, `project_cores`,
+  `project_melamine`, `project_hinges`, etc.) — strictly company-scoped, no
+  admin carve-out at all, matching those routers' existing behavior (they
+  403/404 `scriptedlines_admin` on cross-company access same as anyone else).
+- `companies`, `users`, and every global catalog table (`library_products`,
+  `laminates`, `library_melamine`, `library_hinges`, etc.) — RLS was already
+  flagged on for these with zero policies (a pre-existing Supabase default,
+  not something this added), which would have made them completely
+  inaccessible to a non-bypassing role. Given a permissive "allow all"
+  policy instead — `users`/`companies` inherently need cross-tenant lookup
+  for login/registration (you don't know the company until you find the
+  user by email), and the catalogs are meant to be shared by every tenant
+  anyway, so per-row restriction was never the right model for either.
+
+Schema/DDL work (creating the role, adding policies, altering tables) still
+needs the `postgres` superuser — get that connection string from the
+Supabase dashboard same as before, it's just no longer what the running app uses.
+
 ### Projects & Drawings
 Standard CRUD (`api/projects.py`, `api/drawings.py`, `api/drawing_products.py`).
 Drawing creation auto-creates a revision-00 row. Products dropped on a drawing
-canvas save to `drawing_products` (0 rows currently — not yet exercised for real).
+canvas save to `drawing_products` (0 real rows currently — not yet exercised
+end-to-end from the frontend, which has no drop-form UI for this yet).
+
+`DrawingProduct`'s material/hardware fields are real project-scoped
+references, not free text: `exterior/interior/back/subtop_material` are
+polymorphic (`project_layups` or `project_melamine`, same pattern as a
+Layup's own faces), `edge_banding`/`hinge`/`drawer_slide`/`pull`/`shelf_pin`
+are real FKs to their matching project-scoped table. All validated against
+the drawing's own project on create/update; reads return a resolved summary,
+not a bare id.
+
 BOM output tables exist and have a working CRUD API (`api/bom.py`:
 `drawing_bom_products/hardware/sheetgoods/edgeband/parts`) — but nothing
 computes into them yet; see NEXT_STEPS.md.

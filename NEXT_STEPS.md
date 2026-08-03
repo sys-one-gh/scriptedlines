@@ -19,47 +19,74 @@ get there, not all upfront.
 **Phase 1 — Close remaining catalog gaps — DONE.** Hardware catalog
 (hinges/drawer slides/handles/shelf supports) and edgebands both shipped.
 
-**Phase 2 — Make `DrawingProduct`'s material fields real references — NEXT, unblocked.**
-Right now `exterior_material`, `interior_material`, `back_material`,
-`subtop_material`, `edge_banding`, `hinge_code`, `drawer_slide_code`,
-`pull_code`, `shelf_pin_code` are plain free-text `String` columns on
-`DrawingProduct` — not references to anything, so the engine can't compute
-real thickness/cost/spec data from an arbitrary typed string.
-- Turn each material field into a real, project-scoped reference. Needs to be
-  polymorphic, same pattern as a Layup's own faces: a panel might be finished
-  via a `project_layup` (custom core+laminate combo) OR directly via a
-  `project_melamine` row (already a finished panel, no separate core) — two
-  valid ways to arrive at "a finished panel."
-- Same for hardware fields — reference project-scoped hardware selections
-  (`project_hinge`, `project_drawer_slide`, etc. — junction tables already exist).
+**Phase 2 — Make `DrawingProduct`'s material fields real references — DONE.**
+`exterior/interior/back/subtop_material` are now polymorphic
+(`*_type` + `*_id`, "layup" → `project_layups.id` or "melamine" →
+`project_melamine.id` — same pattern as `ProjectLayup`'s own faces, extend
+`SUPPORTED_MATERIAL_TYPES` in `api/drawing_products.py` for more types later).
+`edge_banding_id`/`hinge_id`/`drawer_slide_id`/`pull_id`/`shelf_pin_id` are
+real FKs to the matching project-scoped table. All validated against the
+drawing's own `project_id` on create/update; `product_to_dict` returns a
+resolved summary (not a bare id) for each. Verified live: create/list/update,
+a real FK rejecting a delete of an in-use hardware row, cross-project
+reference validation.
 
-**Phase 3 — Construction-rule data model — needs its own planning pass before coding.**
-The hard, central part. `library_products` today only stores coarse defaults
-(width/height/depth, door/drawer/shelf counts) — nothing about how a product
-decomposes into parts.
-- Design a part-template model per product: for a given product type, what
-  parts exist (Left Gable, Right Gable, Top, Bottom, Back, Shelf, Door...),
-  how each part's dimensions derive from the product's overall box dimensions
-  (offset formulas, not fixed numbers), which material surface each part
-  draws from, which edges get banding, grain direction per part.
-- Support variant branching — door/drawer/shelf count changes which parts
-  get generated (a 2-door base cabinet generates a different part list than
-  a 1-door one from the same product template).
-- Note: `svg_type` is nearly 1:1 with product (73 distinct values across 81
-  products) — no small shared taxonomy of renderer classes to lean on.
+**Phase 3 — Construction-rule data model — DONE (naive v1).**
+New `backend/parts/` package: `registry.py` (`generate_parts(product, dp)`,
+the one public entry point — dispatches on `product.category`, confirmed
+exhaustive against the live catalog: "Framed Cabinetry"/"Frameless Cabinetry"
+→ carcass+fronts, "Countertop"/"Fixtures and Extruded Products" → single
+part), `cabinets.py` (one generic carcass shape for all 4 cabinet
+subcategories — they're dimensionally identical; a fronts generator reads
+`doors`/`drawers` straight off the product, stacks drawers vertically /
+lays doors side by side), `simple.py` (single-part passthrough, thickness =
+smallest of the 3 instance dimensions). No `svg_type` string-parsing
+anywhere — turned out unnecessary once `category` supplied construction
+type directly and door/drawer counts read straight off `product.default_*`.
 
-**Phase 4 — The computation engine itself.**
-- Build the actual Python service: `DrawingProduct` + resolved part templates
-  + resolved material/hardware references → generates `DrawingBomPart` rows
-  (cut list), aggregates into `DrawingBomSheetGoods`, `DrawingBomEdgeBand`,
-  `DrawingBomHardware`, and a `DrawingBomProduct` summary row. Writes through
-  the existing `api/bom.py` — that part doesn't need to change.
-- Wire the trigger point — recalculate a product's BOM contribution when
-  it's created/updated/saved on the canvas (`api/drawing_products.py`'s
-  create/update handlers — currently just CRUD, no BOM trigger).
-- Wire the frontend — the "BOM" drawing-action button is currently a disabled
-  stub; once real data can land in the BOM tables, it needs an actual view.
-  ("+ Rev" and "Export" are separate, unrelated stubs — not blocked on the engine.)
+Wired into `api/drawing_products.py`'s create/update/remove handlers
+(`_regenerate_bom_parts`/`_clear_bom_parts`) — every save now generates real
+`DrawingBomPart` rows + a `DrawingBomProduct` summary row, idempotently
+(delete-then-insert). Materials resolved to real project-scoped codes via
+Phase 2's existing resolvers; an unset surface gets a `"TBD"` material_code
+rather than crashing (`drawing_bom_parts.material_code` is `NOT NULL`).
+Verified live: frameless 1-door (6 parts), framed 1-drawer-1-door (8 parts,
+incl. the placeholder face-frame part), width-change regenerates without
+duplicating, removal clears both tables, a Countertop takes the simple path.
+
+**Deliberately deferred from this pass** (naive-first was an explicit,
+confirmed decision — not an oversight):
+- Real construction math — no reveal/overlay/joinery/sink-cutout accuracy,
+  just fixed placeholder constants (`backend/parts/types.py`). Framed
+  cabinets get one placeholder "Face Frame" part instead of real stile/rail
+  parts. Needs your actual shop standards, not something to guess at.
+- `DrawingBomSheetGoods`/`DrawingBomEdgeBand`/`DrawingBomHardware`
+  aggregation — only `DrawingBomPart`/`DrawingBomProduct` are populated so
+  far. Sheet-goods aggregation needs nesting-awareness (Phase 5's job
+  anyway); edgeband/hardware aggregation is very doable now that Phase 2
+  made those real references, just not done yet.
+- Real per-part thickness/cost derived from the resolved material (a
+  layup's real thickness is core + 2 faces — nontrivial) — using flat
+  constants for now.
+- Runtime variant branching — confirmed out of scope. Changing
+  doors/drawers/shelves on an already-placed instance does NOT regenerate a
+  different part list; dropping a different product is how you get a
+  different configuration, matching how the catalog itself already varies
+  by product (`FR-B1D` vs `FR-B2D` are separate rows).
+
+**Phase 4 — Wire the frontend.**
+The actual computation engine (this phase, originally) turned out to fold
+into Phase 3's implementation once started — generation + persistence
+landed together. What's left:
+- **The drop → save flow doesn't exist yet.** `PaperSpace.jsx`'s `handleDrop`
+  only sets local React state — it never calls `POST /drawings/:id/products`.
+  `drawing_products` has 0 real rows because of this, not because the engine
+  isn't ready; the engine is fully exercised today only via direct API calls
+  (same as Phase 2's testing). This is the actual next concrete step for
+  making any of the above visible to a real user.
+- The "BOM" drawing-action button is a disabled stub; once the drop→save
+  flow exists, it needs a real view onto `GET /bom/:drawing_id`. ("+ Rev" and
+  "Export" are separate, unrelated stubs.)
 
 **Phase 5 — Real-world correctness, can start naive.**
 - Sheet nesting / cut optimization — start with naive area-sum sheet-count

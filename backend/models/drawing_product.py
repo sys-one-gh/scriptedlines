@@ -7,6 +7,16 @@
 #
 # When saved, the geometry engine reads this row and calculates
 # all BOM sub-table entries automatically.
+#
+# Material/hardware fields reference project-scoped rows (what the
+# project already has via Project Setup), never the global catalog
+# directly or a free-text string — see api/drawing_products.py's
+# resolution helpers. The four *_material_type/_id pairs are
+# polymorphic (same pattern as ProjectLayup's own faces): "layup" ->
+# project_layups.id, "melamine" -> project_melamine.id. No DB-level
+# FK on those two, since a single column can't reference two tables —
+# validated in application code instead. Hardware and edge_banding
+# are single-type, so those keep a real FK.
 # ─────────────────────────────────────────────────────────────
 
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, Float, ForeignKey
@@ -48,17 +58,23 @@ class DrawingProduct(Base):
     door_type   = Column(String, default="")   # Full Overlay, Inset, N/A
 
     # ── MATERIAL (from drop form Tab 3) ──────────────────────
-    exterior_material = Column(String, default="")
-    interior_material = Column(String, default="")
-    back_material     = Column(String, default="")
-    subtop_material   = Column(String, default="")
-    edge_banding      = Column(String, default="")
+    # Polymorphic: material_type is "layup" or "melamine", material_id
+    # points at project_layups.id or project_melamine.id accordingly.
+    exterior_material_type = Column(String, nullable=True)
+    exterior_material_id   = Column(Integer, nullable=True)
+    interior_material_type = Column(String, nullable=True)
+    interior_material_id   = Column(Integer, nullable=True)
+    back_material_type     = Column(String, nullable=True)
+    back_material_id       = Column(Integer, nullable=True)
+    subtop_material_type   = Column(String, nullable=True)
+    subtop_material_id     = Column(Integer, nullable=True)
+    edge_banding_id        = Column(Integer, ForeignKey("project_edgebands.id"), nullable=True)
 
     # ── HARDWARE (from drop form Tab 4) ──────────────────────
-    hinge_code        = Column(String, default="")
-    drawer_slide_code = Column(String, default="")
-    pull_code         = Column(String, default="")
-    shelf_pin_code    = Column(String, default="")
+    hinge_id        = Column(Integer, ForeignKey("project_hinges.id"),        nullable=True)
+    drawer_slide_id = Column(Integer, ForeignKey("project_drawer_slides.id"), nullable=True)
+    pull_id         = Column(Integer, ForeignKey("project_handles.id"),       nullable=True)
+    shelf_pin_id    = Column(Integer, ForeignKey("project_shelf_supports.id"), nullable=True)
 
     # ── FINISH (from drop form Tab 5) ────────────────────────
     exterior_finish = Column(String, default="")
@@ -95,6 +111,15 @@ class DrawingProduct(Base):
     library_product = relationship("Product")
     bom_parts       = relationship("DrawingBomPart", back_populates="drawing_product",
                                    cascade="all, delete-orphan")
+
+    # Single-type references only — the polymorphic material_type/_id
+    # pairs above have no relationship() since a plain FK can't span
+    # two possible tables (see api/drawing_products.py's resolvers).
+    edge_banding = relationship("ProjectEdgeband")
+    hinge        = relationship("ProjectHinge")
+    drawer_slide = relationship("ProjectDrawerSlide")
+    pull         = relationship("ProjectHandle")
+    shelf_pin    = relationship("ProjectShelfSupport")
 
     def __repr__(self):
         return f"<DrawingProduct {self.instance_code} on Drawing {self.drawing_id}>"
