@@ -1,0 +1,80 @@
+code,manufacturer,style,center_to_center_mm,projection_mm,finish,material,mounting_holes,cost_each,lead_time,is_active
+BP30576195,Richelieu,Bar Pull,76.0,35,Brushed Nickel,Steel,2,,,1
+BP30596195,Richelieu,Bar Pull,96.0,35,Brushed Nickel,Steel,2,,,1
+BP305108195,Richelieu,Bar Pull,108.0,35,Brushed Nickel,Steel,2,,,1
+BP305128195,Richelieu,Bar Pull,128.0,35,Brushed Nickel,Steel,2,,,1
+BP305160195,Richelieu,Bar Pull,160.0,35,Brushed Nickel,Steel,2,,,1
+BP305192195,Richelieu,Bar Pull,192.0,35,Brushed Nickel,Steel,2,,,1
+BP30576900,Richelieu,Bar Pull,76.0,35,Matte Black,Steel,2,,,1
+BP30596900,Richelieu,Bar Pull,96.0,35,Matte Black,Steel,2,,,1
+BP305108900,Richelieu,Bar Pull,108.0,35,Matte Black,Steel,2,,,1
+BP305128900,Richelieu,Bar Pull,128.0,35,Matte Black,Steel,2,,,1
+BP305160900,Richelieu,Bar Pull,160.0,35,Matte Black,Steel,2,,,1
+BP305192900,Richelieu,Bar Pull,192.0,35,Matte Black,Steel,2,,,1
+BP30596140,Richelieu,Bar Pull,96.0,35,Chrome,Steel,2,,,1
+BP305108140,Richelieu,Bar Pull,108.0,35,Chrome,Steel,2,,,1
+BP305128140,Richelieu,Bar Pull,128.0,35,Chrome,Steel,2,,,1
+BP305160140,Richelieu,Bar Pull,160.0,35,Chrome,Steel,2,,,1
+BP305192140,Richelieu,Bar Pull,192.0,35,Chrome,Steel,2,,,1
+BP305128BORB,Richelieu,Bar Pull,128.0,35,Brushed Oil-Rubbed Bronze,Steel,2,,,1
+BP305160BORB,Richelieu,Bar Pull,160.0,35,Brushed Oil-Rubbed Bronze,Steel,2,,,1
+BP30596160,Richelieu,Bar Pull,96.0,35,Satin Brass,Steel,2,,,1
+BP305128160,Richelieu,Bar Pull,128.0,35,Satin Brass,Steel,2,,,1
+BP30576170,Richelieu,Bar Pull,76.0,34.925,Stainless Steel,Stainless Steel,2,,,1
+BP30596170,Richelieu,Bar Pull,96.0,34.925,Stainless Steel,Stainless Steel,2,,,1
+BP305128170,Richelieu,Bar Pull,128.0,34.925,Stainless Steel,Stainless Steel,2,,,1
+BP305192170,Richelieu,Bar Pull,192.0,34.925,Stainless Steel,Stainless Steel,2,,,1
+BP30540900,Richelieu,Knob,,34.925,Matte Black,Steel,1,,,1
+BP30540CHBRZ,Richelieu,Knob,,34.925,Champagne Bronze,Steel,1,,,1
+BP7348128195,Richelieu,Bar Pull,128.0,27,Brushed Nickel,Zamak,2,,,1
+BP7348160195,Richelieu,Bar Pull,160.0,27,Brushed Nickel,Zamak,2,,,1
+BP7348256195,Richelieu,Bar Pull,256.0,27,Brushed Nickel,Zamak,2,,,1
+BP7348128CHBRZ,Richelieu,Bar Pull,128.0,27,Champagne Bronze,Zamak,2,,,1
+BP7348160CHBRZ,Richelieu,Bar Pull,160.0,27,Champagne Bronze,Zamak,2,,,1
+BP7348256CHBRZ,Richelieu,Bar Pull,256.0,27,Champagne Bronze,Zamak,2,,,1
+BP7348128140,Richelieu,Bar Pull,128.0,27,Chrome,Zamak,2,,,1
+BP7348160140,Richelieu,Bar Pull,160.0,27,Chrome,Zamak,2,,,1
+BP7348256140,Richelieu,Bar Pull,256.0,27,Chrome,Zamak,2,,,1
+BP7348160900,Richelieu,Bar Pull,160.0,27,Matte Black,Zamak,2,,,1
+BP7348256900,Richelieu,Bar Pull,256.0,27,Matte Black,Zamak,2,,,1
+BP7340128195,Richelieu,Bar Pull,128.0,33.338,Brushed Nickel,Zamak,2,,,1
+BP7340160195,Richelieu,Bar Pull,160.0,33.338,Brushed Nickel,Zamak,2,,,1
+BP7340224195,Richelieu,Bar Pull,224.0,33.338,Brushed Nickel,Zamak,2,,,1
+BP7340128900,Richelieu,Bar Pull,128.0,33.338,Matte Black,Zamak,2,,,1
+BP7340160900,Richelieu,Bar Pull,160.0,33.338,Matte Black,Zamak,2,,,1
+BP7340224900,Richelieu,Bar Pull,224.0,33.338,Matte Black,Zamak,2,,,1
+BP7340128140,Richelieu,Bar Pull,128.0,33.338,Chrome,Zamak,2,,,1
+BP7340160140,Richelieu,Bar Pull,160.0,33.338,Chrome,Zamak,2,,,1
+BP7340224140,Richelieu,Bar Pull,224.0,33.338,Chrome,Zamak,2,,,1
+BP7340128CHBRZ,Richelieu,Bar Pull,128.0,33.338,Champagne Bronze,Zamak,2,,,1
+BP734544195,Richelieu,Knob,,25,Brushed Nickel,Zamak,1,,,1
+BP734544CHBRZ,Richelieu,Knob,,25,Champagne Bronze,Zamak,1,,,1
+BP734544140,Richelieu,Knob,,25,Chrome,Zamak,1,,,1
+BP734544900,Richelieu,Knob,,25,Matte Black,Zamak,1,,,1
+BP989825990,Richelieu,Edge Pull,25.0,42,Brushed Black,Aluminum,2,,,1
+BP989833990,Richelieu,Edge Pull,33.0,42,Brushed Black,Aluminum,2,,,1
+BP989850990,Richelieu,Edge Pull,50.0,42,Brushed Black,Aluminum,2,,,1
+BP989880990,Richelieu,Edge Pull,80.0,42,Brushed Black,Aluminum,2,,,1
+BP9898128990,Richelieu,Edge Pull,128.0,42,Brushed Black,Aluminum,2,,,1
+BP9898192990,Richelieu,Edge Pull,192.0,42,Brushed Black,Aluminum,2,,,1
+BP989825170,Richelieu,Edge Pull,25.0,42,Stainless Steel,Aluminum,2,,,1
+BP989833170,Richelieu,Edge Pull,33.0,42,Stainless Steel,Aluminum,2,,,1
+BP989850170,Richelieu,Edge Pull,50.0,42,Stainless Steel,Aluminum,2,,,1
+BP989880170,Richelieu,Edge Pull,80.0,42,Stainless Steel,Aluminum,2,,,1
+BP9898128170,Richelieu,Edge Pull,128.0,42,Stainless Steel,Aluminum,2,,,1
+BP9898192170,Richelieu,Edge Pull,192.0,42,Stainless Steel,Aluminum,2,,,1
+BP989825CHBRZ,Richelieu,Edge Pull,25.0,42,Brushed Champagne Bronze,Aluminum,2,,,1
+BP989850CHBRZ,Richelieu,Edge Pull,50.0,42,Brushed Champagne Bronze,Aluminum,2,,,1
+BP9898128CHBRZ,Richelieu,Edge Pull,128.0,42,Brushed Champagne Bronze,Aluminum,2,,,1
+BP989850166,Richelieu,Edge Pull,50.0,42,Satin Gold,Aluminum,2,,,1
+BP9898128166,Richelieu,Edge Pull,128.0,42,Satin Gold,Aluminum,2,,,1
+BP989825140,Richelieu,Edge Pull,25.0,42,Chrome,Aluminum,2,,,1
+BP33203195,Richelieu,Wire Pull,76.2,,Brushed Nickel,Steel,2,,,1
+BP33204195,Richelieu,Wire Pull,88.9,,Brushed Nickel,Steel,2,,,1
+BP33205195,Richelieu,Wire Pull,96,30.163,Brushed Nickel,Steel,2,,,1
+BP33206195,Richelieu,Wire Pull,101.6,,Brushed Nickel,Steel,2,,,1
+BP33285195,Richelieu,Wire Pull,128,,Brushed Nickel,Steel,2,,,1
+BP33285900,Richelieu,Wire Pull,128,,Matte Black,Steel,2,,,1
+BP33203140,Richelieu,Wire Pull,76.2,,Chrome,Steel,2,,,1
+BP873128158,Richelieu,Bar Pull,128.0,35,Brushed Aurum Gold,Zamak,2,,,1
+BP873320160,Richelieu,Bar Pull,320.0,35,Satin Brass,Zamak,2,,,1

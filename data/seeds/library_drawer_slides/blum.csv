@@ -1,0 +1,36 @@
+code,manufacturer,product_line,mounting_type,extension_type,length_mm,length_label,runner_length_mm,cabinet_depth_mm,min_cabinet_depth_mm,max_cabinet_depth_mm,load_capacity_lbs,max_drawer_side_thickness_mm,slide_thickness_mm,slide_height_mm,soft_close,material,finish,cost_per_pair,lead_time,is_active
+563H5330B,Blum,TANDEM plus BLUMOTION 563H,Undermount,Full Extension,533,21in,548,610,557,599,100,16,,,1,Steel,Zinc-coated,,,1
+563H4570B,Blum,TANDEM plus BLUMOTION 563H,Undermount,Full Extension,457,18in,471,533,480,522,100,16,,,1,Steel,Zinc-coated,,,1
+563H3810B,Blum,TANDEM plus BLUMOTION 563H,Undermount,Full Extension,381,15in,395,457,404,446,100,16,,,1,Steel,Zinc-coated,,,1
+563H3050B,Blum,TANDEM plus BLUMOTION 563H,Undermount,Full Extension,305,12in,319,381,328,370,100,16,,,1,Steel,Zinc-coated,,,1
+563H2290B10,Blum,TANDEM plus BLUMOTION 563H,Undermount,Full Extension,229,9in,259,305,266,299,100,16,,,1,Steel,Zinc-coated,,,1
+563F5330B,Blum,TANDEM plus BLUMOTION 563F,Undermount,Full Extension,533,21in,548,610,557,599,100,19,,,1,Steel,Zinc-coated,,,1
+563F4570B,Blum,TANDEM plus BLUMOTION 563F,Undermount,Full Extension,457,18in,471,533,480,522,100,19,,,1,Steel,Zinc-coated,,,1
+563F3810B,Blum,TANDEM plus BLUMOTION 563F,Undermount,Full Extension,381,15in,395,457,404,446,100,19,,,1,Steel,Zinc-coated,,,1
+563F3050B,Blum,TANDEM plus BLUMOTION 563F,Undermount,Full Extension,305,12in,319,381,328,370,100,19,,,1,Steel,Zinc-coated,,,1
+563F2290B10,Blum,TANDEM plus BLUMOTION 563F,Undermount,Full Extension,229,9in,259,305,266,299,100,19,,,1,Steel,Zinc-coated,,,1
+563.5330B,Blum,TANDEM plus BLUMOTION 563.,Undermount,Full Extension,533,21in,548,610,557,,100,16,,,1,Steel,Zinc-coated,,,1
+563.4570B,Blum,TANDEM plus BLUMOTION 563.,Undermount,Full Extension,457,18in,471,533,480,,100,16,,,1,Steel,Zinc-coated,,,1
+554H5330B01,Blum,TANDEM edge BLUMOTION 554H,Undermount,Partial Extension,533,21in,560,610,570,604,100,16,,,1,Steel,Zinc-coated,,,1
+554H4570B01,Blum,TANDEM edge BLUMOTION 554H,Undermount,Partial Extension,457,18in,484,533,494,527,100,16,,,1,Steel,Zinc-coated,,,1
+554H3810B01,Blum,TANDEM edge BLUMOTION 554H,Undermount,Partial Extension,381,15in,407,457,417,451,100,16,,,1,Steel,Zinc-coated,,,1
+554H3050B01,Blum,TANDEM edge BLUMOTION 554H,Undermount,Partial Extension,305,12in,331,381,341,375,100,16,,,1,Steel,Zinc-coated,,,1
+554H2290B01,Blum,TANDEM edge BLUMOTION 554H,Undermount,Partial Extension,229,9in,274,305,284,299,100,16,,,1,Steel,Zinc-coated,,,1
+763H5330S,Blum,MOVENTO 763H,Undermount,Full Extension,533,21in,548,610,557,599,125,16,,,1,Steel,Zinc-coated,,,1
+763H4570S,Blum,MOVENTO 763H,Undermount,Full Extension,457,18in,471,533,480,522,125,16,,,1,Steel,Zinc-coated,,,1
+763H3810S,Blum,MOVENTO 763H,Undermount,Full Extension,381,15in,395,457,404,446,125,16,,,1,Steel,Zinc-coated,,,1
+763H3050S,Blum,MOVENTO 763H,Undermount,Full Extension,305,12in,319,381,328,370,125,16,,,1,Steel,Zinc-coated,,,1
+763.5330S,Blum,MOVENTO 763.,Undermount,Full Extension,533,21in,544,610,553,,125,16,,,1,Steel,Zinc-coated,,,1
+763.4570S,Blum,MOVENTO 763.,Undermount,Full Extension,457,18in,468,533,477,,125,16,,,1,Steel,Zinc-coated,,,1
+763.3810S,Blum,MOVENTO 763.,Undermount,Full Extension,381,15in,392,457,401,,125,16,,,1,Steel,Zinc-coated,,,1
+763.3050S,Blum,MOVENTO 763.,Undermount,Full Extension,305,12in,316,381,325,,125,16,,,1,Steel,Zinc-coated,,,1
+769.7620S,Blum,MOVENTO 769.,Undermount,Full Extension,762,30in,773,838,782,,170,16,,,1,Steel,Zinc-coated,,,1
+769.6860S,Blum,MOVENTO 769.,Undermount,Full Extension,686,27in,697,762,706,,170,16,,,1,Steel,Zinc-coated,,,1
+769.6100S,Blum,MOVENTO 769.,Undermount,Full Extension,610,24in,621,686,630,,170,16,,,1,Steel,Zinc-coated,,,1
+769.5330S,Blum,MOVENTO 769.,Undermount,Full Extension,533,21in,544,610,553,,170,16,,,1,Steel,Zinc-coated,,,1
+769.4570S,Blum,MOVENTO 769.,Undermount,Full Extension,457,18in,468,533,477,,170,16,,,1,Steel,Zinc-coated,,,1
+569.7620B,Blum,TANDEM plus BLUMOTION 569.,Undermount,Full Extension,762,30in,777,838,786,,150,16,,,1,Steel,Zinc-coated,,,0
+569.6860B,Blum,TANDEM plus BLUMOTION 569.,Undermount,Full Extension,686,27in,700,762,709,,150,16,,,1,Steel,Zinc-coated,,,0
+569.6100B,Blum,TANDEM plus BLUMOTION 569.,Undermount,Full Extension,610,24in,625,686,634,,150,16,,,1,Steel,Zinc-coated,,,0
+569H5330B,Blum,TANDEM plus BLUMOTION 569H,Undermount,Full Extension,533,21in,548,610,557,,150,16,,,1,Steel,Zinc-coated,,,0
+569H4570B,Blum,TANDEM plus BLUMOTION 569H,Undermount,Full Extension,457,18in,471,533,480,,150,16,,,1,Steel,Zinc-coated,,,0

@@ -1,0 +1,511 @@
+code,manufacturer,finish_code,finish_name,core_substrate,thickness_mm,texture,is_premium_texture,sheen,grain,g_sides,size_4x8,size_5x8,size_4x10,size_4x12,size_5x12,size_5x10,fr_rated,leed,fsc,carb_p2,is_mto,cost_per_sheet,cost_per_sqft,lead_time,is_active
+UNI-MEL-PB-16-113,Uniboard,113,Super White,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-113,Uniboard,113,Super White,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-113,Uniboard,113,Super White,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-113,Uniboard,113,Super White,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-123,Uniboard,123,Charcoal,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-123,Uniboard,123,Charcoal,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-123,Uniboard,123,Charcoal,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-123,Uniboard,123,Charcoal,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-168,Uniboard,168,Canadian Grey,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-168,Uniboard,168,Canadian Grey,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-168,Uniboard,168,Canadian Grey,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-168,Uniboard,168,Canadian Grey,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-204,Uniboard,204,Bourbon Cherry,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-204,Uniboard,204,Bourbon Cherry,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-204,Uniboard,204,Bourbon Cherry,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-204,Uniboard,204,Bourbon Cherry,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-205,Uniboard,205,Tobacco Cherry,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-205,Uniboard,205,Tobacco Cherry,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-205,Uniboard,205,Tobacco Cherry,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-205,Uniboard,205,Tobacco Cherry,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-206,Uniboard,206,Crema Cherry,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-206,Uniboard,206,Crema Cherry,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-206,Uniboard,206,Crema Cherry,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-206,Uniboard,206,Crema Cherry,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-207,Uniboard,207,Choco Cherry,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-207,Uniboard,207,Choco Cherry,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-207,Uniboard,207,Choco Cherry,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-207,Uniboard,207,Choco Cherry,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-241,Uniboard,241,Audacity,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-241,Uniboard,241,Audacity,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-241,Uniboard,241,Audacity,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-241,Uniboard,241,Audacity,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-262,Uniboard,262,Sunrise Maple,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-262,Uniboard,262,Sunrise Maple,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-262,Uniboard,262,Sunrise Maple,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-262,Uniboard,262,Sunrise Maple,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-263,Uniboard,263,Sunset Maple,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-263,Uniboard,263,Sunset Maple,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-263,Uniboard,263,Sunset Maple,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-263,Uniboard,263,Sunset Maple,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-290,Uniboard,290,Classic Maple,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-290,Uniboard,290,Classic Maple,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-290,Uniboard,290,Classic Maple,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-290,Uniboard,290,Classic Maple,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-300,Uniboard,300,Classic White,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-300,Uniboard,300,Classic White,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-300,Uniboard,300,Classic White,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-300,Uniboard,300,Classic White,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-313,Uniboard,313,Classic Chocolate,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-313,Uniboard,313,Classic Chocolate,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-313,Uniboard,313,Classic Chocolate,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-313,Uniboard,313,Classic Chocolate,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-505,Uniboard,505,Arctic White,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-505,Uniboard,505,Arctic White,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-505,Uniboard,505,Arctic White,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-505,Uniboard,505,Arctic White,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-511,Uniboard,511,HiTeak,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-511,Uniboard,511,HiTeak,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-511,Uniboard,511,HiTeak,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-511,Uniboard,511,HiTeak,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-555,Uniboard,555,NovaWhite,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-555,Uniboard,555,NovaWhite,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-555,Uniboard,555,NovaWhite,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-555,Uniboard,555,NovaWhite,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-631,Uniboard,631,Classic Black,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-631,Uniboard,631,Classic Black,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-631,Uniboard,631,Classic Black,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-631,Uniboard,631,Classic Black,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-744,Uniboard,744,Inspiration,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-744,Uniboard,744,Inspiration,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-744,Uniboard,744,Inspiration,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-744,Uniboard,744,Inspiration,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-745,Uniboard,745,Finesse,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-745,Uniboard,745,Finesse,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-745,Uniboard,745,Finesse,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-745,Uniboard,745,Finesse,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-766,Uniboard,766,Cayenne Maple,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-766,Uniboard,766,Cayenne Maple,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-766,Uniboard,766,Cayenne Maple,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-766,Uniboard,766,Cayenne Maple,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-777,Uniboard,777,White White,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-777,Uniboard,777,White White,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-777,Uniboard,777,White White,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-777,Uniboard,777,White White,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-802,Uniboard,802,Willow Grey,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-802,Uniboard,802,Willow Grey,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-802,Uniboard,802,Willow Grey,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-802,Uniboard,802,Willow Grey,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-805,Uniboard,805,Sunset Grey,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-805,Uniboard,805,Sunset Grey,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-805,Uniboard,805,Sunset Grey,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-805,Uniboard,805,Sunset Grey,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-810,Uniboard,810,Antique White,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-810,Uniboard,810,Antique White,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-810,Uniboard,810,Antique White,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-810,Uniboard,810,Antique White,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-828,Uniboard,828,Ingot Grey,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-828,Uniboard,828,Ingot Grey,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-828,Uniboard,828,Ingot Grey,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-828,Uniboard,828,Ingot Grey,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-888,Uniboard,888,NovaBlack,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-888,Uniboard,888,NovaBlack,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-888,Uniboard,888,NovaBlack,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-888,Uniboard,888,NovaBlack,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-920,Uniboard,920,New England Almond,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-920,Uniboard,920,New England Almond,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-920,Uniboard,920,New England Almond,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-920,Uniboard,920,New England Almond,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-934,Uniboard,934,Platinum,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-934,Uniboard,934,Platinum,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-934,Uniboard,934,Platinum,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-934,Uniboard,934,Platinum,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-961,Uniboard,961,Stainless,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-961,Uniboard,961,Stainless,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-961,Uniboard,961,Stainless,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-961,Uniboard,961,Stainless,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-965,Uniboard,965,Port,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-965,Uniboard,965,Port,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-965,Uniboard,965,Port,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-965,Uniboard,965,Port,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-992,Uniboard,992,Hardrock Maple,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-992,Uniboard,992,Hardrock Maple,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-992,Uniboard,992,Hardrock Maple,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-992,Uniboard,992,Hardrock Maple,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-G16,Uniboard,G16,Milano Oak,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-G16,Uniboard,G16,Milano Oak,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-G16,Uniboard,G16,Milano Oak,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-G16,Uniboard,G16,Milano Oak,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-G17,Uniboard,G17,Grigio,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-G17,Uniboard,G17,Grigio,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-G17,Uniboard,G17,Grigio,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-G17,Uniboard,G17,Grigio,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-G18,Uniboard,G18,Caramello,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-G18,Uniboard,G18,Caramello,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-G18,Uniboard,G18,Caramello,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-G18,Uniboard,G18,Caramello,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-G20,Uniboard,G20,Sheer Linen,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-G20,Uniboard,G20,Sheer Linen,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-G20,Uniboard,G20,Sheer Linen,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-G20,Uniboard,G20,Sheer Linen,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-G21,Uniboard,G21,Viva Walnut,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-G21,Uniboard,G21,Viva Walnut,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-G21,Uniboard,G21,Viva Walnut,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-G21,Uniboard,G21,Viva Walnut,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-G23,Uniboard,G23,Coastal Pear,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-G23,Uniboard,G23,Coastal Pear,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-G23,Uniboard,G23,Coastal Pear,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-G23,Uniboard,G23,Coastal Pear,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-G63,Uniboard,G63,Acacia,PB,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-G63,Uniboard,G63,Acacia,PB,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-G63,Uniboard,G63,Acacia,MDF,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-G63,Uniboard,G63,Acacia,MDF,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H50,Uniboard,H50,Silva,MDF,19.05,Brushed Elm,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H52,Uniboard,H52,Riva,MDF,19.05,Brushed Elm,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H53,Uniboard,H53,Ember,MDF,19.05,Brushed Elm,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H54,Uniboard,H54,Skye,MDF,19.05,Brushed Elm,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H55,Uniboard,H55,Mystic,MDF,19.05,Brushed Elm,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H55,Uniboard,H55,Mystic,PB,15.875,Brushed Elm,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H55,Uniboard,H55,Mystic,PB,19.05,Brushed Elm,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H56,Uniboard,H56,Chill,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H56,Uniboard,H56,Chill,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H56,Uniboard,H56,Chill,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H56,Uniboard,H56,Chill,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H57,Uniboard,H57,Haze,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H57,Uniboard,H57,Haze,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H57,Uniboard,H57,Haze,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H57,Uniboard,H57,Haze,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H58,Uniboard,H58,Storm,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H58,Uniboard,H58,Storm,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H58,Uniboard,H58,Storm,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H58,Uniboard,H58,Storm,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H59,Uniboard,H59,Twilight,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H59,Uniboard,H59,Twilight,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H59,Uniboard,H59,Twilight,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H59,Uniboard,H59,Twilight,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H65,Uniboard,H65,Canyon,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H65,Uniboard,H65,Canyon,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H65,Uniboard,H65,Canyon,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H65,Uniboard,H65,Canyon,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H66,Uniboard,H66,Vintage,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H66,Uniboard,H66,Vintage,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H66,Uniboard,H66,Vintage,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H66,Uniboard,H66,Vintage,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H67,Uniboard,H67,Kindle,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H67,Uniboard,H67,Kindle,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H67,Uniboard,H67,Kindle,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H67,Uniboard,H67,Kindle,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H68,Uniboard,H68,Kohl,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H68,Uniboard,H68,Kohl,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H68,Uniboard,H68,Kohl,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H68,Uniboard,H68,Kohl,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H69,Uniboard,H69,Carbon,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H69,Uniboard,H69,Carbon,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H69,Uniboard,H69,Carbon,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H69,Uniboard,H69,Carbon,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H70,Uniboard,H70,Driftwood,MDF,19.05,Brushed Elm,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H72,Uniboard,H72,Ginger Root,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H72,Uniboard,H72,Ginger Root,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H72,Uniboard,H72,Ginger Root,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H72,Uniboard,H72,Ginger Root,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H73,Uniboard,H73,Cocoa Bean,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H73,Uniboard,H73,Cocoa Bean,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H73,Uniboard,H73,Cocoa Bean,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H73,Uniboard,H73,Cocoa Bean,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H74,Uniboard,H74,Blackwood,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H74,Uniboard,H74,Blackwood,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H74,Uniboard,H74,Blackwood,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H74,Uniboard,H74,Blackwood,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H75,Uniboard,H75,Tundra,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H75,Uniboard,H75,Tundra,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H75,Uniboard,H75,Tundra,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H75,Uniboard,H75,Tundra,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-H76,Uniboard,H76,Memento,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-H76,Uniboard,H76,Memento,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-H76,Uniboard,H76,Memento,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-H76,Uniboard,H76,Memento,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K01,Uniboard,K01,Nutmeg,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K01,Uniboard,K01,Nutmeg,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K01,Uniboard,K01,Nutmeg,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K01,Uniboard,K01,Nutmeg,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K02,Uniboard,K02,Sesame,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K02,Uniboard,K02,Sesame,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K02,Uniboard,K02,Sesame,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K02,Uniboard,K02,Sesame,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K04,Uniboard,K04,Smokewood,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K04,Uniboard,K04,Smokewood,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K04,Uniboard,K04,Smokewood,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K04,Uniboard,K04,Smokewood,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K05,Uniboard,K05,Barnwood,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K05,Uniboard,K05,Barnwood,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K05,Uniboard,K05,Barnwood,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K05,Uniboard,K05,Barnwood,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K06,Uniboard,K06,Silverwood,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K06,Uniboard,K06,Silverwood,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K06,Uniboard,K06,Silverwood,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K06,Uniboard,K06,Silverwood,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K07,Uniboard,K07,Dew Drop,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K07,Uniboard,K07,Dew Drop,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K07,Uniboard,K07,Dew Drop,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K07,Uniboard,K07,Dew Drop,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K08,Uniboard,K08,Luna,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K08,Uniboard,K08,Luna,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K08,Uniboard,K08,Luna,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K08,Uniboard,K08,Luna,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K13,Uniboard,K13,Nizza,MDF,19.05,Riviera Oak,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K14,Uniboard,K14,Mistral,MDF,19.05,Riviera Oak,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K15,Uniboard,K15,Cannes,MDF,19.05,Riviera Oak,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K16,Uniboard,K16,Esterel,MDF,19.05,Riviera Oak,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K17,Uniboard,K17,Cassis,MDF,19.05,Riviera Oak,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K18,Uniboard,K18,Monaco,MDF,19.05,Riviera Oak,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K19,Uniboard,K19,Chino,PB,15.875,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K19,Uniboard,K19,Chino,PB,19.05,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K19,Uniboard,K19,Chino,MDF,15.875,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K19,Uniboard,K19,Chino,MDF,19.05,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K20,Uniboard,K20,Frequency,PB,15.875,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K20,Uniboard,K20,Frequency,PB,19.05,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K20,Uniboard,K20,Frequency,MDF,15.875,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K20,Uniboard,K20,Frequency,MDF,19.05,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K21,Uniboard,K21,Canvas,PB,15.875,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K21,Uniboard,K21,Canvas,PB,19.05,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K21,Uniboard,K21,Canvas,MDF,15.875,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K21,Uniboard,K21,Canvas,MDF,19.05,Calico,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K22,Uniboard,K22,Reflexion,PB,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K22,Uniboard,K22,Reflexion,PB,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K22,Uniboard,K22,Reflexion,MDF,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K22,Uniboard,K22,Reflexion,MDF,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K23,Uniboard,K23,Shanshu,PB,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K23,Uniboard,K23,Shanshu,PB,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K23,Uniboard,K23,Shanshu,MDF,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K23,Uniboard,K23,Shanshu,MDF,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K25,Uniboard,K25,Mimosa,PB,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K25,Uniboard,K25,Mimosa,PB,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K25,Uniboard,K25,Mimosa,MDF,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K25,Uniboard,K25,Mimosa,MDF,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K29,Uniboard,K29,Nickel,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K29,Uniboard,K29,Nickel,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K29,Uniboard,K29,Nickel,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K29,Uniboard,K29,Nickel,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K30,Uniboard,K30,Spectra,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K30,Uniboard,K30,Spectra,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K30,Uniboard,K30,Spectra,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K30,Uniboard,K30,Spectra,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K31,Uniboard,K31,Odeon,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K31,Uniboard,K31,Odeon,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K31,Uniboard,K31,Odeon,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K31,Uniboard,K31,Odeon,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K32,Uniboard,K32,Equinox,PB,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K32,Uniboard,K32,Equinox,PB,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K32,Uniboard,K32,Equinox,MDF,15.875,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K32,Uniboard,K32,Equinox,MDF,19.05,Dolomite,0,Medium,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K33,Uniboard,K33,Dorato Grey,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K33,Uniboard,K33,Dorato Grey,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K33,Uniboard,K33,Dorato Grey,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K33,Uniboard,K33,Dorato Grey,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K34,Uniboard,K34,Dorato Natural,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K34,Uniboard,K34,Dorato Natural,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K34,Uniboard,K34,Dorato Natural,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K34,Uniboard,K34,Dorato Natural,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K36,Uniboard,K36,Soho,PB,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K36,Uniboard,K36,Soho,PB,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K36,Uniboard,K36,Soho,MDF,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K36,Uniboard,K36,Soho,MDF,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K37,Uniboard,K37,Endgrain,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K37,Uniboard,K37,Endgrain,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K37,Uniboard,K37,Endgrain,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K37,Uniboard,K37,Endgrain,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K38,Uniboard,K38,Riverside,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K38,Uniboard,K38,Riverside,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K38,Uniboard,K38,Riverside,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K38,Uniboard,K38,Riverside,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K39,Uniboard,K39,Nebula,PB,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K39,Uniboard,K39,Nebula,PB,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K39,Uniboard,K39,Nebula,MDF,15.875,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K39,Uniboard,K39,Nebula,MDF,19.05,Sequoia,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K40,Uniboard,K40,Fjord,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K40,Uniboard,K40,Fjord,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K40,Uniboard,K40,Fjord,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K40,Uniboard,K40,Fjord,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K41,Uniboard,K41,Lago,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K41,Uniboard,K41,Lago,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K41,Uniboard,K41,Lago,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K41,Uniboard,K41,Lago,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K42,Uniboard,K42,Sway,PB,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K42,Uniboard,K42,Sway,PB,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K42,Uniboard,K42,Sway,MDF,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K42,Uniboard,K42,Sway,MDF,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K43,Uniboard,K43,Summit White,PB,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K43,Uniboard,K43,Summit White,PB,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K43,Uniboard,K43,Summit White,MDF,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K43,Uniboard,K43,Summit White,MDF,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K44,Uniboard,K44,Titan Grey,PB,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K44,Uniboard,K44,Titan Grey,PB,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K44,Uniboard,K44,Titan Grey,MDF,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K44,Uniboard,K44,Titan Grey,MDF,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K45,Uniboard,K45,Wave Blue,PB,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K45,Uniboard,K45,Wave Blue,PB,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K45,Uniboard,K45,Wave Blue,MDF,15.875,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K45,Uniboard,K45,Wave Blue,MDF,19.05,Vellum,0,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K46,Uniboard,K46,Kali,PB,15.875,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K46,Uniboard,K46,Kali,PB,19.05,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K46,Uniboard,K46,Kali,MDF,15.875,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K46,Uniboard,K46,Kali,MDF,19.05,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K47,Uniboard,K47,Asha,PB,15.875,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K47,Uniboard,K47,Asha,PB,19.05,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K47,Uniboard,K47,Asha,MDF,15.875,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K47,Uniboard,K47,Asha,MDF,19.05,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K48,Uniboard,K48,Whiskey,PB,15.875,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K48,Uniboard,K48,Whiskey,PB,19.05,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K48,Uniboard,K48,Whiskey,MDF,15.875,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K48,Uniboard,K48,Whiskey,MDF,19.05,Lyra,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K60,Uniboard,K60,Chiffon,PB,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K60,Uniboard,K60,Chiffon,PB,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K60,Uniboard,K60,Chiffon,MDF,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K60,Uniboard,K60,Chiffon,MDF,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K61,Uniboard,K61,Silk,PB,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K61,Uniboard,K61,Silk,PB,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K61,Uniboard,K61,Silk,MDF,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K61,Uniboard,K61,Silk,MDF,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K62,Uniboard,K62,Feather White,PB,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K62,Uniboard,K62,Feather White,PB,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K62,Uniboard,K62,Feather White,MDF,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K62,Uniboard,K62,Feather White,MDF,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K63,Uniboard,K63,Pietra,PB,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K63,Uniboard,K63,Pietra,PB,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K63,Uniboard,K63,Pietra,MDF,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K63,Uniboard,K63,Pietra,MDF,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K65,Uniboard,K65,Americana,PB,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K65,Uniboard,K65,Americana,PB,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K65,Uniboard,K65,Americana,MDF,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K65,Uniboard,K65,Americana,MDF,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K66,Uniboard,K66,Whisper,PB,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K66,Uniboard,K66,Whisper,PB,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K66,Uniboard,K66,Whisper,MDF,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K66,Uniboard,K66,Whisper,MDF,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K67,Uniboard,K67,Rumour,PB,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K67,Uniboard,K67,Rumour,PB,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K67,Uniboard,K67,Rumour,MDF,15.875,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K67,Uniboard,K67,Rumour,MDF,19.05,Nobella,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K68,Uniboard,K68,Conifer,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K68,Uniboard,K68,Conifer,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K68,Uniboard,K68,Conifer,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K68,Uniboard,K68,Conifer,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K70,Uniboard,K70,Resonance,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K70,Uniboard,K70,Resonance,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K70,Uniboard,K70,Resonance,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K70,Uniboard,K70,Resonance,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K72,Uniboard,K72,Data,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K72,Uniboard,K72,Data,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K72,Uniboard,K72,Data,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K72,Uniboard,K72,Data,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K73,Uniboard,K73,Mantra,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K73,Uniboard,K73,Mantra,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K73,Uniboard,K73,Mantra,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K73,Uniboard,K73,Mantra,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K74,Uniboard,K74,Chakra,PB,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K74,Uniboard,K74,Chakra,PB,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K74,Uniboard,K74,Chakra,MDF,15.875,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K74,Uniboard,K74,Chakra,MDF,19.05,Aura,1,Low Lustre,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K75,Uniboard,K75,Karma,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K75,Uniboard,K75,Karma,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K75,Uniboard,K75,Karma,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K75,Uniboard,K75,Karma,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K76,Uniboard,K76,Samadhi,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K76,Uniboard,K76,Samadhi,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K76,Uniboard,K76,Samadhi,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K76,Uniboard,K76,Samadhi,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K77,Uniboard,K77,Dosha,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K77,Uniboard,K77,Dosha,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K77,Uniboard,K77,Dosha,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K77,Uniboard,K77,Dosha,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K79,Uniboard,K79,Sage,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K79,Uniboard,K79,Sage,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K79,Uniboard,K79,Sage,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K79,Uniboard,K79,Sage,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K81,Uniboard,K81,Adobe,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K81,Uniboard,K81,Adobe,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K81,Uniboard,K81,Adobe,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K81,Uniboard,K81,Adobe,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K82,Uniboard,K82,Whitesmoke,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K82,Uniboard,K82,Whitesmoke,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K82,Uniboard,K82,Whitesmoke,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K82,Uniboard,K82,Whitesmoke,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-K83,Uniboard,K83,Shipshaw,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-K83,Uniboard,K83,Shipshaw,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-K83,Uniboard,K83,Shipshaw,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-K83,Uniboard,K83,Shipshaw,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L12,Uniboard,L12,Legend,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L12,Uniboard,L12,Legend,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L12,Uniboard,L12,Legend,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L12,Uniboard,L12,Legend,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L13,Uniboard,L13,Mythos,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L13,Uniboard,L13,Mythos,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L13,Uniboard,L13,Mythos,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L13,Uniboard,L13,Mythos,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L14,Uniboard,L14,Sepia,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L14,Uniboard,L14,Sepia,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L14,Uniboard,L14,Sepia,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L14,Uniboard,L14,Sepia,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L15,Uniboard,L15,Obscura,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L15,Uniboard,L15,Obscura,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L15,Uniboard,L15,Obscura,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L15,Uniboard,L15,Obscura,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L16,Uniboard,L16,Folklore,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L16,Uniboard,L16,Folklore,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L16,Uniboard,L16,Folklore,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L16,Uniboard,L16,Folklore,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L17,Uniboard,L17,Ambrette,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L17,Uniboard,L17,Ambrette,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L17,Uniboard,L17,Ambrette,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L17,Uniboard,L17,Ambrette,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L19,Uniboard,L19,Putty,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L19,Uniboard,L19,Putty,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L19,Uniboard,L19,Putty,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L19,Uniboard,L19,Putty,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L20,Uniboard,L20,Pacifica,PB,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L20,Uniboard,L20,Pacifica,PB,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L20,Uniboard,L20,Pacifica,MDF,15.875,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L20,Uniboard,L20,Pacifica,MDF,19.05,Supermat,1,Matte,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L21,Uniboard,L21,Selkie,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L21,Uniboard,L21,Selkie,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L21,Uniboard,L21,Selkie,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L21,Uniboard,L21,Selkie,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L22,Uniboard,L22,Enchanted,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L22,Uniboard,L22,Enchanted,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L22,Uniboard,L22,Enchanted,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L22,Uniboard,L22,Enchanted,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L23,Uniboard,L23,Hanami,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L23,Uniboard,L23,Hanami,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L23,Uniboard,L23,Hanami,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L23,Uniboard,L23,Hanami,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-L24,Uniboard,L24,Sakura,PB,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-L24,Uniboard,L24,Sakura,PB,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-L24,Uniboard,L24,Sakura,MDF,15.875,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-L24,Uniboard,L24,Sakura,MDF,19.05,Omnia,1,Low Sheen,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-R60,Uniboard,R60,Fresco,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-R60,Uniboard,R60,Fresco,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-R60,Uniboard,R60,Fresco,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-R60,Uniboard,R60,Fresco,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-R61,Uniboard,R61,Carnaval,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-R61,Uniboard,R61,Carnaval,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-R61,Uniboard,R61,Carnaval,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-R61,Uniboard,R61,Carnaval,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-16-R63,Uniboard,R63,Samba,PB,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-PB-19-R63,Uniboard,R63,Samba,PB,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-R63,Uniboard,R63,Samba,MDF,15.875,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-19-R63,Uniboard,R63,Samba,MDF,19.05,Rio,1,,,,0,0,0,0,0,0,0,0,0,1,0,,,,1
+UNI-MEL-MDF-16-WHI,Uniboard,UNI16WH,White,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-16-ALM,Uniboard,UNI16AL,Almond,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-16-DOV,Uniboard,UNI16DO,Dove Grey,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-16-BLA,Uniboard,UNI16BL,Black,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-16-GRE,Uniboard,UNI16GR,Grey Oak Woodgrain,MDF,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-16-NAT,Uniboard,UNI16NA,Natural Maple Woodgrain,MDF,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-19-WHI,Uniboard,UNI19WH,White,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-19-ALM,Uniboard,UNI19AL,Almond,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-19-DOV,Uniboard,UNI19DO,Dove Grey,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-19-BLA,Uniboard,UNI19BL,Black,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-19-GRE,Uniboard,UNI19GR,Grey Oak Woodgrain,MDF,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-MDF-19-NAT,Uniboard,UNI19NA,Natural Maple Woodgrain,MDF,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-16-WHI,Uniboard,UNI16WH,White,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-16-ALM,Uniboard,UNI16AL,Almond,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-16-DOV,Uniboard,UNI16DO,Dove Grey,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-16-BLA,Uniboard,UNI16BL,Black,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-16-GRE,Uniboard,UNI16GR,Grey Oak Woodgrain,PB,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-16-NAT,Uniboard,UNI16NA,Natural Maple Woodgrain,PB,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-19-WHI,Uniboard,UNI19WH,White,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-19-ALM,Uniboard,UNI19AL,Almond,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-19-DOV,Uniboard,UNI19DO,Dove Grey,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-19-BLA,Uniboard,UNI19BL,Black,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-19-GRE,Uniboard,UNI19GR,Grey Oak Woodgrain,PB,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+UNI-MEL-PB-19-NAT,Uniboard,UNI19NA,Natural Maple Woodgrain,PB,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0

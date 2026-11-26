@@ -1,0 +1,139 @@
+code,manufacturer,product_line,application,cabinet_type,cabinet_thickness_min_mm,overlay_type,opening_angle_deg,mechanism,soft_close,fixing_type,milling_diameter_mm,milling_depth_mm,door_thickness_min_mm,door_thickness_max_mm,material,finish,cost_per_pair,lead_time,is_active
+C1P6AE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Full Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,12,15,20,,Nickel-plated,,,1
+C1P6AE6,Salice,Silentia+ 100 Series,Standard Hinge,,,Full Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,12,15,20,,Titanium,,,1
+C1R6AE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Full Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,12,15,20,,Nickel-plated,,,1
+C1R6AE6,Salice,Silentia+ 100 Series,Standard Hinge,,,Full Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,12,15,20,,Titanium,,,1
+C176AE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Full Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,12,15,20,,Nickel-plated,,,1
+C1J6AE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Full Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,12,15,20,,Nickel-plated,,,1
+C1P6GE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Half Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,12,15,20,,Nickel-plated,,,1
+C1P6GE6,Salice,Silentia+ 100 Series,Standard Hinge,,,Half Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,12,15,20,,Titanium,,,1
+C1R6GE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Half Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,12,15,20,,Nickel-plated,,,1
+C1R6GE6,Salice,Silentia+ 100 Series,Standard Hinge,,,Half Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,12,15,20,,Titanium,,,1
+C176GE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Half Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,12,15,20,,Nickel-plated,,,1
+C1J6GE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Half Overlay,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,12,15,20,,Nickel-plated,,,1
+C1P6PE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Inset,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,12,15,20,,Nickel-plated,,,1
+C1P6PE6,Salice,Silentia+ 100 Series,Standard Hinge,,,Inset,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,12,15,20,,Titanium,,,1
+C1R6PE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Inset,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,12,15,20,,Nickel-plated,,,1
+C1R6PE6,Salice,Silentia+ 100 Series,Standard Hinge,,,Inset,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,12,15,20,,Titanium,,,1
+C176PE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Inset,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,12,15,20,,Nickel-plated,,,1
+C1J6PE9,Salice,Silentia+ 100 Series,Standard Hinge,,,Inset,105,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,12,15,20,,Nickel-plated,,,1
+C2PBAE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Full Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,15.5,18,35,,Nickel-plated,,,1
+C2PBAE6,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Full Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,15.5,18,35,,Titanium,,,1
+C2RBAE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Full Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,15.5,18,35,,Nickel-plated,,,1
+C2RBAE6,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Full Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,15.5,18,35,,Titanium,,,1
+C27BAE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Full Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,15.5,18,35,,Nickel-plated,,,1
+C2JBAE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Full Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,15.5,18,35,,Nickel-plated,,,1
+C2PBGE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Half Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,15.5,18,35,,Nickel-plated,,,1
+C2PBGE6,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Half Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,15.5,18,35,,Titanium,,,1
+C2RBGE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Half Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,15.5,18,35,,Nickel-plated,,,1
+C2RBGE6,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Half Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,15.5,18,35,,Titanium,,,1
+C27BGE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Half Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,15.5,18,35,,Nickel-plated,,,1
+C2JBGE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Half Overlay,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,15.5,18,35,,Nickel-plated,,,1
+C2PBPE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Inset,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,15.5,18,35,,Nickel-plated,,,1
+C2PBPE6,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Inset,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,15.5,18,35,,Titanium,,,1
+C2RBPE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Inset,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,15.5,18,35,,Nickel-plated,,,1
+C2RBPE6,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Inset,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,15.5,18,35,,Titanium,,,1
+C27BPE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Inset,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,15.5,18,35,,Nickel-plated,,,1
+C2JBPE9,Salice,Silentia+ 200 Series,Thick Door Hinge,,,Inset,94,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,15.5,18,35,,Nickel-plated,,,1
+C2PKAE9,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Full Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,28,,Nickel-plated,,,1
+C2PKAE6,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Full Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,28,,Titanium,,,1
+C2RKAE9,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Full Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,28,,Nickel-plated,,,1
+C2RKAE6,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Full Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,28,,Titanium,,,1
+C27KAE9,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Full Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,13.5,16,28,,Nickel-plated,,,1
+C2PKGE9,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Half Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,28,,Nickel-plated,,,1
+C2PKGE6,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Half Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,28,,Titanium,,,1
+C2RKGE9,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Half Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,28,,Nickel-plated,,,1
+C2RKGE6,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Half Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,28,,Titanium,,,1
+C2JKGE9,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Half Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,13.5,16,28,,Nickel-plated,,,1
+C2JKGE6,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Half Overlay,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,13.5,16,28,,Titanium,,,1
+C2PKPE9,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Inset,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,28,,Nickel-plated,,,1
+C2PKPE6,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Inset,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,28,,Titanium,,,1
+C2RKPE9,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Inset,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,28,,Nickel-plated,,,1
+C2RKPE6,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Inset,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,28,,Titanium,,,1
+C2JKPE9,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Inset,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,13.5,16,28,,Nickel-plated,,,1
+C2JKPE6,Salice,Silentia+ 200 Series,Zero Protrusion Wide Angle Hinge,,,Inset,155,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Logica,35,13.5,16,28,,Titanium,,,1
+C7P6AE9,Salice,Silentia+ 700 Series,Standard Hinge,,,Full Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,26,,Nickel-plated,,,1
+C7P6AE6,Salice,Silentia+ 700 Series,Standard Hinge,,,Full Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,26,,Titanium,,,1
+C7R6AE9,Salice,Silentia+ 700 Series,Standard Hinge,,,Full Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,26,,Nickel-plated,,,1
+C7R6AE6,Salice,Silentia+ 700 Series,Standard Hinge,,,Full Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,26,,Titanium,,,1
+C776AE9,Salice,Silentia+ 700 Series,Standard Hinge,,,Full Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,13.5,16,26,,Nickel-plated,,,1
+C7P6GE9,Salice,Silentia+ 700 Series,Standard Hinge,,,Half Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,26,,Nickel-plated,,,1
+C7P6GE6,Salice,Silentia+ 700 Series,Standard Hinge,,,Half Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,26,,Titanium,,,1
+C7R6GE9,Salice,Silentia+ 700 Series,Standard Hinge,,,Half Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,26,,Nickel-plated,,,1
+C7R6GE6,Salice,Silentia+ 700 Series,Standard Hinge,,,Half Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,26,,Titanium,,,1
+C776GE9,Salice,Silentia+ 700 Series,Standard Hinge,,,Half Overlay,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,13.5,16,26,,Nickel-plated,,,1
+C7P6PE9,Salice,Silentia+ 700 Series,Standard Hinge,,,Inset,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,26,,Nickel-plated,,,1
+C7P6PE6,Salice,Silentia+ 700 Series,Standard Hinge,,,Inset,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Screw-on,35,13.5,16,26,,Titanium,,,1
+C7R6PE9,Salice,Silentia+ 700 Series,Standard Hinge,,,Inset,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,26,,Nickel-plated,,,1
+C7R6PE6,Salice,Silentia+ 700 Series,Standard Hinge,,,Inset,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Press-in,35,13.5,16,26,,Titanium,,,1
+C776PE9,Salice,Silentia+ 700 Series,Standard Hinge,,,Inset,110,"Integrated soft-close (twin fluid dampers, adjustable switch)",1,Rapido,35,13.5,16,26,,Nickel-plated,,,1
+C2P4A99,Salice,Series 200,Standard Hinge,,,Full Overlay,110,Free swing (no spring),0,Screw-on,35,11,,,,,,,1
+C2R4A99,Salice,Series 200,Standard Hinge,,,Full Overlay,110,Free swing (no spring),0,Press-in,35,11,,,,,,,1
+C2P6A99,Salice,Series 200,Standard Hinge,,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,,,,,,1
+C2R6A99,Salice,Series 200,Standard Hinge,,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,,,,,,1
+C276A99,Salice,Series 200,Standard Hinge,,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,,,,,,1
+C2J6A99,Salice,Series 200,Standard Hinge,,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,,,,,,1
+C2P4G99,Salice,Series 200,Standard Hinge,,,Half Overlay,110,Free swing (no spring),0,Screw-on,35,11,,,,,,,1
+C2R4G99,Salice,Series 200,Standard Hinge,,,Half Overlay,110,Free swing (no spring),0,Press-in,35,11,,,,,,,1
+C2P6G99,Salice,Series 200,Standard Hinge,,,Half Overlay,110,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,,,,,,1
+C2R6G99,Salice,Series 200,Standard Hinge,,,Half Overlay,110,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,,,,,,1
+C276G99,Salice,Series 200,Standard Hinge,,,Half Overlay,110,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,,,,,,1
+C2J6G99,Salice,Series 200,Standard Hinge,,,Half Overlay,110,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,,,,,,1
+C2P4P99,Salice,Series 200,Standard Hinge,,,Inset,110,Free swing (no spring),0,Screw-on,35,11,,,,,,,1
+C2R4P99,Salice,Series 200,Standard Hinge,,,Inset,110,Free swing (no spring),0,Press-in,35,11,,,,,,,1
+C2P6P99,Salice,Series 200,Standard Hinge,,,Inset,110,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,,,,,,1
+C2R6P99,Salice,Series 200,Standard Hinge,,,Inset,110,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,,,,,,1
+C276P99,Salice,Series 200,Standard Hinge,,,Inset,110,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,,,,,,1
+C2J6P99,Salice,Series 200,Standard Hinge,,,Inset,110,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,,,,,,1
+C2P8A99,Salice,Series 200,Standard Hinge,,,Full Overlay,120,Free swing (no spring),0,Screw-on,35,11,,,,,,,1
+C2R8A99,Salice,Series 200,Standard Hinge,,,Full Overlay,120,Free swing (no spring),0,Press-in,35,11,,,,,,,1
+C2P9A99,Salice,Series 200,Standard Hinge,,,Full Overlay,120,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,,,,,,1
+C2R9A99,Salice,Series 200,Standard Hinge,,,Full Overlay,120,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,,,,,,1
+C279A99,Salice,Series 200,Standard Hinge,,,Full Overlay,120,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,,,,,,1
+C2J9A99,Salice,Series 200,Standard Hinge,,,Full Overlay,120,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,,,,,,1
+C2P8G99,Salice,Series 200,Standard Hinge,,,Half Overlay,120,Free swing (no spring),0,Screw-on,35,11,,,,,,,1
+C2R8G99,Salice,Series 200,Standard Hinge,,,Half Overlay,120,Free swing (no spring),0,Press-in,35,11,,,,,,,1
+C2P9G99,Salice,Series 200,Standard Hinge,,,Half Overlay,120,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,,,,,,1
+C2R9G99,Salice,Series 200,Standard Hinge,,,Half Overlay,120,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,,,,,,1
+C279G99,Salice,Series 200,Standard Hinge,,,Half Overlay,120,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,,,,,,1
+C2J9G99,Salice,Series 200,Standard Hinge,,,Half Overlay,120,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,,,,,,1
+C2PEA99,Salice,Series 200,Wide Angle Hinge,,,Full Overlay,165,Free swing (no spring),0,Screw-on,35,11,,,,,,,1
+C2REA99,Salice,Series 200,Wide Angle Hinge,,,Full Overlay,165,Free swing (no spring),0,Press-in,35,11,,,,,,,1
+C2PFA99,Salice,Series 200,Wide Angle Hinge,,,Full Overlay,165,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,,,,,,1
+C2RFA99,Salice,Series 200,Wide Angle Hinge,,,Full Overlay,165,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,,,,,,1
+C27FA99,Salice,Series 200,Wide Angle Hinge,,,Full Overlay,165,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,,,,,,1
+C2JFA99,Salice,Series 200,Wide Angle Hinge,,,Full Overlay,165,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,,,,,,1
+C2PEG99,Salice,Series 200,Wide Angle Hinge,,,Half Overlay,165,Free swing (no spring),0,Screw-on,35,11,,,,,,,1
+C2REG99,Salice,Series 200,Wide Angle Hinge,,,Half Overlay,165,Free swing (no spring),0,Press-in,35,11,,,,,,,1
+C2PFG99,Salice,Series 200,Wide Angle Hinge,,,Half Overlay,165,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,,,,,,1
+C2RFG99,Salice,Series 200,Wide Angle Hinge,,,Half Overlay,165,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,,,,,,1
+C27FG99,Salice,Series 200,Wide Angle Hinge,,,Half Overlay,165,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,,,,,,1
+C2JFG99,Salice,Series 200,Wide Angle Hinge,,,Half Overlay,165,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,,,,,,1
+C2PEP99,Salice,Series 200,Wide Angle Hinge,,,Inset,165,Free swing (no spring),0,Screw-on,35,11,,,,,,,1
+C2REP99,Salice,Series 200,Wide Angle Hinge,,,Inset,165,Free swing (no spring),0,Press-in,35,11,,,,,,,1
+C2PFP99,Salice,Series 200,Wide Angle Hinge,,,Inset,165,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,,,,,,1
+C2RFP99,Salice,Series 200,Wide Angle Hinge,,,Inset,165,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,,,,,,1
+C27FP99,Salice,Series 200,Wide Angle Hinge,,,Inset,165,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,,,,,,1
+C2JFP99,Salice,Series 200,Wide Angle Hinge,,,Inset,165,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,,,,,,1
+C2PAA99,Salice,Series 200,Thick Door Hinge,,,Full Overlay,94,Free swing (no spring),0,Screw-on,35,11,,32,,,,,1
+C2RAA99,Salice,Series 200,Thick Door Hinge,,,Full Overlay,94,Free swing (no spring),0,Press-in,35,11,,32,,,,,1
+C2PBA99,Salice,Series 200,Thick Door Hinge,,,Full Overlay,94,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,32,,,,,1
+C2RBA99,Salice,Series 200,Thick Door Hinge,,,Full Overlay,94,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,32,,,,,1
+C27BA99,Salice,Series 200,Thick Door Hinge,,,Full Overlay,94,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,32,,,,,1
+C2JBA99,Salice,Series 200,Thick Door Hinge,,,Full Overlay,94,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,32,,,,,1
+C2PAG99,Salice,Series 200,Thick Door Hinge,,,Half Overlay,94,Free swing (no spring),0,Screw-on,35,11,,32,,,,,1
+C2RAG99,Salice,Series 200,Thick Door Hinge,,,Half Overlay,94,Free swing (no spring),0,Press-in,35,11,,32,,,,,1
+C2PBG99,Salice,Series 200,Thick Door Hinge,,,Half Overlay,94,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,32,,,,,1
+C2RBG99,Salice,Series 200,Thick Door Hinge,,,Half Overlay,94,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,32,,,,,1
+C27BG99,Salice,Series 200,Thick Door Hinge,,,Half Overlay,94,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,32,,,,,1
+C2JBG99,Salice,Series 200,Thick Door Hinge,,,Half Overlay,94,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,32,,,,,1
+C2PAP99,Salice,Series 200,Thick Door Hinge,,,Inset,94,Free swing (no spring),0,Screw-on,35,11,,32,,,,,1
+C2RAP99,Salice,Series 200,Thick Door Hinge,,,Inset,94,Free swing (no spring),0,Press-in,35,11,,32,,,,,1
+C2PBP99,Salice,Series 200,Thick Door Hinge,,,Inset,94,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,32,,,,,1
+C2RBP99,Salice,Series 200,Thick Door Hinge,,,Inset,94,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,32,,,,,1
+C27BP99,Salice,Series 200,Thick Door Hinge,,,Inset,94,"Spring (Self-Close, no soft-close)",0,Rapido,35,11,,32,,,,,1
+C2JBP99,Salice,Series 200,Thick Door Hinge,,,Inset,94,"Spring (Self-Close, no soft-close)",0,Logica,35,11,,32,,,,,1
+C2PKA99,Salice,Series 200,Zero Protrusion Wide Angle Hinge (K series),,,Full Overlay,155,"Spring (Self-Close, no soft-close)",0,Screw-on,35,8,,28,,,,,1
+C2RKA99,Salice,Series 200,Zero Protrusion Wide Angle Hinge (K series),,,Full Overlay,155,"Spring (Self-Close, no soft-close)",0,Press-in,35,8,,28,,,,,1
+C2PKG99,Salice,Series 200,Zero Protrusion Wide Angle Hinge (K series),,,Half Overlay,155,"Spring (Self-Close, no soft-close)",0,Screw-on,35,8,,28,,,,,1
+C2RKG99,Salice,Series 200,Zero Protrusion Wide Angle Hinge (K series),,,Half Overlay,155,"Spring (Self-Close, no soft-close)",0,Press-in,35,8,,28,,,,,1

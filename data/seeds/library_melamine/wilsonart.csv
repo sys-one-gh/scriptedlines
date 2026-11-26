@@ -1,0 +1,76 @@
+code,manufacturer,finish_code,finish_name,core_substrate,thickness_mm,texture,is_premium_texture,sheen,grain,g_sides,size_4x8,size_5x8,size_4x10,size_4x12,size_5x12,size_5x10,fr_rated,leed,fsc,carb_p2,is_mto,cost_per_sheet,cost_per_sqft,lead_time,is_active
+WA-MEL-PB-16-4942-38,Wilsonart,4942-38,Crisp Linen,PB,15.875,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-4942-38,Wilsonart,4942-38,Crisp Linen,PB,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-4942-38,Wilsonart,4942-38,Crisp Linen,MDF,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-4943-38,Wilsonart,4943-38,Classic Linen,PB,15.875,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-4943-38,Wilsonart,4943-38,Classic Linen,PB,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-4943-38,Wilsonart,4943-38,Classic Linen,MDF,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-4944-38,Wilsonart,4944-38,Casual Linen,PB,15.875,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-4944-38,Wilsonart,4944-38,Casual Linen,PB,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-4944-38,Wilsonart,4944-38,Casual Linen,MDF,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-4990-38,Wilsonart,4990-38,Flax Linen,PB,15.875,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-4990-38,Wilsonart,4990-38,Flax Linen,PB,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-4990-38,Wilsonart,4990-38,Flax Linen,MDF,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-5048-60,Wilsonart,5048-60,Bianco Tessere,PB,15.875,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-5048-60,Wilsonart,5048-60,Bianco Tessere,PB,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-5048-60,Wilsonart,5048-60,Bianco Tessere,MDF,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-5049-60,Wilsonart,5049-60,Panna Tessere,PB,15.875,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-5049-60,Wilsonart,5049-60,Panna Tessere,PB,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-5049-60,Wilsonart,5049-60,Panna Tessere,MDF,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-5051-60,Wilsonart,5051-60,Sabbia Tessere,PB,15.875,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-5051-60,Wilsonart,5051-60,Sabbia Tessere,PB,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-5051-60,Wilsonart,5051-60,Sabbia Tessere,MDF,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-5052-60,Wilsonart,5052-60,Grigio Tessere,PB,15.875,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-5052-60,Wilsonart,5052-60,Grigio Tessere,PB,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-5052-60,Wilsonart,5052-60,Grigio Tessere,MDF,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-5053-60,Wilsonart,5053-60,Frosted Tabby,PB,15.875,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-5053-60,Wilsonart,5053-60,Frosted Tabby,PB,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-5053-60,Wilsonart,5053-60,Frosted Tabby,MDF,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-5054-60,Wilsonart,5054-60,Wheat Tabby,PB,15.875,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-5054-60,Wilsonart,5054-60,Wheat Tabby,PB,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-5054-60,Wilsonart,5054-60,Wheat Tabby,MDF,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-5055-60,Wilsonart,5055-60,Heathered Tabby,PB,15.875,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-5055-60,Wilsonart,5055-60,Heathered Tabby,PB,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-5055-60,Wilsonart,5055-60,Heathered Tabby,MDF,19.05,Matte,0,Gloss 10,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-7965K-12,Wilsonart,7965K-12,Walnut Heights,PB,15.875,SoftGrain,0,Gloss 8,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-7965K-12,Wilsonart,7965K-12,Walnut Heights,PB,19.05,SoftGrain,0,Gloss 8,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-7965K-12,Wilsonart,7965K-12,Walnut Heights,MDF,19.05,SoftGrain,0,Gloss 8,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-7970K-28,Wilsonart,7970K-28,High Line,PB,15.875,Gloss Line,0,Gloss 5,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-7970K-28,Wilsonart,7970K-28,High Line,PB,19.05,Gloss Line,0,Gloss 5,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-7970K-28,Wilsonart,7970K-28,High Line,MDF,19.05,Gloss Line,0,Gloss 5,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-7986-38,Wilsonart,7986-38,Pasadena Oak,PB,15.875,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-7986-38,Wilsonart,7986-38,Pasadena Oak,PB,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-7986-38,Wilsonart,7986-38,Pasadena Oak,MDF,19.05,Fine Velvet Texture,0,Gloss 14,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-8201K-12,Wilsonart,8201K-12,Grey Elm,PB,15.875,SoftGrain,0,Gloss 8,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-8201K-12,Wilsonart,8201K-12,Grey Elm,PB,19.05,SoftGrain,0,Gloss 8,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-8201K-12,Wilsonart,8201K-12,Grey Elm,MDF,19.05,SoftGrain,0,Gloss 8,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-8234K-05,Wilsonart,8234K-05,Belair,PB,15.875,Timbergrain,0,Gloss 4.5,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-8234K-05,Wilsonart,8234K-05,Belair,PB,19.05,Timbergrain,0,Gloss 4.5,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-8234K-05,Wilsonart,8234K-05,Belair,MDF,19.05,Timbergrain,0,Gloss 4.5,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-16-8249K-05,Wilsonart,8249K-05,Tahoe Oak,PB,15.875,Timbergrain,0,Gloss 4.5,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-PB-19-8249K-05,Wilsonart,8249K-05,Tahoe Oak,PB,19.05,Timbergrain,0,Gloss 4.5,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-19-8249K-05,Wilsonart,8249K-05,Tahoe Oak,MDF,19.05,Timbergrain,0,Gloss 4.5,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+WA-MEL-MDF-16-WHI,Wilsonart,WA16WH,White,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-16-ALM,Wilsonart,WA16AL,Almond,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-16-DOV,Wilsonart,WA16DO,Dove Grey,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-16-BLA,Wilsonart,WA16BL,Black,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-16-GRE,Wilsonart,WA16GR,Grey Oak Woodgrain,MDF,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-16-NAT,Wilsonart,WA16NA,Natural Maple Woodgrain,MDF,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-19-WHI,Wilsonart,WA19WH,White,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-19-ALM,Wilsonart,WA19AL,Almond,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-19-DOV,Wilsonart,WA19DO,Dove Grey,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-19-BLA,Wilsonart,WA19BL,Black,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-19-GRE,Wilsonart,WA19GR,Grey Oak Woodgrain,MDF,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-MDF-19-NAT,Wilsonart,WA19NA,Natural Maple Woodgrain,MDF,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-16-WHI,Wilsonart,WA16WH,White,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-16-ALM,Wilsonart,WA16AL,Almond,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-16-DOV,Wilsonart,WA16DO,Dove Grey,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-16-BLA,Wilsonart,WA16BL,Black,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-16-GRE,Wilsonart,WA16GR,Grey Oak Woodgrain,PB,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-16-NAT,Wilsonart,WA16NA,Natural Maple Woodgrain,PB,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-19-WHI,Wilsonart,WA19WH,White,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-19-ALM,Wilsonart,WA19AL,Almond,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-19-DOV,Wilsonart,WA19DO,Dove Grey,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-19-BLA,Wilsonart,WA19BL,Black,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-19-GRE,Wilsonart,WA19GR,Grey Oak Woodgrain,PB,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+WA-MEL-PB-19-NAT,Wilsonart,WA19NA,Natural Maple Woodgrain,PB,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
