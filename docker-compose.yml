@@ -39,6 +39,8 @@ services:
       - ./backend:/app
       # PDF storage — persists separately from code
       - storage_data:/app/storage
+      # Catalog seed CSVs, read by scripts/load_catalog.py
+      - ./data:/data:ro
     ports:
       - "8000:8000"
     # No depends_on — backend connects to remote Supabase, nothing local to wait for.

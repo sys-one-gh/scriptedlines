@@ -1,0 +1,90 @@
+code,description,substrate_type,size_4x8,size_5x8,size_4x10,size_4x12,size_5x12,size_5x10,size_5x5,thickness_mm,core_color,grain,fr_rated,leed,fsc,exterior_grade,carb_p2,cost_per_sheet,cost_per_sqft,lead_time,is_active
+MDF-6,"Standard MDF, 1/4in (6.35mm)",MDF,1,1,1,1,1,1,0,6.35,,,0,0,0,0,1,,,,1
+MDF-9,"Standard MDF, 3/8in (9.525mm)",MDF,1,1,1,1,1,1,0,9.525,,,0,0,0,0,1,,,,1
+MDF-12,"Standard MDF, 1/2in (12.7mm)",MDF,1,1,1,1,1,1,0,12.7,,,0,0,0,0,1,,,,1
+MDF-16,"Standard MDF, 5/8in (15.875mm)",MDF,1,1,1,1,1,1,0,15.875,,,0,0,0,0,1,,,,1
+MDF-17,"Standard MDF, 11/16in (17.4625mm)",MDF,1,1,1,1,1,1,0,17.4625,,,0,0,0,0,1,,,,1
+MDF-19,"Standard MDF, 3/4in (19.05mm)",MDF,1,1,1,1,1,1,0,19.05,,,0,0,0,0,1,,,,1
+MDF-25,"Standard MDF, 1in (25.4mm)",MDF,1,1,1,1,1,1,0,25.4,,,0,0,0,0,1,,,,1
+MRMDF-6,"Moisture-Resistant MDF, 1/4in (6.35mm)",MR-MDF,1,1,1,1,1,1,0,6.35,,,0,0,0,0,1,,,,1
+MRMDF-9,"Moisture-Resistant MDF, 3/8in (9.525mm)",MR-MDF,1,1,1,1,1,1,0,9.525,,,0,0,0,0,1,,,,1
+MRMDF-12,"Moisture-Resistant MDF, 1/2in (12.7mm)",MR-MDF,1,1,1,1,1,1,0,12.7,,,0,0,0,0,1,,,,1
+MRMDF-16,"Moisture-Resistant MDF, 5/8in (15.875mm)",MR-MDF,1,1,1,1,1,1,0,15.875,,,0,0,0,0,1,,,,1
+MRMDF-17,"Moisture-Resistant MDF, 11/16in (17.4625mm)",MR-MDF,1,1,1,1,1,1,0,17.4625,,,0,0,0,0,1,,,,1
+MRMDF-19,"Moisture-Resistant MDF, 3/4in (19.05mm)",MR-MDF,1,1,1,1,1,1,0,19.05,,,0,0,0,0,1,,,,1
+MRMDF-25,"Moisture-Resistant MDF, 1in (25.4mm)",MR-MDF,1,1,1,1,1,1,0,25.4,,,0,0,0,0,1,,,,1
+FRMDF-12,"Fire-Rated MDF, 1/2in (12.7mm)",FR-MDF,1,1,1,1,1,1,0,12.7,Pink (FR identification tint),,1,0,0,0,1,,,,1
+FRMDF-16,"Fire-Rated MDF, 5/8in (15.875mm)",FR-MDF,1,1,1,1,1,1,0,15.875,Pink (FR identification tint),,1,0,0,0,1,,,,1
+FRMDF-17,"Fire-Rated MDF, 11/16in (17.4625mm)",FR-MDF,1,1,1,1,1,1,0,17.4625,Pink (FR identification tint),,1,0,0,0,1,,,,1
+FRMDF-19,"Fire-Rated MDF, 3/4in (19.05mm)",FR-MDF,1,1,1,1,1,1,0,19.05,Pink (FR identification tint),,1,0,0,0,1,,,,1
+EXMDF-12,"Exterior-Grade MDF (NAUF), 1/2in (12.7mm)",Exterior MDF,1,1,1,1,1,1,0,12.7,,,0,1,0,1,1,,,,1
+EXMDF-19,"Exterior-Grade MDF (NAUF), 3/4in (19.05mm)",Exterior MDF,1,1,1,1,1,1,0,19.05,,,0,1,0,1,1,,,,1
+PB-6,"Standard Particleboard, 1/4in (6.35mm)",PB,1,1,1,1,1,1,0,6.35,,,0,0,0,0,1,,,,1
+PB-9,"Standard Particleboard, 3/8in (9.525mm)",PB,1,1,1,1,1,1,0,9.525,,,0,0,0,0,1,,,,1
+PB-12,"Standard Particleboard, 1/2in (12.7mm)",PB,1,1,1,1,1,1,0,12.7,,,0,0,0,0,1,,,,1
+PB-16,"Standard Particleboard, 5/8in (15.875mm)",PB,1,1,1,1,1,1,0,15.875,,,0,0,0,0,1,,,,1
+PB-17,"Standard Particleboard, 11/16in (17.4625mm)",PB,1,1,1,1,1,1,0,17.4625,,,0,0,0,0,1,,,,1
+PB-19,"Standard Particleboard, 3/4in (19.05mm)",PB,1,1,1,1,1,1,0,19.05,,,0,0,0,0,1,,,,1
+PB-25,"Standard Particleboard, 1in (25.4mm)",PB,1,1,1,1,1,1,0,25.4,,,0,0,0,0,1,,,,1
+MRPB-6,"Moisture-Resistant Particleboard, 1/4in (6.35mm)",MR-PB,1,1,1,1,1,1,0,6.35,,,0,0,0,0,1,,,,1
+MRPB-9,"Moisture-Resistant Particleboard, 3/8in (9.525mm)",MR-PB,1,1,1,1,1,1,0,9.525,,,0,0,0,0,1,,,,1
+MRPB-12,"Moisture-Resistant Particleboard, 1/2in (12.7mm)",MR-PB,1,1,1,1,1,1,0,12.7,,,0,0,0,0,1,,,,1
+MRPB-16,"Moisture-Resistant Particleboard, 5/8in (15.875mm)",MR-PB,1,1,1,1,1,1,0,15.875,,,0,0,0,0,1,,,,1
+MRPB-17,"Moisture-Resistant Particleboard, 11/16in (17.4625mm)",MR-PB,1,1,1,1,1,1,0,17.4625,,,0,0,0,0,1,,,,1
+MRPB-19,"Moisture-Resistant Particleboard, 3/4in (19.05mm)",MR-PB,1,1,1,1,1,1,0,19.05,,,0,0,0,0,1,,,,1
+MRPB-25,"Moisture-Resistant Particleboard, 1in (25.4mm)",MR-PB,1,1,1,1,1,1,0,25.4,,,0,0,0,0,1,,,,1
+HWPLY-6,"Hardwood Plywood, FSC, 6mm",Hardwood Plywood,1,0,0,0,1,1,1,6.0,,,0,1,1,0,1,,,,1
+HWPLY-8,"Hardwood Plywood, FSC, 8mm",Hardwood Plywood,1,0,0,0,1,1,1,8.0,,,0,1,1,0,1,,,,1
+HWPLY-12,"Hardwood Plywood, FSC, 12mm",Hardwood Plywood,1,0,0,0,1,1,1,12.0,,,0,1,1,0,1,,,,1
+HWPLY-15,"Hardwood Plywood, FSC, 15mm",Hardwood Plywood,1,0,0,0,1,1,1,15.0,,,0,1,1,0,1,,,,1
+HWPLY-18,"Hardwood Plywood, FSC, 18mm",Hardwood Plywood,1,0,0,0,1,1,1,18.0,,,0,1,1,0,1,,,,1
+HWPLY-25,"Hardwood Plywood, FSC, 25mm",Hardwood Plywood,1,0,0,0,1,1,1,25.0,,,0,1,1,0,1,,,,1
+SWPLY-6,"Void-Free Softwood Plywood, 6mm",Softwood Plywood,1,0,0,0,1,1,1,6.0,,,0,0,0,0,1,,,,1
+SWPLY-8,"Void-Free Softwood Plywood, 8mm",Softwood Plywood,1,0,0,0,1,1,1,8.0,,,0,0,0,0,1,,,,1
+SWPLY-12,"Void-Free Softwood Plywood, 12mm",Softwood Plywood,1,0,0,0,1,1,1,12.0,,,0,0,0,0,1,,,,1
+SWPLY-15,"Void-Free Softwood Plywood, 15mm",Softwood Plywood,1,0,0,0,1,1,1,15.0,,,0,0,0,0,1,,,,1
+SWPLY-18,"Void-Free Softwood Plywood, 18mm",Softwood Plywood,1,0,0,0,1,1,1,18.0,,,0,0,0,0,1,,,,1
+SWPLY-25,"Void-Free Softwood Plywood, 25mm",Softwood Plywood,1,0,0,0,1,1,1,25.0,,,0,0,0,0,1,,,,1
+FLEXPLY-5-S,"Flexible Plywood, Short Grain, 5mm",Flex Plywood,1,0,0,0,1,1,1,5.0,,Short,0,0,0,0,1,,,,1
+FLEXPLY-5-L,"Flexible Plywood, Long Grain, 5mm",Flex Plywood,1,0,0,0,1,1,1,5.0,,Long,0,0,0,0,1,,,,1
+FLEXPLY-8-S,"Flexible Plywood, Short Grain, 8mm",Flex Plywood,1,0,0,0,1,1,1,8.0,,Short,0,0,0,0,1,,,,1
+FLEXPLY-8-L,"Flexible Plywood, Long Grain, 8mm",Flex Plywood,1,0,0,0,1,1,1,8.0,,Long,0,0,0,0,1,,,,1
+MDF-29,"Standard MDF, 1-1/8in (28.575mm)",MDF,1,1,1,1,1,1,0,28.575,,,0,0,0,0,1,,,,1
+MDF-32,"Standard MDF, 1-1/4in (31.75mm)",MDF,1,1,1,1,1,1,0,31.75,,,0,0,0,0,1,,,,1
+MDF-38,"Standard MDF, 1-1/2in (38.1mm)",MDF,1,1,1,1,1,1,0,38.1,,,0,0,0,0,1,,,,1
+MRMDF-38,"Moisture-Resistant MDF, 1-1/2in (38.1mm)",MR-MDF,1,1,1,1,1,1,0,38.1,,,0,0,0,0,1,,,,1
+FRMDF-6,"Fire-Rated MDF (Class A, NAF), 1/4in (6.35mm)",FR-MDF,1,1,1,1,1,1,0,6.35,,,1,1,0,0,1,,,,1
+FRMDF-38,"Fire-Rated MDF (Class A, NAF), 1-1/2in (38.1mm)",FR-MDF,1,1,1,1,1,1,0,38.1,,,1,1,0,0,1,,,,1
+EXMDF-6,"Exterior-Grade MDF (NAF), 1/4in (6.35mm)",Exterior MDF,1,1,1,1,1,1,0,6.35,,,0,0,0,1,1,,,,1
+EXMDF-9,"Exterior-Grade MDF (NAF), 3/8in (9.525mm)",Exterior MDF,1,1,1,1,1,1,0,9.525,,,0,0,0,1,1,,,,1
+NAFMDF-6,"No-Added-Formaldehyde MDF, 1/4in (6.35mm)",NAF-MDF,1,1,1,1,1,1,0,6.35,,,0,1,0,0,1,,,,1
+NAFMDF-19,"No-Added-Formaldehyde MDF, 3/4in (19.05mm)",NAF-MDF,1,1,1,1,1,1,0,19.05,,,0,1,0,0,1,,,,1
+NAFMDF-38,"No-Added-Formaldehyde MDF, 1-1/2in (38.1mm)",NAF-MDF,1,1,1,1,1,1,0,38.1,,,0,1,0,0,1,,,,1
+ULMDF-12,"Ultralight MDF (~32 lb/ft3), 12mm",Ultralight MDF,1,0,0,0,0,0,0,12.0,,,0,0,0,0,1,,,,1
+ULMDF-18,"Ultralight MDF (~32 lb/ft3), 18mm",Ultralight MDF,1,0,0,0,1,1,0,18.0,,,0,0,0,0,1,,,,1
+ULMDF-25,"Ultralight MDF (~32 lb/ft3), 1in (25.4mm)",Ultralight MDF,0,0,1,0,0,0,0,25.4,,,0,0,0,0,1,,,,1
+PB-38,"Standard Particleboard, 1-1/2in (38.1mm)",PB,1,1,1,1,1,1,0,38.1,,,0,0,0,0,1,,,,1
+NAUFPB-12,"NAUF Particleboard (ULEF), 1/2in (12.7mm)",NAUF-PB,1,1,1,1,1,1,0,12.7,,,0,1,0,0,1,,,,1
+NAUFPB-19,"NAUF Particleboard (ULEF), 3/4in (19.05mm)",NAUF-PB,1,1,1,1,1,1,0,19.05,,,0,1,0,0,1,,,,1
+NAUFPB-29,"NAUF Particleboard (ULEF), 1-1/8in (28.575mm)",NAUF-PB,1,1,1,1,1,1,0,28.575,,,0,1,0,0,1,,,,1
+FRPB-12,"Fire-Rated Particleboard (Class A, ULEF), 1/2in (12.7mm)",FR-PB,1,1,0,0,0,0,0,12.7,,,1,1,0,0,1,,,,1
+FRPB-19,"Fire-Rated Particleboard (Class A, ULEF), 3/4in (19.05mm)",FR-PB,1,1,0,0,0,0,0,19.05,,,1,1,0,0,1,,,,1
+VCPLY-6,"Veneer-Core Hardwood Plywood (NAF), nominal 1/4in (6.35mm)",Veneer Core Plywood,1,0,1,0,0,0,0,6.35,,,0,1,0,0,1,,,,1
+VCPLY-12,"Veneer-Core Hardwood Plywood (NAF), nominal 1/2in (12.7mm)",Veneer Core Plywood,1,0,1,0,0,0,0,12.7,,,0,1,0,0,1,,,,1
+VCPLY-19,"Veneer-Core Hardwood Plywood (NAF), nominal 3/4in (19.05mm)",Veneer Core Plywood,1,0,1,0,0,0,0,19.05,,,0,1,0,0,1,,,,1
+CCPLY-12,"Combination-Core Hardwood Plywood (veneer core, MDF crossbands), nominal 1/2in (12.7mm)",Combination Core Plywood,1,0,1,0,0,0,0,12.7,,,0,1,0,0,1,,,,1
+CCPLY-16,"Combination-Core Hardwood Plywood (veneer core, MDF crossbands), nominal 5/8in (15.875mm)",Combination Core Plywood,1,0,1,0,0,0,0,15.875,,,0,1,0,0,1,,,,1
+CCPLY-19,"Combination-Core Hardwood Plywood (veneer core, MDF crossbands), nominal 3/4in (19.05mm)",Combination Core Plywood,1,0,1,0,0,0,0,19.05,,,0,1,0,0,1,,,,1
+CCPLY-25,"Combination-Core Hardwood Plywood (veneer core, MDF crossbands), nominal 1in (25.4mm)",Combination Core Plywood,1,0,1,0,0,0,0,25.4,,,0,1,0,0,1,,,,1
+CCPLY-32,"Combination-Core Hardwood Plywood (veneer core, MDF crossbands), nominal 1-1/4in (31.75mm)",Combination Core Plywood,1,0,1,0,0,0,0,31.75,,,0,1,0,0,1,,,,1
+FRPLY-11,"Fire-Rated Veneer-Core Platform (Class A core only, NAF), 7/16in (11.1125mm)",FR Veneer Core Plywood,1,0,1,0,0,0,0,11.1125,,,1,0,0,0,1,,,,1
+FRPLY-25,"Fire-Rated Veneer-Core Platform (Class A core only, NAF), 1in (25.4mm)",FR Veneer Core Plywood,1,0,1,0,0,0,0,25.4,,,1,0,0,0,1,,,,1
+MPPLY-12,"Multi-Ply Birch-Core Hardwood Plywood (11-ply), 1/2in (12.7mm)",Multi-Ply Plywood,1,0,0,0,0,0,0,12.7,,,0,1,0,0,1,,,,1
+MPPLY-19,"Multi-Ply Hardwood Plywood (13-ply), 3/4in (19.05mm)",Multi-Ply Plywood,1,0,0,0,0,0,0,19.05,,,0,1,0,0,1,,,,1
+MPPLY-25,"Multi-Ply Hardwood Plywood (hardwood crossbands), 1in (25.4mm)",Multi-Ply Plywood,1,0,0,0,0,0,0,25.4,,,0,0,0,0,1,,,,1
+BBPLY-6,"Birch Plywood, birch throughout (5-ply), 6.5mm",Birch Plywood,1,1,0,0,0,1,1,6.5,,,0,0,0,0,1,,,,1
+BBPLY-9,"Birch Plywood, birch throughout (7-ply), 9mm",Birch Plywood,1,1,0,0,0,1,1,9.0,,,0,0,0,0,1,,,,1
+BBPLY-12,"Birch Plywood, birch throughout (9-ply), 12mm",Birch Plywood,1,1,0,0,0,1,1,12.0,,,0,0,0,0,1,,,,1
+BBPLY-15,"Birch Plywood, birch throughout (11-ply), 15mm",Birch Plywood,1,1,0,0,0,1,1,15.0,,,0,0,0,0,1,,,,1
+BBPLY-18,"Birch Plywood, birch throughout (13-ply), 18mm",Birch Plywood,1,1,0,0,0,1,1,18.0,,,0,0,0,0,1,,,,1
+BBPLY-24,"Birch Plywood, birch throughout (17-ply), 24mm",Birch Plywood,1,1,0,0,0,1,1,24.0,,,0,0,0,0,1,,,,1

@@ -1,0 +1,37 @@
+code,manufacturer,product_line,mounting_type,extension_type,length_mm,length_label,runner_length_mm,cabinet_depth_mm,min_cabinet_depth_mm,max_cabinet_depth_mm,load_capacity_lbs,max_drawer_side_thickness_mm,slide_thickness_mm,slide_height_mm,soft_close,material,finish,cost_per_pair,lead_time,is_active
+9318268,Hettich,Actro 5D L Silent System,Undermount,Full Extension,240.0,250mm,,,253.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318269,Hettich,Actro 5D L Silent System,Undermount,Full Extension,260.0,270mm,,,273.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318270,Hettich,Actro 5D L Silent System,Undermount,Full Extension,290.0,300mm,,,303.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318281,Hettich,Actro 5D L Silent System,Undermount,Full Extension,310.0,320mm,,,323.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318282,Hettich,Actro 5D L Silent System,Undermount,Full Extension,340.0,350mm,,,353.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318283,Hettich,Actro 5D L Silent System,Undermount,Full Extension,370.0,380mm,,,383.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318284,Hettich,Actro 5D L Silent System,Undermount,Full Extension,390.0,400mm,,,403.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318285,Hettich,Actro 5D L Silent System,Undermount,Full Extension,410.0,420mm,,,423.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318286,Hettich,Actro 5D L Silent System,Undermount,Full Extension,440.0,450mm,,,453.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318287,Hettich,Actro 5D L Silent System,Undermount,Full Extension,470.0,480mm,,,483.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318288,Hettich,Actro 5D L Silent System,Undermount,Full Extension,490.0,500mm,,,503.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318289,Hettich,Actro 5D L Silent System,Undermount,Full Extension,510.0,520mm,,,523.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318290,Hettich,Actro 5D L Silent System,Undermount,Full Extension,540.0,550mm,,,553.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318291,Hettich,Actro 5D L Silent System,Undermount,Full Extension,590.0,600mm,,,603.0,,88.185,16,,,1,Steel,Galvanized,,,1
+9318310,Hettich,Actro 5D XL Silent System,Undermount,Full Extension,440.0,450mm,,,453.0,,154.324,16,,,1,Steel,Galvanized,,,1
+9318311,Hettich,Actro 5D XL Silent System,Undermount,Full Extension,490.0,500mm,,,503.0,,154.324,16,,,1,Steel,Galvanized,,,1
+9318312,Hettich,Actro 5D XL Silent System,Undermount,Full Extension,510.0,520mm,,,523.0,,154.324,16,,,1,Steel,Galvanized,,,1
+9318313,Hettich,Actro 5D XL Silent System,Undermount,Full Extension,540.0,550mm,,,553.0,,154.324,16,,,1,Steel,Galvanized,,,1
+9318314,Hettich,Actro 5D XL Silent System,Undermount,Full Extension,570.0,580mm,,,583.0,,154.324,16,,,1,Steel,Galvanized,,,1
+9318315,Hettich,Actro 5D XL Silent System,Undermount,Full Extension,590.0,600mm,,,603.0,,154.324,16,,,1,Steel,Galvanized,,,1
+9318316,Hettich,Actro 5D XL Silent System,Undermount,Full Extension,640.0,650mm,,,653.0,,154.324,16,,,1,Steel,Galvanized,,,1
+9318317,Hettich,Actro 5D XL Silent System,Undermount,Full Extension,690.0,700mm,,,703.0,,154.324,16,,,1,Steel,Galvanized,,,1
+9318318,Hettich,Actro 5D XL Silent System,Undermount,Full Extension,740.0,750mm,,,753.0,,154.324,16,,,1,Steel,Galvanized,,,1
+9048819,Hettich,Quadro V6 Silent System,Undermount,Full Extension,280.0,280mm,,,293.0,,44.092,16,,,1,Steel,Galvanized,,,1
+9048823,Hettich,Quadro V6 Silent System,Undermount,Full Extension,300.0,300mm,,,313.0,,55.116,16,,,1,Steel,Galvanized,,,1
+9048826,Hettich,Quadro V6 Silent System,Undermount,Full Extension,350.0,350mm,,,363.0,,55.116,16,,,1,Steel,Galvanized,,,1
+9048827,Hettich,Quadro V6 Silent System,Undermount,Full Extension,380.0,380mm,,,393.0,,55.116,16,,,1,Steel,Galvanized,,,1
+9048828,Hettich,Quadro V6 Silent System,Undermount,Full Extension,400.0,400mm,,,413.0,,66.139,16,,,1,Steel,Galvanized,,,1
+9048829,Hettich,Quadro V6 Silent System,Undermount,Full Extension,420.0,420mm,,,433.0,,66.139,16,,,1,Steel,Galvanized,,,1
+9048830,Hettich,Quadro V6 Silent System,Undermount,Full Extension,450.0,450mm,,,463.0,,66.139,16,,,1,Steel,Galvanized,,,1
+9048831,Hettich,Quadro V6 Silent System,Undermount,Full Extension,480.0,480mm,,,493.0,,66.139,16,,,1,Steel,Galvanized,,,1
+9048832,Hettich,Quadro V6 Silent System,Undermount,Full Extension,500.0,500mm,,,513.0,,66.139,16,,,1,Steel,Galvanized,,,1
+9048833,Hettich,Quadro V6 Silent System,Undermount,Full Extension,520.0,520mm,,,533.0,,66.139,16,,,1,Steel,Galvanized,,,1
+9048834,Hettich,Quadro V6 Silent System,Undermount,Full Extension,550.0,550mm,,,563.0,,66.139,16,,,1,Steel,Galvanized,,,1
+9048835,Hettich,Quadro V6 Silent System,Undermount,Full Extension,580.0,580mm,,,593.0,,66.139,16,,,1,Steel,Galvanized,,,1
+9048836,Hettich,Quadro V6 Silent System,Undermount,Full Extension,600.0,600mm,,,613.0,,55.116,16,,,1,Steel,Galvanized,,,1

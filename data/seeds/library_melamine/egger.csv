@@ -1,0 +1,481 @@
+code,manufacturer,finish_code,finish_name,core_substrate,thickness_mm,texture,is_premium_texture,sheen,grain,g_sides,size_4x8,size_5x8,size_4x10,size_4x12,size_5x12,size_5x10,fr_rated,leed,fsc,carb_p2,is_mto,cost_per_sheet,cost_per_sqft,lead_time,is_active
+EGG-MEL-MDF-19-W1050ST7,Egger,W1050 ST7,Coastal White,MDF,19.05,Smoothtouch Fine Pearl (ST7),0,,,G1S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-W1050ST7,Egger,W1050 ST7,Coastal White,PB,6.35,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-W1050ST7,Egger,W1050 ST7,Coastal White,PB,12.7,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-W1050ST7,Egger,W1050 ST7,Coastal White,PB,15.875,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-W1050ST7,Egger,W1050 ST7,Coastal White,PB,19.05,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-W1050ST7,Egger,W1050 ST7,Coastal White,PB,25.4,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-W1050ST7,Egger,W1050 ST7,Coastal White,PB,28.575,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-W1100ST9,Egger,W1100 ST9,Alpine White,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-W1100ST9,Egger,W1100 ST9,Alpine White,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-W1100ST9,Egger,W1100 ST9,Alpine White,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-W1100ST9,Egger,W1100 ST9,Alpine White,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-W1100ST9,Egger,W1100 ST9,Alpine White,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-W1100ST9,Egger,W1100 ST9,Alpine White,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-W1100ST9,Egger,W1100 ST9,Alpine White,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-W1100ST19,Egger,W1100 ST19,Alpine White,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-W1100ST19,Egger,W1100 ST19,Alpine White,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-W1100ST19,Egger,W1100 ST19,Alpine White,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-W1100ST19,Egger,W1100 ST19,Alpine White,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-W1100ST19,Egger,W1100 ST19,Alpine White,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-W1100ST19,Egger,W1100 ST19,Alpine White,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-W1100ST19,Egger,W1100 ST19,Alpine White,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U104ST7,Egger,U104 ST7,Alabaster White,MDF,19.05,Smoothtouch Fine Pearl (ST7),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U104ST7,Egger,U104 ST7,Alabaster White,PB,6.35,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U104ST7,Egger,U104 ST7,Alabaster White,PB,12.7,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U104ST7,Egger,U104 ST7,Alabaster White,PB,15.875,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U104ST7,Egger,U104 ST7,Alabaster White,PB,19.05,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U104ST7,Egger,U104 ST7,Alabaster White,PB,25.4,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U104ST7,Egger,U104 ST7,Alabaster White,PB,28.575,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U201ST9,Egger,U201 ST9,Pebble Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U201ST9,Egger,U201 ST9,Pebble Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U201ST9,Egger,U201 ST9,Pebble Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U201ST9,Egger,U201 ST9,Pebble Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U201ST9,Egger,U201 ST9,Pebble Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U201ST9,Egger,U201 ST9,Pebble Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U201ST9,Egger,U201 ST9,Pebble Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U216ST9,Egger,U216 ST9,Camè Beige,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U216ST9,Egger,U216 ST9,Camè Beige,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U216ST9,Egger,U216 ST9,Camè Beige,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U216ST9,Egger,U216 ST9,Camè Beige,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U216ST9,Egger,U216 ST9,Camè Beige,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U216ST9,Egger,U216 ST9,Camè Beige,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U216ST9,Egger,U216 ST9,Camè Beige,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U335ST9,Egger,U335 ST9,Rusty Red,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U335ST9,Egger,U335 ST9,Rusty Red,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U335ST9,Egger,U335 ST9,Rusty Red,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U335ST9,Egger,U335 ST9,Rusty Red,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U335ST9,Egger,U335 ST9,Rusty Red,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U335ST9,Egger,U335 ST9,Rusty Red,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U335ST9,Egger,U335 ST9,Rusty Red,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U502ST9,Egger,U502 ST9,Misty Blue,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U502ST9,Egger,U502 ST9,Misty Blue,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U502ST9,Egger,U502 ST9,Misty Blue,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U502ST9,Egger,U502 ST9,Misty Blue,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U502ST9,Egger,U502 ST9,Misty Blue,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U502ST9,Egger,U502 ST9,Misty Blue,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U502ST9,Egger,U502 ST9,Misty Blue,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U599ST9,Egger,U599 ST9,Indigo Blue,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U599ST9,Egger,U599 ST9,Indigo Blue,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U599ST9,Egger,U599 ST9,Indigo Blue,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U599ST9,Egger,U599 ST9,Indigo Blue,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U599ST9,Egger,U599 ST9,Indigo Blue,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U599ST9,Egger,U599 ST9,Indigo Blue,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U599ST9,Egger,U599 ST9,Indigo Blue,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U604ST9,Egger,U604 ST9,Reed Green,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U604ST9,Egger,U604 ST9,Reed Green,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U604ST9,Egger,U604 ST9,Reed Green,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U604ST9,Egger,U604 ST9,Reed Green,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U604ST9,Egger,U604 ST9,Reed Green,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U604ST9,Egger,U604 ST9,Reed Green,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U604ST9,Egger,U604 ST9,Reed Green,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U702ST9,Egger,U702 ST9,Cashmere Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U702ST9,Egger,U702 ST9,Cashmere Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U702ST9,Egger,U702 ST9,Cashmere Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U702ST9,Egger,U702 ST9,Cashmere Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U702ST9,Egger,U702 ST9,Cashmere Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U702ST9,Egger,U702 ST9,Cashmere Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U702ST9,Egger,U702 ST9,Cashmere Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U705ST9,Egger,U705 ST9,Angora Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U705ST9,Egger,U705 ST9,Angora Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U705ST9,Egger,U705 ST9,Angora Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U705ST9,Egger,U705 ST9,Angora Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U705ST9,Egger,U705 ST9,Angora Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U705ST9,Egger,U705 ST9,Angora Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U705ST9,Egger,U705 ST9,Angora Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-W960ST7,Egger,W960 ST7,Classic White,MDF,19.05,Smoothtouch Fine Pearl (ST7),0,,,G1S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-W960ST7,Egger,W960 ST7,Classic White,PB,6.35,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-W960ST7,Egger,W960 ST7,Classic White,PB,12.7,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-W960ST7,Egger,W960 ST7,Classic White,PB,15.875,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-W960ST7,Egger,W960 ST7,Classic White,PB,19.05,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-W960ST7,Egger,W960 ST7,Classic White,PB,25.4,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-W960ST7,Egger,W960 ST7,Classic White,PB,28.575,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-GFEST9,Egger,GFE ST9,Painting Grade,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-13-GFEST9,Egger,GFE ST9,Painting Grade,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-GFEST9,Egger,GFE ST9,Painting Grade,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-GFEST9,Egger,GFE ST9,Painting Grade,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-GFEST9,Egger,GFE ST9,Painting Grade,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-GFEST9,Egger,GFE ST9,Painting Grade,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-MDF-19-U727ST9,Egger,U727 ST9,Stone Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U727ST9,Egger,U727 ST9,Stone Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U727ST9,Egger,U727 ST9,Stone Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U727ST9,Egger,U727 ST9,Stone Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U727ST9,Egger,U727 ST9,Stone Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U727ST9,Egger,U727 ST9,Stone Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U727ST9,Egger,U727 ST9,Stone Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U732ST9,Egger,U732 ST9,Dust Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U732ST9,Egger,U732 ST9,Dust Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U732ST9,Egger,U732 ST9,Dust Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U732ST9,Egger,U732 ST9,Dust Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U732ST9,Egger,U732 ST9,Dust Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U732ST9,Egger,U732 ST9,Dust Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U732ST9,Egger,U732 ST9,Dust Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U750ST9,Egger,U750 ST9,Taupe Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U750ST9,Egger,U750 ST9,Taupe Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U750ST9,Egger,U750 ST9,Taupe Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U750ST9,Egger,U750 ST9,Taupe Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U750ST9,Egger,U750 ST9,Taupe Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U750ST9,Egger,U750 ST9,Taupe Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U750ST9,Egger,U750 ST9,Taupe Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U765ST7,Egger,U765 ST7,Silver Grey,MDF,19.05,Smoothtouch Fine Pearl (ST7),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U765ST7,Egger,U765 ST7,Silver Grey,PB,6.35,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U765ST7,Egger,U765 ST7,Silver Grey,PB,12.7,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U765ST7,Egger,U765 ST7,Silver Grey,PB,15.875,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U765ST7,Egger,U765 ST7,Silver Grey,PB,19.05,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U765ST7,Egger,U765 ST7,Silver Grey,PB,25.4,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U765ST7,Egger,U765 ST7,Silver Grey,PB,28.575,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U767ST9,Egger,U767 ST9,Cubanit Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U767ST9,Egger,U767 ST9,Cubanit Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U767ST9,Egger,U767 ST9,Cubanit Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U767ST9,Egger,U767 ST9,Cubanit Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U767ST9,Egger,U767 ST9,Cubanit Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U767ST9,Egger,U767 ST9,Cubanit Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U767ST9,Egger,U767 ST9,Cubanit Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U775ST9,Egger,U775 ST9,White Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U775ST9,Egger,U775 ST9,White Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U775ST9,Egger,U775 ST9,White Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U775ST9,Egger,U775 ST9,White Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U775ST9,Egger,U775 ST9,White Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U775ST9,Egger,U775 ST9,White Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U775ST9,Egger,U775 ST9,White Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U779ST7,Egger,U779 ST7,Fog Grey,MDF,19.05,Smoothtouch Fine Pearl (ST7),0,,,G1S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-U779ST7,Egger,U779 ST7,Fog Grey,PB,6.35,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U779ST7,Egger,U779 ST7,Fog Grey,PB,12.7,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U779ST7,Egger,U779 ST7,Fog Grey,PB,15.875,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U779ST7,Egger,U779 ST7,Fog Grey,PB,19.05,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U779ST7,Egger,U779 ST7,Fog Grey,PB,25.4,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-U779ST7,Egger,U779 ST7,Fog Grey,PB,28.575,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U780ST9,Egger,U780 ST9,Monument Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U780ST9,Egger,U780 ST9,Monument Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U780ST9,Egger,U780 ST9,Monument Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U780ST9,Egger,U780 ST9,Monument Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U780ST9,Egger,U780 ST9,Monument Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U780ST9,Egger,U780 ST9,Monument Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U780ST9,Egger,U780 ST9,Monument Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U961ST7,Egger,U961 ST7,Graphite Grey,MDF,19.05,Smoothtouch Fine Pearl (ST7),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U961ST7,Egger,U961 ST7,Graphite Grey,PB,6.35,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U961ST7,Egger,U961 ST7,Graphite Grey,PB,12.7,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U961ST7,Egger,U961 ST7,Graphite Grey,PB,15.875,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U961ST7,Egger,U961 ST7,Graphite Grey,PB,19.05,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U961ST7,Egger,U961 ST7,Graphite Grey,PB,25.4,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U961ST7,Egger,U961 ST7,Graphite Grey,PB,28.575,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U963ST9,Egger,U963 ST9,Diamond Grey,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U963ST9,Egger,U963 ST9,Diamond Grey,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U963ST9,Egger,U963 ST9,Diamond Grey,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U963ST9,Egger,U963 ST9,Diamond Grey,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U963ST9,Egger,U963 ST9,Diamond Grey,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U963ST9,Egger,U963 ST9,Diamond Grey,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U963ST9,Egger,U963 ST9,Diamond Grey,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U999ST7,Egger,U999 ST7,Black,MDF,19.05,Smoothtouch Fine Pearl (ST7),0,,,G1S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-U999ST7,Egger,U999 ST7,Black,PB,6.35,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U999ST7,Egger,U999 ST7,Black,PB,12.7,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U999ST7,Egger,U999 ST7,Black,PB,15.875,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U999ST7,Egger,U999 ST7,Black,PB,19.05,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U999ST7,Egger,U999 ST7,Black,PB,25.4,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-U999ST7,Egger,U999 ST7,Black,PB,28.575,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-U999ST19,Egger,U999 ST19,Black,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-U999ST19,Egger,U999 ST19,Black,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-U999ST19,Egger,U999 ST19,Black,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-U999ST19,Egger,U999 ST19,Black,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-U999ST19,Egger,U999 ST19,Black,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-U999ST19,Egger,U999 ST19,Black,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-U999ST19,Egger,U999 ST19,Black,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H1176ST37,Egger,H1176 ST37,White Halifax Oak,PB,6.35,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1176ST37,Egger,H1176 ST37,White Halifax Oak,PB,12.7,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1176ST37,Egger,H1176 ST37,White Halifax Oak,PB,15.875,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1176ST37,Egger,H1176 ST37,White Halifax Oak,PB,19.05,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H1176ST37,Egger,H1176 ST37,White Halifax Oak,PB,28.575,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H1180ST37,Egger,H1180 ST37,Natural Halifax Oak,PB,6.35,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1180ST37,Egger,H1180 ST37,Natural Halifax Oak,PB,12.7,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1180ST37,Egger,H1180 ST37,Natural Halifax Oak,PB,15.875,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1180ST37,Egger,H1180 ST37,Natural Halifax Oak,PB,19.05,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H1180ST37,Egger,H1180 ST37,Natural Halifax Oak,PB,28.575,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H1181ST37,Egger,H1181 ST37,Tobacco Halifax Oak,PB,6.35,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1181ST37,Egger,H1181 ST37,Tobacco Halifax Oak,PB,12.7,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1181ST37,Egger,H1181 ST37,Tobacco Halifax Oak,PB,15.875,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1181ST37,Egger,H1181 ST37,Tobacco Halifax Oak,PB,19.05,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H1181ST37,Egger,H1181 ST37,Tobacco Halifax Oak,PB,28.575,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1210ST12,Egger,H1210 ST12,Grey-Beige Tossini Elm,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1210ST12,Egger,H1210 ST12,Grey-Beige Tossini Elm,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1210ST12,Egger,H1210 ST12,Grey-Beige Tossini Elm,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1210ST12,Egger,H1210 ST12,Grey-Beige Tossini Elm,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1210ST12,Egger,H1210 ST12,Grey-Beige Tossini Elm,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1210ST12,Egger,H1210 ST12,Grey-Beige Tossini Elm,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1210ST12,Egger,H1210 ST12,Grey-Beige Tossini Elm,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1222ST12,Egger,H1222 ST12,Fox Grey Tossini Elm,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1222ST12,Egger,H1222 ST12,Fox Grey Tossini Elm,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1222ST12,Egger,H1222 ST12,Fox Grey Tossini Elm,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1222ST12,Egger,H1222 ST12,Fox Grey Tossini Elm,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1222ST12,Egger,H1222 ST12,Fox Grey Tossini Elm,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1222ST12,Egger,H1222 ST12,Fox Grey Tossini Elm,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1222ST12,Egger,H1222 ST12,Fox Grey Tossini Elm,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1223ST19,Egger,H1223 ST19,Sevilla Ash,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1223ST19,Egger,H1223 ST19,Sevilla Ash,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1223ST19,Egger,H1223 ST19,Sevilla Ash,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1223ST19,Egger,H1223 ST19,Sevilla Ash,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1223ST19,Egger,H1223 ST19,Sevilla Ash,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1223ST19,Egger,H1223 ST19,Sevilla Ash,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1223ST19,Egger,H1223 ST19,Sevilla Ash,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H1385ST40,Egger,H1385 ST40,Natural Casella Oak,PB,6.35,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1385ST40,Egger,H1385 ST40,Natural Casella Oak,PB,12.7,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1385ST40,Egger,H1385 ST40,Natural Casella Oak,PB,15.875,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1385ST40,Egger,H1385 ST40,Natural Casella Oak,PB,19.05,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H1385ST40,Egger,H1385 ST40,Natural Casella Oak,PB,28.575,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H1386ST40,Egger,H1386 ST40,Brown Casella Oak,PB,6.35,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1386ST40,Egger,H1386 ST40,Brown Casella Oak,PB,12.7,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1386ST40,Egger,H1386 ST40,Brown Casella Oak,PB,15.875,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1386ST40,Egger,H1386 ST40,Brown Casella Oak,PB,19.05,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H1386ST40,Egger,H1386 ST40,Brown Casella Oak,PB,28.575,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1701ST12,Egger,H1701 ST12,White Tossini Elm,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1701ST12,Egger,H1701 ST12,White Tossini Elm,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1701ST12,Egger,H1701 ST12,White Tossini Elm,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1701ST12,Egger,H1701 ST12,White Tossini Elm,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1701ST12,Egger,H1701 ST12,White Tossini Elm,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1701ST12,Egger,H1701 ST12,White Tossini Elm,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1701ST12,Egger,H1701 ST12,White Tossini Elm,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1714ST19,Egger,H1714 ST19,Lincoln Walnut,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1714ST19,Egger,H1714 ST19,Lincoln Walnut,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1714ST19,Egger,H1714 ST19,Lincoln Walnut,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1714ST19,Egger,H1714 ST19,Lincoln Walnut,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1714ST19,Egger,H1714 ST19,Lincoln Walnut,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1714ST19,Egger,H1714 ST19,Lincoln Walnut,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1714ST19,Egger,H1714 ST19,Lincoln Walnut,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1715ST12,Egger,H1715 ST12,Parona Walnut,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1715ST12,Egger,H1715 ST12,Parona Walnut,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1715ST12,Egger,H1715 ST12,Parona Walnut,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1715ST12,Egger,H1715 ST12,Parona Walnut,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1715ST12,Egger,H1715 ST12,Parona Walnut,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1715ST12,Egger,H1715 ST12,Parona Walnut,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1715ST12,Egger,H1715 ST12,Parona Walnut,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1815ST7,Egger,H1815 ST7,Hardrock Maple,MDF,19.05,Smoothtouch Fine Pearl (ST7),0,,,G1S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H1815ST7,Egger,H1815 ST7,Hardrock Maple,PB,6.35,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1815ST7,Egger,H1815 ST7,Hardrock Maple,PB,12.7,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1815ST7,Egger,H1815 ST7,Hardrock Maple,PB,15.875,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1815ST7,Egger,H1815 ST7,Hardrock Maple,PB,19.05,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1815ST7,Egger,H1815 ST7,Hardrock Maple,PB,25.4,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H1815ST7,Egger,H1815 ST7,Hardrock Maple,PB,28.575,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1816ST7,Egger,H1816 ST7,Natural Maple,MDF,19.05,Smoothtouch Fine Pearl (ST7),0,,,G1S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H1816ST7,Egger,H1816 ST7,Natural Maple,PB,6.35,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1816ST7,Egger,H1816 ST7,Natural Maple,PB,12.7,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1816ST7,Egger,H1816 ST7,Natural Maple,PB,15.875,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1816ST7,Egger,H1816 ST7,Natural Maple,PB,19.05,Smoothtouch Fine Pearl (ST7),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1816ST7,Egger,H1816 ST7,Natural Maple,PB,25.4,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H1816ST7,Egger,H1816 ST7,Natural Maple,PB,28.575,Smoothtouch Fine Pearl (ST7),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3003ST19,Egger,H3003 ST19,Norwich Oak,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3003ST19,Egger,H3003 ST19,Norwich Oak,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3003ST19,Egger,H3003 ST19,Norwich Oak,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3003ST19,Egger,H3003 ST19,Norwich Oak,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3003ST19,Egger,H3003 ST19,Norwich Oak,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3003ST19,Egger,H3003 ST19,Norwich Oak,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3003ST19,Egger,H3003 ST19,Norwich Oak,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3041ST12,Egger,H3041 ST12,Natural Eucalyptus,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3041ST12,Egger,H3041 ST12,Natural Eucalyptus,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3041ST12,Egger,H3041 ST12,Natural Eucalyptus,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3041ST12,Egger,H3041 ST12,Natural Eucalyptus,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3041ST12,Egger,H3041 ST12,Natural Eucalyptus,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3041ST12,Egger,H3041 ST12,Natural Eucalyptus,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3041ST12,Egger,H3041 ST12,Natural Eucalyptus,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3078ST22,Egger,H3078 ST22,White Havana Pine,MDF,19.05,Deepskin Linear (ST22),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3078ST22,Egger,H3078 ST22,White Havana Pine,PB,6.35,Deepskin Linear (ST22),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3078ST22,Egger,H3078 ST22,White Havana Pine,PB,12.7,Deepskin Linear (ST22),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3078ST22,Egger,H3078 ST22,White Havana Pine,PB,15.875,Deepskin Linear (ST22),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3078ST22,Egger,H3078 ST22,White Havana Pine,PB,19.05,Deepskin Linear (ST22),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3078ST22,Egger,H3078 ST22,White Havana Pine,PB,25.4,Deepskin Linear (ST22),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3078ST22,Egger,H3078 ST22,White Havana Pine,PB,28.575,Deepskin Linear (ST22),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3081ST22,Egger,H3081 ST22,Black Havana Pine,MDF,19.05,Deepskin Linear (ST22),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3081ST22,Egger,H3081 ST22,Black Havana Pine,PB,6.35,Deepskin Linear (ST22),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3081ST22,Egger,H3081 ST22,Black Havana Pine,PB,12.7,Deepskin Linear (ST22),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3081ST22,Egger,H3081 ST22,Black Havana Pine,PB,15.875,Deepskin Linear (ST22),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3081ST22,Egger,H3081 ST22,Black Havana Pine,PB,19.05,Deepskin Linear (ST22),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3081ST22,Egger,H3081 ST22,Black Havana Pine,PB,25.4,Deepskin Linear (ST22),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3081ST22,Egger,H3081 ST22,Black Havana Pine,PB,28.575,Deepskin Linear (ST22),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3146ST19,Egger,H3146 ST19,Beige Grey Lorenzo Oak,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3146ST19,Egger,H3146 ST19,Beige Grey Lorenzo Oak,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3146ST19,Egger,H3146 ST19,Beige Grey Lorenzo Oak,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3146ST19,Egger,H3146 ST19,Beige Grey Lorenzo Oak,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3146ST19,Egger,H3146 ST19,Beige Grey Lorenzo Oak,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3146ST19,Egger,H3146 ST19,Beige Grey Lorenzo Oak,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3146ST19,Egger,H3146 ST19,Beige Grey Lorenzo Oak,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3157ST12,Egger,H3157 ST12,Vicenza Oak,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3157ST12,Egger,H3157 ST12,Vicenza Oak,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3157ST12,Egger,H3157 ST12,Vicenza Oak,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3157ST12,Egger,H3157 ST12,Vicenza Oak,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3157ST12,Egger,H3157 ST12,Vicenza Oak,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3157ST12,Egger,H3157 ST12,Vicenza Oak,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3157ST12,Egger,H3157 ST12,Vicenza Oak,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3158ST19,Egger,H3158 ST19,Grey Vicenza Oak,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3158ST19,Egger,H3158 ST19,Grey Vicenza Oak,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3158ST19,Egger,H3158 ST19,Grey Vicenza Oak,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3158ST19,Egger,H3158 ST19,Grey Vicenza Oak,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3158ST19,Egger,H3158 ST19,Grey Vicenza Oak,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3158ST19,Egger,H3158 ST19,Grey Vicenza Oak,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3158ST19,Egger,H3158 ST19,Grey Vicenza Oak,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3165ST12,Egger,H3165 ST12,Light Vicenza Oak,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3165ST12,Egger,H3165 ST12,Light Vicenza Oak,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3165ST12,Egger,H3165 ST12,Light Vicenza Oak,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3165ST12,Egger,H3165 ST12,Light Vicenza Oak,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3165ST12,Egger,H3165 ST12,Light Vicenza Oak,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3165ST12,Egger,H3165 ST12,Light Vicenza Oak,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3165ST12,Egger,H3165 ST12,Light Vicenza Oak,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3171ST12,Egger,H3171 ST12,Oiled Kendal Oak,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3171ST12,Egger,H3171 ST12,Oiled Kendal Oak,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3171ST12,Egger,H3171 ST12,Oiled Kendal Oak,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3171ST12,Egger,H3171 ST12,Oiled Kendal Oak,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3171ST12,Egger,H3171 ST12,Oiled Kendal Oak,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3171ST12,Egger,H3171 ST12,Oiled Kendal Oak,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3171ST12,Egger,H3171 ST12,Oiled Kendal Oak,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H3180ST37,Egger,H3180 ST37,Brown Halifax Oak,PB,6.35,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3180ST37,Egger,H3180 ST37,Brown Halifax Oak,PB,12.7,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3180ST37,Egger,H3180 ST37,Brown Halifax Oak,PB,15.875,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3180ST37,Egger,H3180 ST37,Brown Halifax Oak,PB,19.05,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H3180ST37,Egger,H3180 ST37,Brown Halifax Oak,PB,28.575,Feelwood Rift (ST37),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H1367ST40,Egger,H1367 ST40,Light Natural Casella Oak,PB,6.35,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1367ST40,Egger,H1367 ST40,Light Natural Casella Oak,PB,12.7,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1367ST40,Egger,H1367 ST40,Light Natural Casella Oak,PB,15.875,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1367ST40,Egger,H1367 ST40,Light Natural Casella Oak,PB,19.05,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H1367ST40,Egger,H1367 ST40,Light Natural Casella Oak,PB,28.575,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-6-H1384ST40,Egger,H1384 ST40,White Casella Oak,PB,6.35,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1384ST40,Egger,H1384 ST40,White Casella Oak,PB,12.7,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1384ST40,Egger,H1384 ST40,White Casella Oak,PB,15.875,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1384ST40,Egger,H1384 ST40,White Casella Oak,PB,19.05,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-29-H1384ST40,Egger,H1384 ST40,White Casella Oak,PB,28.575,Feelwood Oakgrain (ST40),1,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1307ST19,Egger,H1307 ST19,Brown Warmia Walnut,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1307ST19,Egger,H1307 ST19,Brown Warmia Walnut,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1307ST19,Egger,H1307 ST19,Brown Warmia Walnut,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1307ST19,Egger,H1307 ST19,Brown Warmia Walnut,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1307ST19,Egger,H1307 ST19,Brown Warmia Walnut,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1307ST19,Egger,H1307 ST19,Brown Warmia Walnut,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1307ST19,Egger,H1307 ST19,Brown Warmia Walnut,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1290ST19,Egger,H1290 ST19,White Frozen Wood,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1290ST19,Egger,H1290 ST19,White Frozen Wood,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1290ST19,Egger,H1290 ST19,White Frozen Wood,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1290ST19,Egger,H1290 ST19,White Frozen Wood,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1290ST19,Egger,H1290 ST19,White Frozen Wood,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1290ST19,Egger,H1290 ST19,White Frozen Wood,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1290ST19,Egger,H1290 ST19,White Frozen Wood,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1292ST19,Egger,H1292 ST19,Carbon Frozen Wood,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1292ST19,Egger,H1292 ST19,Carbon Frozen Wood,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1292ST19,Egger,H1292 ST19,Carbon Frozen Wood,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1292ST19,Egger,H1292 ST19,Carbon Frozen Wood,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1292ST19,Egger,H1292 ST19,Carbon Frozen Wood,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1292ST19,Egger,H1292 ST19,Carbon Frozen Wood,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1292ST19,Egger,H1292 ST19,Carbon Frozen Wood,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1225ST12,Egger,H1225 ST12,Trondheim Ash,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1225ST12,Egger,H1225 ST12,Trondheim Ash,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1225ST12,Egger,H1225 ST12,Trondheim Ash,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1225ST12,Egger,H1225 ST12,Trondheim Ash,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1225ST12,Egger,H1225 ST12,Trondheim Ash,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1225ST12,Egger,H1225 ST12,Trondheim Ash,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1225ST12,Egger,H1225 ST12,Trondheim Ash,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H1288ST19,Egger,H1288 ST19,Stone Grey Frozen Wood,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H1288ST19,Egger,H1288 ST19,Stone Grey Frozen Wood,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H1288ST19,Egger,H1288 ST19,Stone Grey Frozen Wood,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H1288ST19,Egger,H1288 ST19,Stone Grey Frozen Wood,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H1288ST19,Egger,H1288 ST19,Stone Grey Frozen Wood,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H1288ST19,Egger,H1288 ST19,Stone Grey Frozen Wood,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H1288ST19,Egger,H1288 ST19,Stone Grey Frozen Wood,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3860ST9,Egger,H3860 ST9,Champagne Hard Maple,MDF,19.05,Smoothtouch Matt (ST9),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3860ST9,Egger,H3860 ST9,Champagne Hard Maple,PB,6.35,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3860ST9,Egger,H3860 ST9,Champagne Hard Maple,PB,12.7,Smoothtouch Matt (ST9),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3860ST9,Egger,H3860 ST9,Champagne Hard Maple,PB,15.875,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3860ST9,Egger,H3860 ST9,Champagne Hard Maple,PB,19.05,Smoothtouch Matt (ST9),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3860ST9,Egger,H3860 ST9,Champagne Hard Maple,PB,25.4,Smoothtouch Matt (ST9),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3860ST9,Egger,H3860 ST9,Champagne Hard Maple,PB,28.575,Smoothtouch Matt (ST9),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-F416ST10,Egger,F416 ST10,Beige Textile,MDF,19.05,Deepskin Rough (ST10),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-F416ST10,Egger,F416 ST10,Beige Textile,PB,6.35,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-F416ST10,Egger,F416 ST10,Beige Textile,PB,12.7,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-F416ST10,Egger,F416 ST10,Beige Textile,PB,15.875,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-F416ST10,Egger,F416 ST10,Beige Textile,PB,19.05,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-F416ST10,Egger,F416 ST10,Beige Textile,PB,25.4,Deepskin Rough (ST10),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-F416ST10,Egger,F416 ST10,Beige Textile,PB,28.575,Deepskin Rough (ST10),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-F417ST10,Egger,F417 ST10,Grey Textile,MDF,19.05,Deepskin Rough (ST10),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-F417ST10,Egger,F417 ST10,Grey Textile,PB,6.35,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-F417ST10,Egger,F417 ST10,Grey Textile,PB,12.7,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-F417ST10,Egger,F417 ST10,Grey Textile,PB,15.875,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-F417ST10,Egger,F417 ST10,Grey Textile,PB,19.05,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-F417ST10,Egger,F417 ST10,Grey Textile,PB,25.4,Deepskin Rough (ST10),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-F417ST10,Egger,F417 ST10,Grey Textile,PB,28.575,Deepskin Rough (ST10),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-F422ST10,Egger,F422 ST10,White Linen,MDF,19.05,Deepskin Rough (ST10),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-F422ST10,Egger,F422 ST10,White Linen,PB,6.35,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-F422ST10,Egger,F422 ST10,White Linen,PB,12.7,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-F422ST10,Egger,F422 ST10,White Linen,PB,15.875,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-F422ST10,Egger,F422 ST10,White Linen,PB,19.05,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-F422ST10,Egger,F422 ST10,White Linen,PB,25.4,Deepskin Rough (ST10),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-F422ST10,Egger,F422 ST10,White Linen,PB,28.575,Deepskin Rough (ST10),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-F433ST10,Egger,F433 ST10,Anthracite Linen,MDF,19.05,Deepskin Rough (ST10),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-F433ST10,Egger,F433 ST10,Anthracite Linen,PB,6.35,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-F433ST10,Egger,F433 ST10,Anthracite Linen,PB,12.7,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-F433ST10,Egger,F433 ST10,Anthracite Linen,PB,15.875,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-F433ST10,Egger,F433 ST10,Anthracite Linen,PB,19.05,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-F433ST10,Egger,F433 ST10,Anthracite Linen,PB,25.4,Deepskin Rough (ST10),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-F433ST10,Egger,F433 ST10,Anthracite Linen,PB,28.575,Deepskin Rough (ST10),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-F637ST10,Egger,F637 ST10,White Chromix,MDF,19.05,Deepskin Rough (ST10),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-F637ST10,Egger,F637 ST10,White Chromix,PB,6.35,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-F637ST10,Egger,F637 ST10,White Chromix,PB,12.7,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-F637ST10,Egger,F637 ST10,White Chromix,PB,15.875,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-F637ST10,Egger,F637 ST10,White Chromix,PB,19.05,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-F637ST10,Egger,F637 ST10,White Chromix,PB,25.4,Deepskin Rough (ST10),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-F637ST10,Egger,F637 ST10,White Chromix,PB,28.575,Deepskin Rough (ST10),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-F638ST10,Egger,F638 ST10,Chromix Silver,MDF,19.05,Deepskin Rough (ST10),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-F638ST10,Egger,F638 ST10,Chromix Silver,PB,6.35,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-F638ST10,Egger,F638 ST10,Chromix Silver,PB,12.7,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-F638ST10,Egger,F638 ST10,Chromix Silver,PB,15.875,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-F638ST10,Egger,F638 ST10,Chromix Silver,PB,19.05,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-F638ST10,Egger,F638 ST10,Chromix Silver,PB,25.4,Deepskin Rough (ST10),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-F638ST10,Egger,F638 ST10,Chromix Silver,PB,28.575,Deepskin Rough (ST10),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3791ST12,Egger,H3791 ST12,Auburn Carini Walnut,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3791ST12,Egger,H3791 ST12,Auburn Carini Walnut,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3791ST12,Egger,H3791 ST12,Auburn Carini Walnut,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3791ST12,Egger,H3791 ST12,Auburn Carini Walnut,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3791ST12,Egger,H3791 ST12,Auburn Carini Walnut,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3791ST12,Egger,H3791 ST12,Auburn Carini Walnut,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3791ST12,Egger,H3791 ST12,Auburn Carini Walnut,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3794ST12,Egger,H3794 ST12,Chocolate Carini Walnut,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3794ST12,Egger,H3794 ST12,Chocolate Carini Walnut,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3794ST12,Egger,H3794 ST12,Chocolate Carini Walnut,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3794ST12,Egger,H3794 ST12,Chocolate Carini Walnut,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3794ST12,Egger,H3794 ST12,Chocolate Carini Walnut,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3794ST12,Egger,H3794 ST12,Chocolate Carini Walnut,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3794ST12,Egger,H3794 ST12,Chocolate Carini Walnut,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3790ST12,Egger,H3790 ST12,Honey Carini Walnut,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3790ST12,Egger,H3790 ST12,Honey Carini Walnut,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3790ST12,Egger,H3790 ST12,Honey Carini Walnut,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3790ST12,Egger,H3790 ST12,Honey Carini Walnut,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3790ST12,Egger,H3790 ST12,Honey Carini Walnut,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3790ST12,Egger,H3790 ST12,Honey Carini Walnut,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3790ST12,Egger,H3790 ST12,Honey Carini Walnut,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3710ST12,Egger,H3710 ST12,Natural Carini Walnut,MDF,19.05,Omnipore Matt (ST12),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3710ST12,Egger,H3710 ST12,Natural Carini Walnut,PB,6.35,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3710ST12,Egger,H3710 ST12,Natural Carini Walnut,PB,12.7,Omnipore Matt (ST12),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3710ST12,Egger,H3710 ST12,Natural Carini Walnut,PB,15.875,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3710ST12,Egger,H3710 ST12,Natural Carini Walnut,PB,19.05,Omnipore Matt (ST12),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3710ST12,Egger,H3710 ST12,Natural Carini Walnut,PB,25.4,Omnipore Matt (ST12),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3710ST12,Egger,H3710 ST12,Natural Carini Walnut,PB,28.575,Omnipore Matt (ST12),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3198ST19,Egger,H3198 ST19,Dark Grey Fineline,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3198ST19,Egger,H3198 ST19,Dark Grey Fineline,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3198ST19,Egger,H3198 ST19,Dark Grey Fineline,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3198ST19,Egger,H3198 ST19,Dark Grey Fineline,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3198ST19,Egger,H3198 ST19,Dark Grey Fineline,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3198ST19,Egger,H3198 ST19,Dark Grey Fineline,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3198ST19,Egger,H3198 ST19,Dark Grey Fineline,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3303ST10,Egger,H3303 ST10,Natural Hamilton Oak,MDF,19.05,Deepskin Rough (ST10),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3303ST10,Egger,H3303 ST10,Natural Hamilton Oak,PB,6.35,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3303ST10,Egger,H3303 ST10,Natural Hamilton Oak,PB,12.7,Deepskin Rough (ST10),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3303ST10,Egger,H3303 ST10,Natural Hamilton Oak,PB,15.875,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3303ST10,Egger,H3303 ST10,Natural Hamilton Oak,PB,19.05,Deepskin Rough (ST10),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3303ST10,Egger,H3303 ST10,Natural Hamilton Oak,PB,25.4,Deepskin Rough (ST10),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3303ST10,Egger,H3303 ST10,Natural Hamilton Oak,PB,28.575,Deepskin Rough (ST10),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3195ST19,Egger,H3195 ST19,White Fineline,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3195ST19,Egger,H3195 ST19,White Fineline,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3195ST19,Egger,H3195 ST19,White Fineline,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3195ST19,Egger,H3195 ST19,White Fineline,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3195ST19,Egger,H3195 ST19,White Fineline,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3195ST19,Egger,H3195 ST19,White Fineline,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3195ST19,Egger,H3195 ST19,White Fineline,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-MDF-19-H3197ST19,Egger,H3197 ST19,Medium Grey Fineline,MDF,19.05,Deepskin Excellent (ST19),0,,,G1S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-6-H3197ST19,Egger,H3197 ST19,Medium Grey Fineline,PB,6.35,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-13-H3197ST19,Egger,H3197 ST19,Medium Grey Fineline,PB,12.7,Deepskin Excellent (ST19),0,,,G2S,1,0,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-16-H3197ST19,Egger,H3197 ST19,Medium Grey Fineline,PB,15.875,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-19-H3197ST19,Egger,H3197 ST19,Medium Grey Fineline,PB,19.05,Deepskin Excellent (ST19),0,,,G2S,1,1,0,0,0,0,0,0,0,0,0,,,,1
+EGG-MEL-PB-25-H3197ST19,Egger,H3197 ST19,Medium Grey Fineline,PB,25.4,Deepskin Excellent (ST19),0,,,G2S,0,1,0,0,0,0,0,0,0,0,1,,,,1
+EGG-MEL-PB-29-H3197ST19,Egger,H3197 ST19,Medium Grey Fineline,PB,28.575,Deepskin Excellent (ST19),0,,,G2S,0,0,0,0,0,0,0,0,0,0,0,,,,1

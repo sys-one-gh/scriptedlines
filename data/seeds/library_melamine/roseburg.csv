@@ -1,0 +1,25 @@
+code,manufacturer,finish_code,finish_name,core_substrate,thickness_mm,texture,is_premium_texture,sheen,grain,g_sides,size_4x8,size_5x8,size_4x10,size_4x12,size_5x12,size_5x10,fr_rated,leed,fsc,carb_p2,is_mto,cost_per_sheet,cost_per_sqft,lead_time,is_active
+ROS-MEL-MDF-16-WHI,Roseburg,ROS16WH,White,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-16-ALM,Roseburg,ROS16AL,Almond,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-16-DOV,Roseburg,ROS16DO,Dove Grey,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-16-BLA,Roseburg,ROS16BL,Black,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-16-GRE,Roseburg,ROS16GR,Grey Oak Woodgrain,MDF,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-16-NAT,Roseburg,ROS16NA,Natural Maple Woodgrain,MDF,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-19-WHI,Roseburg,ROS19WH,White,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-19-ALM,Roseburg,ROS19AL,Almond,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-19-DOV,Roseburg,ROS19DO,Dove Grey,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-19-BLA,Roseburg,ROS19BL,Black,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-19-GRE,Roseburg,ROS19GR,Grey Oak Woodgrain,MDF,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-MDF-19-NAT,Roseburg,ROS19NA,Natural Maple Woodgrain,MDF,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-16-WHI,Roseburg,ROS16WH,White,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-16-ALM,Roseburg,ROS16AL,Almond,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-16-DOV,Roseburg,ROS16DO,Dove Grey,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-16-BLA,Roseburg,ROS16BL,Black,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-16-GRE,Roseburg,ROS16GR,Grey Oak Woodgrain,PB,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-16-NAT,Roseburg,ROS16NA,Natural Maple Woodgrain,PB,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-19-WHI,Roseburg,ROS19WH,White,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-19-ALM,Roseburg,ROS19AL,Almond,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-19-DOV,Roseburg,ROS19DO,Dove Grey,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-19-BLA,Roseburg,ROS19BL,Black,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-19-GRE,Roseburg,ROS19GR,Grey Oak Woodgrain,PB,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ROS-MEL-PB-19-NAT,Roseburg,ROS19NA,Natural Maple Woodgrain,PB,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0

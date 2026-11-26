@@ -54,8 +54,8 @@
 /* ── LEFT COLUMN: dataset viewer ──────────────────────────── */
 .ps-dataset-col { min-width: 0; }
 
-/* dataset header bar — SAME 38px height as the sub-tab bar so the
-   two bars line up across the divider */
+/* dataset header bar — fixed 38px, independent of the (now variable-
+   height, grouped) sub-tab bar on the right; no longer needs to match it */
 .ps-dataset-header {
   height: 38px;
   flex-shrink: 0;
@@ -143,9 +143,44 @@
   overflow: hidden;
   min-width: 0;
 }
-/* the sub-tab bar reuses .tab-bar-wrapper (38px) — no override needed,
-   but ensure it doesn't shrink */
-.ps-subtab-bar { flex-shrink: 0; }
+/* Grouped sub-tab bar — wraps into rows instead of horizontal-
+   scrolling a single strip, so it no longer matches .ps-dataset-header's
+   fixed 38px (that's fine, nothing depends on the two staying equal). */
+.ps-subtab-groups {
+  flex-shrink: 0;
+  padding: 12px 14px 10px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border-soft);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ps-subtab-group { display: flex; flex-direction: column; gap: 6px; }
+.ps-subtab-group-label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: var(--fs-base); font-weight: 700; color: var(--text-dim);
+  font-family: var(--font-mono); letter-spacing: 1px; text-transform: uppercase;
+}
+.ps-subtab-soon {
+  font-size: var(--fs-base); font-weight: 500; color: var(--text-disabled);
+  font-family: var(--font-ui); text-transform: none; letter-spacing: 0;
+  background: var(--bg-hover); border-radius: var(--radius-sm);
+  padding: 1px 6px;
+}
+.ps-subtab-group-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.ps-subtab {
+  background: var(--bg-hover); border: 1px solid var(--border-medium);
+  color: var(--text-muted); border-radius: var(--radius-md);
+  font-size: var(--fs-base); font-family: var(--font-ui);
+  padding: 5px 12px; cursor: pointer; white-space: nowrap;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+.ps-subtab:hover { border-color: var(--accent); color: var(--text-primary); }
+.ps-subtab.active {
+  background: var(--accent-bg); border-color: var(--accent);
+  color: var(--accent); font-weight: 600;
+}
+.ps-subtab--soon { opacity: 0.55; }
+.ps-subtab--soon:hover { opacity: 0.85; }
+.ps-subtab--soon.active { opacity: 1; }
 
 .ps-func-body {
   flex: 1; min-height: 0;
@@ -244,3 +279,42 @@
   border-radius: var(--radius-md); transition: color var(--transition-std), background var(--transition-std);
 }
 .ps-lam-remove:hover { color: #e05555; background: rgba(224,85,85,0.1); }
+
+/* ── LAYUP COMPOSER SLOTS ─────────────────────────────────── */
+.ps-layup-slot { margin-top: 12px; }
+.ps-layup-slot:first-child { margin-top: 0; }
+.ps-layup-slot-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
+}
+.ps-layup-slot-label { margin: 0; }
+.ps-layup-slot-choose {
+  background: transparent; border: 1px dashed var(--border-medium);
+  color: var(--accent); border-radius: var(--radius-md);
+  font-size: var(--fs-base); font-family: var(--font-ui);
+  padding: 4px 10px; cursor: pointer;
+  transition: border-color var(--transition-std), background var(--transition-std);
+}
+.ps-layup-slot-choose:hover { background: rgba(79,142,247,0.08); border-color: var(--accent); }
+.ps-layup-slot-filled {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(79,142,247,0.12); border-radius: var(--radius-md);
+  padding: 3px 4px 3px 10px; max-width: 100%;
+}
+.ps-layup-slot-summary {
+  font-size: var(--fs-base); color: var(--text-primary);
+  font-family: var(--font-ui); white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.ps-layup-slot-picker { margin-top: 6px; }
+
+/* ── EDGEBAND THICKNESS DROPDOWN (inline, in the table) ────── */
+.ps-edgeband-thickness-select {
+  height: 26px; padding: 0 6px;
+  background: var(--bg-input); color: var(--text-secondary);
+  border: 1px solid var(--border-medium); border-radius: var(--radius-sm);
+  outline: none; font-size: var(--fs-base); font-family: var(--font-ui);
+  cursor: pointer;
+}
+.ps-edgeband-thickness-select:hover,
+.ps-edgeband-thickness-select:focus { border-color: var(--accent); }

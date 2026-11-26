@@ -1,0 +1,39 @@
+code,manufacturer,style,center_to_center_mm,projection_mm,finish,material,mounting_holes,cost_each,lead_time,is_active
+BP40515PN,Amerock,Bar Pull,76.0,35,Polished Nickel,Carbon Steel,2,,,1
+BP40515BBZ,Amerock,Bar Pull,76.0,35,Golden Champagne,Carbon Steel,2,,,1
+BP40515MB,Amerock,Bar Pull,76.0,35,Matte Black,Carbon Steel,2,,,1
+BP40515G10,Amerock,Bar Pull,76.0,35,Satin Nickel,Carbon Steel,2,,,1
+BP4051526,Amerock,Bar Pull,76.0,35,Polished Chrome,Carbon Steel,2,,,1
+BP4051626,Amerock,Bar Pull,96.0,35,Polished Chrome,Carbon Steel,2,,,1
+BP40516GM,Amerock,Bar Pull,96.0,35,Gunmetal,Carbon Steel,2,,,1
+BP40516ORB,Amerock,Bar Pull,96.0,35,Oil-Rubbed Bronze,Carbon Steel,2,,,1
+BP40516PN,Amerock,Bar Pull,96.0,35,Polished Nickel,Carbon Steel,2,,,1
+BP40516BBR,Amerock,Bar Pull,96.0,35,Black Bronze,Carbon Steel,2,,,1
+BP40516CBZ,Amerock,Bar Pull,96.0,35,Caramel Bronze,Carbon Steel,2,,,1
+BP40516MB,Amerock,Bar Pull,96.0,35,Matte Black,Carbon Steel,2,,,1
+BP40516G10,Amerock,Bar Pull,96.0,35,Satin Nickel,Carbon Steel,2,,,1
+BP40517PN,Amerock,Bar Pull,128.0,35,Polished Nickel,Carbon Steel,2,,,1
+BP40517BBZ,Amerock,Bar Pull,128.0,35,Golden Champagne,Carbon Steel,2,,,1
+BP40517G10,Amerock,Bar Pull,128.0,35,Satin Nickel,Carbon Steel,2,,,1
+BP40517MB,Amerock,Bar Pull,128.0,35,Matte Black,Carbon Steel,2,,,1
+BP40517BBR,Amerock,Bar Pull,128.0,35,Black Bronze,Carbon Steel,2,,,1
+BP40517ORB,Amerock,Bar Pull,128.0,35,Oil-Rubbed Bronze,Carbon Steel,2,,,1
+BP40517GM,Amerock,Bar Pull,128.0,35,Gunmetal,Carbon Steel,2,,,1
+BP40517SS,Amerock,Bar Pull,128.0,35,Stainless Steel,,2,,,1
+BP40518ORB,Amerock,Bar Pull,192.0,35,Oil-Rubbed Bronze,Carbon Steel,2,,,1
+BP40518BBZ,Amerock,Bar Pull,192.0,35,Golden Champagne,Carbon Steel,2,,,1
+BP4051826,Amerock,Bar Pull,192.0,35,Polished Chrome,Carbon Steel,2,,,1
+BP40518G10,Amerock,Bar Pull,192.0,35,Satin Nickel,Carbon Steel,2,,,1
+BP40518MB,Amerock,Bar Pull,192.0,35,Matte Black,Carbon Steel,2,,,1
+BP40519PN,Amerock,Bar Pull,256.0,35,Polished Nickel,Carbon Steel,2,,,1
+BP40519BBZ,Amerock,Bar Pull,256.0,35,Golden Champagne,Carbon Steel,2,,,1
+BP40519MB,Amerock,Bar Pull,256.0,35,Matte Black,Carbon Steel,2,,,1
+BP40519G10,Amerock,Bar Pull,256.0,35,Satin Nickel,Carbon Steel,2,,,1
+BP40519ORB,Amerock,Bar Pull,256.0,35,Oil-Rubbed Bronze,Carbon Steel,2,,,1
+BP40519BBR,Amerock,Bar Pull,256.0,35,Black Bronze,Carbon Steel,2,,,1
+BP19009PN,Amerock,Knob,,35,Polished Nickel,Carbon Steel,1,,,1
+BP19009GM,Amerock,Knob,,35,Gunmetal,Carbon Steel,1,,,1
+BP19009SS,Amerock,Knob,,35,Stainless Steel,,1,,,1
+BP19009BBR,Amerock,Knob,,35,Black Bronze,Carbon Steel,1,,,1
+BP19009MB,Amerock,Knob,,35,Matte Black,Carbon Steel,1,,,1
+BP19009BBZ,Amerock,Knob,,35,Golden Champagne,Carbon Steel,1,,,1

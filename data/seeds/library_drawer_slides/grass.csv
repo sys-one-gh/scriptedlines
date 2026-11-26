@@ -1,0 +1,31 @@
+code,manufacturer,product_line,mounting_type,extension_type,length_mm,length_label,runner_length_mm,cabinet_depth_mm,min_cabinet_depth_mm,max_cabinet_depth_mm,load_capacity_lbs,max_drawer_side_thickness_mm,slide_thickness_mm,slide_height_mm,soft_close,material,finish,cost_per_pair,lead_time,is_active
+F130135013604,Grass,Dynapro 16 2D,Undermount,Full Extension,229,9in,262,,273,352,100,16,,,1,,,,,1
+F130135014204U,Grass,Dynapro 16 2D,Undermount,Full Extension,305,12in,323,,327,370,100,16,,,1,,,,,1
+F130135015204U,Grass,Dynapro 16 2D,Undermount,Full Extension,381,15in,399,,403,446,100,16,,,1,,,,,1
+F130135016204U,Grass,Dynapro 16 2D,Undermount,Full Extension,457,18in,475,,479,522,100,16,,,1,,,,,1
+F130135019204U,Grass,Dynapro 16 2D,Undermount,Full Extension,533,21in,551,,555,598,100,16,,,1,,,,,1
+F130135003604,Grass,Dynapro 16 3D,Undermount,Full Extension,229,9in,262,,273,352,100,16,,,1,,,,,1
+F130135004604,Grass,Dynapro 16 3D,Undermount,Full Extension,305,12in,323,,327,370,100,16,,,1,,,,,1
+F130135005604,Grass,Dynapro 16 3D,Undermount,Full Extension,381,15in,399,,403,446,100,16,,,1,,,,,1
+F130135006204U,Grass,Dynapro 16 3D,Undermount,Full Extension,457,18in,475,,479,522,100,16,,,1,,,,,1
+F130135007204U,Grass,Dynapro 16 3D,Undermount,Full Extension,533,21in,551,,555,598,100,16,,,1,,,,,1
+F130135008604,Grass,Dynapro 16 3D Heavy Duty,Undermount,Full Extension,457,18in,475,,479,,132,16,,,1,,,,,1
+F130135009604,Grass,Dynapro 16 3D Heavy Duty,Undermount,Full Extension,533,21in,551,,555,,132,16,,,1,,,,,1
+F130135010604,Grass,Dynapro 16 3D Heavy Duty,Undermount,Full Extension,610,24in,628,,632,,132,16,,,1,,,,,1
+F130135011604,Grass,Dynapro 16 3D Extended Length,Undermount,Full Extension,686,27in,704,,708,,110,16,,,1,,,,,1
+F130135012604,Grass,Dynapro 16 3D Extended Length,Undermount,Full Extension,762,30in,780,,784,,110,16,,,1,,,,,1
+F130135030604,Grass,Dynapro 19 2D,Undermount,Full Extension,229,9in,262,,273,352,100,19,,,1,,,,,1
+F130135031204U,Grass,Dynapro 19 2D,Undermount,Full Extension,305,12in,323,,327,370,100,19,,,1,,,,,1
+F130135032204U,Grass,Dynapro 19 2D,Undermount,Full Extension,381,15in,399,,403,446,100,19,,,1,,,,,1
+F130135033204U,Grass,Dynapro 19 2D,Undermount,Full Extension,457,18in,475,,479,522,100,19,,,1,,,,,1
+F130135034204U,Grass,Dynapro 19 2D,Undermount,Full Extension,533,21in,551,,555,598,100,19,,,1,,,,,1
+F130135022204,Grass,Dynapro 19 3D,Undermount,Full Extension,229,9in,262,,273,352,100,19,,,1,,,,,1
+F130135023604,Grass,Dynapro 19 3D,Undermount,Full Extension,305,12in,323,,327,370,100,19,,,1,,,,,1
+F130135024604,Grass,Dynapro 19 3D,Undermount,Full Extension,381,15in,399,,403,446,100,19,,,1,,,,,1
+F130135025604,Grass,Dynapro 19 3D,Undermount,Full Extension,457,18in,475,,479,522,100,19,,,1,,,,,1
+F130135026604,Grass,Dynapro 19 3D,Undermount,Full Extension,533,21in,551,,555,598,100,19,,,1,,,,,1
+F130135027604,Grass,Dynapro 19 3D Heavy Duty,Undermount,Full Extension,457,18in,475,,479,,132,19,,,1,,,,,1
+F130135028604,Grass,Dynapro 19 3D Heavy Duty,Undermount,Full Extension,533,21in,551,,555,,132,19,,,1,,,,,1
+F130135427604,Grass,Dynapro 19 3D Heavy Duty,Undermount,Full Extension,610,24in,628,,632,,132,19,,,1,,,,,1
+F130136064604,Grass,Dynapro 19 3D Extended Length,Undermount,Full Extension,686,27in,704,,708,,110,19,,,1,,,,,1
+F130135029604,Grass,Dynapro 19 3D Extended Length,Undermount,Full Extension,762,30in,780,,784,,110,19,,,1,,,,,1

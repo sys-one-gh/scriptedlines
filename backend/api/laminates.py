@@ -18,6 +18,7 @@ from sqlalchemy import or_
 from database import get_db
 from models.laminate import Laminate, LaminateFormica
 from models.project_laminate import ProjectLaminate
+from models.project_edgeband import ProjectEdgeband
 from models.project import Project
 from models.user import User, UserRole
 from auth import get_current_user, require_not_viewer
@@ -73,6 +74,54 @@ def _variant_to_dict(variant: LaminateFormica) -> dict:
         "sizes":          sizes,
         "notes":          variant.notes,
     }
+
+
+# ─── AUTO-DERIVED EDGEBAND (see models/project_edgeband.py) ──
+# Adding/removing a laminate auto-creates/removes its matching edge —
+# there's no separate "add an edgeband" flow. Width is paired to
+# thickness by convention; only thickness is user-editable afterward
+# (see api/edgebands.py's update endpoint).
+EDGE_THICKNESS_WIDTH  = {0.5: 22.0, 1.0: 28.0, 2.0: 35.0, 3.0: 42.0}
+DEFAULT_EDGE_THICKNESS = 1.0
+
+
+def _fmt_mm(value: float) -> str:
+    return f"{value:g}"
+
+
+def _edgeband_description(edge_type: str, thickness_mm, width_mm, manufacturer: str, finish_name: str, collection: str) -> str:
+    if edge_type == "Color Core":
+        return f"Color Core edge of {manufacturer} {finish_name} ({collection})"
+    return f"{_fmt_mm(thickness_mm)}mm x {int(width_mm)}mm PVC to match {manufacturer} {finish_name}"
+
+
+def _next_edgeband_code(project_id: int, db: Session) -> str:
+    count = db.query(ProjectEdgeband).filter(ProjectEdgeband.project_id == project_id).count()
+    return f"EB-{count + 1:02d}"
+
+
+def _create_edgeband_for_laminate(project_id: int, project_laminate: ProjectLaminate, laminate: Laminate, current_user: User, db: Session):
+    edge_type = "Color Core" if laminate.collection == "ColorCore2" else "PVC"
+    if edge_type == "PVC":
+        thickness_mm = DEFAULT_EDGE_THICKNESS
+        width_mm     = EDGE_THICKNESS_WIDTH[thickness_mm]
+    else:
+        thickness_mm = None
+        width_mm     = None
+
+    edge = ProjectEdgeband(
+        project_id            = project_id,
+        project_code          = _next_edgeband_code(project_id, db),
+        source_material_type  = "laminate",
+        source_material_id    = project_laminate.id,
+        edge_type              = edge_type,
+        thickness_mm           = thickness_mm,
+        width_mm                = width_mm,
+        description             = _edgeband_description(edge_type, thickness_mm, width_mm, laminate.manufacturer, laminate.finish_name, laminate.collection),
+        added_by                = current_user.id,
+    )
+    db.add(edge)
+    db.commit()
 
 
 # ─── GLOBAL CATALOG: MANUFACTURERS ────────────────────────────
@@ -170,6 +219,8 @@ def add_project_laminate(project_id: int, data: AddProjectLaminate, db: Session 
     db.commit()
     db.refresh(row)
 
+    _create_edgeband_for_laminate(project_id, row, variant.laminate, current_user, db)
+
     return {"status": "ok", "laminate": {"id": row.id, "project_code": row.project_code, "added_by": row.added_by,
              "created_at": str(row.created_at) if row.created_at else None, **_variant_to_dict(variant)}}
 
@@ -186,6 +237,13 @@ def remove_project_laminate(project_id: int, row_id: int, db: Session = Depends(
     ).first()
     if not row:
         raise HTTPException(status_code=404, detail="Project laminate not found")
+
+    # The auto-derived edge only exists because this laminate does.
+    db.query(ProjectEdgeband).filter(
+        ProjectEdgeband.project_id == project_id,
+        ProjectEdgeband.source_material_type == "laminate",
+        ProjectEdgeband.source_material_id == row_id,
+    ).delete()
 
     db.delete(row)
     db.commit()

@@ -4,7 +4,14 @@
 # JWT issuing/verification and the get_current_user dependency
 # every protected route depends on. Tenant isolation (a user can
 # only touch rows belonging to their own company) is enforced via
-# require_same_company(), called after loading the target row.
+# require_same_company(), called after loading the target row —
+# AND, as of the Postgres Row-Level Security policies on project/
+# drawing-scoped tables, enforced a second time by the database
+# itself. get_current_user sets the app.company_id/app.user_role
+# session GUCs those policies read; this is the one place that has
+# to happen since every protected route depends on it. The DB
+# connection must use a role WITHOUT BYPASSRLS (see database.py) or
+# none of this does anything.
 #
 # Password hashing lives here too (not in api/users.py) since it's
 # an auth concern every router is allowed to import from — the
@@ -20,6 +27,7 @@ from datetime import datetime, timedelta, timezone
 from fastapi import Depends, HTTPException
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import JWTError, jwt
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from database import get_db
@@ -83,6 +91,27 @@ def get_current_user(
     user = db.query(User).filter(User.id == user_id, User.is_active == True).first()
     if not user:
         raise HTTPException(status_code=401, detail="Invalid or expired token")
+
+    # Row-Level Security backstop: mirrors the company/role check every
+    # router already does in application code, but enforced by Postgres
+    # itself on project/drawing-scoped tables — see the RLS policies on
+    # projects/drawings/etc.
+    #
+    # SESSION-scoped (the `false` arg), not LOCAL — several endpoints
+    # commit mid-request and keep querying afterward (e.g. db.add();
+    # db.commit(); db.refresh()), and LOCAL resets at end-of-transaction,
+    # which broke exactly that pattern (refresh() after commit() saw an
+    # empty app.company_id and errored). SESSION-scoped is safe here
+    # specifically because this is the FIRST thing every authenticated
+    # request does on its DB session, before anything RLS-sensitive runs —
+    # so even though the underlying connection is pool-reused across
+    # requests, it's always overwritten before it matters. Unauthenticated
+    # routes (login/register/health) never reach this line and never touch
+    # an RLS-restricted table (users/companies have permissive policies),
+    # so a stale value from a prior request sitting on a pooled connection
+    # is never actually read by them either.
+    db.execute(text("SELECT set_config('app.company_id', :cid, false)"), {"cid": str(user.company_id)})
+    db.execute(text("SELECT set_config('app.user_role', :role, false)"), {"role": user.role.value if user.role else ""})
 
     return user
 

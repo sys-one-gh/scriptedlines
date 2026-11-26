@@ -1,0 +1,47 @@
+code,manufacturer,style,center_to_center_mm,projection_mm,finish,material,mounting_holes,cost_each,lead_time,is_active
+155.99.000,Hafele,Bar Pull,96.0,35,Brushed Nickel,Steel,2,,,1
+155.99.001,Hafele,Bar Pull,96.0,35,Matte Chrome,Steel,2,,,1
+155.99.002,Hafele,Bar Pull,96.0,35,Matte Black,Steel,2,,,1
+155.99.003,Hafele,Bar Pull,96.0,35,Polished Chrome,Steel,2,,,1
+155.99.004,Hafele,Bar Pull,96.0,35,Oil-Rubbed Bronze,Steel,2,,,1
+155.99.005,Hafele,Bar Pull,160.0,35,Polished Chrome,Steel,2,,,1
+155.99.006,Hafele,Bar Pull,160.0,35,Matte Chrome,Steel,2,,,1
+155.99.007,Hafele,Bar Pull,160.0,35,Brushed Nickel,Steel,2,,,1
+155.99.008,Hafele,Bar Pull,160.0,35,Matte Black,Steel,2,,,1
+155.99.009,Hafele,Bar Pull,192.0,35,Polished Chrome,Steel,2,,,1
+155.99.010,Hafele,Bar Pull,192.0,35,Matte Chrome,Steel,2,,,1
+155.99.011,Hafele,Bar Pull,192.0,35,Brushed Nickel,Steel,2,,,1
+155.99.012,Hafele,Bar Pull,192.0,35,Matte Black,Steel,2,,,1
+155.99.013,Hafele,Bar Pull,128.0,35,Oil-Rubbed Bronze,Steel,2,,,1
+155.99.014,Hafele,Bar Pull,128.0,35,Polished Chrome,Steel,2,,,1
+155.99.015,Hafele,Bar Pull,128.0,35,Matte Chrome,Steel,2,,,1
+155.99.016,Hafele,Bar Pull,128.0,35,Brushed Nickel,Steel,2,,,1
+155.99.017,Hafele,Bar Pull,128.0,35,Matte Black,Steel,2,,,1
+155.99.040,Hafele,Bar Pull,320.0,35,Matte Gold,Steel,2,,,1
+155.99.043,Hafele,Bar Pull,320.0,35,Polished Chrome,Steel,2,,,1
+155.02.411,Hafele,Bar Pull,96.0,35,Matte Gold,Steel,2,,,1
+155.02.415,Hafele,Bar Pull,192.0,35,Matte Gold,Steel,2,,,1
+155.00.721,Hafele,Bar Pull,88.9,35,Brushed Nickel,Steel,2,,,1
+155.00.801,Hafele,Bar Pull,101.6,35,Brushed Nickel,Steel,2,,,1
+155.99.018,Hafele,Arch Pull,96.0,30,Polished Chrome,Steel,2,,,1
+155.99.019,Hafele,Arch Pull,96.0,30,Matte Black,Steel,2,,,1
+155.99.020,Hafele,Arch Pull,96.0,30,Oil-Rubbed Bronze,Steel,2,,,1
+155.99.021,Hafele,Arch Pull,96.0,30,Matte Chrome,Steel,2,,,1
+155.99.022,Hafele,Arch Pull,96.0,30,Brushed Nickel,Steel,2,,,1
+155.99.023,Hafele,Arch Pull,128.0,30,Polished Chrome,Steel,2,,,1
+155.99.024,Hafele,Arch Pull,128.0,30,Matte Black,Steel,2,,,1
+155.99.025,Hafele,Arch Pull,128.0,30,Oil-Rubbed Bronze,Steel,2,,,1
+155.99.026,Hafele,Arch Pull,128.0,30,Matte Chrome,Steel,2,,,1
+155.99.027,Hafele,Arch Pull,128.0,30,Brushed Nickel,Steel,2,,,1
+155.99.032,Hafele,Arch Pull,96.0,30,Matte Gold,Steel,2,,,1
+155.99.028,Hafele,Knob,,28,Matte Black,Zinc,1,,,1
+155.99.029,Hafele,Knob,,28,Brushed Nickel,Zinc,1,,,1
+155.99.030,Hafele,Knob,,28,Polished Chrome,Zinc,1,,,1
+155.99.031,Hafele,Knob,,28,Matte Chrome,Zinc,1,,,1
+155.00.780,Hafele,Bar Pull,96.0,35,Stainless Steel Look,Steel,2,,,1
+155.00.781,Hafele,Bar Pull,128.0,35,Stainless Steel Look,Steel,2,,,1
+155.00.783,Hafele,Bar Pull,156.0,35,Stainless Steel Look,Steel,2,,,1
+155.01.280,Hafele,Wire Pull,160.0,40,Matte Stainless Steel,Stainless Steel,2,,,1
+155.01.281,Hafele,Wire Pull,192.0,40,Matte Stainless Steel,Stainless Steel,2,,,1
+155.01.283,Hafele,Wire Pull,288.0,,Matte Stainless Steel,Stainless Steel,2,,,1
+155.01.284,Hafele,Wire Pull,352.0,,Matte Stainless Steel,Stainless Steel,2,,,1

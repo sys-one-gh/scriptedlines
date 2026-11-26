@@ -1,0 +1,76 @@
+code,manufacturer,style,diameter_mm,material,finish,has_stop,cost_per_100,lead_time,is_active
+282.04.711,Hafele,Spoon,5,Steel,Nickel-plated,0,,,1
+282.04.515,Hafele,Spoon,5,Steel,Brass-plated,0,,,1
+282.04.113,Hafele,Spoon,5,Steel,Bronze,0,,,1
+282.04.712,Hafele,Spoon (anti-slide fin),5,Steel,Nickel-plated,0,,,1
+282.04.512,Hafele,Spoon (anti-slide fin),5,Steel,Brass-plated,0,,,1
+282.43.727,Hafele,Pin with collar (stepped Ø5/Ø3),5,Steel,Nickel-plated,0,,,1
+282.43.101,Hafele,Pin with collar,5,Steel,Bronzed,0,,,1
+282.43.905,Hafele,Pin with collar,5,Steel,Zinc-plated,0,,,1
+282.42.702,Hafele,"Pin, flat top (14 mm)",5,Steel,Nickel-plated,0,,,1
+282.38.708,Hafele,Pin with collar (15 mm),5,Steel,Nickel-plated,0,,,1
+282.38.502,Hafele,Pin with collar (15 mm),5,Steel,Brass-plated,0,,,1
+282.40.708,Hafele,Straight pin (24 mm),5,Steel,Nickel-plated,0,,,1
+282.40.502,Hafele,Straight pin (24 mm),5,Steel,Brass-plated,0,,,1
+282.41.705,Hafele,Straight pin (45 mm),5,Steel,Nickel-plated,0,,,1
+282.11.501,Hafele,"Angular, riveted pin",5,Steel,Brass-plated,0,,,1
+282.11.707,Hafele,"Angular, riveted pin",5,Steel,Nickel-plated,0,,,1
+282.11.510,Hafele,"Angular, riveted pin, securing screw hole",5,Steel,Brass-plated,1,,,1
+282.11.710,Hafele,"Angular, riveted pin, securing screw hole",5,Steel,Nickel-plated,1,,,1
+282.11.110,Hafele,"Angular, riveted pin, securing screw hole",5,Steel,Bronzed,1,,,1
+282.11.120,Hafele,"Angular, riveted pin, glass shelf (protective cover)",5,Steel / plastic cover,Brass-plated,0,,,1
+282.24.717,Hafele,"Bracket, three wedged ribs",5,Zinc die-cast,Nickel-plated,0,,,1
+282.24.307,Hafele,"Bracket, three wedged ribs",5,Zinc die-cast,Black,0,,,1
+282.24.718,Hafele,"Bracket, three wedged ribs (alt. profile)",5,Zinc die-cast,Nickel-plated,0,,,1
+282.24.727,Hafele,"Bracket, three wedged ribs, shelf fixing plug",5,Zinc die-cast,Nickel-plated,1,,,1
+282.24.728,Hafele,"Bracket, three wedged ribs, shelf fixing plug (alt. profile)",5,Zinc die-cast,Nickel-plated,1,,,1
+282.26.706,Hafele,"Threaded pin, shelf fixing plug",5,Zinc die-cast,Nickel-plated,1,,,1
+282.26.701,Hafele,"Threaded pin, shelf fixing plug (12 mm plug)",5,Zinc die-cast,Nickel-plated,1,,,1
+282.24.711,Hafele,Angular bracket,5,Zinc die-cast,Nickel-plated,0,,,1
+282.24.720,Hafele,"Two wedged ribs, shelf fixing plug",5,Zinc die-cast,Nickel-plated,1,,,1
+282.26.715,Hafele,Insert-and-tighten,5,Zinc alloy,Nickel-plated,0,,,1
+282.04.337,Hafele,"Spoon, riveted pin",6.35,Steel,Black,0,,,1
+282.04.739,Hafele,"Spoon, riveted pin",6.35,Steel,Nickel-plated,0,,,1
+282.04.533,Hafele,"Spoon, riveted pin",6.35,Steel,Brass-plated,0,,,1
+282.11.565,Hafele,"Angular, riveted pin",6.35,Steel,Brass-plated,0,,,1
+282.11.761,Hafele,"Angular, riveted pin",6.35,Steel,Nickel-plated,0,,,1
+282.11.163,Hafele,"Angular, riveted pin",6.35,Steel,Bronzed,0,,,1
+282.11.556,Hafele,"Angular, riveted pin, securing screw hole",6.35,Steel,Brass-plated,1,,,1
+282.11.752,Hafele,"Angular, riveted pin, securing screw hole",6.35,Steel,Nickel-plated,1,,,1
+282.11.154,Hafele,"Angular, riveted pin, securing screw hole",6.35,Steel,Bronzed,1,,,1
+282.11.574,Hafele,"Angular, riveted pin, glass shelf (protective cover)",6.35,Steel / plastic cover,Brass-plated,0,,,1
+282.23.725,Hafele,"Shelf clamp (Ex-Cellent H), wood 16-22 mm",5,Zinc die-cast,Nickel-plated,1,,,1
+282.47.703,Hafele,"Heavy-duty double pin (32 mm system), 3/4in or 1in shelf",5,Plastic,White,1,,,1
+282.47.403,Hafele,"Heavy-duty double pin (32 mm system), 3/4in or 1in shelf",5,Plastic,Transparent,1,,,1
+282.17.736,Hafele,"Grooved plug + spring clip, 19 mm wood shelf",5,Plastic,White,1,,,1
+282.17.432,Hafele,"Grooved plug + spring clip, 19 mm wood shelf",5,Plastic,Beige,1,,,1
+282.17.727,Hafele,"Grooved plug + spring clip, 16 mm wood shelf",5,Plastic,White,1,,,1
+282.17.423,Hafele,"Grooved plug + spring clip, 16 mm wood shelf",5,Plastic,Beige,1,,,1
+282.17.469,Hafele,"Grooved plug + spring clip, 12 mm wood shelf",6.35,Plastic,Beige,1,,,1
+282.12.705,Hafele,"Plastic support, steel pin",5,Plastic / galvanized steel pin,White,0,,,1
+282.12.105,Hafele,"Plastic support, steel pin",5,Plastic / galvanized steel pin,Brown,0,,,1
+282.12.405,Hafele,"Plastic support, steel pin",5,Plastic / galvanized steel pin,Transparent,0,,,1
+282.27.509,Hafele,"Plastic support, steel pin (alt. profile)",5,Plastic / galvanized steel pin,Beige,0,,,1
+282.27.303,Hafele,"Plastic support, steel pin (alt. profile)",5,Plastic / galvanized steel pin,Black,0,,,1
+282.36.704,Hafele,Plug-in round,5,Plastic,White,0,,,1
+283.63.715,Hafele,Plug-in bracket,5,Plastic,White,0,,,1
+283.63.411,Hafele,Plug-in bracket,5,Plastic,Beige,0,,,1
+282.33.703,Hafele,Spring clip,5,Plastic,White,1,,,1
+282.33.409,Hafele,Spring clip,5,Plastic,Beige,1,,,1
+282.22.013,Hafele,Angular with collar,5,Plastic,Transparent,0,,,1
+282.21.703,Hafele,"Invisible, grooved shelf",5,Plastic,White,0,,,1
+282.24.733,Hafele,"Glass: three wedged ribs, rubber pad",5,Zinc die-cast / rubber pad,Nickel-plated,0,,,1
+282.24.734,Hafele,"Glass: three wedged ribs, rubber pad (light duty)",5,Zinc die-cast / rubber pad,Nickel-plated,0,,,1
+282.23.716,Hafele,"Glass: shelf clamp (Ex-Cellent H), glass 6-10 mm",5,Zinc die-cast,Nickel-plated,1,,,1
+281.41.907,Hafele,Glass: pin with cap,5,Steel / transparent plastic cap,Galvanized,0,,,1
+282.24.731,Hafele,"Glass: bracket, rubber pad",5,Zinc die-cast / rubber pad,Nickel-plated,0,,,1
+282.24.730,Hafele,"Glass: two wedged ribs, plastic glass support",5,Zinc die-cast / plastic,Nickel-plated,0,,,1
+281.43.700,Hafele,Glass: pin with rubber cap,5,Zinc alloy / rubber cap,Nickel-plated,0,,,1
+281.42.403,Hafele,"Glass: safety catch, glass up to 6 mm",5,Plastic,Transparent,1,,,1
+282.13.610,Hafele,"Glass: plug-fit clamp, glass 6 or 8 mm",5,Zinc alloy,Nickel-plated,1,,,1
+282.20.715,Hafele,"Glass: set screw, 9 mm glass",5,Steel / plastic set screw,Nickel-plated,1,,,1
+282.20.724,Hafele,"Glass: set screw, 13 mm glass",5,Steel / plastic set screw,Nickel-plated,1,,,1
+282.13.711,Hafele,"Glass: anti-tip/lift insert-and-tighten, glass 6/8/10 mm",5,Zinc alloy / plastic glass rest,Nickel-plated,1,,,1
+282.13.712,Hafele,"Glass: anti-tip/lift insert-and-tighten, glass 8/10/12 mm",5,Zinc alloy / plastic glass rest,Nickel-plated,1,,,1
+282.13.701,Hafele,"Glass: anti-tip/lift screw-mount, glass 6/8/10 mm",5,Zinc alloy / plastic glass rest,Nickel-plated,1,,,1
+282.13.702,Hafele,"Glass: anti-tip/lift screw-mount, glass 8/10/12 mm",5,Zinc alloy / plastic glass rest,Nickel-plated,1,,,1

@@ -29,8 +29,13 @@ DATABASE_URL = os.getenv(
 
 # ─── ENGINE ──────────────────────────────────────────────────
 # echo=True in development, False in production
+# pool_pre_ping: test each pooled connection before use and replace
+# it if Supabase has dropped it (idle timeout, project pause/resume) —
+# otherwise the first request after a drop fails with "SSL connection
+# has been closed unexpectedly". pool_recycle retires connections
+# before the pooler's idle timeout gets to them.
 echo_sql = os.getenv("ENV", "development") == "development"
-engine = create_engine(DATABASE_URL, echo=echo_sql)
+engine = create_engine(DATABASE_URL, echo=echo_sql, pool_pre_ping=True, pool_recycle=300)
 
 # ─── SESSION ─────────────────────────────────────────────────
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

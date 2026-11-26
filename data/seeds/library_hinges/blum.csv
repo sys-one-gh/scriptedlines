@@ -1,0 +1,143 @@
+code,manufacturer,product_line,application,cabinet_type,cabinet_thickness_min_mm,overlay_type,opening_angle_deg,mechanism,soft_close,fixing_type,milling_diameter_mm,milling_depth_mm,door_thickness_min_mm,door_thickness_max_mm,material,finish,cost_per_pair,lead_time,is_active
+71B3550,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Full Overlay,110,Spring + BLUMOTION Soft-Close,1,Screw-on,35,13,,26,,Nickel-plated,,,1
+71B3580,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Full Overlay,110,Spring + BLUMOTION Soft-Close,1,Press-in,35,13,,26,,Nickel-plated,,,1
+71B3590,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Full Overlay,110,Spring + BLUMOTION Soft-Close,1,INSERTA,35,13,,26,,Nickel-plated,,,1
+71B358E,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Full Overlay,110,Spring + BLUMOTION Soft-Close,1,EXPANDO,35,13,,26,,Nickel-plated,,,1
+71B3650,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Half Overlay,110,Spring + BLUMOTION Soft-Close,1,Screw-on,35,13,,26,,Nickel-plated,,,1
+71B3680,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Half Overlay,110,Spring + BLUMOTION Soft-Close,1,Press-in,35,13,,26,,Nickel-plated,,,1
+71B3690,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Half Overlay,110,Spring + BLUMOTION Soft-Close,1,INSERTA,35,13,,26,,Nickel-plated,,,1
+71B3750,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Inset,110,Spring + BLUMOTION Soft-Close,1,Screw-on,35,13,,26,,Nickel-plated,,,1
+71B3780,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Inset,110,Spring + BLUMOTION Soft-Close,1,Press-in,35,13,,26,,Nickel-plated,,,1
+71B3790,Blum,CLIP top BLUMOTION,Standard Hinge,Frameless,,Inset,110,Spring + BLUMOTION Soft-Close,1,INSERTA,35,13,,26,,Nickel-plated,,,1
+73B3550,Blum,CLIP top BLUMOTION,Standard Hinge 110°+ (overlays up to 22 mm),Frameless,,Full Overlay,110,Spring + BLUMOTION Soft-Close,1,Screw-on,35,13,,26,,Nickel-plated,,,1
+73B3580,Blum,CLIP top BLUMOTION,Standard Hinge 110°+ (overlays up to 22 mm),Frameless,,Full Overlay,110,Spring + BLUMOTION Soft-Close,1,Press-in,35,13,,26,,Nickel-plated,,,1
+73B3590,Blum,CLIP top BLUMOTION,Standard Hinge 110°+ (overlays up to 22 mm),Frameless,,Full Overlay,110,Spring + BLUMOTION Soft-Close,1,INSERTA,35,13,,26,,Nickel-plated,,,1
+73B358E,Blum,CLIP top BLUMOTION,Standard Hinge 110°+ (overlays up to 22 mm),Frameless,,Full Overlay,110,Spring + BLUMOTION Soft-Close,1,EXPANDO,35,13,,26,,Nickel-plated,,,1
+71B9550,Blum,CLIP top BLUMOTION,Thick Door Hinge,Frameless,,Full Overlay,95,Spring + BLUMOTION Soft-Close,1,Screw-on,35,13,,30,,Nickel-plated,,,1
+71B9580,Blum,CLIP top BLUMOTION,Thick Door Hinge,Frameless,,Full Overlay,95,Spring + BLUMOTION Soft-Close,1,Press-in,35,13,,30,,Nickel-plated,,,1
+71B9590,Blum,CLIP top BLUMOTION,Thick Door Hinge,Frameless,,Full Overlay,95,Spring + BLUMOTION Soft-Close,1,INSERTA,35,13,,30,,Nickel-plated,,,1
+71B9650,Blum,CLIP top BLUMOTION,Thick Door Hinge,Frameless,,Half Overlay,95,Spring + BLUMOTION Soft-Close,1,Screw-on,35,13,,30,,Nickel-plated,,,1
+71B9680,Blum,CLIP top BLUMOTION,Thick Door Hinge,Frameless,,Half Overlay,95,Spring + BLUMOTION Soft-Close,1,Press-in,35,13,,30,,Nickel-plated,,,1
+71B9690,Blum,CLIP top BLUMOTION,Thick Door Hinge,Frameless,,Half Overlay,95,Spring + BLUMOTION Soft-Close,1,INSERTA,35,13,,30,,Nickel-plated,,,1
+71B9750,Blum,CLIP top BLUMOTION,Thick Door Hinge,Frameless,,Inset,95,Spring + BLUMOTION Soft-Close,1,Screw-on,35,13,,30,,Nickel-plated,,,1
+71B9780,Blum,CLIP top BLUMOTION,Thick Door Hinge,Frameless,,Inset,95,Spring + BLUMOTION Soft-Close,1,Press-in,35,13,,30,,Nickel-plated,,,1
+71B9790,Blum,CLIP top BLUMOTION,Thick Door Hinge,Frameless,,Inset,95,Spring + BLUMOTION Soft-Close,1,INSERTA,35,13,,30,,Nickel-plated,,,1
+71B7550,Blum,CLIP top BLUMOTION,Zero Protrusion Wide Angled Hinge,Frameless,,Full Overlay,155,Spring + BLUMOTION Soft-Close,1,Screw-on,35,11.7,,24,,Nickel-plated,,,1
+71B7580,Blum,CLIP top BLUMOTION,Zero Protrusion Wide Angled Hinge,Frameless,,Full Overlay,155,Spring + BLUMOTION Soft-Close,1,Press-in,35,11.7,,24,,Nickel-plated,,,1
+71B7590,Blum,CLIP top BLUMOTION,Zero Protrusion Wide Angled Hinge,Frameless,,Full Overlay,155,Spring + BLUMOTION Soft-Close,1,INSERTA,35,11.7,,24,,Nickel-plated,,,1
+71B7650,Blum,CLIP top BLUMOTION,Zero Protrusion Wide Angled Hinge,Frameless,,Half Overlay,155,Spring + BLUMOTION Soft-Close,1,Screw-on,35,11.7,,24,,Nickel-plated,,,1
+71B7690,Blum,CLIP top BLUMOTION,Zero Protrusion Wide Angled Hinge,Frameless,,Half Overlay,155,Spring + BLUMOTION Soft-Close,1,INSERTA,35,11.7,,24,,Nickel-plated,,,1
+79B3598,Blum,CLIP top BLUMOTION,"Angled Hinge, Diagonal +45°",Frameless,,Full Overlay,110,Spring + BLUMOTION Soft-Close,1,INSERTA,35,13,,19,,Nickel-plated,,,1
+71T3550,Blum,CLIP top,Standard Hinge,Frameless,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,Screw-on,35,13,,26,,Nickel-plated,,,1
+71T3580,Blum,CLIP top,Standard Hinge,Frameless,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,Press-in,35,13,,26,,Nickel-plated,,,1
+71T3590,Blum,CLIP top,Standard Hinge,Frameless,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,INSERTA,35,13,,26,,Nickel-plated,,,1
+71T358E,Blum,CLIP top,Standard Hinge,Frameless,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,EXPANDO,35,13,,26,,Nickel-plated,,,1
+71T3650,Blum,CLIP top,Standard Hinge,Frameless,,Half Overlay,110,"Spring (Self-Close, no soft-close)",0,Screw-on,35,13,,26,,Nickel-plated,,,1
+71T3680,Blum,CLIP top,Standard Hinge,Frameless,,Half Overlay,110,"Spring (Self-Close, no soft-close)",0,Press-in,35,13,,26,,Nickel-plated,,,1
+71T3690,Blum,CLIP top,Standard Hinge,Frameless,,Half Overlay,110,"Spring (Self-Close, no soft-close)",0,INSERTA,35,13,,26,,Nickel-plated,,,1
+71T3750,Blum,CLIP top,Standard Hinge,Frameless,,Inset,110,"Spring (Self-Close, no soft-close)",0,Screw-on,35,13,,26,,Nickel-plated,,,1
+71T3780,Blum,CLIP top,Standard Hinge,Frameless,,Inset,110,"Spring (Self-Close, no soft-close)",0,Press-in,35,13,,26,,Nickel-plated,,,1
+71T3790,Blum,CLIP top,Standard Hinge,Frameless,,Inset,110,"Spring (Self-Close, no soft-close)",0,INSERTA,35,13,,26,,Nickel-plated,,,1
+70T3550.TL,Blum,CLIP top,"Standard Hinge, free swing (for TIP-ON)",Frameless,,Full Overlay,110,Free swing (no spring),0,Screw-on,35,13,,26,,Nickel-plated,,,1
+70T3580.TL,Blum,CLIP top,"Standard Hinge, free swing (for TIP-ON)",Frameless,,Full Overlay,110,Free swing (no spring),0,Press-in,35,13,,26,,Nickel-plated,,,1
+70T3590.TL,Blum,CLIP top,"Standard Hinge, free swing (for TIP-ON)",Frameless,,Full Overlay,110,Free swing (no spring),0,INSERTA,35,13,,26,,Nickel-plated,,,1
+70T3650.TL,Blum,CLIP top,"Standard Hinge, free swing (for TIP-ON)",Frameless,,Half Overlay,110,Free swing (no spring),0,Screw-on,35,13,,26,,Nickel-plated,,,1
+70T3690.TL,Blum,CLIP top,"Standard Hinge, free swing (for TIP-ON)",Frameless,,Half Overlay,110,Free swing (no spring),0,INSERTA,35,13,,26,,Nickel-plated,,,1
+70T3750.TL,Blum,CLIP top,"Standard Hinge, free swing (for TIP-ON)",Frameless,,Inset,110,Free swing (no spring),0,Screw-on,35,13,,26,,Nickel-plated,,,1
+75T1550,Blum,CLIP top,Standard Hinge 107°,Frameless,,Full Overlay,107,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11.5,,19,,Nickel-plated,,,1
+75T1580,Blum,CLIP top,Standard Hinge 107°,Frameless,,Full Overlay,107,"Spring (Self-Close, no soft-close)",0,Press-in,35,11.5,,19,,Nickel-plated,,,1
+75T1590B,Blum,CLIP top,Standard Hinge 107°,Frameless,,Full Overlay,107,"Spring (Self-Close, no soft-close)",0,INSERTA,35,11.5,,19,,Nickel-plated,,,1
+71T6550,Blum,CLIP top,Wide Angled Hinge,Frameless,,Full Overlay,170,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,24,,Nickel-plated,,,1
+71T6580,Blum,CLIP top,Wide Angled Hinge,Frameless,,Full Overlay,170,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,24,,Nickel-plated,,,1
+71T6540B,Blum,CLIP top,Wide Angled Hinge,Frameless,,Full Overlay,170,"Spring (Self-Close, no soft-close)",0,INSERTA,35,11,,24,,Nickel-plated,,,1
+71T6650,Blum,CLIP top,Wide Angled Hinge,Frameless,,Half Overlay,170,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11,,24,,Nickel-plated,,,1
+71T6680,Blum,CLIP top,Wide Angled Hinge,Frameless,,Half Overlay,170,"Spring (Self-Close, no soft-close)",0,Press-in,35,11,,24,,Nickel-plated,,,1
+71T6640B,Blum,CLIP top,Wide Angled Hinge,Frameless,,Half Overlay,170,"Spring (Self-Close, no soft-close)",0,INSERTA,35,11,,24,,Nickel-plated,,,1
+71T7550,Blum,CLIP top,Zero Protrusion Wide Angled Hinge,Frameless,,Full Overlay,155,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11.7,,24,,Nickel-plated,,,1
+71T7590,Blum,CLIP top,Zero Protrusion Wide Angled Hinge,Frameless,,Full Overlay,155,"Spring (Self-Close, no soft-close)",0,INSERTA,35,11.7,,24,,Nickel-plated,,,1
+71T7650,Blum,CLIP top,Zero Protrusion Wide Angled Hinge,Frameless,,Half Overlay,155,"Spring (Self-Close, no soft-close)",0,Screw-on,35,11.7,,24,,Nickel-plated,,,1
+71T9550,Blum,CLIP top,Thick Door Hinge,Frameless,,Full Overlay,95,"Spring (Self-Close, no soft-close)",0,Screw-on,35,12.7,,30,,Nickel-plated,,,1
+71T9580,Blum,CLIP top,Thick Door Hinge,Frameless,,Full Overlay,95,"Spring (Self-Close, no soft-close)",0,Press-in,35,12.7,,30,,Nickel-plated,,,1
+71T9590B,Blum,CLIP top,Thick Door Hinge,Frameless,,Full Overlay,95,"Spring (Self-Close, no soft-close)",0,INSERTA,35,12.7,,30,,Nickel-plated,,,1
+71T9650,Blum,CLIP top,Thick Door Hinge,Frameless,,Half Overlay,95,"Spring (Self-Close, no soft-close)",0,Screw-on,35,12.7,,30,,Nickel-plated,,,1
+71T9680,Blum,CLIP top,Thick Door Hinge,Frameless,,Half Overlay,95,"Spring (Self-Close, no soft-close)",0,Press-in,35,12.7,,30,,Nickel-plated,,,1
+71T9690B,Blum,CLIP top,Thick Door Hinge,Frameless,,Half Overlay,95,"Spring (Self-Close, no soft-close)",0,INSERTA,35,12.7,,30,,Nickel-plated,,,1
+71T9750,Blum,CLIP top,Thick Door Hinge,Frameless,,Inset,95,"Spring (Self-Close, no soft-close)",0,Screw-on,35,12.7,,30,,Nickel-plated,,,1
+71T9780,Blum,CLIP top,Thick Door Hinge,Frameless,,Inset,95,"Spring (Self-Close, no soft-close)",0,Press-in,35,12.7,,30,,Nickel-plated,,,1
+71T9790B,Blum,CLIP top,Thick Door Hinge,Frameless,,Inset,95,"Spring (Self-Close, no soft-close)",0,INSERTA,35,12.7,,30,,Nickel-plated,,,1
+79T5550,Blum,CLIP top,"Angled Hinge, Diagonal +45°",Frameless,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,Screw-on,35,13,,19,,Nickel-plated,,,1
+79T5580,Blum,CLIP top,"Angled Hinge, Diagonal +45°",Frameless,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,Press-in,35,13,,19,,Nickel-plated,,,1
+79T5590B,Blum,CLIP top,"Angled Hinge, Diagonal +45°",Frameless,,Full Overlay,110,"Spring (Self-Close, no soft-close)",0,INSERTA,35,13,,19,,Nickel-plated,,,1
+38N358B.05,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, wraparound, 5/16"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+38N355B.06,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, wraparound, 3/8"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+38N358B.06,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, wraparound, 3/8"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+38N355B.08,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, wraparound, 1/2"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+38N358B.08,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, wraparound, 1/2"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+38N355B.10,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, wraparound, 5/8"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+38N358B.10,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, wraparound, 5/8"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+38N355B.12,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, wraparound, 3/4"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+38N358B.12,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, wraparound, 3/4"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+38N355BE08,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, edge mount, 1/2"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+38N358BE08,Blum,COMPACT BLUMOTION 38N,"Face Frame Hinge, edge mount, 1/2"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+39C355B.16,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+39C358B.16,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+39C355B.20,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+39C358B.20,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+39C355B.21,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-5/16"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+39C358B.21,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-5/16"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+39C355B.22,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-3/8"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+39C358B.22,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-3/8"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+39C355B.24,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-1/2"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+39C358B.24,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-1/2"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+39C355B.25,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-9/16"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+39C358B.25,Blum,COMPACT BLUMOTION 39C,"Face Frame Hinge, wraparound, 1-9/16"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+38C355B.20,Blum,COMPACT BLUMOTION 38C,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,107,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+38C358B.20,Blum,COMPACT BLUMOTION 38C,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,107,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+38B355BF22,Blum,COMPACT BLUMOTION 38B,"Face Frame Hinge, face mount, 1-3/8"" or greater overlay",Face Frame,,Full Overlay,107,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+38B358BF22,Blum,COMPACT BLUMOTION 38B,"Face Frame Hinge, face mount, 1-3/8"" or greater overlay",Face Frame,,Full Overlay,107,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+38N355C.06,Blum,COMPACT 38N,"Face Frame Hinge, wraparound, 3/8"" overlay",Face Frame,,Partial Overlay,105,,0,Screw-on,35,11,,19.05,,,,,1
+38N358C.06,Blum,COMPACT 38N,"Face Frame Hinge, wraparound, 3/8"" overlay",Face Frame,,Partial Overlay,105,,0,Press-in,35,11,,19.05,,,,,1
+38N355C.08,Blum,COMPACT 38N,"Face Frame Hinge, wraparound, 1/2"" overlay",Face Frame,,Partial Overlay,105,,0,Screw-on,35,11,,19.05,,,,,1
+38N358C.08,Blum,COMPACT 38N,"Face Frame Hinge, wraparound, 1/2"" overlay",Face Frame,,Partial Overlay,105,,0,Press-in,35,11,,19.05,,,,,1
+38N355C.10,Blum,COMPACT 38N,"Face Frame Hinge, wraparound, 5/8"" overlay",Face Frame,,Partial Overlay,105,,0,Screw-on,35,11,,19.05,,,,,1
+38N358C.10,Blum,COMPACT 38N,"Face Frame Hinge, wraparound, 5/8"" overlay",Face Frame,,Partial Overlay,105,,0,Press-in,35,11,,19.05,,,,,1
+38N355C.12,Blum,COMPACT 38N,"Face Frame Hinge, wraparound, 3/4"" overlay",Face Frame,,Partial Overlay,105,,0,Screw-on,35,11,,19.05,,,,,1
+38N358C.12,Blum,COMPACT 38N,"Face Frame Hinge, wraparound, 3/4"" overlay",Face Frame,,Partial Overlay,105,,0,Press-in,35,11,,19.05,,,,,1
+38N355CE08,Blum,COMPACT 38N,"Face Frame Hinge, edge mount, 1/2"" overlay",Face Frame,,Partial Overlay,105,,0,Screw-on,35,11,,19.05,,,,,1
+38N358CE08,Blum,COMPACT 38N,"Face Frame Hinge, edge mount, 1/2"" overlay",Face Frame,,Partial Overlay,105,,0,Press-in,35,11,,19.05,,,,,1
+39C355C.16,Blum,COMPACT 39C,"Face Frame Hinge, wraparound, 1"" overlay",Face Frame,,Full Overlay,110,,0,Screw-on,35,13,,19.05,,,,,1
+39C358C.16,Blum,COMPACT 39C,"Face Frame Hinge, wraparound, 1"" overlay",Face Frame,,Full Overlay,110,,0,Press-in,35,13,,19.05,,,,,1
+39C355C.20,Blum,COMPACT 39C,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,110,,0,Screw-on,35,13,,19.05,,,,,1
+39C358C.20,Blum,COMPACT 39C,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,110,,0,Press-in,35,13,,19.05,,,,,1
+39C355C.22,Blum,COMPACT 39C,"Face Frame Hinge, wraparound, 1-3/8"" overlay",Face Frame,,Full Overlay,110,,0,Screw-on,35,13,,19.05,,,,,1
+39C358C.22,Blum,COMPACT 39C,"Face Frame Hinge, wraparound, 1-3/8"" overlay",Face Frame,,Full Overlay,110,,0,Press-in,35,13,,19.05,,,,,1
+39C355C.24,Blum,COMPACT 39C,"Face Frame Hinge, wraparound, 1-1/2"" overlay",Face Frame,,Full Overlay,110,,0,Screw-on,35,13,,19.05,,,,,1
+39C358C.24,Blum,COMPACT 39C,"Face Frame Hinge, wraparound, 1-1/2"" overlay",Face Frame,,Full Overlay,110,,0,Press-in,35,13,,19.05,,,,,1
+39C358C.25,Blum,COMPACT 39C,"Face Frame Hinge, wraparound, 1-9/16"" overlay",Face Frame,,Full Overlay,110,,0,Press-in,35,13,,19.05,,,,,1
+38C355C.20,Blum,COMPACT 38C,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,107,,0,Screw-on,35,11,,19.05,,,,,1
+38C358C.20,Blum,COMPACT 38C,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,107,,0,Press-in,35,11,,19.05,,,,,1
+38C358C.22,Blum,COMPACT 38C,"Face Frame Hinge, wraparound, 1-3/8"" overlay",Face Frame,,Full Overlay,107,,0,Press-in,35,11,,19.05,,,,,1
+38C358C.24,Blum,COMPACT 38C,"Face Frame Hinge, wraparound, 1-1/2"" overlay",Face Frame,,Full Overlay,107,,0,Press-in,35,11,,19.05,,,,,1
+30C258B.05,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, wraparound, 5/16"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+30C255B.06,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, wraparound, 3/8"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+30C258B.06,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, wraparound, 3/8"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+30C255B.08,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, wraparound, 1/2"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+30C258B.08,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, wraparound, 1/2"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+30C255B.10,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, wraparound, 5/8"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+30C258B.10,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, wraparound, 5/8"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+30C255B.12,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, wraparound, 3/4"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+30C258B.12,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, wraparound, 3/4"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+30C255B.E8,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, edge mount, 1/2"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,11,,19.05,,,,,1
+30C258B.E8,Blum,COMPACT CLIP 30C2,"Face Frame Hinge, edge mount, 1/2"" overlay",Face Frame,,Partial Overlay,105,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1
+31C355B.16,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+31C358B.16,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+31C355B.20,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+31C358B.20,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+31C355B.21,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1-5/16"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+31C358B.21,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1-5/16"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+31C355B.22,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1-3/8"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+31C358B.22,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1-3/8"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+31C355B.24,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1-1/2"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Screw-on,35,13,,19.05,,,,,1
+31C358B.24,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1-1/2"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+31C358B.25,Blum,COMPACT CLIP 31C3,"Face Frame Hinge, wraparound, 1-9/16"" overlay",Face Frame,,Full Overlay,110,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,13,,19.05,,,,,1
+31C158B.20,Blum,COMPACT CLIP 31C1,"Face Frame Hinge, wraparound, 1-1/4"" overlay",Face Frame,,Full Overlay,107,BLUMOTION Soft-Close (integrated in cup),1,Press-in,35,11,,19.05,,,,,1

@@ -1,0 +1,377 @@
+code,manufacturer,finish_code,finish_name,core_substrate,thickness_mm,texture,is_premium_texture,sheen,grain,g_sides,size_4x8,size_5x8,size_4x10,size_4x12,size_5x12,size_5x10,fr_rated,leed,fsc,carb_p2,is_mto,cost_per_sheet,cost_per_sqft,lead_time,is_active
+ARA-MEL-PB-16-AF200,Arauco,AF200,Pewter Frost,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-AF200,Arauco,AF200,Pewter Frost,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-AF200,Arauco,AF200,Pewter Frost,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-AF200,Arauco,AF200,Pewter Frost,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-AF209,Arauco,AF209,Shadow Frost,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-AF209,Arauco,AF209,Shadow Frost,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-AF209,Arauco,AF209,Shadow Frost,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-AF209,Arauco,AF209,Shadow Frost,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-AF210,Arauco,AF210,Silver Frost,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-AF210,Arauco,AF210,Silver Frost,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-AF210,Arauco,AF210,Silver Frost,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-AF210,Arauco,AF210,Silver Frost,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-AF232,Arauco,AF232,Natural Linen,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-AF232,Arauco,AF232,Natural Linen,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-AF232,Arauco,AF232,Natural Linen,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-AF232,Arauco,AF232,Natural Linen,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-AF238,Arauco,AF238,Chantilly Flax,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-AF238,Arauco,AF238,Chantilly Flax,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-AF238,Arauco,AF238,Chantilly Flax,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-AF238,Arauco,AF238,Chantilly Flax,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-AF239,Arauco,AF239,Total Eclipse,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-AF239,Arauco,AF239,Total Eclipse,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-AF239,Arauco,AF239,Total Eclipse,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-AF239,Arauco,AF239,Total Eclipse,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-BLA,Arauco,BLK100,Black,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-BLA,Arauco,BLK100,Black,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-BLA,Arauco,BLK100,Black,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-BLA,Arauco,BLK100,Black,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF100,Arauco,SF100,Victorian White,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF100,Arauco,SF100,Victorian White,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF100,Arauco,SF100,Victorian White,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF100,Arauco,SF100,Victorian White,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF204,Arauco,SF204,Opal,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF204,Arauco,SF204,Opal,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF204,Arauco,SF204,Opal,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF204,Arauco,SF204,Opal,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF208,Arauco,SF208,Folkstone,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF208,Arauco,SF208,Folkstone,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF208,Arauco,SF208,Folkstone,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF208,Arauco,SF208,Folkstone,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF210,Arauco,SF210,Antique White,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF210,Arauco,SF210,Antique White,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF210,Arauco,SF210,Antique White,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF210,Arauco,SF210,Antique White,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF213,Arauco,SF213,Fog Grey,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF213,Arauco,SF213,Fog Grey,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF213,Arauco,SF213,Fog Grey,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF213,Arauco,SF213,Fog Grey,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF230,Arauco,SF230,Sienna,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF230,Arauco,SF230,Sienna,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF230,Arauco,SF230,Sienna,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF230,Arauco,SF230,Sienna,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF232,Arauco,SF232,Ashen,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF232,Arauco,SF232,Ashen,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF232,Arauco,SF232,Ashen,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF232,Arauco,SF232,Ashen,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF233,Arauco,SF233,Fossil,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF233,Arauco,SF233,Fossil,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF233,Arauco,SF233,Fossil,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF233,Arauco,SF233,Fossil,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF237,Arauco,SF237,Charcoal,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF237,Arauco,SF237,Charcoal,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF237,Arauco,SF237,Charcoal,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF237,Arauco,SF237,Charcoal,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF239,Arauco,SF239,Storm,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF239,Arauco,SF239,Storm,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF239,Arauco,SF239,Storm,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF239,Arauco,SF239,Storm,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF247,Arauco,SF247,Mysterious,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF247,Arauco,SF247,Mysterious,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF247,Arauco,SF247,Mysterious,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF247,Arauco,SF247,Mysterious,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF250,Arauco,SF250,Duke,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF250,Arauco,SF250,Duke,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF250,Arauco,SF250,Duke,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF250,Arauco,SF250,Duke,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF251,Arauco,SF251,Celadon,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF251,Arauco,SF251,Celadon,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF251,Arauco,SF251,Celadon,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF251,Arauco,SF251,Celadon,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF252,Arauco,SF252,Quarry,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF252,Arauco,SF252,Quarry,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF252,Arauco,SF252,Quarry,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF252,Arauco,SF252,Quarry,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF255,Arauco,SF255,Willow,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF255,Arauco,SF255,Willow,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF255,Arauco,SF255,Willow,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF255,Arauco,SF255,Willow,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF256,Arauco,SF256,Mist,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF256,Arauco,SF256,Mist,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF256,Arauco,SF256,Mist,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF256,Arauco,SF256,Mist,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF257,Arauco,SF257,Verde,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF257,Arauco,SF257,Verde,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF257,Arauco,SF257,Verde,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF257,Arauco,SF257,Verde,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF258,Arauco,SF258,Roja,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF258,Arauco,SF258,Roja,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF258,Arauco,SF258,Roja,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF258,Arauco,SF258,Roja,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-SF264,Arauco,SF264,Nocturne,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-SF264,Arauco,SF264,Nocturne,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-SF264,Arauco,SF264,Nocturne,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-SF264,Arauco,SF264,Nocturne,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-W100,Arauco,W100,White,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-W100,Arauco,W100,White,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-W100,Arauco,W100,White,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-W100,Arauco,W100,White,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-W300,Arauco,W300,White,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-W300,Arauco,W300,White,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-W300,Arauco,W300,White,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-W300,Arauco,W300,White,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-W919,Arauco,W919,Cotton White,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-W919,Arauco,W919,Cotton White,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-W919,Arauco,W919,Cotton White,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-W919,Arauco,W919,Cotton White,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-W920,Arauco,W920,Vogue White,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-W920,Arauco,W920,Vogue White,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-W920,Arauco,W920,Vogue White,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-W920,Arauco,W920,Vogue White,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF121,Arauco,WF121,Burma Cherry,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF121,Arauco,WF121,Burma Cherry,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF121,Arauco,WF121,Burma Cherry,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF121,Arauco,WF121,Burma Cherry,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF202,Arauco,WF202,Verismo,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF202,Arauco,WF202,Verismo,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF202,Arauco,WF202,Verismo,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF202,Arauco,WF202,Verismo,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF203,Arauco,WF203,Seria,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF203,Arauco,WF203,Seria,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF203,Arauco,WF203,Seria,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF203,Arauco,WF203,Seria,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF208,Arauco,WF208,Libretti,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF208,Arauco,WF208,Libretti,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF208,Arauco,WF208,Libretti,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF208,Arauco,WF208,Libretti,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF220,Arauco,WF220,Brazilian Walnut,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF220,Arauco,WF220,Brazilian Walnut,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF220,Arauco,WF220,Brazilian Walnut,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF220,Arauco,WF220,Brazilian Walnut,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF226,Arauco,WF226,Zambukka,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF226,Arauco,WF226,Zambukka,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF226,Arauco,WF226,Zambukka,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF226,Arauco,WF226,Zambukka,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF228,Arauco,WF228,Sable Glow,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF228,Arauco,WF228,Sable Glow,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF228,Arauco,WF228,Sable Glow,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF228,Arauco,WF228,Sable Glow,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF229,Arauco,WF229,Merit Maple,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF229,Arauco,WF229,Merit Maple,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF229,Arauco,WF229,Merit Maple,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF229,Arauco,WF229,Merit Maple,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF236,Arauco,WF236,Ankara Cherry,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF236,Arauco,WF236,Ankara Cherry,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF236,Arauco,WF236,Ankara Cherry,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF236,Arauco,WF236,Ankara Cherry,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF263,Arauco,WF263,Walnut Amati,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF263,Arauco,WF263,Walnut Amati,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF263,Arauco,WF263,Walnut Amati,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF263,Arauco,WF263,Walnut Amati,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF270,Arauco,WF270,Cabinet Maple,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF270,Arauco,WF270,Cabinet Maple,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF270,Arauco,WF270,Cabinet Maple,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF270,Arauco,WF270,Cabinet Maple,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF275,Arauco,WF275,Hardrock Maple,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF275,Arauco,WF275,Hardrock Maple,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF275,Arauco,WF275,Hardrock Maple,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF275,Arauco,WF275,Hardrock Maple,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF301,Arauco,WF301,Noce Vettore,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF301,Arauco,WF301,Noce Vettore,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF301,Arauco,WF301,Noce Vettore,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF301,Arauco,WF301,Noce Vettore,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF310,Arauco,WF310,Talas Cherry,PB,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF310,Arauco,WF310,Talas Cherry,PB,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF310,Arauco,WF310,Talas Cherry,MDF,15.875,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF310,Arauco,WF310,Talas Cherry,MDF,19.05,Suede,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF340,Arauco,WF340,Aria,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF340,Arauco,WF340,Aria,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF340,Arauco,WF340,Aria,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF340,Arauco,WF340,Aria,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF341,Arauco,WF341,Soprano,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF341,Arauco,WF341,Soprano,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF341,Arauco,WF341,Soprano,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF341,Arauco,WF341,Soprano,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF344,Arauco,WF344,Queenston Oak,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF344,Arauco,WF344,Queenston Oak,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF344,Arauco,WF344,Queenston Oak,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF344,Arauco,WF344,Queenston Oak,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF356,Arauco,WF356,Driftwood,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF356,Arauco,WF356,Driftwood,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF356,Arauco,WF356,Driftwood,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF356,Arauco,WF356,Driftwood,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF357,Arauco,WF357,Sandalwood,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF357,Arauco,WF357,Sandalwood,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF357,Arauco,WF357,Sandalwood,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF357,Arauco,WF357,Sandalwood,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF368,Arauco,WF368,Linear Ash,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF368,Arauco,WF368,Linear Ash,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF368,Arauco,WF368,Linear Ash,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF368,Arauco,WF368,Linear Ash,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF375,Arauco,WF375,Diva,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF375,Arauco,WF375,Diva,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF375,Arauco,WF375,Diva,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF375,Arauco,WF375,Diva,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF377,Arauco,WF377,Pewter Pine,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF377,Arauco,WF377,Pewter Pine,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF377,Arauco,WF377,Pewter Pine,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF377,Arauco,WF377,Pewter Pine,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF392,Arauco,WF392,Licorice Groovz,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF392,Arauco,WF392,Licorice Groovz,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF392,Arauco,WF392,Licorice Groovz,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF392,Arauco,WF392,Licorice Groovz,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF393,Arauco,WF393,Concrete Groovz,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF393,Arauco,WF393,Concrete Groovz,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF393,Arauco,WF393,Concrete Groovz,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF393,Arauco,WF393,Concrete Groovz,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF394,Arauco,WF394,Arctic Groovz,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF394,Arauco,WF394,Arctic Groovz,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF394,Arauco,WF394,Arctic Groovz,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF394,Arauco,WF394,Arctic Groovz,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF397,Arauco,WF397,Stromboli,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF397,Arauco,WF397,Stromboli,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF397,Arauco,WF397,Stromboli,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF397,Arauco,WF397,Stromboli,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF432,Arauco,WF432,Alabaster,PB,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF432,Arauco,WF432,Alabaster,PB,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF432,Arauco,WF432,Alabaster,MDF,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF432,Arauco,WF432,Alabaster,MDF,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF433,Arauco,WF433,Argento,PB,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF433,Arauco,WF433,Argento,PB,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF433,Arauco,WF433,Argento,MDF,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF433,Arauco,WF433,Argento,MDF,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF434,Arauco,WF434,Gibraltar,PB,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF434,Arauco,WF434,Gibraltar,PB,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF434,Arauco,WF434,Gibraltar,MDF,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF434,Arauco,WF434,Gibraltar,MDF,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF435,Arauco,WF435,Palomino,PB,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF435,Arauco,WF435,Palomino,PB,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF435,Arauco,WF435,Palomino,MDF,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF435,Arauco,WF435,Palomino,MDF,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF440,Arauco,WF440,Ginger,PB,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF440,Arauco,WF440,Ginger,PB,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF440,Arauco,WF440,Ginger,MDF,15.875,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF440,Arauco,WF440,Ginger,MDF,19.05,Taction,0,Low Gloss,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF442,Arauco,WF442,Chique,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF442,Arauco,WF442,Chique,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF442,Arauco,WF442,Chique,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF442,Arauco,WF442,Chique,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF444,Arauco,WF444,Tumalo Pine,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF444,Arauco,WF444,Tumalo Pine,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF444,Arauco,WF444,Tumalo Pine,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF444,Arauco,WF444,Tumalo Pine,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF445,Arauco,WF445,Sahalie Pine,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF445,Arauco,WF445,Sahalie Pine,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF445,Arauco,WF445,Sahalie Pine,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF445,Arauco,WF445,Sahalie Pine,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF447,Arauco,WF447,Toasted Oak,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF447,Arauco,WF447,Toasted Oak,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF447,Arauco,WF447,Toasted Oak,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF447,Arauco,WF447,Toasted Oak,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF448,Arauco,WF448,Seared Oak,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF448,Arauco,WF448,Seared Oak,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF448,Arauco,WF448,Seared Oak,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF448,Arauco,WF448,Seared Oak,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF449,Arauco,WF449,Sarek Ash,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF449,Arauco,WF449,Sarek Ash,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF449,Arauco,WF449,Sarek Ash,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF449,Arauco,WF449,Sarek Ash,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF450,Arauco,WF450,Bergen Ash,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF450,Arauco,WF450,Bergen Ash,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF450,Arauco,WF450,Bergen Ash,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF450,Arauco,WF450,Bergen Ash,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF451,Arauco,WF451,Narvik Ash,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF451,Arauco,WF451,Narvik Ash,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF451,Arauco,WF451,Narvik Ash,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF451,Arauco,WF451,Narvik Ash,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF452,Arauco,WF452,Karuna Ash,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF452,Arauco,WF452,Karuna Ash,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF452,Arauco,WF452,Karuna Ash,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF452,Arauco,WF452,Karuna Ash,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF456,Arauco,WF456,Enigma,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF456,Arauco,WF456,Enigma,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF456,Arauco,WF456,Enigma,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF456,Arauco,WF456,Enigma,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF457,Arauco,WF457,Castanho,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF457,Arauco,WF457,Castanho,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF457,Arauco,WF457,Castanho,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF457,Arauco,WF457,Castanho,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF458,Arauco,WF458,Presten Ash,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF458,Arauco,WF458,Presten Ash,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF458,Arauco,WF458,Presten Ash,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF458,Arauco,WF458,Presten Ash,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF459,Arauco,WF459,Abiqua Pine,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF459,Arauco,WF459,Abiqua Pine,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF459,Arauco,WF459,Abiqua Pine,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF459,Arauco,WF459,Abiqua Pine,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF461,Arauco,WF461,Koosah Pine,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF461,Arauco,WF461,Koosah Pine,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF461,Arauco,WF461,Koosah Pine,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF461,Arauco,WF461,Koosah Pine,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF462,Arauco,WF462,Wallowa Pine,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF462,Arauco,WF462,Wallowa Pine,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF462,Arauco,WF462,Wallowa Pine,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF462,Arauco,WF462,Wallowa Pine,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF464,Arauco,WF464,Urban,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF464,Arauco,WF464,Urban,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF464,Arauco,WF464,Urban,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF464,Arauco,WF464,Urban,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF466,Arauco,WF466,Rogue Valley Pear,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF466,Arauco,WF466,Rogue Valley Pear,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF466,Arauco,WF466,Rogue Valley Pear,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF466,Arauco,WF466,Rogue Valley Pear,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF467,Arauco,WF467,Pelee Island Pear,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF467,Arauco,WF467,Pelee Island Pear,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF467,Arauco,WF467,Pelee Island Pear,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF467,Arauco,WF467,Pelee Island Pear,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF468,Arauco,WF468,Metro,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF468,Arauco,WF468,Metro,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF468,Arauco,WF468,Metro,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF468,Arauco,WF468,Metro,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF474,Arauco,WF474,Endless Elm,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF474,Arauco,WF474,Endless Elm,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF474,Arauco,WF474,Endless Elm,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF474,Arauco,WF474,Endless Elm,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF475,Arauco,WF475,Casual Chestnut,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF475,Arauco,WF475,Casual Chestnut,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF475,Arauco,WF475,Casual Chestnut,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF475,Arauco,WF475,Casual Chestnut,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF476,Arauco,WF476,Wright Walnut,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF476,Arauco,WF476,Wright Walnut,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF476,Arauco,WF476,Wright Walnut,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF476,Arauco,WF476,Wright Walnut,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF478,Arauco,WF478,Bracken,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF478,Arauco,WF478,Bracken,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF478,Arauco,WF478,Bracken,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF478,Arauco,WF478,Bracken,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF479,Arauco,WF479,Emberline,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF479,Arauco,WF479,Emberline,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF479,Arauco,WF479,Emberline,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF479,Arauco,WF479,Emberline,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF480,Arauco,WF480,Summit,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF480,Arauco,WF480,Summit,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF480,Arauco,WF480,Summit,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF480,Arauco,WF480,Summit,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF481,Arauco,WF481,Moorland,PB,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF481,Arauco,WF481,Moorland,PB,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF481,Arauco,WF481,Moorland,MDF,15.875,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF481,Arauco,WF481,Moorland,MDF,19.05,Boreal,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF482,Arauco,WF482,Alderon,PB,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF482,Arauco,WF482,Alderon,PB,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF482,Arauco,WF482,Alderon,MDF,15.875,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF482,Arauco,WF482,Alderon,MDF,19.05,Madera,0,,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-16-WF483,Arauco,WF483,Kindred,PB,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-PB-19-WF483,Arauco,WF483,Kindred,PB,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WF483,Arauco,WF483,Kindred,MDF,15.875,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-19-WF483,Arauco,WF483,Kindred,MDF,19.05,Velvet,0,Matte,,G2S,0,0,0,0,0,0,0,0,0,1,0,,,,1
+ARA-MEL-MDF-16-WHI,Arauco,ARA16WH,White,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-MDF-16-ALM,Arauco,ARA16AL,Almond,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-MDF-16-DOV,Arauco,ARA16DO,Dove Grey,MDF,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-MDF-16-GRE,Arauco,ARA16GR,Grey Oak Woodgrain,MDF,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-MDF-16-NAT,Arauco,ARA16NA,Natural Maple Woodgrain,MDF,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-MDF-19-WHI,Arauco,ARA19WH,White,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-MDF-19-ALM,Arauco,ARA19AL,Almond,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-MDF-19-DOV,Arauco,ARA19DO,Dove Grey,MDF,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-MDF-19-GRE,Arauco,ARA19GR,Grey Oak Woodgrain,MDF,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-MDF-19-NAT,Arauco,ARA19NA,Natural Maple Woodgrain,MDF,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-16-WHI,Arauco,ARA16WH,White,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-16-ALM,Arauco,ARA16AL,Almond,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-16-DOV,Arauco,ARA16DO,Dove Grey,PB,15.875,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-16-GRE,Arauco,ARA16GR,Grey Oak Woodgrain,PB,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-16-NAT,Arauco,ARA16NA,Natural Maple Woodgrain,PB,15.875,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-19-WHI,Arauco,ARA19WH,White,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-19-ALM,Arauco,ARA19AL,Almond,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-19-DOV,Arauco,ARA19DO,Dove Grey,PB,19.05,Matte,0,,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-19-GRE,Arauco,ARA19GR,Grey Oak Woodgrain,PB,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0
+ARA-MEL-PB-19-NAT,Arauco,ARA19NA,Natural Maple Woodgrain,PB,19.05,Textured Woodgrain,1,Low Sheen,Long,G2S,1,1,1,1,1,1,0,0,0,1,0,,,,0

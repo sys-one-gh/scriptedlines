@@ -1,0 +1,20 @@
+code,manufacturer,style,diameter_mm,material,finish,has_stop,cost_per_100,lead_time,is_active
+52096,Hettich,Flattened (spoon),5,Steel,Nickel-plated,0,,,1
+20782,Hettich,Flattened (spoon),5,Steel,Galvanized,0,,,1
+1006203,Hettich,Universal D,5,Zinc die-cast,Nickel-plated,0,,,1
+1005655,Hettich,"Safety (steel pin, plastic support surface)",5,Steel / plastic,Translucent,0,,,1
+19557,Hettich,Sekura 1.1 (removal protection),5,Zinc die-cast,Nickel-plated,1,,,1
+25100,Hettich,Sekura 2,5,Zinc die-cast,Nickel-plated,0,,,1
+9134679,Hettich,Sekura 2.1,5,Zinc die-cast,Nickel-plated,0,,,1
+9005558,Hettich,Sekura 6 (removal protection),5,Zinc die-cast,Nickel-plated,1,,,1
+53012,Hettich,"Sekura 7 (removal protection, screw-fix)",5,Zinc die-cast,Nickel-plated,1,,,1
+1004701,Hettich,Duplo (double pin),5,Steel,Galvanized,0,,,1
+1056163,Hettich,"Glass: Duplo (double pin, plastic cap)",5,Steel / plastic,Galvanized / transparent,0,,,1
+1005432,Hettich,Push-in pin,5,Steel,Galvanized,0,,,1
+16181,Hettich,Push-in pin with shoulder,5,Steel,Galvanized,0,,,1
+9131209,Hettich,"Glass: Alfa Glass, glass 8-12 mm",5,Zinc die-cast,Nickel-plated,0,,,1
+1010564,Hettich,Glass: Sekura 8,5,Zinc die-cast / plastic,Nickel-plated,0,,,1
+47609,Hettich,"Glass: Sekura 8, transparent",5,Zinc die-cast / plastic,Nickel-plated / transparent,0,,,1
+79709,Hettich,Glass: pin with soft plastic cap,5,Steel / plastic,Galvanized / transparent,0,,,1
+1005082,Hettich,Shelf stud (removal protection),5,Plastic,Transparent,1,,,1
+63549,Hettich,Shelf stud (removal protection),5,Plastic,Translucent,1,,,1
