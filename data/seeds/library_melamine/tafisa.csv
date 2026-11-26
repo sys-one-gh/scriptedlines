@@ -1,0 +1,235 @@
+code,manufacturer,finish_code,finish_name,core_substrate,thickness_mm,texture,is_premium_texture,sheen,grain,g_sides,size_4x8,size_5x8,size_4x10,size_4x12,size_5x12,size_5x10,fr_rated,leed,fsc,carb_p2,is_mto,cost_per_sheet,cost_per_sqft,lead_time,is_active
+TAF-MEL-PB-16-L080M,Tafisa,L080 (M),Froth of Sea,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L080M,Tafisa,L080 (M),Froth of Sea,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L175M,Tafisa,L175 (M),White,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L175M,Tafisa,L175 (M),White,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L202M,Tafisa,L202 (M),Summer Drops,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L202M,Tafisa,L202 (M),Summer Drops,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L775M,Tafisa,L775 (M),Gardenia,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L775M,Tafisa,L775 (M),Gardenia,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L776M,Tafisa,L776 (M),Cashmere,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L776M,Tafisa,L776 (M),Cashmere,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L763M,Tafisa,L763 (M),Morning Dew,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L763M,Tafisa,L763 (M),Morning Dew,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L764M,Tafisa,L764 (M),Daybreak,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L764M,Tafisa,L764 (M),Daybreak,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L767M,Tafisa,L767 (M),Milky Way,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L767M,Tafisa,L767 (M),Milky Way,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L761M,Tafisa,L761 (M),Moonlight,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L761M,Tafisa,L761 (M),Moonlight,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L765M,Tafisa,L765 (M),Midnight Sun,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L765M,Tafisa,L765 (M),Midnight Sun,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L203M,Tafisa,L203 (M),Black,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L203M,Tafisa,L203 (M),Black,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L781M,Tafisa,L781 (M),Cream Puff,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L781M,Tafisa,L781 (M),Cream Puff,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L782M,Tafisa,L782 (M),Sand Castle,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L782M,Tafisa,L782 (M),Sand Castle,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L783M,Tafisa,L783 (M),Tiramisu,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L783M,Tafisa,L783 (M),Tiramisu,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L784M,Tafisa,L784 (M),Secret Garden,PB,15.875,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L784M,Tafisa,L784 (M),Secret Garden,PB,19.05,Materia,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L586K,Tafisa,L586 (K),Natural Affinity,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L586K,Tafisa,L586 (K),Natural Affinity,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L580K,Tafisa,L580 (K),Free Spirit,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L580K,Tafisa,L580 (K),Free Spirit,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L590K,Tafisa,L590 (K),Love at First Sight,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L590K,Tafisa,L590 (K),Love at First Sight,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L591K,Tafisa,L591 (K),Acacia Honey,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L591K,Tafisa,L591 (K),Acacia Honey,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L581K,Tafisa,L581 (K),Sheer Beauty,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L581K,Tafisa,L581 (K),Sheer Beauty,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L585K,Tafisa,L585 (K),Rhapsody,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L585K,Tafisa,L585 (K),Rhapsody,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L593K,Tafisa,L593 (K),Mastermind,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L593K,Tafisa,L593 (K),Mastermind,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L584K,Tafisa,L584 (K),The Chameleon,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L584K,Tafisa,L584 (K),The Chameleon,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L587K,Tafisa,L587 (K),Sugar Rush,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L587K,Tafisa,L587 (K),Sugar Rush,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L582K,Tafisa,L582 (K),Fashionista,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L582K,Tafisa,L582 (K),Fashionista,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L588K,Tafisa,L588 (K),Sweet & Savory,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L588K,Tafisa,L588 (K),Sweet & Savory,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L589K,Tafisa,L589 (K),Salt of the Earth,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L589K,Tafisa,L589 (K),Salt of the Earth,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L592K,Tafisa,L592 (K),Kiss Curl,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L592K,Tafisa,L592 (K),Kiss Curl,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L583K,Tafisa,L583 (K),First Class,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L583K,Tafisa,L583 (K),First Class,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L830K,Tafisa,L830 (K),Force of Nature,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L830K,Tafisa,L830 (K),Force of Nature,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L831K,Tafisa,L831 (K),Rock Solid,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L831K,Tafisa,L831 (K),Rock Solid,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L832K,Tafisa,L832 (K),Urban Vibe,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L832K,Tafisa,L832 (K),Urban Vibe,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L203K,Tafisa,L203 (K),Black,PB,15.875,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L203K,Tafisa,L203 (K),Black,PB,19.05,Karisma,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L530A,Tafisa,L530 (A),Latitude North,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L530A,Tafisa,L530 (A),Latitude North,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L538A,Tafisa,L538 (A),River Rock,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L538A,Tafisa,L538 (A),River Rock,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L544A,Tafisa,L544 (A),Niagara,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L544A,Tafisa,L544 (A),Niagara,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L533A,Tafisa,L533 (A),Latitude East,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L533A,Tafisa,L533 (A),Latitude East,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L540A,Tafisa,L540 (A),Summer Breeze,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L540A,Tafisa,L540 (A),Summer Breeze,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L546A,Tafisa,L546 (A),Mojave,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L546A,Tafisa,L546 (A),Mojave,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L537A,Tafisa,L537 (A),Breakwater,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L537A,Tafisa,L537 (A),Breakwater,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L535A,Tafisa,L535 (A),Southwester,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L535A,Tafisa,L535 (A),Southwester,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L543A,Tafisa,L543 (A),Spring Blossom,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L543A,Tafisa,L543 (A),Spring Blossom,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L532A,Tafisa,L532 (A),Latitude West,PB,15.875,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L532A,Tafisa,L532 (A),Latitude West,PB,19.05,Alto,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L492R,Tafisa,L492 (R),White Chocolate,PB,15.875,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L492R,Tafisa,L492 (R),White Chocolate,PB,19.05,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L565R,Tafisa,L565 (R),Fogo Harbour,PB,15.875,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L565R,Tafisa,L565 (R),Fogo Harbour,PB,19.05,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L555R,Tafisa,L555 (R),Maritime Dune,PB,15.875,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L555R,Tafisa,L555 (R),Maritime Dune,PB,19.05,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L564R,Tafisa,L564 (R),Tofino,PB,15.875,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L564R,Tafisa,L564 (R),Tofino,PB,19.05,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L556R,Tafisa,L556 (R),Laurentian Path,PB,15.875,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L556R,Tafisa,L556 (R),Laurentian Path,PB,19.05,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L557R,Tafisa,L557 (R),Rocky Mountain,PB,15.875,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L557R,Tafisa,L557 (R),Rocky Mountain,PB,19.05,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L494R,Tafisa,L494 (R),Dark Chocolate,PB,15.875,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L494R,Tafisa,L494 (R),Dark Chocolate,PB,19.05,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L562R,Tafisa,L562 (R),Sable Island,PB,15.875,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L562R,Tafisa,L562 (R),Sable Island,PB,19.05,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L563R,Tafisa,L563 (R),Mégantic,PB,15.875,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L563R,Tafisa,L563 (R),Mégantic,PB,19.05,Urbania,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L491S,Tafisa,L491 (S),Beach Memories,PB,15.875,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L491S,Tafisa,L491 (S),Beach Memories,PB,19.05,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L488S,Tafisa,L488 (S),Dolce Vita,PB,15.875,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L488S,Tafisa,L488 (S),Dolce Vita,PB,19.05,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L481S,Tafisa,L481 (S),Nutmeg,PB,15.875,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L481S,Tafisa,L481 (S),Nutmeg,PB,19.05,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L497S,Tafisa,L497 (S),Bora Bora,PB,15.875,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L497S,Tafisa,L497 (S),Bora Bora,PB,19.05,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L480S,Tafisa,L480 (S),Hot Cinnamon,PB,15.875,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L480S,Tafisa,L480 (S),Hot Cinnamon,PB,19.05,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L489S,Tafisa,L489 (S),Copa Cabana,PB,15.875,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L489S,Tafisa,L489 (S),Copa Cabana,PB,19.05,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L498S,Tafisa,L498 (S),Antigua,PB,15.875,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L498S,Tafisa,L498 (S),Antigua,PB,19.05,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L499S,Tafisa,L499 (S),Grenada,PB,15.875,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L499S,Tafisa,L499 (S),Grenada,PB,19.05,Smoothwood,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L303C,Tafisa,L303 (C),Hardrock Maple,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L303C,Tafisa,L303 (C),Hardrock Maple,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L476C,Tafisa,L476 (C),Prestige Maple,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L476C,Tafisa,L476 (C),Prestige Maple,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L421C,Tafisa,L421 (C),Candlelight,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L421C,Tafisa,L421 (C),Candlelight,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L521C,Tafisa,L521 (C),Rustik Cherry,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L521C,Tafisa,L521 (C),Rustik Cherry,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L420C,Tafisa,L420 (C),Summer Flame,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L420C,Tafisa,L420 (C),Summer Flame,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L473C,Tafisa,L473 (C),Dark Rum Cherry,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L473C,Tafisa,L473 (C),Dark Rum Cherry,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L472C,Tafisa,L472 (C),Shiraz Cherry,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L472C,Tafisa,L472 (C),Shiraz Cherry,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L477C,Tafisa,L477 (C),Tuxedo,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L477C,Tafisa,L477 (C),Tuxedo,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L479C,Tafisa,L479 (C),Truffe,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L479C,Tafisa,L479 (C),Truffe,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L444C,Tafisa,L444 (C),Chocolate Pear Tree,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L444C,Tafisa,L444 (C),Chocolate Pear Tree,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L175C,Tafisa,L175 (C),White,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L175C,Tafisa,L175 (C),White,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L115C,Tafisa,L115 (C),Carte Blanche,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L115C,Tafisa,L115 (C),Carte Blanche,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L080C,Tafisa,L080 (C),Froth of Sea,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L080C,Tafisa,L080 (C),Froth of Sea,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L100C,Tafisa,L100 (C),Vanilla Orchid,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L100C,Tafisa,L100 (C),Vanilla Orchid,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L191C,Tafisa,L191 (C),Glacier White,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L191C,Tafisa,L191 (C),Glacier White,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L178C,Tafisa,L178 (C),Classic White,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L178C,Tafisa,L178 (C),Classic White,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L105C,Tafisa,L105 (C),Snowfall,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L105C,Tafisa,L105 (C),Snowfall,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L763C,Tafisa,L763 (C),Morning Dew,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L763C,Tafisa,L763 (C),Morning Dew,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L204C,Tafisa,L204 (C),Ivory,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L204C,Tafisa,L204 (C),Ivory,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L202C,Tafisa,L202 (C),Summer Drops,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L202C,Tafisa,L202 (C),Summer Drops,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L760C,Tafisa,L760 (C),Rain Cloud,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L760C,Tafisa,L760 (C),Rain Cloud,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L201C,Tafisa,L201 (C),Shadows,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L201C,Tafisa,L201 (C),Shadows,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L769C,Tafisa,L769 (C),Sea Fog,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L769C,Tafisa,L769 (C),Sea Fog,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L764C,Tafisa,L764 (C),Daybreak,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L764C,Tafisa,L764 (C),Daybreak,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L767C,Tafisa,L767 (C),Milky Way,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L767C,Tafisa,L767 (C),Milky Way,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L761C,Tafisa,L761 (C),Moonlight,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L761C,Tafisa,L761 (C),Moonlight,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L228C,Tafisa,L228 (C),Slate,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L228C,Tafisa,L228 (C),Slate,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L770C,Tafisa,L770 (C),Evening Star,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L770C,Tafisa,L770 (C),Evening Star,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L762C,Tafisa,L762 (C),Starry Night,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L762C,Tafisa,L762 (C),Starry Night,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L203C,Tafisa,L203 (C),Black,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L203C,Tafisa,L203 (C),Black,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-L474C,Tafisa,L474 (C),Brushed Aluminum,PB,15.875,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-19-L474C,Tafisa,L474 (C),Brushed Aluminum,PB,19.05,Crystalite,0,,,G2S,1,0,0,0,0,0,0,0,0,1,0,,,,1
+TAF-MEL-PB-16-M2061Q,Tafisa,M2061 (Q),Muse,PB,15.875,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2061Q,Tafisa,M2061 (Q),Muse,PB,19.05,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2062Q,Tafisa,M2062 (Q),Masterpiece,PB,15.875,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2062Q,Tafisa,M2062 (Q),Masterpiece,PB,19.05,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2063Q,Tafisa,M2063 (Q),Emblem,PB,15.875,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2063Q,Tafisa,M2063 (Q),Emblem,PB,19.05,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M763Q,Tafisa,M763 (Q),Morning Dew,PB,15.875,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M763Q,Tafisa,M763 (Q),Morning Dew,PB,19.05,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2064Q,Tafisa,M2064 (Q),Prodigy,PB,15.875,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2064Q,Tafisa,M2064 (Q),Prodigy,PB,19.05,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2065Q,Tafisa,M2065 (Q),Maestro,PB,15.875,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2065Q,Tafisa,M2065 (Q),Maestro,PB,19.05,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2066Q,Tafisa,M2066 (Q),Pioneer,PB,15.875,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2066Q,Tafisa,M2066 (Q),Pioneer,PB,19.05,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M203Q,Tafisa,M203 (Q),Black,PB,15.875,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M203Q,Tafisa,M203 (Q),Black,PB,19.05,ICONIQ,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M175Y,Tafisa,M175 (Y),White,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M175Y,Tafisa,M175 (Y),White,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2004Y,Tafisa,M2004 (Y),Winter Fun!,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2004Y,Tafisa,M2004 (Y),Winter Fun!,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2003Y,Tafisa,M2003 (Y),Weekend Getaway,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2003Y,Tafisa,M2003 (Y),Weekend Getaway,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2007Y,Tafisa,M2007 (Y),Casting at First Light,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2007Y,Tafisa,M2007 (Y),Casting at First Light,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2013Y,Tafisa,M2013 (Y),Summertime Blues,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2013Y,Tafisa,M2013 (Y),Summertime Blues,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2002Y,Tafisa,M2002 (Y),Sunset Cruise,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2002Y,Tafisa,M2002 (Y),Sunset Cruise,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2015Y,Tafisa,M2015 (Y),Après-Ski,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2015Y,Tafisa,M2015 (Y),Après-Ski,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2006Y,Tafisa,M2006 (Y),Tea for Two,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2006Y,Tafisa,M2006 (Y),Tea for Two,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2014Y,Tafisa,M2014 (Y),Sugar on Ice,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2014Y,Tafisa,M2014 (Y),Sugar on Ice,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2005Y,Tafisa,M2005 (Y),Sunday Brunch,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2005Y,Tafisa,M2005 (Y),Sunday Brunch,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2001Y,Tafisa,M2001 (Y),Tête-à-Tête,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2001Y,Tafisa,M2001 (Y),Tête-à-Tête,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2010Y,Tafisa,M2010 (Y),After-Hours,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2010Y,Tafisa,M2010 (Y),After-Hours,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M203Y,Tafisa,M203 (Y),Black,PB,15.875,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M203Y,Tafisa,M203 (Y),Black,PB,19.05,VIVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M175B,Tafisa,M175 (B),White,PB,15.875,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M175B,Tafisa,M175 (B),White,PB,19.05,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2031B,Tafisa,M2031 (B),Crème de la Crème,PB,15.875,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2031B,Tafisa,M2031 (B),Crème de la Crème,PB,19.05,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2034B,Tafisa,M2034 (B),Home Sweet Home,PB,15.875,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2034B,Tafisa,M2034 (B),Home Sweet Home,PB,19.05,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M2035B,Tafisa,M2035 (B),Black Tie,PB,15.875,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M2035B,Tafisa,M2035 (B),Black Tie,PB,19.05,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-16-M203B,Tafisa,M203 (B),Black,PB,15.875,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
+TAF-MEL-PB-19-M203B,Tafisa,M203 (B),Black,PB,19.05,BRAVA,1,,,G2S,1,0,0,0,0,0,0,0,1,1,0,,,,1
