@@ -12,7 +12,7 @@ from database import get_db
 from models.drawing import DrawingTemplate
 from models.project import Project
 from models.user import User
-from auth import get_current_user, require_same_company
+from auth import get_current_user, require_same_company, require_not_viewer
 from pydantic import BaseModel
 from typing import Optional, Any
 from datetime import date
@@ -124,6 +124,7 @@ def update_template(project_id: int, data: TemplateUpdate, db: Session = Depends
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     require_same_company(project.company_id, current_user)
+    require_not_viewer(current_user, "edit the title block template")
 
     template = db.query(DrawingTemplate).filter(
         DrawingTemplate.project_id == project_id

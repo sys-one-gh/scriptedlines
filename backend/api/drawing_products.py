@@ -35,7 +35,7 @@ from models.project_handle import ProjectHandle
 from models.project_shelf_support import ProjectShelfSupport
 from models.drawing_bom import DrawingBomPart, DrawingBomProduct
 from models.user import User
-from auth import get_current_user, require_same_company
+from auth import get_current_user, require_same_company, require_not_viewer
 from pydantic import BaseModel
 from typing import Optional
 from parts.registry import generate_parts
@@ -351,6 +351,8 @@ def save_product(drawing_id: int, data: DrawingProductCreate, db: Session = Depe
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
 
+    require_not_viewer(current_user, "place products on drawings")
+
     library_product = db.query(Product).filter(Product.id == data.product_id).first()
     if not library_product:
         raise HTTPException(status_code=404, detail="Product not found in library")
@@ -445,6 +447,8 @@ def update_product(drawing_id: int, product_id: int, data: DrawingProductUpdate,
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
 
+    require_not_viewer(current_user, "edit products on drawings")
+
     dp = db.query(DrawingProduct).filter(
         DrawingProduct.id         == product_id,
         DrawingProduct.drawing_id == drawing_id,
@@ -492,6 +496,8 @@ def update_product(drawing_id: int, product_id: int, data: DrawingProductUpdate,
 def remove_product(drawing_id: int, product_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
     _load_owned_drawing(drawing_id, db, current_user)
+
+    require_not_viewer(current_user, "remove products from drawings")
 
     dp = db.query(DrawingProduct).filter(
         DrawingProduct.id         == product_id,

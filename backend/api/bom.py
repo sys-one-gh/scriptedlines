@@ -27,7 +27,7 @@ from models.drawing_bom import (
     DrawingBomEdgeBand,
     DrawingBomPart,
 )
-from auth import get_current_user, require_same_company
+from auth import get_current_user, require_same_company, require_not_viewer
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
@@ -139,6 +139,8 @@ def add_bom_product(drawing_id: int, data: BomProductCreate, db: Session = Depen
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
 
+    require_not_viewer(current_user, "edit the BOM")
+
     item = DrawingBomProduct(
         drawing_id      = drawing_id,
         instance_code   = data.instance_code,
@@ -167,6 +169,8 @@ def add_bom_product(drawing_id: int, data: BomProductCreate, db: Session = Depen
 def add_bom_hardware(drawing_id: int, data: BomHardwareCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
+
+    require_not_viewer(current_user, "edit the BOM")
 
     # Aggregate — if code already exists, add quantity
     existing = db.query(DrawingBomHardware).filter(
@@ -200,6 +204,8 @@ def add_bom_hardware(drawing_id: int, data: BomHardwareCreate, db: Session = Dep
 def add_bom_sheetgoods(drawing_id: int, data: BomSheetGoodsCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
+
+    require_not_viewer(current_user, "edit the BOM")
 
     # Aggregate — if material_code + thickness already exists, add sheets
     existing = db.query(DrawingBomSheetGoods).filter(
@@ -237,6 +243,8 @@ def add_bom_edgeband(drawing_id: int, data: BomEdgeBandCreate, db: Session = Dep
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
 
+    require_not_viewer(current_user, "edit the BOM")
+
     # Aggregate — if code already exists, add length
     existing = db.query(DrawingBomEdgeBand).filter(
         DrawingBomEdgeBand.drawing_id == drawing_id,
@@ -271,6 +279,8 @@ def add_bom_parts(drawing_id: int, data: BomPartCreate, db: Session = Depends(ge
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
 
+    require_not_viewer(current_user, "edit the BOM")
+
     item = DrawingBomPart(
         drawing_id         = drawing_id,
         drawing_product_id = data.drawing_product_id,
@@ -297,6 +307,8 @@ def clear_bom(drawing_id: int, db: Session = Depends(get_db), current_user: User
     """Clears all BOM data for a drawing. Called by geometry engine before recalculating."""
 
     drawing = _load_owned_drawing(drawing_id, db, current_user)
+
+    require_not_viewer(current_user, "clear the BOM")
 
     db.query(DrawingBomProduct).filter(DrawingBomProduct.drawing_id     == drawing_id).delete()
     db.query(DrawingBomHardware).filter(DrawingBomHardware.drawing_id   == drawing_id).delete()
